@@ -1,4 +1,4 @@
-import { extendTheme } from "@chakra-ui/react";
+import { border, extendTheme } from "@chakra-ui/react";
 
 const colorScheme = {
   lightBlue: "#edfcff",
@@ -27,6 +27,23 @@ const theme = extendTheme({
       },
       a: {
         cursor: "pointer",
+      },
+      button: {
+        bg: "primaxPurple!important",
+        borderRadius: "md",
+        color: "primaxWhite",
+        _hover: {
+          bg: "primaxDarkPurple!important",
+          transition: "0.5s",
+          color: "primaxBlue",
+        },
+      },
+      p: {
+        textColor: "primaxLightPurple",
+        fontSize: "xl",
+        fontWeight: 400,
+        textAlign: "justify",
+        mb: "4",
       },
     },
   },

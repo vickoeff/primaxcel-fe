@@ -2,20 +2,20 @@ import { Box, Container, Flex } from "@chakra-ui/react";
 import Image from "next/image";
 
 export const SectionA = (props) => {
-  const { isReverse, imgSrc, content, ...rest } = props;
+  const { isReverse, img, customImg, content, customSize, ...rest } = props;
 
   return (
-    <Box {...rest}>
+    <Box {...rest} pos="relative">
       <Container maxW="container.xl">
         <Flex
           minH="2xl"
           flexDirection={isReverse ? "row-reverse" : null}
           alignItems="center"
         >
-          <Box maxW="50%">
-            {imgSrc ? <Image src={imgSrc} alt={`image_${imgSrc}`} /> : null}
+          <Box maxW={customSize ? customSize[0] : "50%"}>
+            {img ? <Image src={img} alt={`image_${img}`} /> : customImg}
           </Box>
-          <Box maxW="50%">{content}</Box>
+          <Box maxW={customSize ? customSize[1] : "50%"}>{content}</Box>
         </Flex>
       </Container>
     </Box>

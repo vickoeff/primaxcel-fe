@@ -1,7 +1,7 @@
 import { Container, Box, Flex, Button, HStack } from "@chakra-ui/react";
 import Image from "next/image";
 
-export const Navbar = (props) => {
+const Navbar = (props) => {
   const { logo, links, ...rest } = props;
 
   return (
@@ -38,3 +38,5 @@ export const Navbar = (props) => {
     </Box>
   );
 };
+
+export default Navbar;

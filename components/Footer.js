@@ -8,7 +8,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-export const Footer = (props) => {
+const Footer = (props) => {
   const { logo, faqLinks, sosmedLinks, ...rest } = props;
 
   const h3Style = {
@@ -81,3 +81,5 @@ export const Footer = (props) => {
     </Box>
   );
 };
+
+export default Footer;
