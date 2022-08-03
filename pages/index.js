@@ -1,4 +1,4 @@
-import { Box, Text, Button } from "@chakra-ui/react";
+import { Container, Box, Text, Button, HStack } from "@chakra-ui/react";
 import { SectionA, SectionB } from "../components/Layouts";
 import CarouselItem from "../components/CarouselItem";
 import Image from "next/image";
@@ -14,6 +14,15 @@ import MockUpBottle from "../public/Mockup-Bottle-Primaxcel4.png";
 import ModernBeauty from "../public/modern-beauty-products-different-recipients-composition.png";
 import OilDropper from "../public/front-view-skin-oil-droppers-composition.png";
 import skinCare from "../public/set-skin-care-package-design-resource.png";
+import discuss from "../public/discuss.svg";
+import money from "../public/money.svg";
+import science from "../public/science.svg";
+import shield from "../public/shield.svg";
+import paper from "../public/paper.svg";
+import HalalLogo from "../public/halal_logo.png";
+import CpkbLogo from "../public/cpkb_logo.png";
+import GMPLogo from "../public/GMP_logo.png";
+import BPOMLogo from "../public/BPOM_logo.png";
 
 export default function Home() {
   return (
@@ -178,25 +187,245 @@ export default function Home() {
           </Box>
         }
       />
-      <Box py={10} bg="primaxLightBlue">
-        <Box textAlign="center">
+      <Box py={10} bg="primaxLightBlue" textAlign="center">
+        <Text
+          as="h2"
+          textColor="primaxDarkPurple"
+          fontSize="4xl"
+          fontWeight={800}
+        >
+          Produk yang kami produksi
+        </Text>
+
+        <Carousel
+          centerMode
+          autoPlay
+          showIndicators={false}
+          showArrows={false}
+          swipeable
+          infiniteLoop
+          interval={1500}
+        >
+          <HStack gap={8}>
+            <CarouselItem img={skinCare} label="Lorem Ipsum" />
+            <CarouselItem img={skinCare} label="Lorem Ipsum" />
+            <CarouselItem img={skinCare} label="Lorem Ipsum" />
+            <CarouselItem img={skinCare} label="Lorem Ipsum" />
+          </HStack>
+          <HStack gap={8}>
+            <CarouselItem img={skinCare} label="Lorem Ipsum" />
+            <CarouselItem img={skinCare} label="Lorem Ipsum" />
+            <CarouselItem img={skinCare} label="Lorem Ipsum" />
+            <CarouselItem img={skinCare} label="Lorem Ipsum" />
+          </HStack>
+          <HStack gap={8}>
+            <CarouselItem img={skinCare} label="Lorem Ipsum" />
+            <CarouselItem img={skinCare} label="Lorem Ipsum" />
+            <CarouselItem img={skinCare} label="Lorem Ipsum" />
+            <CarouselItem img={skinCare} label="Lorem Ipsum" />
+          </HStack>
+          <HStack gap={8}>
+            <CarouselItem img={skinCare} label="Lorem Ipsum" />
+            <CarouselItem img={skinCare} label="Lorem Ipsum" />
+            <CarouselItem img={skinCare} label="Lorem Ipsum" />
+            <CarouselItem img={skinCare} label="Lorem Ipsum" />
+          </HStack>
+        </Carousel>
+
+        <Button py={8} px={14}>
+          Cara Order
+        </Button>
+      </Box>
+
+      <Box py={8}>
+        <Container maxW="container.xl">
           <Text
             as="h2"
             textColor="primaxDarkPurple"
+            textAlign="center"
             fontSize="4xl"
             fontWeight={800}
           >
-            Produk yang kami produksi
+            Mengapa Maklon Bersama Primaxcel?
           </Text>
-        </Box>
 
-        <Carousel a>
-          <CarouselItem img={skinCare} label="Lorem Ipsum" />
-          <CarouselItem img={skinCare} label="Lorem Ipsum" />
-          <CarouselItem img={skinCare} label="Lorem Ipsum" />
-          <CarouselItem img={skinCare} label="Lorem Ipsum" />
-          <CarouselItem img={skinCare} label="Lorem Ipsum" />
-        </Carousel>
+          <HStack mt={8} gap={6} alignItems="start" justifyContent="center">
+            <Box textAlign="center" maxW="435px">
+              <Box
+                display="flex"
+                justifyContent="center"
+                alignItems="end"
+                minH="155px"
+              >
+                <Image src={discuss} alt="discuss_image" />
+              </Box>
+              <Text
+                as="h3"
+                mt={4}
+                fontSize="2xl"
+                textColor="primaxPurple"
+                fontWeight="bold"
+              >
+                Proses Mudah
+              </Text>
+              <Text mt={4} as="p">
+                Representatif kami adalah profesional yang akan membantu dan
+                membimbing anda, merubah ide menjadi produk yang unik dan bisa
+                dipasarkan.
+              </Text>
+            </Box>
+
+            <Box textAlign="center" maxW="435px">
+              <Box
+                display="flex"
+                justifyContent="center"
+                alignItems="end"
+                minH="155px"
+              >
+                <Image src={money} alt="discuss_image" />
+              </Box>
+              <Text
+                as="h3"
+                mt={4}
+                fontSize="2xl"
+                textColor="primaxPurple"
+                fontWeight="bold"
+              >
+                Modal Kecil
+              </Text>
+              <Text mt={4} as="p">
+                Memudahkan beautypreneur dalam mewujudkan produk impian, dengan
+                kemudahan pembayaran serta MOQ yang bisa disesuaikan. Memastikan
+                konsumen memperoleh produk dengan harga yang kompetitif.
+              </Text>
+            </Box>
+
+            <Box textAlign="center" maxW="435px">
+              <Box
+                display="flex"
+                justifyContent="center"
+                alignItems="end"
+                minH="155px"
+              >
+                <Image src={science} alt="discuss_image" />
+              </Box>
+              <Text
+                as="h3"
+                mt={4}
+                fontSize="2xl"
+                textColor="primaxPurple"
+                fontWeight="bold"
+              >
+                R&D
+              </Text>
+              <Text mt={4} as="p">
+                Tim Riset dan Developmen kami berpengalaman dalam menciptakan
+                produk-produk kosmetik, makanan sehat, serta produk rumah tangga
+                berkualitas tinggi.
+              </Text>
+            </Box>
+          </HStack>
+          <HStack mt={8} gap={6} alignItems="start" justifyContent="center">
+            <Box textAlign="center" maxW="435px">
+              <Box
+                display="flex"
+                justifyContent="center"
+                alignItems="end"
+                minH="155px"
+              >
+                <Image src={shield} alt="discuss_image" />
+              </Box>
+              <Text
+                as="h3"
+                mt={4}
+                fontSize="2xl"
+                textColor="primaxPurple"
+                fontWeight="bold"
+              >
+                Jaminan Mutu dan Kualitas
+              </Text>
+              <Text mt={4} as="p">
+                Semua proses yang dikerjakan serta bahan baku yang digunakan
+                sesuai dengan standarisasi nasional dan internasional. Dengan
+                pengawasan dan QC yang ketat. Demi menghasilkan produk yang aman
+                dan berkualitas.
+              </Text>
+            </Box>
+
+            <Box textAlign="center" maxW="435px">
+              <Box
+                display="flex"
+                justifyContent="center"
+                alignItems="end"
+                minH="155px"
+              >
+                <Image src={paper} alt="discuss_image" />
+              </Box>
+              <Text
+                as="h3"
+                mt={4}
+                fontSize="2xl"
+                textColor="primaxPurple"
+                fontWeight="bold"
+              >
+                Perizinan Mudah
+              </Text>
+              <Text mt={4} as="p">
+                Kami pastikan legalitas, keamanan serta kehalalan produk anda
+                sebelum dipasarkan. Dengan memperoleh izin BPOM, Halal MUI, Uji
+                Dermatologi, dan Hak paten.
+              </Text>
+            </Box>
+          </HStack>
+        </Container>
+      </Box>
+
+      <Box pt={8} pb={16} bg="primaxLightBlue">
+        <Container maxW="container.xl">
+          <Text
+            as="h2"
+            textColor="primaxDarkPurple"
+            textAlign="center"
+            fontSize="4xl"
+            fontWeight={800}
+          >
+            Company Certifications
+          </Text>
+          <HStack mt={8} justifyContent="space-between">
+            <Box
+              display="flex"
+              justifyContent="center"
+              alignItems="end"
+              minH="155px"
+            >
+              <Image src={HalalLogo} alt="discuss_image" />
+            </Box>
+            <Box
+              display="flex"
+              justifyContent="center"
+              alignItems="end"
+              minH="155px"
+            >
+              <Image src={BPOMLogo} alt="discuss_image" />
+            </Box>
+            <Box
+              display="flex"
+              justifyContent="center"
+              alignItems="end"
+              minH="155px"
+            >
+              <Image src={GMPLogo} alt="discuss_image" />
+            </Box>
+            <Box
+              display="flex"
+              justifyContent="center"
+              alignItems="end"
+              minH="155px"
+            >
+              <Image src={CpkbLogo} alt="discuss_image" />
+            </Box>
+          </HStack>
+        </Container>
       </Box>
     </>
   );

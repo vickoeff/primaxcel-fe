@@ -30,7 +30,7 @@ const theme = extendTheme({
       },
       button: {
         bg: "primaxPurple!important",
-        borderRadius: "md",
+        borderRadius: "4xl",
         color: "primaxWhite",
         _hover: {
           bg: "primaxDarkPurple!important",
