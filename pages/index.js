@@ -1,7 +1,19 @@
-import { Container, Box, Text, Button, HStack } from "@chakra-ui/react";
-import { SectionA, SectionB } from "../components/Layouts";
+import {
+  Container,
+  Box,
+  Text,
+  Button,
+  HStack,
+  FormControl,
+  FormLabel,
+  Input,
+  Textarea,
+  Select,
+} from "@chakra-ui/react";
+import { SectionA, SectionB, SectionC } from "../components/Layouts";
 import CarouselItem from "../components/CarouselItem";
 import Image from "next/image";
+import { useForm } from "react-hook-form";
 
 // carousel
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -25,6 +37,28 @@ import GMPLogo from "../public/GMP_logo.png";
 import BPOMLogo from "../public/BPOM_logo.png";
 
 export default function Home() {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
+
+  console.log(watch("example"));
+
+  const formStyle = {
+    backgroundColor: "primaxBlue",
+    borderRadius: "0",
+    border: "unset",
+    marginBottom: "6",
+  };
+
+  const formLabelStyle = {
+    fontSize: "xl",
+    fontWeight: "bold",
+  };
+
   return (
     <>
       <Box minH={200} bg="primaxLightBlue"></Box>
@@ -206,24 +240,6 @@ export default function Home() {
           infiniteLoop
           interval={1500}
         >
-          <HStack gap={8}>
-            <CarouselItem img={skinCare} label="Lorem Ipsum" />
-            <CarouselItem img={skinCare} label="Lorem Ipsum" />
-            <CarouselItem img={skinCare} label="Lorem Ipsum" />
-            <CarouselItem img={skinCare} label="Lorem Ipsum" />
-          </HStack>
-          <HStack gap={8}>
-            <CarouselItem img={skinCare} label="Lorem Ipsum" />
-            <CarouselItem img={skinCare} label="Lorem Ipsum" />
-            <CarouselItem img={skinCare} label="Lorem Ipsum" />
-            <CarouselItem img={skinCare} label="Lorem Ipsum" />
-          </HStack>
-          <HStack gap={8}>
-            <CarouselItem img={skinCare} label="Lorem Ipsum" />
-            <CarouselItem img={skinCare} label="Lorem Ipsum" />
-            <CarouselItem img={skinCare} label="Lorem Ipsum" />
-            <CarouselItem img={skinCare} label="Lorem Ipsum" />
-          </HStack>
           <HStack gap={8}>
             <CarouselItem img={skinCare} label="Lorem Ipsum" />
             <CarouselItem img={skinCare} label="Lorem Ipsum" />
@@ -427,6 +443,150 @@ export default function Home() {
           </HStack>
         </Container>
       </Box>
+
+      <Box
+        style={{
+          backgroundImage: `url(/courius_bg.png)`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
+        <Text
+          as="h2"
+          py={48}
+          color="primaxPurple"
+          fontSize="6xl"
+          fontWeight="bold"
+          textAlign="center"
+          backgroundColor="rgba(196, 196, 196, 0.6)"
+        >
+          Ingin tahu lebih lanjut?
+        </Text>
+      </Box>
+
+      <SectionC
+        customSize={["30%", "70%"]}
+        leftContent={
+          <Box h="full" px={12} py={16} bg="primaxLightBlue">
+            <Text
+              as="h3"
+              fontSize="2xl"
+              fontWeight="bold"
+              color="primaxPurple"
+              mb={4}
+            >
+              Isi form untuk informasi lengkap seputar maklon
+            </Text>
+            <Text as="p" fontSize="md" color="primaxPurple">
+              Silahkan isi form di samping untuk memudahkan representatif kami
+              menghubungi anda.
+            </Text>
+            <Text as="p" fontSize="md" color="primaxPurple" mb={0}>
+              Mohon sertakan minum MOQ yang ingin anda buat beserta informasi
+              lain seputar produk yang ingin anda buat maupun yang ingin anda
+              ketahui.
+            </Text>
+          </Box>
+        }
+        rightContent={
+          <Box px={20} py={16}>
+            <Container maxW="container.md">
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <HStack justifyContent="space-between" gap={4}>
+                  <FormControl>
+                    <FormLabel {...formLabelStyle}>Nama</FormLabel>
+                    <Input
+                      type="text"
+                      placeholder="Nama Anda"
+                      {...register("example")}
+                      {...formStyle}
+                    />
+                  </FormControl>
+                  <FormControl>
+                    <FormLabel {...formLabelStyle}>E-mail</FormLabel>
+                    <Input
+                      type="text"
+                      placeholder="example@mail.com"
+                      {...register("example")}
+                      {...formStyle}
+                    />
+                  </FormControl>
+                </HStack>
+                <HStack justifyContent="space-between" gap={4}>
+                  <FormControl>
+                    <FormLabel fontSize="xl" fontWeight="bold">
+                      Domisili
+                    </FormLabel>
+                    <Input
+                      type="text"
+                      placeholder="Kota/Provinsi"
+                      {...register("example")}
+                      {...formStyle}
+                    />
+                  </FormControl>
+                  <FormControl>
+                    <FormLabel {...formLabelStyle}>No. Telp/WA</FormLabel>
+                    <Input
+                      type="tel"
+                      placeholder="+62"
+                      {...register("example")}
+                      {...formStyle}
+                    />
+                  </FormControl>
+                </HStack>
+                <HStack justifyContent="space-between" gap={4}>
+                  <FormControl>
+                    <FormLabel {...formLabelStyle}>Jenis Produk</FormLabel>
+                    <Select {...formStyle}>
+                      <option value="option1">Option 1</option>
+                      <option value="option2">Option 2</option>
+                      <option value="option3">Option 3</option>
+                    </Select>
+                  </FormControl>
+                  <FormControl>
+                    <FormLabel {...formLabelStyle}>Min. MOQ</FormLabel>
+                    <Select {...formStyle}>
+                      <option value="option1">Option 1</option>
+                      <option value="option2">Option 2</option>
+                      <option value="option3">Option 3</option>
+                    </Select>
+                  </FormControl>
+                </HStack>
+                <HStack justifyContent="space-between" gap={4}>
+                  <FormControl>
+                    <FormLabel {...formLabelStyle}>Kepemilikan</FormLabel>
+                    <Select {...formStyle}>
+                      <option value="option1">Option 1</option>
+                      <option value="option2">Option 2</option>
+                      <option value="option3">Option 3</option>
+                    </Select>
+                  </FormControl>
+                  <FormControl>
+                    <FormLabel {...formLabelStyle}>Budget</FormLabel>
+
+                    <Select {...formStyle}>
+                      <option value="option1">Option 1</option>
+                      <option value="option2">Option 2</option>
+                      <option value="option3">Option 3</option>
+                    </Select>
+                  </FormControl>
+                </HStack>
+                <FormControl>
+                  <FormLabel {...formLabelStyle}>Inforasi Lainnya</FormLabel>
+                  <Textarea
+                    {...formStyle}
+                    maxW="full"
+                    {...register("example")}
+                  />
+                </FormControl>
+                <Button mt={12} px={16} py={7}>
+                  Submit
+                </Button>
+              </form>
+            </Container>
+          </Box>
+        }
+      />
     </>
   );
 }
