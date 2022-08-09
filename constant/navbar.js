@@ -1,7 +1,7 @@
 export const navbarLinks = [
   {
     label: "Our Company",
-    url: "",
+    url: "/our-company",
   },
   {
     label: "Products",

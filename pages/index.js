@@ -79,7 +79,7 @@ export default function Home() {
             <Box>
               <Image src={primaxLogoHD} alt="Primaxcel_logo" />
             </Box>
-            <Text as="p" fontWeight={700}>
+            <Text as="p" fontWeight={700} color="primaxLightPurple">
               Didirikan sebagai perusahaan produksi progresif, berfokus pada
               produksi kosmetik dan makanan sehat dengan kualitas terbaik dan
               sesuai standar Nasional & Internasional.
@@ -90,7 +90,7 @@ export default function Home() {
       <SectionA
         bg="primaxLightBlue"
         img={cosmeticBottle}
-        content={
+        rightContent={
           <>
             <Text
               as="h2"
@@ -101,19 +101,19 @@ export default function Home() {
             >
               Mengapa Kami
             </Text>
-            <Text as="p">
+            <Text as="p" color="primaxLightPurple">
               Primaxcel menjamin kualitas dan keamanan produk serta sistem
               produksi. Dengan tim R&D (Riset & Developmen) yang berpengalaman,
               mesin produksi terbaik, serta proses dan QC (Quality Control) yang
               sesuai dengan standarisasi nasional maupun internasional.
             </Text>
-            <Text as="p">
+            <Text as="p" color="primaxLightPurple">
               Primaxcel telah terstandarisasi Nasional maupun Internasional,
               CPKB (Cara Pembuatan Kosmetik yang Baik), SPP-IRT (Sertifikat
               Produksi Pangan-Industri Rumah Tangga), GMP (Good Manufacturing
               Practice).
             </Text>
-            <Text as="p">
+            <Text as="p" color="primaxLightPurple">
               Jaminan memperoleh sertifikasi BPOM & Halal untuk produk yang
               maklon di Primaxcel.
             </Text>
@@ -122,7 +122,7 @@ export default function Home() {
       />
       <SectionA
         bg="primaxLightWhite"
-        customImg={
+        leftContent={
           <>
             <Box
               pos="absolute"
@@ -138,15 +138,9 @@ export default function Home() {
           </>
         }
         customSize={["65%", "35%"]}
-        content={
+        rightContent={
           <Box ml="6">
-            <Text
-              as="h2"
-              textColor="primaxLightPurple"
-              fontSize="4xl"
-              fontWeight={800}
-              mb={6}
-            >
+            <Text as="h2" textColor="primaxLightPurple" mb={6}>
               Maklon bersama kami
             </Text>
             <Text as="p">
@@ -164,14 +158,17 @@ export default function Home() {
               <br />
               Jangan ragu lagi
             </Text>
-            <Button>Hubungi Kami</Button>
+            <Button py={6} px={14}>
+              Hubungi Kami
+            </Button>
           </Box>
         }
       />
       <SectionA
         isReverse
         bg="primaxLightWhite"
-        customImg={
+        customSize={["65%", "35%"]}
+        leftContent={
           <>
             <Box pos="relative" pl="20">
               <Box
@@ -189,16 +186,9 @@ export default function Home() {
             </Box>
           </>
         }
-        customSize={["65%", "35%"]}
-        content={
+        rightContent={
           <Box mr="6">
-            <Text
-              as="h2"
-              textColor="primaxLightPurple"
-              fontSize="4xl"
-              fontWeight={800}
-              mb={6}
-            >
+            <Text as="h2" textColor="primaxLightPurple" mb={6}>
               Mengenai Maklon
             </Text>
             <Text as="p">
@@ -222,14 +212,7 @@ export default function Home() {
         }
       />
       <Box py={10} bg="primaxLightBlue" textAlign="center">
-        <Text
-          as="h2"
-          textColor="primaxDarkPurple"
-          fontSize="4xl"
-          fontWeight={800}
-        >
-          Produk yang kami produksi
-        </Text>
+        <Text as="h2">Produk yang kami produksi</Text>
 
         <Carousel
           centerMode
@@ -255,13 +238,7 @@ export default function Home() {
 
       <Box py={8}>
         <Container maxW="container.xl">
-          <Text
-            as="h2"
-            textColor="primaxDarkPurple"
-            textAlign="center"
-            fontSize="4xl"
-            fontWeight={800}
-          >
+          <Text as="h2" textAlign="center">
             Mengapa Maklon Bersama Primaxcel?
           </Text>
 
@@ -398,13 +375,7 @@ export default function Home() {
 
       <Box pt={8} pb={16} bg="primaxLightBlue">
         <Container maxW="container.xl">
-          <Text
-            as="h2"
-            textColor="primaxDarkPurple"
-            textAlign="center"
-            fontSize="4xl"
-            fontWeight={800}
-          >
+          <Text as="h2" textAlign="center">
             Company Certifications
           </Text>
           <HStack mt={8} justifyContent="space-between">
@@ -477,11 +448,11 @@ export default function Home() {
             >
               Isi form untuk informasi lengkap seputar maklon
             </Text>
-            <Text as="p" fontSize="md" color="primaxPurple">
+            <Text as="p" fontSize="md">
               Silahkan isi form di samping untuk memudahkan representatif kami
               menghubungi anda.
             </Text>
-            <Text as="p" fontSize="md" color="primaxPurple" mb={0}>
+            <Text as="p" fontSize="md" mb={0}>
               Mohon sertakan minum MOQ yang ingin anda buat beserta informasi
               lain seputar produk yang ingin anda buat maupun yang ingin anda
               ketahui.

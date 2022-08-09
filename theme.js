@@ -24,11 +24,14 @@ const theme = extendTheme({
     global: {
       body: {
         fontFamily: "nunito",
+        bg: "primaxWhite",
       },
       a: {
         cursor: "pointer",
       },
       button: {
+        py: 8,
+        px: "14 !important",
         bg: "primaxPurple!important",
         borderRadius: "2xl !important",
         color: "primaxWhite",
@@ -38,8 +41,13 @@ const theme = extendTheme({
           color: "primaxBlue",
         },
       },
+      h2: {
+        fontSize: "4xl",
+        fontWeight: 800,
+        textColor: "primaxDarkPurple",
+      },
       p: {
-        textColor: "primaxLightPurple",
+        textColor: "primaxPurple",
         fontSize: "xl",
         fontWeight: 400,
         textAlign: "justify",

@@ -1,5 +1,6 @@
 import { Container, Box, Flex, Button, HStack } from "@chakra-ui/react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = (props) => {
   const { logo, links, ...rest } = props;
@@ -17,20 +18,25 @@ const Navbar = (props) => {
     >
       <Container maxW="container.xl" pt="5" pb="2">
         <Flex justifyContent="space-between">
-          <Image src={logo} alt="Primaxcel_logo" />
+          <Link href="/">
+            <Box cursor="pointer">
+              <Image src={logo} alt="Primaxcel_logo" />
+            </Box>
+          </Link>
 
           <HStack gap={6}>
             {links.map((link) => (
-              <Button
-                as="a"
-                variant="link"
-                key={link.label}
-                role="link"
-                fontWeight={400}
-                textColor="primaxDarkPurple"
-              >
-                {link.label}
-              </Button>
+              <Link key={link.label} href={link.url}>
+                <Button
+                  as="a"
+                  variant="link"
+                  role="link"
+                  fontWeight={400}
+                  textColor="primaxDarkPurple"
+                >
+                  {link.label}
+                </Button>
+              </Link>
             ))}
           </HStack>
         </Flex>
