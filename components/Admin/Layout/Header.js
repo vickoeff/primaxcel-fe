@@ -1,4 +1,4 @@
-import { Flex } from '@chakra-ui/react';
+import { Flex, Text } from '@chakra-ui/react';
 
 const AdminHeader = () => {
 	return (
@@ -10,8 +10,13 @@ const AdminHeader = () => {
 			bg="white"
 			position="fixed"
 			top="0px"
+			justifyContent="space-between"
+			alignItems="center"
 			borderBottom="1px solid #dfe6e9"
-		></Flex>
+		>
+			<Flex border="1px solid red" width="200px" height="40px"></Flex>
+			<Text as="span">John Doe</Text>
+		</Flex>
 	);
 };
 

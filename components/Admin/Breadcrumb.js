@@ -18,7 +18,7 @@ const Breadcrumb = ({ navigations = [], children, title }) => {
 				const pathStyle = {
 					fontSize: '12px',
 					lineHeight: '16px',
-					color: 'primaxGray.700',
+					color: 'primaxGray.800',
 					cursor: !!navigation.url ? 'pointer' : 'context',
 					textDecoration: !!navigation.url ? 'underline' : 'none',
 				};
@@ -39,7 +39,7 @@ const Breadcrumb = ({ navigations = [], children, title }) => {
 								fontSize="12px"
 								mx="4px"
 								lineHeight="16px"
-								color="primaxGray.700"
+								color="primaxGray.800"
 							>
 								/
 							</Box>

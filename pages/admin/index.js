@@ -35,7 +35,13 @@ const Admin = () => {
 				</Text>
 				<Input mt={1}></Input>
 			</Flex>
-			<Button mt={4} bg="primaxLightBlue" onClick={goToAdminPage}>
+			<Button
+				mt={6}
+				py={2}
+				bg="primaxLightBlue"
+				borderRadius="8px !important"
+				onClick={goToAdminPage}
+			>
 				Login
 			</Button>
 		</Flex>

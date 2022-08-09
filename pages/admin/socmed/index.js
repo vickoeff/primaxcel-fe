@@ -3,25 +3,25 @@ import AdminMain from '@/components/Admin/Layout/Main.js';
 import Breadcrumb from '@/components/Admin/Breadcrumb';
 import { useRouter } from 'next/router';
 
-const Blog = () => {
+const Socmed = () => {
 	const router = useRouter();
 
-	const addBlog = () => {
-		router.push('/admin/blogs/add');
+	const addSocmed = () => {
+		router.push('/admin/socmed/add');
 	};
 
 	return (
 		<>
-			<Breadcrumb title="Blogs">
+			<Breadcrumb title="Social media">
 				<Button
 					padding="12px !important"
 					borderRadius="8px !important"
-					onClick={addBlog}
+					onClick={addSocmed}
 				>
-					Add blog
+					Add social media
 				</Button>
 			</Breadcrumb>
-			This is blog
+			This is social media
 		</>
 	);
 };
@@ -30,6 +30,6 @@ const getLayout = (page) => {
 	return <AdminMain>{page}</AdminMain>;
 };
 
-Blog.getLayout = getLayout;
+Socmed.getLayout = getLayout;
 
-export default Blog;
+export default Socmed;
