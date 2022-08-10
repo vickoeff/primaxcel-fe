@@ -4,6 +4,7 @@ import Image from "next/image";
 export const SectionA = (props) => {
   const {
     isReverse,
+    isFitContent,
     img,
     leftContent,
     rightContent,
@@ -17,7 +18,7 @@ export const SectionA = (props) => {
     <Box {...rest} pos="relative">
       <Container maxW="container.xl">
         <Flex
-          minH="2xl"
+          minH={isFitContent ? "unset" : "2xl"}
           flexDirection={isReverse ? "row-reverse" : null}
           alignItems={alignItems ? alignItems : "center"}
           gap={gap ? gap : "unset"}

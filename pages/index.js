@@ -62,7 +62,7 @@ const Home = () => {
 
 	return (
 		<>
-			<Box minH={200} bg="primaxLightBlue"></Box>
+			<Box minH={100} bg="primaxLightBlue"></Box>
 			<SectionB
 				isReverse
 				bg="primaxLightBlue"
@@ -88,10 +88,14 @@ const Home = () => {
 					</>
 				}
 			/>
-			<SectionA
+			<SectionB
 				bg="primaxLightBlue"
-				img={cosmeticBottle}
-				rightContent={
+				img={
+					<Box pos="relative" bottom="-8px">
+						<Image src={cosmeticBottle} alt={`image_${cosmeticBottle}`} />
+					</Box>
+				}
+				content={
 					<>
 						<Text
 							as="h2"
