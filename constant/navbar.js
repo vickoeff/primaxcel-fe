@@ -5,7 +5,7 @@ export const navbarLinks = [
   },
   {
     label: "Products",
-    url: "",
+    url: "/products",
   },
   {
     label: "Services",

@@ -1,9 +1,10 @@
 import { Box, Container, Flex } from "@chakra-ui/react";
 
 export const SectionB = (props) => {
-  const { isReverse, img, content, customSize, ...rest } = props;
+  const { isReverse, img, imgWidth, content, customSize, ...rest } = props;
 
   const imgLocationStyle = {
+    width: imgWidth ? imgWidth : "50%",
     bottom: 0,
     left: isReverse ? "unset" : 0,
     right: isReverse ? 0 : "unset",
@@ -11,10 +12,10 @@ export const SectionB = (props) => {
   };
 
   return (
-    <Box pos="relative" {...rest}>
-      <Box {...imgLocationStyle}>{img}</Box>
+    <Box {...rest}>
       <Container maxW="container.xl">
         <Flex
+          pos="relative"
           minH="2xl"
           flexDirection={isReverse ? "row-reverse" : null}
           alignItems="center"
@@ -24,6 +25,7 @@ export const SectionB = (props) => {
             minW={customSize ? customSize[0] : "50%"}
             minH="2xl"
           ></Box>
+          <Box {...imgLocationStyle}>{img}</Box>
           <Box maxW={customSize ? customSize[0] : "50%"}>{content}</Box>
         </Flex>
       </Container>
