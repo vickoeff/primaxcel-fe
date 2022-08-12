@@ -6,14 +6,17 @@ const AdminMain = ({ children }) => {
 	return (
 		<>
 			<AdminHeader></AdminHeader>
-			<AdminSidebar></AdminSidebar>
-			<Flex
-				as="main"
-				flexDirection="column"
-				width="calc(100% - 216px)"
-				margin="56px 0 0 216px"
-			>
-				{children}
+			<Flex height="calc(100% - 56px)" bg="white">
+				<AdminSidebar></AdminSidebar>
+				<Flex
+					as="main"
+					flexDirection="column"
+					width="100%"
+					height="100%"
+					overflow="auto"
+				>
+					{children}
+				</Flex>
 			</Flex>
 		</>
 	);

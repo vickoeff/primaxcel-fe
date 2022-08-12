@@ -13,11 +13,10 @@ const AdminSidebar = () => {
 
 	return (
 		<Flex
-			top="56px"
-			position="fixed"
 			flexDirection="column"
 			width="216px"
-			height="calc(100% - 56px)"
+			height="100%"
+			flexShrink={0}
 			borderRight="1px solid #dfe6e9"
 			padding="16px"
 			bg="white"

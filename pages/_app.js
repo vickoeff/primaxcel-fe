@@ -1,6 +1,7 @@
 import { ChakraProvider } from '@chakra-ui/react';
 import '@fontsource/nunito/400.css';
 import theme from '../theme';
+import '../global.css';
 
 function MyApp({ Component, pageProps }) {
 	const getLayout = Component.getLayout || ((page) => page);

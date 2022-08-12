@@ -36,6 +36,10 @@ const theme = extendTheme({
 			body: {
 				fontFamily: 'nunito',
 				bg: 'primaxWhite',
+				height: '100%',
+			},
+			html: {
+				height: '100%',
 			},
 			a: {
 				cursor: 'pointer',

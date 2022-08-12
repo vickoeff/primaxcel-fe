@@ -8,8 +8,6 @@ const AdminHeader = () => {
 			height="56px"
 			padding="0 24px"
 			bg="white"
-			position="fixed"
-			top="0px"
 			justifyContent="space-between"
 			alignItems="center"
 			borderBottom="1px solid #dfe6e9"

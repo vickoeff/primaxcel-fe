@@ -35,5 +35,4 @@ export const ACTIVE_MENU = {
 	'/admin/socmed/add': '/admin/socmed',
 	'/admin/socmed/edit': '/admin/socmed',
 	'/admin/company': '/admin/company',
-	'/admin/company/edit': '/admin/company',
 };
