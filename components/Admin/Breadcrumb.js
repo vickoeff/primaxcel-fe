@@ -58,6 +58,7 @@ const Breadcrumb = ({ navigations = [], children, title }) => {
 			padding="0 24px"
 			borderBottom="1px solid #dfe6e9"
 			bg="primaxGray.100"
+			flexShrink="0"
 		>
 			<Flex flexDirection="column">
 				{navigations.length ? navigationsInterface : null}

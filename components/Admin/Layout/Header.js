@@ -1,6 +1,5 @@
 import {
 	Flex,
-	Text,
 	Popover,
 	PopoverTrigger,
 	PopoverContent,
@@ -60,7 +59,7 @@ const AdminHeader = () => {
 								width="100%"
 								cursor="pointer"
 								_hover={{
-									bg: 'gray.200',
+									bg: 'gray.100',
 								}}
 								onClick={logout}
 							>
