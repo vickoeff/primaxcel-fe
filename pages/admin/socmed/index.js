@@ -90,6 +90,10 @@ const Socmed = () => {
 		});
 	};
 
+	const onEditAction = (id) => {
+		router.push(`/admin/socmed/${id}`);
+	};
+
 	const onOpenDeleteModal = (id) => {
 		setDeletedId(id);
 		onOpen();
@@ -117,7 +121,8 @@ const Socmed = () => {
 				});
 				setDeletedId(null);
 				onClose();
-				onPageChange(1);
+
+				pagination.currentPage > 1 ? onPageChange(1) : getSocmeds();
 			}
 		} catch (error) {
 			toast({
@@ -147,13 +152,16 @@ const Socmed = () => {
 					data={socmeds}
 					isLoading={isLoading}
 					onOpenDeleteModal={onOpenDeleteModal}
+					onEditAction={onEditAction}
 				></SocmedTable>
-				<Pagination
-					isLoading={isLoading}
-					pagination={pagination}
-					onRowChange={onRowChange}
-					onPageChange={onPageChange}
-				></Pagination>
+				{socmeds.length || isLoading ? (
+					<Pagination
+						isLoading={isLoading}
+						pagination={pagination}
+						onRowChange={onRowChange}
+						onPageChange={onPageChange}
+					></Pagination>
+				) : null}
 			</Flex>
 			<Modal isOpen={isOpen} onClose={onCloseDeleteModal}>
 				<ModalOverlay />

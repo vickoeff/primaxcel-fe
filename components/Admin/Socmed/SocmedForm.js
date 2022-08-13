@@ -10,10 +10,10 @@ import {
 	Image,
 } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { FaTrash } from 'react-icons/fa';
 
-const SocmedForm = ({ onSubmitSocmed }) => {
+const SocmedForm = ({ onSubmitSocmed, currentSocmed = null }) => {
 	const router = useRouter();
 	const inputRef = useRef();
 	const [socmed, setSocmed] = useState({
@@ -29,6 +29,21 @@ const SocmedForm = ({ onSubmitSocmed }) => {
 		name: '',
 		url: '',
 	});
+
+	useEffect(() => {
+		if (!currentSocmed) return;
+
+		const { image, name, url, alt, preview } = currentSocmed;
+
+		setSocmed({
+			...socmed,
+			image,
+			name,
+			url,
+			alt,
+		});
+		setImagePreview(preview);
+	}, [currentSocmed]);
 
 	const onFormChange = (event) => {
 		const value = event.target.value;
