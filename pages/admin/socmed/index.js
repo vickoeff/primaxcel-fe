@@ -1,4 +1,16 @@
-import { Button, useToast, Flex } from '@chakra-ui/react';
+import {
+	Button,
+	useToast,
+	useDisclosure,
+	Flex,
+	Modal,
+	ModalOverlay,
+	ModalContent,
+	ModalHeader,
+	ModalFooter,
+	ModalBody,
+	ModalCloseButton,
+} from '@chakra-ui/react';
 import AdminMain from '@/components/Admin/Layout/Main.js';
 import Breadcrumb from '@/components/Admin/Breadcrumb';
 import SocmedTable from '@/components/Admin/Socmed/SocmedTable';
@@ -11,6 +23,8 @@ import services from '@/services';
 const Socmed = () => {
 	const router = useRouter();
 	const toast = useToast();
+	const [deletedId, setDeletedId] = useState(null);
+	const { isOpen, onOpen, onClose } = useDisclosure();
 	const { isLoading, setLoading } = useLoading();
 	const [socmeds, setSocmeds] = useState([]);
 	const [pagination, setPagination] = useState({
@@ -76,6 +90,47 @@ const Socmed = () => {
 		});
 	};
 
+	const onOpenDeleteModal = (id) => {
+		setDeletedId(id);
+		onOpen();
+	};
+
+	const onCloseDeleteModal = () => {
+		setDeletedId(null);
+		onClose();
+	};
+
+	const onDeleteSocmed = async () => {
+		if (!deletedId) return;
+
+		try {
+			setLoading(true);
+
+			const response = await services.deleteSocmed(deletedId);
+
+			if (response && response.status && response.data) {
+				toast({
+					position: 'top',
+					description: 'Social media is deleted',
+					status: 'success',
+					duration: 3000,
+				});
+				setDeletedId(null);
+				onClose();
+				onPageChange(1);
+			}
+		} catch (error) {
+			toast({
+				position: 'top',
+				description: 'Failed to delete social media',
+				status: 'error',
+				duration: 3000,
+			});
+		} finally {
+			setLoading(false);
+		}
+	};
+
 	return (
 		<>
 			<Breadcrumb title="Social media">
@@ -88,7 +143,11 @@ const Socmed = () => {
 				</Button>
 			</Breadcrumb>
 			<Flex as="section" pt={4} pb={10} px={6} flexDirection="column">
-				<SocmedTable data={socmeds} isLoading={isLoading}></SocmedTable>
+				<SocmedTable
+					data={socmeds}
+					isLoading={isLoading}
+					onOpenDeleteModal={onOpenDeleteModal}
+				></SocmedTable>
 				<Pagination
 					isLoading={isLoading}
 					pagination={pagination}
@@ -96,6 +155,57 @@ const Socmed = () => {
 					onPageChange={onPageChange}
 				></Pagination>
 			</Flex>
+			<Modal isOpen={isOpen} onClose={onCloseDeleteModal}>
+				<ModalOverlay />
+				<ModalContent>
+					<ModalHeader>Delete social media</ModalHeader>
+					<ModalCloseButton
+						padding="0 !important"
+						bg="none !important"
+						color="gray.600"
+						borderRadius="4px !important"
+						_hover={{
+							color: 'gray.600',
+							bg: 'gray.200 !important',
+						}}
+					/>
+					<ModalBody>Are you sure to delete this social media?</ModalBody>
+					<ModalFooter>
+						<Button
+							colorScheme="red"
+							mr={3}
+							padding="0 !important"
+							bg="none !important"
+							color="gray.600"
+							variant="ghost"
+							borderRadius="4px !important"
+							_hover={{
+								color: 'gray.600',
+								bg: 'none !important',
+							}}
+							onClick={onCloseDeleteModal}
+						>
+							Close
+						</Button>
+						<Button
+							colorScheme="red"
+							mr={3}
+							padding="8px 12px !important"
+							bg="red.500 !important"
+							color="white"
+							borderRadius="4px !important"
+							_hover={{
+								color: 'white',
+								bg: 'red.600 !important',
+							}}
+							onClick={onDeleteSocmed}
+							isLoading={isLoading}
+						>
+							Delete
+						</Button>
+					</ModalFooter>
+				</ModalContent>
+			</Modal>
 		</>
 	);
 };

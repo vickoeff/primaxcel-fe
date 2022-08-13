@@ -18,7 +18,11 @@ import {
 } from '@chakra-ui/react';
 import { FaCaretDown } from 'react-icons/fa';
 
-const SocmedTable = ({ data, isLoading }) => {
+const SocmedTable = ({ data, isLoading, onOpenDeleteModal }) => {
+	const onDeleteAction = (id) => {
+		onOpenDeleteModal(id);
+	};
+
 	return (
 		<TableContainer>
 			<Table variant="simple">
@@ -120,6 +124,7 @@ const SocmedTable = ({ data, isLoading }) => {
 																_hover={{
 																	bg: 'gray.100',
 																}}
+																onClick={() => onDeleteAction(socmed.id)}
 															>
 																Delete
 															</Box>

@@ -20,8 +20,13 @@ const addSocmed = (payload = {}) => {
 	});
 };
 
+const deleteSocmed = (id) => {
+	return api.delete(`/socmeds/${id}`);
+};
+
 const socmedServices = {
 	addSocmed,
+	deleteSocmed,
 	getSocmeds,
 };
 
