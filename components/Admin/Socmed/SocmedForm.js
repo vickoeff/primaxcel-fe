@@ -21,6 +21,7 @@ const SocmedForm = ({ onSubmitSocmed, currentSocmed = null }) => {
 		name: '',
 		url: '',
 		alt: '',
+		order: '',
 	});
 	const [imagePreview, setImagePreview] = useState('');
 	const [imageFile, setImageFile] = useState(null);
@@ -29,11 +30,12 @@ const SocmedForm = ({ onSubmitSocmed, currentSocmed = null }) => {
 		name: '',
 		url: '',
 	});
+	const [isEditPage, setIsEditPage] = useState(false);
 
 	useEffect(() => {
 		if (!currentSocmed) return;
 
-		const { image, name, url, alt, preview } = currentSocmed;
+		const { image, name, url, alt, order, preview } = currentSocmed;
 
 		setSocmed({
 			...socmed,
@@ -41,13 +43,19 @@ const SocmedForm = ({ onSubmitSocmed, currentSocmed = null }) => {
 			name,
 			url,
 			alt,
+			order,
 		});
 		setImagePreview(preview);
+		setIsEditPage(true);
 	}, [currentSocmed]);
 
 	const onFormChange = (event) => {
-		const value = event.target.value;
+		let value = event.target.value;
 		const name = event.target.name;
+
+		if (name === 'order') {
+			value = value && value > 0 ? value : 1;
+		}
 
 		setSocmed({
 			...socmed,
@@ -210,6 +218,21 @@ const SocmedForm = ({ onSubmitSocmed, currentSocmed = null }) => {
 					onChange={onFormChange}
 				/>
 			</FormControl>
+			{isEditPage ? (
+				<FormControl mt={4}>
+					<FormLabel fontWeight={600} fontSize="14px" mb="0">
+						Order
+					</FormLabel>
+					<Input
+						type="number"
+						mt={1}
+						value={socmed.order}
+						name="order"
+						min="1"
+						onChange={onFormChange}
+					/>
+				</FormControl>
+			) : null}
 			<Flex mt={5} alignSelf="flex-end">
 				<Button
 					padding="10px 20px !important"

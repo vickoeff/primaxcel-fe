@@ -48,7 +48,7 @@ const Admin = () => {
 					name: response.data.name,
 				});
 				Cookies.set('access_token', response.data.token);
-				router.push('/admin/blogs');
+				router.push('/admin/products');
 			}
 		} catch (error) {
 			toast({

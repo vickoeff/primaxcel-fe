@@ -18,6 +18,7 @@ const EditSocmed = () => {
 		name: '',
 		url: '',
 		alt: '',
+		order: '',
 		preview: '',
 	});
 
@@ -40,6 +41,7 @@ const EditSocmed = () => {
 						name: response.data.name,
 						url: response.data.url,
 						alt: response.data.alt,
+						order: response.data.order,
 						preview: response.data.imageUrl,
 					});
 				}
@@ -73,6 +75,7 @@ const EditSocmed = () => {
 		formData.append('name', payload.name);
 		formData.append('url', payload.url);
 		formData.append('alt', payload.alt);
+		formData.append('order', payload.order);
 
 		try {
 			const response = await services.updateSocmed(editedId, formData);

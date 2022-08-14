@@ -24,10 +24,10 @@ const SocmedTable = ({ data, isLoading, onOpenDeleteModal, onEditAction }) => {
 			<Table variant="simple">
 				<Thead>
 					<Tr>
-						<Th>Logo</Th>
-						<Th>Name</Th>
-						<Th>Url</Th>
-						<Th>Alt</Th>
+						<Th padding="12px">Logo</Th>
+						<Th padding="12px">Name</Th>
+						<Th padding="12px">Url</Th>
+						<Th padding="12px">Alt</Th>
 						<Th></Th>
 					</Tr>
 				</Thead>

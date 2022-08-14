@@ -15,6 +15,9 @@
       "@/context/*": [
         "context/*"
       ],
+      "@/hooks/*": [
+        "hooks/*"
+      ],
     }
   },
 }

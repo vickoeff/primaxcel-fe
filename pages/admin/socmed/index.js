@@ -18,6 +18,7 @@ import Pagination from '@/components/Admin/Pagination';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useLoading } from '@/context/loading';
+import usePagination from '@/hooks/usePagination';
 import services from '@/services';
 
 const Socmed = () => {
@@ -27,12 +28,8 @@ const Socmed = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const { isLoading, setLoading } = useLoading();
 	const [socmeds, setSocmeds] = useState([]);
-	const [pagination, setPagination] = useState({
-		limit: 10,
-		currentPage: 1,
-		total: 1,
-		totalPages: 1,
-	});
+	const { pagination, setPagination, onRowChange, onPageChange } =
+		usePagination();
 
 	const getSocmeds = async () => {
 		try {
@@ -73,21 +70,6 @@ const Socmed = () => {
 
 	const addSocmed = () => {
 		router.push('/admin/socmed/add');
-	};
-
-	const onRowChange = (limit) => {
-		setPagination({
-			...pagination,
-			limit,
-			currentPage: 1,
-		});
-	};
-
-	const onPageChange = (currentPage) => {
-		setPagination({
-			...pagination,
-			currentPage,
-		});
 	};
 
 	const onEditAction = (id) => {

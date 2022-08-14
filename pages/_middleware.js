@@ -6,7 +6,11 @@ export const middleware = (request) => {
 		request.nextUrl.pathname.startsWith('/admin') &&
 		request.nextUrl.pathname !== '/admin';
 
-	if (!token && isAdminRoutes) {
+	if (token) {
+		if (request.nextUrl.pathname === '/admin') {
+			return NextResponse.redirect(new URL('/admin/products', request.url));
+		}
+	} else if (isAdminRoutes) {
 		return NextResponse.redirect(new URL('/admin', request.url));
 	}
 };
