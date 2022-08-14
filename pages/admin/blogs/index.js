@@ -20,6 +20,8 @@ import { useLoading } from '@/context/loading';
 import usePagination from '@/hooks/usePagination';
 import services from '@/services';
 import BlogTable from '@/components/Admin/Blogs/BlogTable';
+import BlogFilter from '@/components/Admin/Blogs/BlogFilter';
+import useEffectOnlyOnUpdate from '@/hooks/useEffectOnUpdate';
 
 const Blogs = () => {
 	const router = useRouter();
@@ -30,6 +32,10 @@ const Blogs = () => {
 	const [blogs, setBlogs] = useState([]);
 	const { pagination, setPagination, onRowChange, onPageChange } =
 		usePagination();
+	const [filter, setFilter] = useState({
+		type: '',
+		status: '',
+	});
 
 	const getBlogs = async () => {
 		try {
@@ -38,6 +44,7 @@ const Blogs = () => {
 			const response = await services.getBlogs({
 				limit: pagination.limit,
 				page: pagination.currentPage,
+				...filter,
 			});
 
 			if (response && response.status && response.data) {
@@ -68,6 +75,10 @@ const Blogs = () => {
 	useEffect(() => {
 		getBlogs();
 	}, [pagination.limit, pagination.currentPage]);
+
+	useEffectOnlyOnUpdate(() => {
+		pagination.currentPage > 1 ? onPageChange(1) : getBlogs();
+	}, [filter]);
 
 	const addBlog = () => {
 		router.push('/admin/blogs/add');
@@ -119,6 +130,13 @@ const Blogs = () => {
 		}
 	};
 
+	const onChangeFilter = (name, value) => {
+		setFilter({
+			...filter,
+			[name]: value,
+		});
+	};
+
 	return (
 		<>
 			<Breadcrumb title="Blog">
@@ -131,6 +149,12 @@ const Blogs = () => {
 				</Button>
 			</Breadcrumb>
 			<Flex as="section" pt={4} pb={10} px={6} flexDirection="column">
+				<Flex mb={4}>
+					<BlogFilter
+						filter={filter}
+						onChangeFilter={onChangeFilter}
+					></BlogFilter>
+				</Flex>
 				<BlogTable
 					data={blogs}
 					isLoading={isLoading}

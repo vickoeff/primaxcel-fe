@@ -20,6 +20,8 @@ import { useLoading } from '@/context/loading';
 import usePagination from '@/hooks/usePagination';
 import services from '@/services';
 import ReviewTable from '@/components/Admin/Reviews/ReviewTable';
+import ReviewFilter from '@/components/Admin/Reviews/ReviewFilter';
+import useEffectOnlyOnUpdate from '@/hooks/useEffectOnUpdate';
 
 const Reviews = () => {
 	const router = useRouter();
@@ -30,6 +32,7 @@ const Reviews = () => {
 	const [reviews, setReviews] = useState([]);
 	const { pagination, setPagination, onRowChange, onPageChange } =
 		usePagination();
+	const [statusFilter, setStatusFilter] = useState('');
 
 	const getReviews = async () => {
 		try {
@@ -38,6 +41,7 @@ const Reviews = () => {
 			const response = await services.getReviews({
 				limit: pagination.limit,
 				page: pagination.currentPage,
+				status: statusFilter,
 			});
 
 			if (response && response.status && response.data) {
@@ -68,6 +72,10 @@ const Reviews = () => {
 	useEffect(() => {
 		getReviews();
 	}, [pagination.limit, pagination.currentPage]);
+
+	useEffectOnlyOnUpdate(() => {
+		pagination.currentPage > 1 ? onPageChange(1) : getReviews();
+	}, [statusFilter]);
 
 	const addReview = () => {
 		router.push('/admin/reviews/add');
@@ -119,6 +127,10 @@ const Reviews = () => {
 		}
 	};
 
+	const onChangeStatusFilter = (status) => {
+		setStatusFilter(status);
+	};
+
 	return (
 		<>
 			<Breadcrumb title="Review">
@@ -131,6 +143,12 @@ const Reviews = () => {
 				</Button>
 			</Breadcrumb>
 			<Flex as="section" pt={4} pb={10} px={6} flexDirection="column">
+				<Flex mb={4}>
+					<ReviewFilter
+						statusFilter={statusFilter}
+						onChangeStatusFilter={onChangeStatusFilter}
+					></ReviewFilter>
+				</Flex>
 				<ReviewTable
 					data={reviews}
 					isLoading={isLoading}

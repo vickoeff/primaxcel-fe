@@ -1,11 +1,13 @@
 import api from './axios';
 
-const getReviews = ({ page, limit }) => {
+const getReviews = ({ page, limit, status }) => {
 	const basePath = '/reviews';
 	let queries = [];
 
-	for (const [key, value] of Object.entries({ page, limit })) {
-		queries.push(`${key}=${value}`);
+	for (const [key, value] of Object.entries({ page, limit, status })) {
+		if (value) {
+			queries.push(`${key}=${value}`);
+		}
 	}
 
 	const path = `${basePath}?${queries.join('&')}`;

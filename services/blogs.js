@@ -1,11 +1,13 @@
 import api from './axios';
 
-const getBlogs = ({ page, limit }) => {
+const getBlogs = ({ page, limit, type, status }) => {
 	const basePath = '/blogs';
 	let queries = [];
 
-	for (const [key, value] of Object.entries({ page, limit })) {
-		queries.push(`${key}=${value}`);
+	for (const [key, value] of Object.entries({ page, limit, type, status })) {
+		if (value) {
+			queries.push(`${key}=${value}`);
+		}
 	}
 
 	const path = `${basePath}?${queries.join('&')}`;

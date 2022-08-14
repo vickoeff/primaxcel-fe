@@ -17,27 +17,17 @@ import {
 	Skeleton,
 } from '@chakra-ui/react';
 import { FaCaretDown } from 'react-icons/fa';
-import { BLOG_TYPE } from '@/constant/blogs';
+import { PRODUCT_TYPE } from '@/constant/products';
 
-const BlogTable = ({ data, isLoading, onOpenDeleteModal, onEditAction }) => {
+const ProductTable = ({ data, isLoading, onOpenDeleteModal, onEditAction }) => {
 	return (
 		<TableContainer whiteSpace="normal">
 			<Table variant="simple">
 				<Thead>
 					<Tr>
-						<Th padding="12px" minWidth="100px">
-							Image
-						</Th>
-						<Th padding="12px" minWidth="250px">
-							Title
-						</Th>
-						<Th padding="12px" whiteSpace="normal" minWidth="400px">
-							Description
-						</Th>
-						<Th padding="12px">Status</Th>
-						<Th padding="12px" minWidth="200px">
-							Type
-						</Th>
+						<Th padding="12px">Image</Th>
+						<Th padding="12px">Title</Th>
+						<Th padding="12px">Type</Th>
 						<Th></Th>
 					</Tr>
 				</Thead>
@@ -46,7 +36,7 @@ const BlogTable = ({ data, isLoading, onOpenDeleteModal, onEditAction }) => {
 						Array.from(Array(4), (_, index) => {
 							return (
 								<Tr key={`loading-tr-${index}`}>
-									{Array.from(Array(6), (_, tdIndex) => {
+									{Array.from(Array(4), (_, tdIndex) => {
 										return (
 											<Td
 												padding="8px 12px"
@@ -60,9 +50,9 @@ const BlogTable = ({ data, isLoading, onOpenDeleteModal, onEditAction }) => {
 							);
 						})
 					) : data.length ? (
-						data.map((blog, index) => {
+						data.map((product, index) => {
 							return (
-								<Tr key={`blog-${index}-${blog.id}`}>
+								<Tr key={`product-${index}-${product.id}`}>
 									<Td padding="8px 12px">
 										<Flex
 											as="div"
@@ -74,18 +64,16 @@ const BlogTable = ({ data, isLoading, onOpenDeleteModal, onEditAction }) => {
 											bg="gray.100"
 										>
 											<Image
-												src={blog.imageUrl}
-												alt="Blog image"
+												src={product.imageUrl}
+												alt="Product image"
 												objectFit="contain"
 											/>
 										</Flex>
 									</Td>
-									<Td padding="8px 12px">{blog.title}</Td>
-									<Td padding="8px 12px">{blog.description}</Td>
+									<Td padding="8px 12px">{product.title}</Td>
 									<Td padding="8px 12px">
-										{blog.isActive ? 'Active' : 'Inactive'}
+										{PRODUCT_TYPE[product.type] || '-'}
 									</Td>
-									<Td padding="8px 12px">{BLOG_TYPE[blog.type] || '-'}</Td>
 									<Td padding="8px 12px" textAlign="right">
 										<Popover placement="bottom-end">
 											<PopoverTrigger>
@@ -117,7 +105,7 @@ const BlogTable = ({ data, isLoading, onOpenDeleteModal, onEditAction }) => {
 															_hover={{
 																bg: 'gray.100',
 															}}
-															onClick={() => onEditAction(blog.id)}
+															onClick={() => onEditAction(product.id)}
 														>
 															Edit
 														</Box>
@@ -131,7 +119,7 @@ const BlogTable = ({ data, isLoading, onOpenDeleteModal, onEditAction }) => {
 															_hover={{
 																bg: 'gray.100',
 															}}
-															onClick={() => onOpenDeleteModal(blog.id)}
+															onClick={() => onOpenDeleteModal(product.id)}
 														>
 															Delete
 														</Box>
@@ -156,4 +144,4 @@ const BlogTable = ({ data, isLoading, onOpenDeleteModal, onEditAction }) => {
 	);
 };
 
-export default BlogTable;
+export default ProductTable;
