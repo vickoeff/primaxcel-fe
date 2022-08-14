@@ -6,6 +6,7 @@ import {
 	PopoverBody,
 	Box,
 	Button,
+	Image,
 } from '@chakra-ui/react';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
@@ -31,7 +32,13 @@ const AdminHeader = () => {
 			alignItems="center"
 			borderBottom="1px solid #dfe6e9"
 		>
-			<Flex border="1px solid red" width="200px" height="40px"></Flex>
+			<Flex width="200px" height="40px">
+				<Image
+					src="/primaxcel_logo.svg"
+					alt="Primaxcel logo"
+					objectFit="contain"
+				/>
+			</Flex>
 			<Popover placement="bottom-end">
 				<PopoverTrigger>
 					<Button
