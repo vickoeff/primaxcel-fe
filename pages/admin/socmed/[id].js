@@ -83,7 +83,7 @@ const EditSocmed = () => {
 			if (response && response.status && response.data) {
 				toast({
 					position: 'top',
-					description: 'Social media updated',
+					description: 'Social media is updated',
 					status: 'success',
 					duration: 3000,
 				});

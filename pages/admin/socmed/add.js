@@ -28,7 +28,7 @@ const AddSocmed = () => {
 			if (response && response.status && response.data) {
 				toast({
 					position: 'top',
-					description: 'Social media created',
+					description: 'Social media is created',
 					status: 'success',
 					duration: 3000,
 				});

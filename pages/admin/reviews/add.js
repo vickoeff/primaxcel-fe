@@ -27,7 +27,7 @@ const AddReview = () => {
 			if (response && response.status && response.data) {
 				toast({
 					position: 'top',
-					description: 'Review created',
+					description: 'Review is created',
 					status: 'success',
 					duration: 3000,
 				});
