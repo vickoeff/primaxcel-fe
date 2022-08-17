@@ -1,23 +1,14 @@
 {
-  "compilerOptions": {
-    "jsx": "react",
-    "baseUrl": ".",
-    "paths": {
-      "@/components/*": [
-        "components/*"
-      ],
-      "@/constant/*" : [
-        "constant/*"
-      ],
-      "@/services": [
-        "services"
-      ],
-      "@/context/*": [
-        "context/*"
-      ],
-      "@/hooks/*": [
-        "hooks/*"
-      ],
-    }
-  },
+	"compilerOptions": {
+		"jsx": "react",
+		"baseUrl": ".",
+		"paths": {
+			"@/components/*": ["components/*"],
+			"@/constant/*": ["constant/*"],
+			"@/services": ["services"],
+			"@/context/*": ["context/*"],
+			"@/hooks/*": ["hooks/*"],
+			"@/public/*": ["public/*"]
+		}
+	}
 }

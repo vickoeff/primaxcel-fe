@@ -1,44 +1,13 @@
+import { useRouter } from 'next/router';
 import { Container, Box, Text, Button, HStack } from '@chakra-ui/react';
-import { SectionA, SectionB } from '../components/Layouts';
+import { SectionA, SectionB } from '@/components/Layouts';
 import Image from 'next/image';
-import { useForm } from 'react-hook-form';
-import { MainLayout } from '../components/Layouts';
-
-// carousel
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-
-// import static image
-import TubeMockup from '../public/Tube-Mockup-Primaxcel.png';
-import BeautySkinCare from '../public/beauty-skincare-products-bathroom.png';
-import MockUpBottle from '../public/Mockup-Bottle-Primaxcel4.png';
-import ModernBeauty from '../public/modern-beauty-products-different-recipients-composition.png';
-import MinimalComposition from '../public/minimal-composition-beauty-products.png';
-import NaturalSelfCare from '../public/front-view-natural-self-care-products-composition.png';
-import SkincareBathroom from '../public/beauty-skincare-products-bathroom-2.png';
-import WhiteFaceCream from '../public/white-face-cream-tube-beauty-product-2.png';
-import TopViewHydro from '../public/top-view-hydro-alcoholic-gel-splashes-with-bottle-dispenser.png';
+import { MainLayout } from '@/components/Layouts';
 
 const Products = () => {
-	const {
-		register,
-		handleSubmit,
-		watch,
-		formState: { errors },
-	} = useForm();
-	const onSubmit = (data) => console.log(data);
-
-	console.log(watch('example'));
-
-	const formStyle = {
-		backgroundColor: 'primaxBlue',
-		borderRadius: '0',
-		border: 'unset',
-		marginBottom: '6',
-	};
-
-	const formLabelStyle = {
-		fontSize: 'xl',
-		fontWeight: 'bold',
+	const router = useRouter();
+	const handleProductDetail = () => {
+		router.push(`${router.pathname}/skin-care`);
 	};
 
 	return (
@@ -49,8 +18,13 @@ const Products = () => {
 				customSize={['60%', '40%']}
 				imgWidth="60%"
 				img={
-					<Box width="full" position="relative" left={0} zIndex={2}>
-						<Image src={TubeMockup} alt={`image_${MockUpBottle}`} />
+					<Box width="full" zIndex={2}>
+						<Image
+							src="/Tube-Mockup-Primaxcel.png"
+							alt="Tube-Mockup_image"
+							layout="fill"
+							objectFit="contain"
+						/>
 					</Box>
 				}
 				content={
@@ -70,7 +44,6 @@ const Products = () => {
 			<SectionA
 				pt={8}
 				customSize={['65%', '35%']}
-				alignItems="end"
 				bg="primaxWhite"
 				leftContent={
 					<Box mr="6" maxW="60%" pb={24}>
@@ -83,7 +56,12 @@ const Products = () => {
 							perawatan wajah sesuai keinginan anda, hingga siap dipasarkan.
 							Dengan kualitas tinggi dan harga yang bisa bersaing.
 						</Text>
-						<Button as="a" variant="link" role="link">
+						<Button
+							as="a"
+							variant="link"
+							role="link"
+							onClick={handleProductDetail}
+						>
 							<Text as="p" fontWeight="semibold">
 								Lebih lengkap...
 							</Text>
@@ -91,9 +69,13 @@ const Products = () => {
 					</Box>
 				}
 				rightContent={
-					<>
-						<Image src={BeautySkinCare} alt={`image_${ModernBeauty}`} />
-					</>
+					<Box pos="relative" width="100%" height="723px">
+						<Image
+							src="/beauty-skincare-products-bathroom.png"
+							alt="beauty-skincare-products_image"
+							layout="fill"
+						/>
+					</Box>
 				}
 			/>
 
@@ -102,11 +84,14 @@ const Products = () => {
 				isFitContent
 				bg="primaxLightBlue"
 				customSize={['45%', '55%']}
-				alignItems="start"
 				leftContent={
-					<>
-						<Image src={MinimalComposition} alt={`image_${ModernBeauty}`} />
-					</>
+					<Box pos="relative" width="100%" height="612px">
+						<Image
+							src="/minimal-composition-beauty-products.png"
+							alt="minimal-composition-beauty_image"
+							layout="fill"
+						/>
+					</Box>
 				}
 				rightContent={
 					<Box pt={24} pl={24}>
@@ -120,7 +105,12 @@ const Products = () => {
 							siap dipasarkan. Dengan kualitas tinggi dan harga yang bisa
 							bersaing.
 						</Text>
-						<Button as="a" variant="link" role="link">
+						<Button
+							as="a"
+							variant="link"
+							role="link"
+							onClick={handleProductDetail}
+						>
 							<Text as="p" fontWeight="semibold">
 								Lebih lengkap...
 							</Text>
@@ -133,7 +123,6 @@ const Products = () => {
 				mt="-8px"
 				isFitContent
 				customSize={['65%', '35%']}
-				alignItems="start"
 				bg="primaxWhite"
 				leftContent={
 					<Box mr="6" maxW="60%" pt={24}>
@@ -153,9 +142,13 @@ const Products = () => {
 					</Box>
 				}
 				rightContent={
-					<>
-						<Image src={NaturalSelfCare} alt={`image_${ModernBeauty}`} />
-					</>
+					<Box pos="relative" width="100%" height="723px">
+						<Image
+							src="/front-view-natural-self-care-products-composition.png"
+							alt="front-view-natural_image"
+							layout="fill"
+						/>
+					</Box>
 				}
 			/>
 
@@ -172,7 +165,13 @@ const Products = () => {
 							py={8}
 							px={6}
 						>
-							<Image src={SkincareBathroom} alt="skincare-bathroom" />
+							<Box pos="relative" width="100%" height="268px">
+								<Image
+									src="/beauty-skincare-products-bathroom-2.png"
+									alt="skincare-bathroom_image"
+									layout="fill"
+								/>
+							</Box>
 							<Text mt={4} textAlign="center">
 								Minimum MOQ & Packaging
 							</Text>
@@ -186,7 +185,13 @@ const Products = () => {
 							py={8}
 							px={6}
 						>
-							<Image src={WhiteFaceCream} alt="white-face-cream" />
+							<Box pos="relative" width="100%" height="268px">
+								<Image
+									src="/white-face-cream-tube-beauty-product-2.png"
+									alt="white-face-cream_image"
+									layout="fill"
+								/>
+							</Box>
 							<Text mt={4} textAlign="center">
 								Komposisi Produk & Hak Cipta
 							</Text>
@@ -200,7 +205,13 @@ const Products = () => {
 							py={8}
 							px={6}
 						>
-							<Image src={TopViewHydro} alt="top-view-hydro" />
+							<Box pos="relative" width="100%" height="268px">
+								<Image
+									src="/top-view-hydro-alcoholic-gel-splashes-with-bottle-dispenser.png"
+									alt="top-view-hydro_image"
+									layout="fill"
+								/>
+							</Box>
 							<Text mt={4} textAlign="center">
 								Lainnya
 							</Text>

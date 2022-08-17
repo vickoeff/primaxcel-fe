@@ -5,6 +5,9 @@ import '../global.css';
 import { LoadingProvider } from '@/context/loading';
 import { AuthProvider } from '@/context/auth';
 
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 function MyApp({ Component, pageProps }) {
 	const getLayout = Component.getLayout || ((page) => page);
 

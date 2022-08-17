@@ -1,8 +1,8 @@
 import Navbar from '../Navbar';
 import Footer from '../Footer';
-import { navbarLinks } from '../../constant/navbar';
-import { faqLinks, sosmedLinks } from '../../constant/footer';
-import primaxcelLogo from '../../public/primaxcel_logo.svg';
+import { navbarLinks } from '@/constant/navbar';
+import { faqLinks, sosmedLinks } from '@/constant/footer';
+import primaxcelLogo from '@/public/primaxcel_logo.svg';
 
 export const MainLayout = ({ children }) => {
 	return (

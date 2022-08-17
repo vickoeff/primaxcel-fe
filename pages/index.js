@@ -10,14 +10,11 @@ import {
 	Textarea,
 	Select,
 } from '@chakra-ui/react';
-import { SectionA, SectionB, SectionC } from '../components/Layouts';
-import CarouselItem from '../components/CarouselItem';
+import { SectionA, SectionB, SectionC } from '@/components/Layouts';
+import CarouselItem from '@/components/CarouselItem';
 import Image from 'next/image';
 import { useForm } from 'react-hook-form';
-
-// carousel
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Carousel } from 'react-responsive-carousel';
+import Slider from 'react-slick';
 
 // import static image
 import cosmeticBottle from '../public/Cosmetic-Bottle-Mockups-Primaxcel_1.png';
@@ -47,6 +44,16 @@ const Home = () => {
 	const onSubmit = (data) => console.log(data);
 
 	console.log(watch('example'));
+
+	const carouselSettings = {
+		dots: false,
+		arrows: false,
+		centerMode: true,
+		infinite: true,
+		speed: 500,
+		slidesToShow: 5,
+		slidesToScroll: 1,
+	};
 
 	const formStyle = {
 		backgroundColor: 'primaxBlue',
@@ -126,7 +133,7 @@ const Home = () => {
 				}
 			/>
 			<SectionA
-				bg="primaxLightWhite"
+				bg="primaxWhite"
 				leftContent={
 					<>
 						<Box
@@ -171,7 +178,7 @@ const Home = () => {
 			/>
 			<SectionA
 				isReverse
-				bg="primaxLightWhite"
+				bg="primaxWhite"
 				customSize={['65%', '35%']}
 				leftContent={
 					<>
@@ -219,22 +226,18 @@ const Home = () => {
 			<Box py={10} bg="primaxLightBlue" textAlign="center">
 				<Text as="h2">Produk yang kami produksi</Text>
 
-				<Carousel
-					centerMode
-					autoPlay
-					showIndicators={false}
-					showArrows={false}
-					swipeable
-					infiniteLoop
-					interval={1500}
-				>
-					<HStack gap={8}>
-						<CarouselItem img={skinCare} label="Lorem Ipsum" />
-						<CarouselItem img={skinCare} label="Lorem Ipsum" />
-						<CarouselItem img={skinCare} label="Lorem Ipsum" />
-						<CarouselItem img={skinCare} label="Lorem Ipsum" />
-					</HStack>
-				</Carousel>
+				<Slider {...carouselSettings}>
+					<CarouselItem img={skinCare} label="Lorem Ipsum" />
+					<CarouselItem img={skinCare} label="Lorem Ipsum" />
+					<CarouselItem img={skinCare} label="Lorem Ipsum" />
+					<CarouselItem img={skinCare} label="Lorem Ipsum" />
+					<CarouselItem img={skinCare} label="Lorem Ipsum" />
+					<CarouselItem img={skinCare} label="Lorem Ipsum" />
+					<CarouselItem img={skinCare} label="Lorem Ipsum" />
+					<CarouselItem img={skinCare} label="Lorem Ipsum" />
+					<CarouselItem img={skinCare} label="Lorem Ipsum" />
+					<CarouselItem img={skinCare} label="Lorem Ipsum" />
+				</Slider>
 
 				<Button py={8} px={14}>
 					Cara Order

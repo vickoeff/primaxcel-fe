@@ -1,4 +1,4 @@
-import { SectionA, SectionC } from '../components/Layouts';
+import { SectionA, SectionC } from '@/components/Layouts';
 import {
 	Box,
 	Container,
@@ -10,10 +10,7 @@ import {
 	Button,
 } from '@chakra-ui/react';
 import Image from 'next/image';
-
-// carousel
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Carousel } from 'react-responsive-carousel';
+import Slider from 'react-slick';
 
 // import static image
 import SetSkinPack from '../public/set-skin-care-package-banner-design-resource.png';
@@ -23,6 +20,16 @@ import Mij from '../public/mij.png';
 import { MainLayout } from '../components/Layouts';
 
 const OurCompany = () => {
+	const carouselSettings = {
+		dots: false,
+		arrows: false,
+		centerMode: true,
+		infinite: true,
+		speed: 500,
+		slidesToShow: 3,
+		slidesToScroll: 1,
+	};
+
 	return (
 		<>
 			<Box bg="primaxLightBlue">
@@ -101,19 +108,11 @@ const OurCompany = () => {
 					Brand yang Maklon di Primaxcel
 				</Text>
 
-				<Carousel
-					centerMode
-					autoPlay
-					showIndicators={false}
-					showArrows={false}
-					swipeable
-					infiniteLoop
-					interval={1500}
-				>
+				<Slider {...carouselSettings}>
 					<Image src={AyuDerma} alt="ayu-derma" />
 					<Image src={ISkin} alt="i-skin" />
 					<Image src={Mij} alt="mij" />
-				</Carousel>
+				</Slider>
 			</Box>
 
 			<Box py={12} textAlign="center">
