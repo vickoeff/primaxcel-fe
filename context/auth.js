@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import services from '@/services';
 import { useToast } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 
 const defaultAuthState = {
 	user: {
@@ -17,6 +18,7 @@ const useAuth = () => {
 };
 
 const AuthProvider = ({ children }) => {
+	const router = useRouter();
 	const toast = useToast();
 	const [user, setUser] = useState({
 		name: '',
@@ -48,7 +50,9 @@ const AuthProvider = ({ children }) => {
 			}
 		};
 
-		getUserProfile();
+		if (router && router.pathname.includes('/admin')) {
+			getUserProfile();
+		}
 	}, []);
 
 	const value = { user, setUser };
