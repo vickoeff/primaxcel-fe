@@ -138,6 +138,9 @@ const Products = () => {
 					padding="12px !important"
 					borderRadius="8px !important"
 					onClick={addProduct}
+					_hover={{
+						color: 'white',
+					}}
 				>
 					Add product
 				</Button>

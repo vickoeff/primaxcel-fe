@@ -143,6 +143,9 @@ const Blogs = () => {
 				<Button
 					padding="12px !important"
 					borderRadius="8px !important"
+					_hover={{
+						color: 'white',
+					}}
 					onClick={addBlog}
 				>
 					Add blog

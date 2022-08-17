@@ -124,6 +124,9 @@ const Socmed = () => {
 				<Button
 					padding="12px !important"
 					borderRadius="8px !important"
+					_hover={{
+						color: 'white',
+					}}
 					onClick={addSocmed}
 				>
 					Add social media
