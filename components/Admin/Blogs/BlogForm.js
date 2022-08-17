@@ -8,12 +8,15 @@ import {
 	Icon,
 	Text,
 	Image,
-	Textarea,
 	Select,
 } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
 import { useState, useRef, useEffect } from 'react';
 import { FaTrash } from 'react-icons/fa';
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
+import 'react-quill/dist/quill.snow.css';
+import styles from './BlogForm.module.css';
 
 const BlogForm = ({ onSubmitBlog, currentBlog = null }) => {
 	const router = useRouter();
@@ -21,7 +24,6 @@ const BlogForm = ({ onSubmitBlog, currentBlog = null }) => {
 	const [blog, setBlog] = useState({
 		image: '',
 		title: '',
-		description: '',
 		isActive: '1',
 		type: 'new_trend',
 	});
@@ -30,8 +32,9 @@ const BlogForm = ({ onSubmitBlog, currentBlog = null }) => {
 	const [error, setError] = useState({
 		image: '',
 		title: '',
-		description: '',
 	});
+	const [errorDesc, setErrorDesc] = useState('');
+	const [description, setDescription] = useState('');
 
 	useEffect(() => {
 		if (!currentBlog) return;
@@ -41,11 +44,11 @@ const BlogForm = ({ onSubmitBlog, currentBlog = null }) => {
 		setBlog({
 			...blog,
 			image,
-			description,
 			isActive,
 			title,
 			type,
 		});
+		setDescription(description);
 		setImagePreview(preview);
 	}, [currentBlog]);
 
@@ -64,6 +67,11 @@ const BlogForm = ({ onSubmitBlog, currentBlog = null }) => {
 		});
 	};
 
+	const onDescChange = (payload) => {
+		setDescription(payload);
+		setErrorDesc('');
+	};
+
 	const onCancel = () => {
 		router.push('/admin/blogs');
 	};
@@ -73,15 +81,19 @@ const BlogForm = ({ onSubmitBlog, currentBlog = null }) => {
 
 		setError({
 			image: blog.image ? '' : 'Please fill the required field',
-			description: blog.description ? '' : 'Please fill the required field',
-			title: blog.description ? '' : 'Please fill the required field',
+			title: blog.title ? '' : 'Please fill the required field',
 		});
 
-		if (!blog.image || !blog.description || !blog.title) return;
+		if (!description) {
+			setErrorDesc('Please fill the required field');
+		}
+
+		if (!blog.image || !description || !blog.title) return;
 
 		onSubmitBlog({
 			...blog,
 			file: imageFile,
+			description,
 		});
 	};
 
@@ -117,7 +129,6 @@ const BlogForm = ({ onSubmitBlog, currentBlog = null }) => {
 			as="form"
 			py={4}
 			px={6}
-			width="480px"
 			flexDirection="column"
 			onSubmit={onSubmitForm}
 		>
@@ -140,87 +151,93 @@ const BlogForm = ({ onSubmitBlog, currentBlog = null }) => {
 					</Text>
 				)}
 			</Flex>
-			<FormControl isInvalid={error.image} mt={2}>
-				<FormLabel fontWeight={600} fontSize="14px" mb="0">
-					Image
-				</FormLabel>
-				<input
-					type="file"
-					accept="image/png, image/jpeg"
-					name="file"
-					ref={inputRef}
-					style={{
-						position: 'absolute',
-						width: '100%',
-						height: '100%',
-						display: 'none',
-					}}
-					onChange={onFileChange}
-				></input>
-				<Input
-					mt={1}
-					cursor="pointer"
-					readOnly
-					placeholder="Your image file"
-					value={blog.image}
-					onClick={() => inputRef.current.click()}
-				/>
-				<Flex
-					position="absolute"
-					right="-32px"
-					top="36px"
-					cursor="pointer"
-					onClick={onDeleteImage}
-				>
-					<Icon as={FaTrash}></Icon>
-				</Flex>
-				<FormErrorMessage mt={1}>{error.image}</FormErrorMessage>
-			</FormControl>
-			<FormControl isInvalid={error.title} mt={4}>
-				<FormLabel fontWeight={600} fontSize="14px" mb="0">
-					Title
-				</FormLabel>
-				<Input
-					type="text"
-					mt={1}
-					value={blog.title}
-					name="title"
-					onChange={onFormChange}
-				/>
-				<FormErrorMessage mt={1}>{error.title}</FormErrorMessage>
-			</FormControl>
-			<FormControl mt={4}>
-				<FormLabel fontWeight={600} fontSize="14px" mb="0">
-					Status
-				</FormLabel>
-				<Select name="isActive" value={blog.isActive} onChange={onFormChange}>
-					<option value={0}>Inactive</option>
-					<option value={1}>Active</option>
-				</Select>
-			</FormControl>
-			<FormControl mt={4}>
-				<FormLabel fontWeight={600} fontSize="14px" mb="0">
-					Type
-				</FormLabel>
-				<Select name="type" value={blog.type} onChange={onFormChange}>
-					<option value="new_trend">New trend</option>
-					<option value="beauty_tips">Beauty tips</option>
-					<option value="maklon">Maklon</option>
-					<option value="online_marketing">Online marketing</option>
-					<option value="company_updates">Company updates</option>
-				</Select>
-			</FormControl>
-			<FormControl isInvalid={error.description} mt={4}>
-				<FormLabel fontWeight={600} fontSize="14px" mb="0">
+			<Flex width="480px" flexDirection="column">
+				<FormControl isInvalid={error.image} mt={2}>
+					<FormLabel fontWeight={600} fontSize="14px" mb="0">
+						Image
+					</FormLabel>
+					<input
+						type="file"
+						accept="image/png, image/jpeg"
+						name="file"
+						ref={inputRef}
+						style={{
+							position: 'absolute',
+							width: '100%',
+							height: '100%',
+							display: 'none',
+						}}
+						onChange={onFileChange}
+					></input>
+					<Input
+						mt={1}
+						cursor="pointer"
+						readOnly
+						placeholder="Your image file"
+						value={blog.image}
+						onClick={() => inputRef.current.click()}
+					/>
+					<Flex
+						position="absolute"
+						right="-32px"
+						top="36px"
+						cursor="pointer"
+						onClick={onDeleteImage}
+					>
+						<Icon as={FaTrash}></Icon>
+					</Flex>
+					<FormErrorMessage mt={1}>{error.image}</FormErrorMessage>
+				</FormControl>
+				<FormControl isInvalid={error.title} mt={4}>
+					<FormLabel fontWeight={600} fontSize="14px" mb="0">
+						Title
+					</FormLabel>
+					<Input
+						type="text"
+						mt={1}
+						value={blog.title}
+						name="title"
+						onChange={onFormChange}
+					/>
+					<FormErrorMessage mt={1}>{error.title}</FormErrorMessage>
+				</FormControl>
+				<FormControl mt={4}>
+					<FormLabel fontWeight={600} fontSize="14px" mb="0">
+						Status
+					</FormLabel>
+					<Select
+						name="isActive"
+						value={blog.isActive}
+						onChange={onFormChange}
+						mt={1}
+					>
+						<option value={0}>Inactive</option>
+						<option value={1}>Active</option>
+					</Select>
+				</FormControl>
+				<FormControl mt={4}>
+					<FormLabel fontWeight={600} fontSize="14px" mb="0">
+						Type
+					</FormLabel>
+					<Select name="type" value={blog.type} onChange={onFormChange} mt={1}>
+						<option value="new_trend">New trend</option>
+						<option value="beauty_tips">Beauty tips</option>
+						<option value="maklon">Maklon</option>
+						<option value="online_marketing">Online marketing</option>
+						<option value="company_updates">Company updates</option>
+					</Select>
+				</FormControl>
+			</Flex>
+			<FormControl isInvalid={errorDesc} mt={4}>
+				<FormLabel fontWeight={600} fontSize="14px" mb={1}>
 					Description
 				</FormLabel>
-				<Textarea
-					mt={1}
-					value={blog.description}
-					name="description"
-					onChange={onFormChange}
-				></Textarea>
-				<FormErrorMessage mt={1}>{error.description}</FormErrorMessage>
+				<ReactQuill
+					value={description}
+					onChange={onDescChange}
+					className={styles.editor}
+				/>
+				<FormErrorMessage mt={1}>{errorDesc}</FormErrorMessage>
 			</FormControl>
 			<Flex mt={5} alignSelf="flex-end">
 				<Button

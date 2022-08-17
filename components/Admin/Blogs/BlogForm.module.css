@@ -1,0 +1,16 @@
+.editor button, .editor button:hover {
+  background: none !important;
+  padding: 3px 5px !important;
+}
+
+.editor h2 {
+  font-weight: inherit !important;
+  color: inherit !important;
+}
+
+.editor p {
+  font-weight: inherit !important;
+  color: inherit !important;
+  font-size: inherit !important;
+  text-align: inherit !important;
+}
