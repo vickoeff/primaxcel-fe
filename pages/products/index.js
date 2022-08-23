@@ -6,6 +6,7 @@ import { MainLayout } from '@/components/Layouts';
 
 const Products = () => {
 	const router = useRouter();
+
 	const handleProductDetail = () => {
 		router.push(`${router.pathname}/skin-care`);
 	};
