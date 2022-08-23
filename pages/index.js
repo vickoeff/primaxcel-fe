@@ -17,21 +17,21 @@ import { useForm } from 'react-hook-form';
 import Slider from 'react-slick';
 
 // import static image
-import cosmeticBottle from '../public/Cosmetic-Bottle-Mockups-Primaxcel_1.png';
-import primaxLogoHD from '../public/Primaxcel-FullHD.png';
-import MockUpBottle from '../public/Mockup-Bottle-Primaxcel4.png';
-import ModernBeauty from '../public/modern-beauty-products-different-recipients-composition.png';
-import OilDropper from '../public/front-view-skin-oil-droppers-composition.png';
-import skinCare from '../public/set-skin-care-package-design-resource.png';
-import discuss from '../public/discuss.svg';
-import money from '../public/money.svg';
-import science from '../public/science.svg';
-import shield from '../public/shield.svg';
-import paper from '../public/paper.svg';
-import HalalLogo from '../public/halal_logo.png';
-import CpkbLogo from '../public/cpkb_logo.png';
-import GMPLogo from '../public/GMP_logo.png';
-import BPOMLogo from '../public/BPOM_logo.png';
+import cosmeticBottle from '../public/home/Cosmetic-Bottle-Mockups-Primaxcel_1.png';
+import primaxLogoHD from '../public/home/Primaxcel-FullHD.png';
+import MockUpBottle from '../public/home/Mockup-Bottle-Primaxcel4.png';
+import ModernBeauty from '../public/home/modern-beauty-products-different-recipients-composition.png';
+import OilDropper from '../public/home/front-view-skin-oil-droppers-composition.png';
+import skinCare from '../public/home/set-skin-care-package-design-resource.png';
+import discuss from '../public/home/discuss.svg';
+import money from '../public/home/money.svg';
+import science from '../public/home/science.svg';
+import shield from '../public/home/shield.svg';
+import paper from '../public/home/paper.svg';
+import HalalLogo from '../public/home/halal_logo.png';
+import CpkbLogo from '../public/home/cpkb_logo.png';
+import GMPLogo from '../public/home/GMP_logo.png';
+import BPOMLogo from '../public/home/BPOM_logo.png';
 import { MainLayout } from '../components/Layouts';
 
 const Home = () => {
@@ -425,7 +425,7 @@ const Home = () => {
 
 			<Box
 				style={{
-					backgroundImage: `url(/courius_bg.png)`,
+					backgroundImage: `url(/home/courius_bg.png)`,
 					backgroundRepeat: 'no-repeat',
 					backgroundSize: 'cover',
 				}}

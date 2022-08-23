@@ -13,10 +13,10 @@ import Image from 'next/image';
 import Slider from 'react-slick';
 
 // import static image
-import SetSkinPack from '../public/set-skin-care-package-banner-design-resource.png';
-import AyuDerma from '../public/ayu-derma.png';
-import ISkin from '../public/i-skin.png';
-import Mij from '../public/mij.png';
+import SetSkinPack from '../public/our-company/set-skin-care-package-banner-design-resource.png';
+import AyuDerma from '../public/our-company/ayu-derma.png';
+import ISkin from '../public/our-company/i-skin.png';
+import Mij from '../public/our-company/mij.png';
 import { MainLayout } from '../components/Layouts';
 
 const OurCompany = () => {
@@ -149,7 +149,7 @@ const OurCompany = () => {
 					<div
 						style={{
 							backgroundImage:
-								'url(/aesthetic-spa-essentials-background-home-decor.png)',
+								'url(/our-company/aesthetic-spa-essentials-background-home-decor.png)',
 							backgroundPosition: 'center',
 							backgroundSize: 'cover',
 						}}
