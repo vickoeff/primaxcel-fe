@@ -54,34 +54,39 @@ const BlogPreview = () => {
 	return isLoading ? (
 		<Loading></Loading>
 	) : (
-		<Box as="article" width="85%" margin="0 auto" className="ql-snow">
-			{blog.blogSections.map((section, index) => (
-				<Box
-					as="section"
-					key={`key-section-${index}`}
-					mt={index ? '30px' : 0}
-					className="ql-editor blog-preview"
-				>
-					{section.imageUrl ? (
-						<>
-							<Image
-								src={section.imageUrl}
-								alt={`Section image ${index + 1}`}
+		<Box as="article" width="85%" margin="0 auto" className="ql-snow ">
+			<Box className="ql-editor">
+				{blog.blogSections.map((section, index) => (
+					<Box
+						as="section"
+						key={`key-section-${index}`}
+						mt={index ? '16px' : 0}
+						className="blog-preview"
+					>
+						{section.imageUrl ? (
+							<Box
 								maxWidth="50%"
 								float={section.imagePosition}
 								mr={section.imagePosition === 'left' ? '16px' : 0}
 								ml={section.imagePosition === 'right' ? '16px' : 0}
 								mb="16px"
-							></Image>
-						</>
-					) : null}
-					{index === 0 ? <h1>{blog.title}</h1> : null}
-					<Box
-						dangerouslySetInnerHTML={{ __html: section.description }}
-						className="blog-preview__container"
-					/>
-				</Box>
-			))}
+							>
+								<Image
+									src={section.imageUrl}
+									alt={`Section image ${index + 1}`}
+								></Image>
+							</Box>
+						) : null}
+						{index === 0 ? (
+							<h1 className="blog-preview__title">{blog.title}</h1>
+						) : null}
+						<Box
+							dangerouslySetInnerHTML={{ __html: section.description }}
+							className="blog-preview__container"
+						/>
+					</Box>
+				))}
+			</Box>
 		</Box>
 	);
 };
