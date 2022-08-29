@@ -88,6 +88,10 @@ const Blogs = () => {
 		router.push(`/admin/blogs/${id}`);
 	};
 
+	const onPreviewAction = (id) => {
+		window.open(`/admin/blogs/preview?id=${id}`);
+	};
+
 	const onOpenDeleteModal = (id) => {
 		setDeletedId(id);
 		onOpen();
@@ -163,6 +167,7 @@ const Blogs = () => {
 					isLoading={isLoading}
 					onOpenDeleteModal={onOpenDeleteModal}
 					onEditAction={onEditAction}
+					onPreviewAction={onPreviewAction}
 				></BlogTable>
 				{blogs.length || isLoading ? (
 					<Pagination

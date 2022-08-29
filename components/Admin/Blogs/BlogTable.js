@@ -19,7 +19,13 @@ import {
 import { FaCaretDown } from 'react-icons/fa';
 import { BLOG_TYPE } from '@/constant/blogs';
 
-const BlogTable = ({ data, isLoading, onOpenDeleteModal, onEditAction }) => {
+const BlogTable = ({
+	data,
+	isLoading,
+	onOpenDeleteModal,
+	onEditAction,
+	onPreviewAction,
+}) => {
 	return (
 		<TableContainer whiteSpace="normal">
 			<Table variant="simple">
@@ -30,9 +36,6 @@ const BlogTable = ({ data, isLoading, onOpenDeleteModal, onEditAction }) => {
 						</Th>
 						<Th padding="12px" minWidth="250px">
 							Title
-						</Th>
-						<Th padding="12px" whiteSpace="normal" minWidth="400px">
-							Description
 						</Th>
 						<Th padding="12px">Status</Th>
 						<Th padding="12px" minWidth="200px">
@@ -81,7 +84,6 @@ const BlogTable = ({ data, isLoading, onOpenDeleteModal, onEditAction }) => {
 										</Flex>
 									</Td>
 									<Td padding="8px 12px">{blog.title}</Td>
-									<Td padding="8px 12px">{blog.description}</Td>
 									<Td padding="8px 12px">
 										{blog.isActive ? 'Active' : 'Inactive'}
 									</Td>
@@ -107,6 +109,20 @@ const BlogTable = ({ data, isLoading, onOpenDeleteModal, onEditAction }) => {
 											<PopoverContent width="150px">
 												<PopoverBody padding="8px 0">
 													<Flex as="ul" flexDirection="column" textAlign="left">
+														<Box
+															as="li"
+															listStyleType="none"
+															px={4}
+															py={2}
+															width="100%"
+															cursor="pointer"
+															_hover={{
+																bg: 'gray.100',
+															}}
+															onClick={() => onPreviewAction(blog.id)}
+														>
+															Preview
+														</Box>
 														<Box
 															as="li"
 															listStyleType="none"

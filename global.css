@@ -1,3 +1,19 @@
 #__next {
   height: 100%;
 }
+
+.blog-preview {
+  padding: 0;
+}
+
+.blog-preview__container > p {
+  margin: 0;
+  font-weight: inherit !important;
+  color: inherit !important;
+  font-size: inherit !important;
+}
+
+.blog-preview__container > h2 {
+  font-weight: inherit !important;
+  color: inherit !important;
+}

@@ -16,11 +16,19 @@ const EditBlog = () => {
 	const [blog, setBlog] = useState({
 		image: '',
 		title: '',
-		description: '',
-		isActive: '1',
+		isActive: '0',
 		type: 'new_trend',
 		preview: '',
 	});
+	const [sections, setSections] = useState([
+		{
+			description: '',
+			imagePosition: '',
+			image: '',
+			imageFile: null,
+			error: '',
+		},
+	]);
 
 	useEffect(() => {
 		if (!router.isReady) return;
@@ -39,11 +47,21 @@ const EditBlog = () => {
 					setBlog({
 						image: response.data.imageName,
 						title: response.data.title,
-						description: response.data.description,
 						isActive: response.data.isActive,
 						type: BLOG_TYPE_VALUE[response.data.type] || 'new_trend',
 						preview: response.data.imageUrl,
 					});
+					setSections(
+						response.data.blogSections.map((section) => {
+							return {
+								description: section.description,
+								imagePosition: section.imagePosition || '',
+								image: section.imageName || '',
+								imageFile: null,
+								error: '',
+							};
+						})
+					);
 				}
 			} catch (error) {
 				toast({
@@ -73,9 +91,33 @@ const EditBlog = () => {
 		}
 
 		formData.append('title', payload.title);
-		formData.append('description', payload.description);
 		formData.append('isActive', payload.isActive);
 		formData.append('type', payload.type);
+
+		const sections = payload.sections.map((section) => {
+			return {
+				image: section.imageFile,
+				imageName: section.image,
+				imagePosition: section.imagePosition,
+				description: section.description,
+			};
+		});
+
+		for (const index = 0; index < sections.length; index++) {
+			formData.append(
+				`sections[${index}][description]`,
+				sections[index].description
+			);
+			formData.append(
+				`sections[${index}][imagePosition]`,
+				sections[index].imagePosition
+			);
+			formData.append(`sections[${index}][image]`, sections[index].image);
+			formData.append(
+				`sections[${index}][imageName]`,
+				sections[index].imageName
+			);
+		}
 
 		try {
 			const response = await services.updateBlog(editedId, formData);
@@ -110,7 +152,11 @@ const EditBlog = () => {
 				title="Edit blog"
 				navigations={EDIT_BLOGS_NAVIGATIONS}
 			></Breadcrumb>
-			<BlogForm onSubmitBlog={onEditBlog} currentBlog={blog}></BlogForm>
+			<BlogForm
+				onSubmitBlog={onEditBlog}
+				currentBlog={blog}
+				currentSections={sections}
+			></BlogForm>
 		</>
 	);
 };

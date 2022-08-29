@@ -19,9 +19,28 @@ const AddBlog = () => {
 
 		formData.append('image', payload.file);
 		formData.append('title', payload.title);
-		formData.append('description', payload.description);
 		formData.append('isActive', payload.isActive);
 		formData.append('type', payload.type);
+
+		const sections = payload.sections.map((section) => {
+			return {
+				image: section.imageFile,
+				imagePosition: section.imagePosition,
+				description: section.description,
+			};
+		});
+
+		for (const index = 0; index < sections.length; index++) {
+			formData.append(
+				`sections[${index}][description]`,
+				sections[index].description
+			);
+			formData.append(
+				`sections[${index}][imagePosition]`,
+				sections[index].imagePosition
+			);
+			formData.append(`sections[${index}][image]`, sections[index].image);
+		}
 
 		try {
 			const response = await services.addBlog(formData);
