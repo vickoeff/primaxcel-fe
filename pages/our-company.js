@@ -13,7 +13,7 @@ import Image from 'next/image';
 import Slider from 'react-slick';
 
 // import static image
-import SetSkinPack from '../public/our-company/set-skin-care-package-banner-design-resource.png';
+import SetSkinPack from '../public/our-company/set-skin-care-package-banner-design-resource.jpg';
 import AyuDerma from '../public/our-company/ayu-derma.png';
 import ISkin from '../public/our-company/i-skin.png';
 import Mij from '../public/our-company/mij.png';
@@ -34,7 +34,7 @@ const OurCompany = () => {
 		<>
 			<Box bg="primaxLightBlue">
 				<Box pos="absolute" zIndex={1} maxH="3xl" overflow="hidden">
-					<Image src={SetSkinPack} alt="set_skin_care_package" />
+					<Image src={SetSkinPack} alt="Skin care package" />
 				</Box>
 				<Container pos="relative" maxW="container.lg" zIndex={2}>
 					<Flex alignItems="center" justifyContent="end" minH="3xl">
@@ -149,7 +149,7 @@ const OurCompany = () => {
 					<div
 						style={{
 							backgroundImage:
-								'url(/our-company/aesthetic-spa-essentials-background-home-decor.png)',
+								'url(/our-company/aesthetic-spa-essentials-background-home-decor.jpg)',
 							backgroundPosition: 'center',
 							backgroundSize: 'cover',
 						}}

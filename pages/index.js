@@ -23,21 +23,21 @@ import {
 } from '@/constant/products';
 
 // import static image
-import cosmeticBottle from '../public/home/Cosmetic-Bottle-Mockups-Primaxcel_1.png';
-import primaxLogoHD from '../public/home/Primaxcel-FullHD.png';
-import MockUpBottle from '../public/home/Mockup-Bottle-Primaxcel4.png';
-import ModernBeauty from '../public/home/modern-beauty-products-different-recipients-composition.png';
-import OilDropper from '../public/home/front-view-skin-oil-droppers-composition.png';
-import skinCare from '../public/home/set-skin-care-package-design-resource.png';
+import cosmeticBottle from '../public/home/primaxcel-botol-kosmetik.png';
+import mockUpBottle from '../public/home/primaxcel-produksi-kosmetik.png';
+import modernBeauty from '../public/home/primaxcel-maklon-dengan-kami.jpg';
+import oilDropper from '../public/home/primaxcel-maklon-skin-care.jpg';
+import skinCare from '../public/home/primaxcel-skin-care-product.jpg';
+import primaxLogoHD from '../public/home/primaxcel-logo.png';
 import discuss from '../public/home/discuss.svg';
 import money from '../public/home/money.svg';
 import science from '../public/home/science.svg';
 import shield from '../public/home/shield.svg';
 import paper from '../public/home/paper.svg';
-import HalalLogo from '../public/home/halal_logo.png';
-import CpkbLogo from '../public/home/cpkb_logo.png';
-import GMPLogo from '../public/home/GMP_logo.png';
-import BPOMLogo from '../public/home/BPOM_logo.png';
+import halalLogo from '../public/home/primaxcel-sertifikasi-halal.png';
+import cpkbLogo from '../public/home/primaxcel-sertifikasi-produsen.png';
+import gmpLogo from '../public/home/primaxcel-sertifikasi-gmp.png';
+import bpomLogo from '../public/home/primaxcel-sertifikasi-bpom.png';
 import { MainLayout } from '../components/Layouts';
 
 const Home = () => {
@@ -82,8 +82,8 @@ const Home = () => {
 				img={
 					<Box>
 						<Image
-							src={MockUpBottle}
-							alt={`image_${MockUpBottle}`}
+							src={mockUpBottle}
+							alt="Kosmetik produsen"
 							style={{ maxHeight: '100px' }}
 						/>
 					</Box>
@@ -91,7 +91,7 @@ const Home = () => {
 				content={
 					<>
 						<Box>
-							<Image src={primaxLogoHD} alt="Primaxcel_logo" />
+							<Image src={primaxLogoHD} alt="Primaxcel logo" />
 						</Box>
 						<Text as="p" fontWeight={700} color="primaxLightPurple">
 							Didirikan sebagai perusahaan produksi progresif, berfokus pada
@@ -105,7 +105,7 @@ const Home = () => {
 				bg="primaxLightBlue"
 				img={
 					<Box pos="relative" bottom="-8px">
-						<Image src={cosmeticBottle} alt={`image_${cosmeticBottle}`} />
+						<Image src={cosmeticBottle} alt="Primaxcel botol RnD" />
 					</Box>
 				}
 				content={
@@ -151,7 +151,7 @@ const Home = () => {
 							bg="primaxBlue"
 						></Box>
 						<Box pos="relative">
-							<Image src={ModernBeauty} alt={`image_${ModernBeauty}`} />
+							<Image src={modernBeauty} alt="Maklon bersama Primaxcel" />
 						</Box>
 					</>
 				}
@@ -200,7 +200,7 @@ const Home = () => {
 								h="sm"
 								bg="primaxBlue"
 							></Box>
-							<Image src={OilDropper} alt={`image_${ModernBeauty}`} />
+							<Image src={oilDropper} alt="Maklon dengan produk kecantikan" />
 						</Box>
 					</>
 				}
@@ -264,7 +264,7 @@ const Home = () => {
 								alignItems="end"
 								minH="155px"
 							>
-								<Image src={discuss} alt="discuss_image" />
+								<Image src={discuss} alt="Proses mudah" />
 							</Box>
 							<Text
 								as="h3"
@@ -289,7 +289,7 @@ const Home = () => {
 								alignItems="end"
 								minH="155px"
 							>
-								<Image src={money} alt="discuss_image" />
+								<Image src={money} alt="Modal kecil" />
 							</Box>
 							<Text
 								as="h3"
@@ -314,7 +314,7 @@ const Home = () => {
 								alignItems="end"
 								minH="155px"
 							>
-								<Image src={science} alt="discuss_image" />
+								<Image src={science} alt="RnD" />
 							</Box>
 							<Text
 								as="h3"
@@ -340,7 +340,7 @@ const Home = () => {
 								alignItems="end"
 								minH="155px"
 							>
-								<Image src={shield} alt="discuss_image" />
+								<Image src={shield} alt="Jaminan mutu dan kualitas" />
 							</Box>
 							<Text
 								as="h3"
@@ -366,7 +366,7 @@ const Home = () => {
 								alignItems="end"
 								minH="155px"
 							>
-								<Image src={paper} alt="discuss_image" />
+								<Image src={paper} alt="Perizinan mudah" />
 							</Box>
 							<Text
 								as="h3"
@@ -399,7 +399,7 @@ const Home = () => {
 							alignItems="end"
 							minH="155px"
 						>
-							<Image src={HalalLogo} alt="discuss_image" />
+							<Image src={halalLogo} alt="Sertifikasi halal" />
 						</Box>
 						<Box
 							display="flex"
@@ -407,7 +407,7 @@ const Home = () => {
 							alignItems="end"
 							minH="155px"
 						>
-							<Image src={BPOMLogo} alt="discuss_image" />
+							<Image src={bpomLogo} alt="Sertifikasi BPM" />
 						</Box>
 						<Box
 							display="flex"
@@ -415,7 +415,7 @@ const Home = () => {
 							alignItems="end"
 							minH="155px"
 						>
-							<Image src={GMPLogo} alt="discuss_image" />
+							<Image src={gmpLogo} alt="Sertifikasi GMP" />
 						</Box>
 						<Box
 							display="flex"
@@ -423,7 +423,7 @@ const Home = () => {
 							alignItems="end"
 							minH="155px"
 						>
-							<Image src={CpkbLogo} alt="discuss_image" />
+							<Image src={cpkbLogo} alt="Sertifikasi CPKB" />
 						</Box>
 					</HStack>
 				</Container>

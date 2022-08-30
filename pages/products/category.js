@@ -167,8 +167,8 @@ const SkinCare = () => {
 						></Box>
 						<Box pos="relative" width="100%" height="1015px">
 							<Image
-								src="/products/category/beauty-skincare-products-bathroom-3.png"
-								alt="beauty-skincare-products_image"
+								src="/products/category/produk-skin-care.jpg"
+								alt="Produk skin care primaxcel"
 								layout="fill"
 							/>
 						</Box>
@@ -303,8 +303,8 @@ const SkinCare = () => {
 						></Box>
 						<Box pos="relative" width="100%" height="1015px">
 							<Image
-								src="/products/category/minimal-composition-beauty-products_2.png"
-								alt="minimal-composition-beauty-products_2_image"
+								src="/products/category/produk-hair-and-body-care.jpg"
+								alt="Produk hair and body care"
 								layout="fill"
 							/>
 						</Box>
@@ -427,8 +427,8 @@ const SkinCare = () => {
 						></Box>
 						<Box pos="relative" width="100%" height="1015px">
 							<Image
-								src="/products/category/front-view-natural-self-care-products-composition_2.png"
-								alt="front-view-natural-self-care-products-composition_2_image"
+								src="/products/category/produk-rumah-tangga.jpg"
+								alt="Produk rumah tangga"
 								layout="fill"
 							/>
 						</Box>

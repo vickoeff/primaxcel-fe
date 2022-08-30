@@ -21,8 +21,8 @@ const Products = () => {
 				img={
 					<Box width="full" zIndex={2}>
 						<Image
-							src="/Tube-Mockup-Primaxcel.png"
-							alt="Tube-Mockup_image"
+							src="/products/produk-primaxcel.png"
+							alt="Produk primaxcel"
 							layout="fill"
 							objectFit="contain"
 						/>
@@ -72,8 +72,8 @@ const Products = () => {
 				rightContent={
 					<Box pos="relative" width="100%" height="723px">
 						<Image
-							src="/beauty-skincare-products-bathroom.png"
-							alt="beauty-skincare-products_image"
+							src="/products/produk-skin-care-primaxcel.jpg"
+							alt="Produk skin care primaxcel"
 							layout="fill"
 						/>
 					</Box>
@@ -88,8 +88,8 @@ const Products = () => {
 				leftContent={
 					<Box pos="relative" width="100%" height="612px">
 						<Image
-							src="/products/minimal-composition-beauty-products.png"
-							alt="minimal-composition-beauty_image"
+							src="/products/produk-hair-and-body-care.jpg"
+							alt="Produk hair and body care primaxcel"
 							layout="fill"
 						/>
 					</Box>
@@ -150,8 +150,8 @@ const Products = () => {
 				rightContent={
 					<Box pos="relative" width="100%" height="723px">
 						<Image
-							src="/products/front-view-natural-self-care-products-composition.png"
-							alt="front-view-natural_image"
+							src="/products/produk-rumah-tangga.jpg"
+							alt="Produk rumah tangga primaxcel"
 							layout="fill"
 						/>
 					</Box>
@@ -173,8 +173,8 @@ const Products = () => {
 						>
 							<Box pos="relative" width="100%" height="268px">
 								<Image
-									src="/products/beauty-skincare-products-bathroom-2.png"
-									alt="skincare-bathroom_image"
+									src="/products/paket-kecantikan.jpg"
+									alt="Paket kecantikan"
 									layout="fill"
 								/>
 							</Box>
@@ -193,8 +193,8 @@ const Products = () => {
 						>
 							<Box pos="relative" width="100%" height="268px">
 								<Image
-									src="/products/white-face-cream-tube-beauty-product-2.png"
-									alt="white-face-cream_image"
+									src="/products/krim-pemutih-wajah.jpg"
+									alt="Krim pemutih wajah"
 									layout="fill"
 								/>
 							</Box>
@@ -213,8 +213,8 @@ const Products = () => {
 						>
 							<Box pos="relative" width="100%" height="268px">
 								<Image
-									src="/products/top-view-hydro-alcoholic-gel-splashes-with-bottle-dispenser.png"
-									alt="top-view-hydro_image"
+									src="/products/hydro-alcoholic-gel.jpg"
+									alt="Hydro alcholic gel"
 									layout="fill"
 								/>
 							</Box>

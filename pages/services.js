@@ -31,16 +31,16 @@ const Services = () => {
 		{
 			// Image item:
 			itemId: '1',
-			mediaUrl: imgPath + '/1.png',
+			mediaUrl: imgPath + '/fasilitas-produksi-primaxcel-1.jpg',
 			metaData: {
 				type: 'image',
 				height: 300,
 				width: 100,
-				title: 'sample-title',
-				description: 'sample-description',
+				title: 'Fasilitas produksi primaxcel 1',
+				description: 'Fasilitas produksi primaxcel bagian 1',
 				focalPoint: [0, 0],
 				link: {
-					url: imgPath + '/1.png',
+					url: 'http://example.com',
 					target: '_blank',
 				},
 			},
@@ -48,13 +48,13 @@ const Services = () => {
 		{
 			// Another Image item:
 			itemId: '2',
-			mediaUrl: imgPath + '/2.png',
+			mediaUrl: imgPath + '/fasilitas-produksi-primaxcel-2.jpg',
 			metaData: {
 				type: 'image',
 				height: 200,
 				width: 100,
-				title: 'sample-title',
-				description: 'sample-description',
+				title: 'Fasilitas produksi primaxcel 2',
+				description: 'Fasilitas produksi primaxcel bagian 2',
 				focalPoint: [0, 0],
 				link: {
 					url: 'http://example.com',
@@ -65,13 +65,13 @@ const Services = () => {
 		{
 			// Another Image item:
 			itemId: '3',
-			mediaUrl: imgPath + '/3.png',
+			mediaUrl: imgPath + '/fasilitas-produksi-primaxcel-3.jpg',
 			metaData: {
 				type: 'image',
 				height: 200,
 				width: 100,
-				title: 'sample-title',
-				description: 'sample-description',
+				title: 'Fasilitas produksi primaxcel 3',
+				description: 'Fasilitas produksi primaxcel bagian 3',
 				focalPoint: [0, 0],
 				link: {
 					url: 'http://example.com',
@@ -82,13 +82,13 @@ const Services = () => {
 		{
 			// Another Image item:
 			itemId: '4',
-			mediaUrl: imgPath + '/4.png',
+			mediaUrl: imgPath + '/fasilitas-produksi-primaxcel-4.jpg',
 			metaData: {
 				type: 'image',
 				height: 200,
 				width: 100,
-				title: 'sample-title',
-				description: 'sample-description',
+				title: 'Fasilitas produksi primaxcel 4',
+				description: 'Fasilitas produksi primaxcel bagian 4',
 				focalPoint: [0, 0],
 				link: {
 					url: 'http://example.com',
@@ -99,13 +99,13 @@ const Services = () => {
 		{
 			// Another Image item:
 			itemId: '5',
-			mediaUrl: imgPath + '/5.png',
+			mediaUrl: imgPath + '/fasilitas-produksi-primaxcel-5.jpg',
 			metaData: {
 				type: 'image',
 				height: 200,
 				width: 100,
-				title: 'sample-title',
-				description: 'sample-description',
+				title: 'Fasilitas produksi primaxcel 5',
+				description: 'Fasilitas produksi primaxcel bagian 5',
 				focalPoint: [0, 0],
 				link: {
 					url: 'http://example.com',
@@ -116,13 +116,13 @@ const Services = () => {
 		{
 			// Another Image item:
 			itemId: '6',
-			mediaUrl: imgPath + '/6.png',
+			mediaUrl: imgPath + '/fasilitas-produksi-primaxcel-6.jpg',
 			metaData: {
 				type: 'image',
 				height: 200,
 				width: 100,
-				title: 'sample-title',
-				description: 'sample-description',
+				title: 'Fasilitas produksi primaxcel 6',
+				description: 'Fasilitas produksi primaxcel bagian 6',
 				focalPoint: [0, 0],
 				link: {
 					url: 'http://example.com',
@@ -170,8 +170,8 @@ const Services = () => {
 				leftContent={
 					<Box pos="relative" width="100%" height="723px">
 						<Image
-							src={imgPath + '/banner-services.png'}
-							alt="banner-services_image"
+							src={imgPath + '/face-scrub.jpg'}
+							alt="Face scrub produk"
 							layout="fill"
 						/>
 					</Box>
@@ -212,7 +212,7 @@ const Services = () => {
 
 			<Box
 				style={{
-					backgroundImage: `url(${imgPath}/modern-beauty-products-recipients-arrangement.png)`,
+					backgroundImage: `url(${imgPath}/produk-beauty-modern.jpg)`,
 					backgroundRepeat: 'no-repeat',
 					backgroundSize: 'cover',
 					backgroundColor: '#9FE0E945',
