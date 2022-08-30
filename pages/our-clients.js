@@ -140,7 +140,7 @@ const OurClients = () => {
 			<div
 				style={{
 					minHeight: 'calc(90vh - 77px)',
-					backgroundImage: `url(${imgPath}/banner.png)`,
+					backgroundImage: `url(${imgPath}/primaxcel-produk.png)`,
 					backgroundPosition: 'bottom',
 					backgroundRepeat: 'no-repeat',
 					backgroundSize: '100%',
@@ -295,8 +295,8 @@ const OurClients = () => {
 							zIndex={-1}
 						></Box>
 						<Image
-							src={`${imgPath}/woman-holds-jar-with-cosmetic-cream-her-hands.png`}
-							alt="woman-holds-jar-with-cosmetic-cream-her-hands"
+							src={`${imgPath}/primaxcel-cream-produk.jpg`}
+							alt="Primaxcel cream produk"
 							zIndex={1}
 						/>
 					</Box>
