@@ -33,3 +33,18 @@ export const PRODUCT_TYPE_VALUE = {
 	3: 'household',
 	4: 'skincare',
 };
+
+export const PRODUCT_CONTACT_TYPE = [
+	'Cleanser',
+	'Moisturizer',
+	'Face Lotion',
+	'Body Lotion',
+	'Serum',
+	'Lain-lain',
+];
+
+export const PRODUCT_MIN_MOQ = ['Min. 5000', '>5000', '10000'];
+
+export const PRODUCT_BUDGET = ['75-200jt', '200-300jt', '>300jt'];
+
+export const PRODUCT_OWNERSHIP = ['Perorangan', 'Perusahaan'];

@@ -11,6 +11,7 @@ const SkinCare = () => {
 				pb="4rem"
 				bg="primaxLightBlue"
 				alignItems="start"
+				id="face-care"
 				leftContent={
 					<Box width="full">
 						<Text
@@ -166,7 +167,7 @@ const SkinCare = () => {
 						></Box>
 						<Box pos="relative" width="100%" height="1015px">
 							<Image
-								src="/beauty-skincare-products-bathroom-3.png"
+								src="/products/category/beauty-skincare-products-bathroom-3.png"
 								alt="beauty-skincare-products_image"
 								layout="fill"
 							/>
@@ -180,6 +181,7 @@ const SkinCare = () => {
 				pb="4rem"
 				bg="primaxWhite"
 				alignItems="start"
+				id="hair-and-body"
 				leftContent={
 					<Box width="full">
 						<Text
@@ -301,7 +303,7 @@ const SkinCare = () => {
 						></Box>
 						<Box pos="relative" width="100%" height="1015px">
 							<Image
-								src="/minimal-composition-beauty-products_2.png"
+								src="/products/category/minimal-composition-beauty-products_2.png"
 								alt="minimal-composition-beauty-products_2_image"
 								layout="fill"
 							/>
@@ -315,6 +317,7 @@ const SkinCare = () => {
 				pb="4rem"
 				bg="primaxLightBlue"
 				alignItems="start"
+				id="household"
 				leftContent={
 					<Box width="full">
 						<Text
@@ -424,7 +427,7 @@ const SkinCare = () => {
 						></Box>
 						<Box pos="relative" width="100%" height="1015px">
 							<Image
-								src="/front-view-natural-self-care-products-composition_2.png"
+								src="/products/category/front-view-natural-self-care-products-composition_2.png"
 								alt="front-view-natural-self-care-products-composition_2_image"
 								layout="fill"
 							/>

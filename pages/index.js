@@ -15,6 +15,12 @@ import CarouselItem from '@/components/CarouselItem';
 import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 import Slider from 'react-slick';
+import {
+	PRODUCT_CONTACT_TYPE,
+	PRODUCT_MIN_MOQ,
+	PRODUCT_BUDGET,
+	PRODUCT_OWNERSHIP,
+} from '@/constant/products';
 
 // import static image
 import cosmeticBottle from '../public/home/Cosmetic-Bottle-Mockups-Primaxcel_1.png';
@@ -190,7 +196,7 @@ const Home = () => {
 								right={0}
 								left={0}
 								m="auto"
-								w="115%"
+								w="calc(100% + 40px)"
 								h="sm"
 								bg="primaxBlue"
 							></Box>
@@ -517,17 +523,24 @@ const Home = () => {
 									<FormControl>
 										<FormLabel {...formLabelStyle}>Jenis Produk</FormLabel>
 										<Select {...formStyle}>
-											<option value="option1">Option 1</option>
-											<option value="option2">Option 2</option>
-											<option value="option3">Option 3</option>
+											{PRODUCT_CONTACT_TYPE.map((product, index) => (
+												<option
+													key={`product-contact-type-${index}`}
+													value={product}
+												>
+													{product}
+												</option>
+											))}
 										</Select>
 									</FormControl>
 									<FormControl>
 										<FormLabel {...formLabelStyle}>Min. MOQ</FormLabel>
 										<Select {...formStyle}>
-											<option value="option1">Option 1</option>
-											<option value="option2">Option 2</option>
-											<option value="option3">Option 3</option>
+											{PRODUCT_MIN_MOQ.map((moq, index) => (
+												<option key={`product-moq-${index}`} value={moq}>
+													{moq}
+												</option>
+											))}
 										</Select>
 									</FormControl>
 								</HStack>
@@ -535,23 +548,29 @@ const Home = () => {
 									<FormControl>
 										<FormLabel {...formLabelStyle}>Kepemilikan</FormLabel>
 										<Select {...formStyle}>
-											<option value="option1">Option 1</option>
-											<option value="option2">Option 2</option>
-											<option value="option3">Option 3</option>
+											{PRODUCT_OWNERSHIP.map((ownership, index) => (
+												<option
+													key={`product-ownership-${index}`}
+													value={ownership}
+												>
+													{ownership}
+												</option>
+											))}
 										</Select>
 									</FormControl>
 									<FormControl>
 										<FormLabel {...formLabelStyle}>Budget</FormLabel>
-
 										<Select {...formStyle}>
-											<option value="option1">Option 1</option>
-											<option value="option2">Option 2</option>
-											<option value="option3">Option 3</option>
+											{PRODUCT_BUDGET.map((budget, index) => (
+												<option key={`product-budget-${index}`} value={budget}>
+													{budget}
+												</option>
+											))}
 										</Select>
 									</FormControl>
 								</HStack>
 								<FormControl>
-									<FormLabel {...formLabelStyle}>Inforasi Lainnya</FormLabel>
+									<FormLabel {...formLabelStyle}>Informasi Lainnya</FormLabel>
 									<Textarea
 										{...formStyle}
 										maxW="full"

@@ -19,7 +19,7 @@ const Services = () => {
 	const galleryEl = useRef(null);
 
 	const handleServicesDetail = () => {
-		router.push(`${router.pathname}/skin-care`);
+		router.push(`${router.pathname}/category`);
 	};
 
 	const imgPath = router.pathname;

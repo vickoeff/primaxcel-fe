@@ -7,8 +7,8 @@ import { MainLayout } from '@/components/Layouts';
 const Products = () => {
 	const router = useRouter();
 
-	const handleProductDetail = () => {
-		router.push(`${router.pathname}/skin-care`);
+	const handleProductDetail = (_, path) => {
+		router.push(`${router.pathname}/category#${path}`);
 	};
 
 	return (
@@ -61,7 +61,7 @@ const Products = () => {
 							as="a"
 							variant="link"
 							role="link"
-							onClick={handleProductDetail}
+							onClick={(event) => handleProductDetail(event, 'face-care')}
 						>
 							<Text as="p" fontWeight="semibold">
 								Lebih lengkap...
@@ -88,7 +88,7 @@ const Products = () => {
 				leftContent={
 					<Box pos="relative" width="100%" height="612px">
 						<Image
-							src="/minimal-composition-beauty-products.png"
+							src="/products/minimal-composition-beauty-products.png"
 							alt="minimal-composition-beauty_image"
 							layout="fill"
 						/>
@@ -110,7 +110,7 @@ const Products = () => {
 							as="a"
 							variant="link"
 							role="link"
-							onClick={handleProductDetail}
+							onClick={(event) => handleProductDetail(event, 'hair-and-body')}
 						>
 							<Text as="p" fontWeight="semibold">
 								Lebih lengkap...
@@ -135,7 +135,12 @@ const Products = () => {
 							maupun korporasi dengan kualitas tinggi. Kami bisa membantu anda
 							membuat produk sesuai kebutuhan dengan kualitas tinggi.
 						</Text>
-						<Button as="a" variant="link" role="link">
+						<Button
+							as="a"
+							variant="link"
+							role="link"
+							onClick={(event) => handleProductDetail(event, 'household')}
+						>
 							<Text as="p" fontWeight="semibold">
 								Lebih lengkap...
 							</Text>
@@ -145,7 +150,7 @@ const Products = () => {
 				rightContent={
 					<Box pos="relative" width="100%" height="723px">
 						<Image
-							src="/front-view-natural-self-care-products-composition.png"
+							src="/products/front-view-natural-self-care-products-composition.png"
 							alt="front-view-natural_image"
 							layout="fill"
 						/>
@@ -168,7 +173,7 @@ const Products = () => {
 						>
 							<Box pos="relative" width="100%" height="268px">
 								<Image
-									src="/beauty-skincare-products-bathroom-2.png"
+									src="/products/beauty-skincare-products-bathroom-2.png"
 									alt="skincare-bathroom_image"
 									layout="fill"
 								/>
@@ -188,7 +193,7 @@ const Products = () => {
 						>
 							<Box pos="relative" width="100%" height="268px">
 								<Image
-									src="/white-face-cream-tube-beauty-product-2.png"
+									src="/products/white-face-cream-tube-beauty-product-2.png"
 									alt="white-face-cream_image"
 									layout="fill"
 								/>
@@ -208,7 +213,7 @@ const Products = () => {
 						>
 							<Box pos="relative" width="100%" height="268px">
 								<Image
-									src="/top-view-hydro-alcoholic-gel-splashes-with-bottle-dispenser.png"
+									src="/products/top-view-hydro-alcoholic-gel-splashes-with-bottle-dispenser.png"
 									alt="top-view-hydro_image"
 									layout="fill"
 								/>
