@@ -1,13 +1,16 @@
+import { useState, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { SectionA } from '@/components/Layouts';
 import { Box, Container, HStack, Text, Image, Button } from '@chakra-ui/react';
-// import Image from 'next/image';
+import ClientsDetailModal from '@/components/ClientsDetailModal';
 
 // import static image
 import { MainLayout } from '../components/Layouts';
 import Products from './admin/products';
 
 const OurClients = () => {
+	const [isOpenModal, setOpenModal] = useState(false);
+	const [modalCategory, setModalCategory] = useState('');
 	const router = useRouter();
 
 	const imgPath = router.pathname;
@@ -134,6 +137,71 @@ const OurClients = () => {
 		},
 	];
 
+	const handleOpenModal = (category) => {
+		setOpenModal(true);
+		setModalCategory(category);
+	}
+
+	const handleCloseModal = () => {
+		setOpenModal(false);
+	}
+
+	const modalContent = useMemo(() => {
+		switch(modalCategory) {
+			case 'household':
+				return (
+					<HStack flexWrap="wrap" justifyContent="space-around" my={14}>
+						{householdProducts.map((product) => (
+							<Box minW="30%" key={product.name}>
+								<Image src={product.src} alt={product.name} mx="auto" />
+								<Text as="p" textAlign="center" fontWeight="bold">
+									{product.name}
+								</Text>
+							</Box>
+						))}
+					</HStack>
+				)
+			case 'skincare':
+				return (
+					<HStack flexWrap="wrap" justifyContent="space-around" my={20}>
+						{skinCareProducts.map((product) => (
+							<Box minW="30%" key={product.name}>
+								<Image src={product.src} alt={product.name} mx="auto" />
+								<Text as="p" textAlign="center" fontWeight="bold">
+									{product.name}
+								</Text>
+							</Box>
+						))}
+					</HStack>
+				)
+			case 'testimoni':
+				return (
+					<HStack justifyContent="center" flexWrap="wrap" gap={8} my={20}>
+						{testimoni.map((testi, idx) => (
+							<Box
+								display="flex"
+								maxW="calc(50% - 1.3rem)"
+								p={6}
+								key={idx}
+								bg="primaxBlue"
+								ml="0!important"
+							>
+								<Image
+									src={testi.photo}
+									alt={testi.photo}
+									my="auto"
+									mx="auto"
+								/>
+								<Text as="p" pl={6}>
+									{testi.message}
+								</Text>
+							</Box>
+						))}
+					</HStack>
+				)
+		}
+	}, [modalCategory, householdProducts, skinCareProducts]);
+
 	return (
 		<>
 			<Box minH={100}></Box>
@@ -189,7 +257,7 @@ const OurClients = () => {
 						))}
 					</HStack>
 
-					<Button mt={12} px={16} py={7}>
+					<Button mt={12} px={16} py={7} onClick={() => handleOpenModal('household')}>
 						Lihat Selengkapnya
 					</Button>
 				</Container>
@@ -223,7 +291,7 @@ const OurClients = () => {
 						))}
 					</HStack>
 
-					<Button mt={12} px={16} py={7}>
+					<Button mt={12} px={16} py={7} onClick={() => handleOpenModal('skincare')}>
 						Lihat Selengkapnya
 					</Button>
 				</Container>
@@ -269,7 +337,7 @@ const OurClients = () => {
 						))}
 					</HStack>
 
-					<Button mt={12} px={16} py={7}>
+					<Button mt={12} px={16} py={7} onClick={() => handleOpenModal('testimoni')}>
 						Lihat Selengkapnya
 					</Button>
 				</Container>
@@ -317,6 +385,8 @@ const OurClients = () => {
 					</Box>
 				}
 			/>
+
+			<ClientsDetailModal isOpen={isOpenModal} onClose={handleCloseModal} content={modalContent} />
 		</>
 	);
 };

@@ -6,6 +6,7 @@ import {
 	HStack,
 	FormControl,
 	FormLabel,
+	Image as ImageChakra,
 	Input,
 	Textarea,
 	Select,
@@ -23,12 +24,9 @@ import {
 } from '@/constant/products';
 
 // import static image
-import cosmeticBottle from '../public/home/primaxcel-botol-kosmetik.png';
-import mockUpBottle from '../public/home/primaxcel-produksi-kosmetik.png';
 import modernBeauty from '../public/home/primaxcel-maklon-dengan-kami.jpg';
 import oilDropper from '../public/home/primaxcel-maklon-skin-care.jpg';
 import skinCare from '../public/home/primaxcel-skin-care-product.jpg';
-import primaxLogoHD from '../public/home/primaxcel-logo.png';
 import discuss from '../public/home/discuss.svg';
 import money from '../public/home/money.svg';
 import science from '../public/home/science.svg';
@@ -76,46 +74,52 @@ const Home = () => {
 	return (
 		<>
 			<Box minH={100} bg="primaxLightBlue"></Box>
-			<SectionB
+			<SectionA
 				isReverse
 				bg="primaxLightBlue"
-				img={
-					<Box>
-						<Image
-							src={mockUpBottle}
+				leftContent={
+					<Box pos="absolute" right={0} top={0} maxW="80%" zIndex={0}>
+						<ImageChakra
+							src="/home/primaxcel-produksi-kosmetik.png"
 							alt="Kosmetik produsen"
-							style={{ maxHeight: '100px' }}
 						/>
 					</Box>
 				}
-				content={
-					<>
+				rightContent={
+					<Box pos="relative" zIndex={1}>
 						<Box>
-							<Image src={primaxLogoHD} alt="Primaxcel logo" />
+							<ImageChakra
+								src="/home/primaxcel-logo.png"
+								alt="Primaxcel logo"
+								maxW="100%"
+							/>
 						</Box>
-						<Text as="p" fontWeight={700} color="primaxLightPurple">
+						<Text as="p" maxW="70%" fontWeight={700} color="primaxLightPurple">
 							Didirikan sebagai perusahaan produksi progresif, berfokus pada
 							produksi kosmetik dan makanan sehat dengan kualitas terbaik dan
 							sesuai standar Nasional & Internasional.
 						</Text>
-					</>
+					</Box>
 				}
 			/>
 			<SectionB
 				bg="primaxLightBlue"
+				alignItems="end"
 				img={
-					<Box pos="relative" bottom="-8px">
-						<Image src={cosmeticBottle} alt="Primaxcel botol RnD" />
+					<Box pos="absolute" bottom="-8px">
+						<ImageChakra
+							src="/home/primaxcel-botol-kosmetik.png"
+							alt="Primaxcel botol RnD"
+						/>
 					</Box>
 				}
 				content={
-					<>
+					<Box pb={6}>
 						<Text
 							as="h2"
 							textColor="primaxLightPurple"
 							fontSize="5xl"
 							fontWeight={800}
-							mb={6}
 						>
 							Mengapa Kami
 						</Text>
@@ -135,7 +139,7 @@ const Home = () => {
 							Jaminan memperoleh sertifikasi BPOM & Halal untuk produk yang
 							maklon di Primaxcel.
 						</Text>
-					</>
+					</Box>
 				}
 			/>
 			<SectionA

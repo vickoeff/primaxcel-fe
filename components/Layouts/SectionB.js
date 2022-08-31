@@ -1,7 +1,7 @@
 import { Box, Container, Flex } from '@chakra-ui/react';
 
 export const SectionB = (props) => {
-	const { isReverse, img, imgWidth, content, customSize, ...rest } = props;
+	const { isReverse, img, imgWidth, content, customSize, alignItems, ...rest } = props;
 
 	const imgLocationStyle = {
 		width: imgWidth ? imgWidth : '50%',
@@ -19,7 +19,7 @@ export const SectionB = (props) => {
 					pos="relative"
 					minH="2xl"
 					flexDirection={isReverse ? 'row-reverse' : null}
-					alignItems="center"
+					alignItems={alignItems ? alignItems : "center"}
 				>
 					<Box
 						pos="relative"

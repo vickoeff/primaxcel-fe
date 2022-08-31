@@ -17,7 +17,7 @@ export const navbarLinks = [
 	},
 	{
 		label: 'Contact Us',
-		url: '',
+		url: '/contact-us',
 	},
 	{
 		label: 'Blog',
