@@ -11,6 +11,7 @@ import {
 	Textarea,
 	Select,
 } from '@chakra-ui/react';
+import Head from 'next/head';
 import { SectionA, SectionB, SectionC } from '@/components/Layouts';
 import CarouselItem from '@/components/CarouselItem';
 import Image from 'next/image';
@@ -73,12 +74,45 @@ const Home = () => {
 
 	return (
 		<>
+			<Head>
+				<title>Produce the best beauty product with Primaxcel</title>
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+				<meta
+					name="description"
+					content="Primaxcel adalah produsen produk kecantikan terbaik, membuat produk dengan standar Nasional dan Internasional. Wujudkan produk anda bersama Primaxcel."
+				></meta>
+				<meta name="robots" content="index,follow"></meta>
+				<meta name="googlebot" content="index,follow"></meta>
+				<meta property="og:type" content="website"></meta>
+				<meta property="og:url" content="https://primaxcelinovasi.co.id"></meta>
+				<meta
+					property="og:title"
+					content="Produce the best beauty product with Primaxcel"
+				></meta>
+				<meta
+					property="og:description"
+					content="Produsen produk kecantikan terbaik, membuat produk dengan standar Nasional dan Internasional. Wujudkan produk anda bersama Primaxcel."
+				></meta>
+				{/* <meta property="og:image" content="LINK TO IMAGE"></meta> */}
+				<meta
+					name="twitter:title"
+					content="Produce the best beauty product with Primaxcel"
+				></meta>
+				<meta
+					name="twitter:description"
+					content="Produsen produk kecantikan terbaik, membuat produk dengan standar Nasional dan Internasional. Wujudkan produk anda bersama Primaxcel."
+				></meta>
+				{/* <meta name="twitter:image" content="LINK TO IMAGE"></meta> */}
+				{/* <meta name="twitter:site" content="@USERNAME"></meta>
+				<meta name="twitter:creator" content="@USERNAME"></meta> */}
+				<link rel="canonical" href="https://primaxcelinovasi.co.id" />
+			</Head>
 			<Box minH={100} bg="primaxLightBlue"></Box>
 			<SectionA
 				isReverse
 				bg="primaxLightBlue"
 				leftContent={
-					<Box pos="absolute" right={0} top={0} maxW="80%" zIndex={0}>
+					<Box pos="absolute" right={0} top={0} maxW="60%" zIndex={0}>
 						<ImageChakra
 							src="/home/primaxcel-produksi-kosmetik.png"
 							alt="Kosmetik produsen"
@@ -86,7 +120,7 @@ const Home = () => {
 					</Box>
 				}
 				rightContent={
-					<Box pos="relative" zIndex={1}>
+					<Box pos="relative" zIndex={1} mt="-48px">
 						<Box>
 							<ImageChakra
 								src="/home/primaxcel-logo.png"
@@ -104,7 +138,7 @@ const Home = () => {
 			/>
 			<SectionB
 				bg="primaxLightBlue"
-				alignItems="end"
+				alignItems="center"
 				img={
 					<Box pos="absolute" bottom="-8px">
 						<ImageChakra
@@ -113,17 +147,19 @@ const Home = () => {
 						/>
 					</Box>
 				}
+				containerWidth="100%"
+				containerPadding="0 60px 0 0"
 				content={
-					<Box pb={6}>
+					<Box>
 						<Text
-							as="h2"
+							as="h1"
 							textColor="primaxLightPurple"
 							fontSize="5xl"
 							fontWeight={800}
 						>
 							Mengapa Kami
 						</Text>
-						<Text as="p" color="primaxLightPurple">
+						<Text as="p" color="primaxLightPurple" mt="4">
 							Primaxcel menjamin kualitas dan keamanan produk serta sistem
 							produksi. Dengan tim R&D (Riset & Developmen) yang berpengalaman,
 							mesin produksi terbaik, serta proses dan QC (Quality Control) yang
@@ -144,6 +180,8 @@ const Home = () => {
 			/>
 			<SectionA
 				bg="primaxWhite"
+				isFitContent
+				p="40px 0"
 				leftContent={
 					<>
 						<Box
@@ -154,15 +192,14 @@ const Home = () => {
 							h="2xl"
 							bg="primaxBlue"
 						></Box>
-						<Box pos="relative">
+						<Box pos="relative" width="110%">
 							<Image src={modernBeauty} alt="Maklon bersama Primaxcel" />
 						</Box>
 					</>
 				}
-				customSize={['65%', '35%']}
 				rightContent={
-					<Box ml="6">
-						<Text as="h2" textColor="primaxLightPurple" mb={6}>
+					<Box ml="90px">
+						<Text as="h2" textColor="primaxLightPurple" mb={4}>
 							Maklon bersama kami
 						</Text>
 						<Text as="p">
@@ -188,11 +225,12 @@ const Home = () => {
 			/>
 			<SectionA
 				isReverse
+				isFitContent
 				bg="primaxWhite"
-				customSize={['65%', '35%']}
+				padding="40px 0"
 				leftContent={
 					<>
-						<Box pos="relative" pl="20">
+						<Box pos="relative" pl="40px">
 							<Box
 								pos="absolute"
 								top={0}
@@ -201,7 +239,7 @@ const Home = () => {
 								left={0}
 								m="auto"
 								w="calc(100% + 40px)"
-								h="sm"
+								h="300px"
 								bg="primaxBlue"
 							></Box>
 							<Image src={oilDropper} alt="Maklon dengan produk kecantikan" />
@@ -209,7 +247,7 @@ const Home = () => {
 					</>
 				}
 				rightContent={
-					<Box mr="6">
+					<Box mr="50px">
 						<Text as="h2" textColor="primaxLightPurple" mb={6}>
 							Mengenai Maklon
 						</Text>
@@ -435,7 +473,7 @@ const Home = () => {
 
 			<Box
 				style={{
-					backgroundImage: `url(/home/courius_bg.png)`,
+					backgroundImage: 'url(/home/primaxcel-overlay-background.jpg)',
 					backgroundRepeat: 'no-repeat',
 					backgroundSize: 'cover',
 				}}

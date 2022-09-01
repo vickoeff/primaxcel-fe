@@ -1,22 +1,15 @@
 import { SectionA, SectionC } from '@/components/Layouts';
 import {
 	Box,
-	Container,
 	Flex,
 	Text,
 	UnorderedList,
 	ListItem,
-	HStack,
+	Image,
 	Button,
 } from '@chakra-ui/react';
-import Image from 'next/image';
 import Slider from 'react-slick';
-
-// import static image
-import SetSkinPack from '../public/our-company/set-skin-care-package-banner-design-resource.jpg';
-import AyuDerma from '../public/our-company/ayu-derma.png';
-import ISkin from '../public/our-company/i-skin.png';
-import Mij from '../public/our-company/mij.png';
+import Head from 'next/head';
 import { MainLayout } from '../components/Layouts';
 
 const OurCompany = () => {
@@ -32,38 +25,73 @@ const OurCompany = () => {
 
 	return (
 		<>
-			<Box bg="primaxLightBlue">
-				<Box pos="absolute" zIndex={1} maxH="3xl" overflow="hidden">
-					<Image src={SetSkinPack} alt="Skin care package" />
+			<Head>
+				<title>About Primaxcel: explore more about us</title>
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+				<meta
+					name="description"
+					content="Cari tahu lebih banyak tentang kami, dari riwayat perusahaan, visi, misi, brand yang sudah bekerja sama dengan kami, dan telusuri profile kami."
+				></meta>
+				<meta name="robots" content="index,follow"></meta>
+				<meta name="googlebot" content="index,follow"></meta>
+				<meta property="og:type" content="website"></meta>
+				<meta
+					property="og:url"
+					content="https://primaxcelinovasi.co.id/our-company"
+				></meta>
+				<meta property="og:title" content="Explore more about us"></meta>
+				<meta
+					property="og:description"
+					content="Ketahui riwayat perusahaan, visi, misi, brand yang sudah bekerja sama dengan kami, dan telusuri profile Primaxcel."
+				></meta>
+				{/* <meta property="og:image" content="LINK TO IMAGE"></meta> */}
+				<meta name="twitter:title" content="Explore more about us"></meta>
+				<meta
+					name="twitter:description"
+					content="Ketahui riwayat perusahaan, visi, misi, brand yang sudah bekerja sama dengan kami, dan telusuri profile Primaxcel."
+				></meta>
+				{/* <meta name="twitter:image" content="LINK TO IMAGE"></meta> */}
+				{/* <meta name="twitter:site" content="@USERNAME"></meta>
+				<meta name="twitter:creator" content="@USERNAME"></meta> */}
+			</Head>
+			<Box bg="primaxLightBlue" mt="50px" pos="relative">
+				<Box maxH="3xl" w="70%">
+					<Image
+						src="/our-company/set-skin-care-package-banner-design-resource.jpg"
+						alt="Skin care package"
+						layout="fill"
+					/>
 				</Box>
-				<Container pos="relative" maxW="container.lg" zIndex={2}>
-					<Flex alignItems="center" justifyContent="end" minH="3xl">
-						<Box minH="sm" bg="primaxBlue" maxW="lg" p={10}>
-							<Text
-								as="h2"
-								mb={4}
-								color="primaxPurple"
-								fontSize={24}
-								fontWeight="extrabold"
-							>
-								Company History
-							</Text>
-							<Text as="p">
-								Berpengalaman sejak 1993 mendaftarkan produk obat, skincare, dan
-								produk kecantikan untuk memperoleh sertifikasi BPOM.
-							</Text>
-						</Box>
+				<Box
+					pos="absolute"
+					top="50%"
+					right="200px"
+					bg="primaxBlue"
+					transform="translate(0% , -50%)"
+				>
+					<Flex flexDirection="column" w="400px" p="32px" h="350px">
+						<Text
+							as="h2"
+							mb={4}
+							color="primaxPurple"
+							fontSize={24}
+							fontWeight="extrabold"
+						>
+							Company History
+						</Text>
+						<Text as="p">
+							Berpengalaman sejak 1993 mendaftarkan produk obat, skincare, dan
+							produk kecantikan untuk memperoleh sertifikasi BPOM.
+						</Text>
 					</Flex>
-				</Container>
+				</Box>
 			</Box>
-
 			<SectionA
 				maxH="lg"
 				py={24}
-				gap={20}
 				alignItems="start"
 				leftContent={
-					<Box minW="lg" textAlign="center">
+					<Box minW="lg" textAlign="center" mr="32px">
 						<Text as="h1" fontSize="4xl" fontWeight="bold" color="primaxPurple">
 							VISI
 						</Text>
@@ -75,7 +103,7 @@ const OurCompany = () => {
 					</Box>
 				}
 				rightContent={
-					<Box minW="lg" textAlign="center">
+					<Box minW="lg" textAlign="center" ml="32px">
 						<Text as="h1" fontSize="4xl" fontWeight="bold" color="primaxPurple">
 							MISI
 						</Text>
@@ -107,11 +135,34 @@ const OurCompany = () => {
 				<Text as="h2" mb={12}>
 					Brand yang Maklon di Primaxcel
 				</Text>
-
 				<Slider {...carouselSettings}>
-					<Image src={AyuDerma} alt="ayu-derma" />
-					<Image src={ISkin} alt="i-skin" />
-					<Image src={Mij} alt="mij" />
+					<Flex width="500px" height="250px" overflow="hidden" padding="10px">
+						<Image
+							src="/our-company/ayu-derma.png"
+							alt="ayu-derma"
+							w="100%"
+							h="100%"
+							objectFit="cover"
+						/>
+					</Flex>
+					<Flex width="500px" height="250px" overflow="hidden" padding="10px">
+						<Image
+							src="/our-company/ayu-derma.png"
+							alt="ayu-derma"
+							w="100%"
+							h="100%"
+							objectFit="cover"
+						/>
+					</Flex>
+					<Flex width="500px" height="250px" overflow="hidden" padding="10px">
+						<Image
+							src="/our-company/ayu-derma.png"
+							alt="ayu-derma"
+							w="100%"
+							h="100%"
+							objectFit="cover"
+						/>
+					</Flex>
 				</Slider>
 			</Box>
 
@@ -135,7 +186,7 @@ const OurCompany = () => {
 			</Box>
 
 			<SectionC
-				customSize={['30%', '70%']}
+				customSize={['40%', '60%']}
 				leftContent={
 					<Box px={24} py={40} bg="primaxLightBlue" minH="full">
 						<Text as="h2" mb={6} color="primaxPurple">
@@ -154,7 +205,7 @@ const OurCompany = () => {
 							backgroundSize: 'cover',
 						}}
 					>
-						<Box px={24} py={40} maxW="573px">
+						<Box px={24} py={40} maxW="550px">
 							<Text as="h2" mb={6} color="primaxPurple">
 								Sudah memiliki konsep produk?
 							</Text>

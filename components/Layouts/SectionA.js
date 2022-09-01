@@ -11,12 +11,17 @@ export const SectionA = (props) => {
 		customSize,
 		gap,
 		alignItems,
+		containerWidth,
+		containerPadding,
 		...rest
 	} = props;
 
 	return (
 		<Box {...rest} pos="relative">
-			<Container maxW="container.xl">
+			<Container
+				maxW={containerWidth || 'container.xl'}
+				padding={containerPadding || '0 1rem'}
+			>
 				<Flex
 					minH={isFitContent ? 'unset' : '2xl'}
 					flexDirection={isReverse ? 'row-reverse' : null}

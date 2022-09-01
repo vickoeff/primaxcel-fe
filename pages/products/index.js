@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import { Container, Box, Text, Button, HStack } from '@chakra-ui/react';
 import { SectionA, SectionB } from '@/components/Layouts';
 import Image from 'next/image';
@@ -13,13 +14,49 @@ const Products = () => {
 
 	return (
 		<>
+			<Head>
+				<title>Explore our beauty products</title>
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+				<meta
+					name="description"
+					content="Primaxcel adalah produsen produk face care, hair and body care, dan juga produk rumah tangga. Kami selalu menjaga kualitas produk produk yang kami produksi."
+				></meta>
+				<meta name="robots" content="index,follow"></meta>
+				<meta name="googlebot" content="index,follow"></meta>
+				<meta property="og:type" content="website"></meta>
+				<meta
+					property="og:url"
+					content="https://primaxcelinovasi.co.id/products"
+				></meta>
+				<meta property="og:title" content="Primaxcel beauty products"></meta>
+				<meta
+					property="og:description"
+					content="Kami adalah produsen produk kecantikan seperti face care, hair and body care, dan juga produk produk rumah tangga. Kami akan mewujudkan produk impian anda."
+				></meta>
+				{/* <meta property="og:image" content="LINK TO IMAGE"></meta> */}
+				<meta name="twitter:title" content="Primaxcel beauty products"></meta>
+				<meta
+					name="twitter:description"
+					content="Kami adalah produsen produk kecantikan seperti face care, hair and body care, dan juga produk produk rumah tangga. Kami akan mewujudkan produk impian anda."
+				></meta>
+				{/* <meta name="twitter:image" content="LINK TO IMAGE"></meta> */}
+				{/* <meta name="twitter:site" content="@USERNAME"></meta>
+				<meta name="twitter:creator" content="@USERNAME"></meta> */}
+			</Head>
 			<Box minH={100} bg="primaxWhite"></Box>
 			<SectionB
 				bg="primaxWhite"
-				customSize={['60%', '40%']}
 				imgWidth="60%"
+				containerWidth="100%"
+				containerPadding="0"
 				img={
-					<Box width="full" zIndex={2}>
+					<Box
+						width="full"
+						zIndex={2}
+						height="100%"
+						ml="-24px"
+						position="relative"
+					>
 						<Image
 							src="/products/produk-primaxcel.png"
 							alt="Produk primaxcel"
@@ -29,7 +66,7 @@ const Products = () => {
 					</Box>
 				}
 				content={
-					<Box width="full">
+					<Box width="full" marginLeft="160px">
 						<Text
 							as="h1"
 							fontSize="6xl"
@@ -43,9 +80,10 @@ const Products = () => {
 			/>
 
 			<SectionA
-				pt={8}
 				customSize={['65%', '35%']}
 				bg="primaxWhite"
+				containerWidth="100%"
+				containerPadding="0 0 0 120px"
 				leftContent={
 					<Box mr="6" maxW="60%" pb={24}>
 						<Text as="h2" mb={6}>
@@ -85,6 +123,8 @@ const Products = () => {
 				isFitContent
 				bg="primaxLightBlue"
 				customSize={['45%', '55%']}
+				containerWidth="100%"
+				containerPadding="0"
 				leftContent={
 					<Box pos="relative" width="100%" height="612px">
 						<Image
@@ -95,7 +135,7 @@ const Products = () => {
 					</Box>
 				}
 				rightContent={
-					<Box pt={24} pl={24}>
+					<Box pt={16} pl={24} pr={40}>
 						<Text as="h2" mb={6}>
 							Hair & Body Care
 						</Text>
@@ -125,6 +165,8 @@ const Products = () => {
 				isFitContent
 				customSize={['65%', '35%']}
 				bg="primaxWhite"
+				containerWidth="100%"
+				containerPadding="0 0 0 120px"
 				leftContent={
 					<Box mr="6" maxW="60%" pt={24}>
 						<Text as="h2" mb={6}>
@@ -160,16 +202,16 @@ const Products = () => {
 
 			<Box bg="primaxLightBlue" py={10} textAlign="center">
 				<Container maxW="container.xl">
-					<Text as="h2">Produk yang kami produksi</Text>
+					<Text as="h2">Tanya kami</Text>
 
-					<HStack justifyContent="space-between">
+					<HStack justifyContent="space-between" mt="32px">
 						<Box
 							display="inline-block"
-							my={8}
 							bg="primaxBlue"
-							minW="334px"
-							py={8}
-							px={6}
+							w="334px"
+							h="396px"
+							pt="26px"
+							px="40px"
 						>
 							<Box pos="relative" width="100%" height="268px">
 								<Image
@@ -185,16 +227,16 @@ const Products = () => {
 
 						<Box
 							display="inline-block"
-							my={8}
 							bg="primaxBlue"
-							minW="334px"
-							py={8}
-							px={6}
+							w="334px"
+							h="396px"
+							pt="26px"
+							px="40px"
 						>
 							<Box pos="relative" width="100%" height="268px">
 								<Image
-									src="/products/krim-pemutih-wajah.jpg"
-									alt="Krim pemutih wajah"
+									src="/products/hydro-alcoholic-gel.jpg"
+									alt="Hydro alcholic gel"
 									layout="fill"
 								/>
 							</Box>
@@ -205,16 +247,16 @@ const Products = () => {
 
 						<Box
 							display="inline-block"
-							my={8}
 							bg="primaxBlue"
-							minW="334px"
-							py={8}
-							px={6}
+							w="334px"
+							h="396px"
+							pt="26px"
+							px="40px"
 						>
 							<Box pos="relative" width="100%" height="268px">
 								<Image
-									src="/products/hydro-alcoholic-gel.jpg"
-									alt="Hydro alcholic gel"
+									src="/products/krim-pemutih-wajah.jpg"
+									alt="Krim pemutih wajah"
 									layout="fill"
 								/>
 							</Box>

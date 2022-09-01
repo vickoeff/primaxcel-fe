@@ -1,21 +1,53 @@
 import { Box, Text, UnorderedList, ListItem, HStack } from '@chakra-ui/react';
-import { SectionA, SectionB } from '@/components/Layouts';
+import Head from 'next/head';
+import { SectionA } from '@/components/Layouts';
 import Image from 'next/image';
 import { MainLayout } from '@/components/Layouts';
 
 const SkinCare = () => {
 	return (
 		<>
+			<Head>
+				<title>Primaxcel product category</title>
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+				<meta
+					name="description"
+					content="Primaxcel menyediakan berbagai produk face care, hair and body care, dan juga produk rumah tangga. Hubungi kamu untuk mewujudkan produk impianmu."
+				></meta>
+				<meta name="robots" content="index,follow"></meta>
+				<meta name="googlebot" content="index,follow"></meta>
+				<meta property="og:type" content="website"></meta>
+				<meta
+					property="og:url"
+					content="https://primaxcelinovasi.co.id/products/category"
+				></meta>
+				<meta property="og:title" content="Primaxcel product category"></meta>
+				<meta
+					property="og:description"
+					content="Primaxcel menyediakan berbagai produk face care, hair and body care, dan juga produk rumah tangga. Hubungi kamu untuk mewujudkan produk impianmu."
+				></meta>
+				{/* <meta property="og:image" content="LINK TO IMAGE"></meta> */}
+				<meta name="twitter:title" content="Primaxcel product category"></meta>
+				<meta
+					name="twitter:description"
+					content="Primaxcel menyediakan berbagai produk face care, hair and body care, dan juga produk rumah tangga. Hubungi kamu untuk mewujudkan produk impianmu."
+				></meta>
+				{/* <meta name="twitter:image" content="LINK TO IMAGE"></meta> */}
+				{/* <meta name="twitter:site" content="@USERNAME"></meta>
+				<meta name="twitter:creator" content="@USERNAME"></meta> */}
+			</Head>
 			<SectionA
 				pt="14rem"
 				pb="4rem"
 				bg="primaxLightBlue"
 				alignItems="start"
 				id="face-care"
+				containerWidth="100%"
+				containerPadding="0 0 0 60px"
 				leftContent={
 					<Box width="full">
 						<Text
-							as="h1"
+							as="h2"
 							fontSize="6xl"
 							fontWeight={700}
 							mb={6}
@@ -177,15 +209,16 @@ const SkinCare = () => {
 			/>
 
 			<SectionA
-				pt="14rem"
-				pb="4rem"
+				py="24"
 				bg="primaxWhite"
 				alignItems="start"
 				id="hair-and-body"
+				containerWidth="100%"
+				containerPadding="0 0 0 60px"
 				leftContent={
 					<Box width="full">
 						<Text
-							as="h1"
+							as="h2"
 							fontSize="6xl"
 							fontWeight={700}
 							mb={6}
@@ -292,7 +325,7 @@ const SkinCare = () => {
 					</Box>
 				}
 				rightContent={
-					<Box pos="relative">
+					<Box pos="relative" mt="140px">
 						<Box
 							pos="absolute"
 							top="-2rem"
@@ -313,15 +346,18 @@ const SkinCare = () => {
 			/>
 
 			<SectionA
-				pt="14rem"
-				pb="4rem"
+				pt="24"
+				pb="80"
 				bg="primaxLightBlue"
 				alignItems="start"
 				id="household"
+				customSize={['100%', '0']}
+				containerWidth="100%"
+				containerPadding="0 0 0 60px"
 				leftContent={
 					<Box width="full">
 						<Text
-							as="h1"
+							as="h2"
 							fontSize="6xl"
 							fontWeight={700}
 							mb={6}
@@ -416,20 +452,22 @@ const SkinCare = () => {
 					</Box>
 				}
 				rightContent={
-					<Box pos="relative">
-						<Box
-							pos="absolute"
-							top="-2rem"
-							right="0"
-							w="calc(100% + 2rem)"
-							h="100%"
-							bg="primaxBlue"
-						></Box>
-						<Box pos="relative" width="100%" height="1015px">
+					<Box
+						pos="absolute"
+						width="50%"
+						right="0"
+						top="200px"
+						bottom="120px"
+						bg="primaxBlue"
+						pt="8"
+						pl="8"
+					>
+						<Box pos="relative" width="100%" height="770px">
 							<Image
 								src="/products/category/produk-rumah-tangga.jpg"
 								alt="Produk rumah tangga"
 								layout="fill"
+								objectFit="cover"
 							/>
 						</Box>
 					</Box>

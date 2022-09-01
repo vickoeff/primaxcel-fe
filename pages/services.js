@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import Head from 'next/head';
 import { SectionA, MainLayout } from '@/components/Layouts';
 import {
 	Box,
@@ -7,12 +8,12 @@ import {
 	UnorderedList,
 	ListItem,
 	HStack,
+	Flex,
 	Button,
+	Image as ImageChakra,
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-
-import { ProGallery } from 'pro-gallery';
 
 const Services = () => {
 	const router = useRouter();
@@ -24,149 +25,42 @@ const Services = () => {
 
 	const imgPath = router.pathname;
 
-	// Gallery
-
-	// Add your images here...
-	const items = [
-		{
-			// Image item:
-			itemId: '1',
-			mediaUrl: imgPath + '/fasilitas-produksi-primaxcel-1.jpg',
-			metaData: {
-				type: 'image',
-				height: 300,
-				width: 100,
-				title: 'Fasilitas produksi primaxcel 1',
-				description: 'Fasilitas produksi primaxcel bagian 1',
-				focalPoint: [0, 0],
-				link: {
-					url: 'http://example.com',
-					target: '_blank',
-				},
-			},
-		},
-		{
-			// Another Image item:
-			itemId: '2',
-			mediaUrl: imgPath + '/fasilitas-produksi-primaxcel-2.jpg',
-			metaData: {
-				type: 'image',
-				height: 200,
-				width: 100,
-				title: 'Fasilitas produksi primaxcel 2',
-				description: 'Fasilitas produksi primaxcel bagian 2',
-				focalPoint: [0, 0],
-				link: {
-					url: 'http://example.com',
-					target: '_blank',
-				},
-			},
-		},
-		{
-			// Another Image item:
-			itemId: '3',
-			mediaUrl: imgPath + '/fasilitas-produksi-primaxcel-3.jpg',
-			metaData: {
-				type: 'image',
-				height: 200,
-				width: 100,
-				title: 'Fasilitas produksi primaxcel 3',
-				description: 'Fasilitas produksi primaxcel bagian 3',
-				focalPoint: [0, 0],
-				link: {
-					url: 'http://example.com',
-					target: '_blank',
-				},
-			},
-		},
-		{
-			// Another Image item:
-			itemId: '4',
-			mediaUrl: imgPath + '/fasilitas-produksi-primaxcel-4.jpg',
-			metaData: {
-				type: 'image',
-				height: 200,
-				width: 100,
-				title: 'Fasilitas produksi primaxcel 4',
-				description: 'Fasilitas produksi primaxcel bagian 4',
-				focalPoint: [0, 0],
-				link: {
-					url: 'http://example.com',
-					target: '_blank',
-				},
-			},
-		},
-		{
-			// Another Image item:
-			itemId: '5',
-			mediaUrl: imgPath + '/fasilitas-produksi-primaxcel-5.jpg',
-			metaData: {
-				type: 'image',
-				height: 200,
-				width: 100,
-				title: 'Fasilitas produksi primaxcel 5',
-				description: 'Fasilitas produksi primaxcel bagian 5',
-				focalPoint: [0, 0],
-				link: {
-					url: 'http://example.com',
-					target: '_blank',
-				},
-			},
-		},
-		{
-			// Another Image item:
-			itemId: '6',
-			mediaUrl: imgPath + '/fasilitas-produksi-primaxcel-6.jpg',
-			metaData: {
-				type: 'image',
-				height: 200,
-				width: 100,
-				title: 'Fasilitas produksi primaxcel 6',
-				description: 'Fasilitas produksi primaxcel bagian 6',
-				focalPoint: [0, 0],
-				link: {
-					url: 'http://example.com',
-					target: '_blank',
-				},
-			},
-		},
-	];
-
-	// The options of the gallery (from the playground current state)
-	const options = {
-		layoutParams: {
-			structure: {
-				galleryLayout: 2,
-			},
-		},
-		behaviourParams: {
-			item: {
-				content: {
-					hoverAnimation: 'SHRINK',
-				},
-				clickAction: 'ACTION',
-			},
-		},
-	};
-
-	// The size of the gallery container. The images will fit themselves in it
-	const container = {
-		width: 990,
-		height: 500,
-	};
-
-	// The eventsListener will notify you anytime something has happened in the gallery.
-	const eventsListener = (eventName, eventData) =>
-		console.log({ eventName, eventData });
-
-	// The scrollingElement is usually the window, if you are scrolling inside another element, suplly it here
-	const scrollingElement = galleryEl;
-
 	return (
 		<>
+			<Head>
+				<title>Primaxcel product category</title>
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+				<meta
+					name="description"
+					content="Primaxcel menyediakan berbagai produk face care, hair and body care, dan juga produk rumah tangga. Hubungi kamu untuk mewujudkan produk impianmu."
+				></meta>
+				<meta name="robots" content="index,follow"></meta>
+				<meta name="googlebot" content="index,follow"></meta>
+				<meta property="og:type" content="website"></meta>
+				<meta
+					property="og:url"
+					content="https://primaxcelinovasi.co.id/services"
+				></meta>
+				<meta property="og:title" content="Primaxcel product category"></meta>
+				<meta
+					property="og:description"
+					content="Primaxcel menyediakan berbagai produk face care, hair and body care, dan juga produk rumah tangga. Hubungi kamu untuk mewujudkan produk impianmu."
+				></meta>
+				{/* <meta property="og:image" content="LINK TO IMAGE"></meta> */}
+				<meta name="twitter:title" content="Primaxcel product category"></meta>
+				<meta
+					name="twitter:description"
+					content="Primaxcel menyediakan berbagai produk face care, hair and body care, dan juga produk rumah tangga. Hubungi kamu untuk mewujudkan produk impianmu."
+				></meta>
+				{/* <meta name="twitter:image" content="LINK TO IMAGE"></meta> */}
+				{/* <meta name="twitter:site" content="@USERNAME"></meta>
+				<meta name="twitter:creator" content="@USERNAME"></meta> */}
+			</Head>
 			<SectionA
 				pt={20}
 				bg="primaxWhite"
+				containerWidth="100%"
+				containerPadding="0"
 				leftContent={
 					<Box pos="relative" width="100%" height="723px">
 						<Image
@@ -181,9 +75,10 @@ const Services = () => {
 						display="flex"
 						bg="primaxLightBlue"
 						alignItems="center"
+						justifyContent="center"
 						height="723px"
 					>
-						<Box minH="sm" maxW="lg" p={10}>
+						<Box width="400px">
 							<Text
 								as="h1"
 								mb={4}
@@ -217,8 +112,25 @@ const Services = () => {
 					backgroundSize: 'cover',
 					backgroundColor: '#9FE0E945',
 				}}
+				position="relative"
 			>
-				<Container maxW="container.xl" py={10} textAlign="center">
+				<Box
+					position="absolute"
+					top="0"
+					left="0"
+					right="0"
+					bottom="0"
+					bg="primaxBlue"
+					opacity="0.5"
+					zIndex={1}
+				></Box>
+				<Container
+					maxW="container.xl"
+					py={10}
+					textAlign="center"
+					zIndex={2}
+					position="relative"
+				>
 					<Text
 						as="h2"
 						color="primaxPurple"
@@ -240,7 +152,7 @@ const Services = () => {
 							bg="primaxWhite"
 							boxShadow="4px 18px 24px #00000064"
 						>
-							<Text as="h1" mb={4} color="primaxPurple" fontSize="2xl">
+							<Text as="h3" mb={4} color="primaxPurple" fontSize="2xl">
 								Pre-production service
 							</Text>
 
@@ -262,8 +174,16 @@ const Services = () => {
 								variant="link"
 								role="link"
 								onClick={handleServicesDetail}
+								textAlign="left"
+								display="flex"
+								justifyContent="flex-start"
 							>
-								<Text as="p" fontWeight="semibold">
+								<Text
+									as="p"
+									fontWeight="semibold"
+									m="0"
+									textDecoration="underline"
+								>
 									Informasi lebih lengkap
 								</Text>
 							</Button>
@@ -279,7 +199,7 @@ const Services = () => {
 							bg="primaxWhite"
 							boxShadow="4px 18px 24px #00000064"
 						>
-							<Text as="h1" mb={4} color="primaxPurple" fontSize="2xl">
+							<Text as="h3" mb={4} color="primaxPurple" fontSize="2xl">
 								Production
 							</Text>
 
@@ -301,8 +221,16 @@ const Services = () => {
 								variant="link"
 								role="link"
 								onClick={handleServicesDetail}
+								textAlign="left"
+								display="flex"
+								justifyContent="flex-start"
 							>
-								<Text as="p" fontWeight="semibold">
+								<Text
+									as="p"
+									fontWeight="semibold"
+									m="0"
+									textDecoration="underline"
+								>
 									Informasi lebih lengkap
 								</Text>
 							</Button>
@@ -318,7 +246,7 @@ const Services = () => {
 							bg="primaxWhite"
 							boxShadow="4px 18px 24px #00000064"
 						>
-							<Text as="h1" mb={4} color="primaxPurple" fontSize="2xl">
+							<Text as="h3" mb={4} color="primaxPurple" fontSize="2xl">
 								Post-production service
 							</Text>
 
@@ -342,8 +270,16 @@ const Services = () => {
 								variant="link"
 								role="link"
 								onClick={handleServicesDetail}
+								textAlign="left"
+								display="flex"
+								justifyContent="flex-start"
 							>
-								<Text as="p" fontWeight="semibold">
+								<Text
+									as="p"
+									fontWeight="semibold"
+									m="0"
+									textDecoration="underline"
+								>
 									Informasi lebih lengkap
 								</Text>
 							</Button>
@@ -356,34 +292,76 @@ const Services = () => {
 				</Container>
 			</Box>
 
-			<Box bg="primaxWhite">
-				<Container maxW="container.xl" py={10} pb={20} textAlign="center">
-					<Text
-						as="h2"
-						color="primaxPurple"
-						fontSize="5xl"
-						fontWeight="bold"
-						textAlign="center"
-						mb={12}
-					>
-						Fasilitas Produksi Primaxcel
-					</Text>
-
-					<Box display="flex" justifyContent="center" ref={galleryEl}>
-						<ProGallery
-							items={items}
-							options={options}
-							container={container}
-							eventsListener={eventsListener}
-							scrollingElement={scrollingElement}
-						/>
-					</Box>
-				</Container>
+			<Box bg="primaxWhite" pt={16} pb={24} px="60px">
+				<Text
+					as="h2"
+					color="primaxPurple"
+					fontSize="5xl"
+					fontWeight="bold"
+					textAlign="center"
+					mb={12}
+				>
+					Fasilitas Produksi Primaxcel
+				</Text>
+				<Flex justifyContent="space-between">
+					<Flex height="250px" width="calc((100% / 3) - 8px)" overflow="hidden">
+						<ImageChakra
+							src="/services/fasilitas-produksi-primaxcel-1.jpg"
+							w="100%"
+							h="100%"
+							objectFit="cover"
+						></ImageChakra>
+					</Flex>
+					<Flex height="250px" width="calc((100% / 3) - 8px)" overflow="hidden">
+						<ImageChakra
+							src="/services/fasilitas-produksi-primaxcel-2.jpg"
+							w="100%"
+							h="100%"
+							objectFit="cover"
+						></ImageChakra>
+					</Flex>
+					<Flex height="250px" width="calc((100% / 3) - 8px)" overflow="hidden">
+						<ImageChakra
+							src="/services/fasilitas-produksi-primaxcel-3.jpg"
+							w="100%"
+							h="100%"
+							objectFit="cover"
+						></ImageChakra>
+					</Flex>
+				</Flex>
+				<Flex justifyContent="space-between" mt="100px">
+					<Flex height="250px" width="calc((100% / 3) - 8px)" overflow="hidden">
+						<ImageChakra
+							src="/services/fasilitas-produksi-primaxcel-4.jpg"
+							w="100%"
+							h="100%"
+							objectFit="cover"
+						></ImageChakra>
+					</Flex>
+					<Flex height="250px" width="calc((100% / 3) - 8px)" overflow="hidden">
+						<ImageChakra
+							src="/services/fasilitas-produksi-primaxcel-5.jpg"
+							w="100%"
+							h="100%"
+							objectFit="cover"
+						></ImageChakra>
+					</Flex>
+					<Flex height="250px" width="calc((100% / 3) - 8px)" overflow="hidden">
+						<ImageChakra
+							src="/services/fasilitas-produksi-primaxcel-6.jpg"
+							w="100%"
+							h="100%"
+							objectFit="cover"
+						></ImageChakra>
+					</Flex>
+				</Flex>
 			</Box>
 
 			<SectionA
 				bg="primaxLightBlue"
 				customSize={['50%', '50%']}
+				containerWidth="100%"
+				containerPadding="0 0 0 60px"
 				leftContent={
 					<>
 						<Text as="h2" mb={6} color="primaxPurple">

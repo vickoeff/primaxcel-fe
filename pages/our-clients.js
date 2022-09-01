@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { SectionA } from '@/components/Layouts';
 import { Box, Container, HStack, Text, Image, Button } from '@chakra-ui/react';
@@ -6,7 +7,6 @@ import ClientsDetailModal from '@/components/ClientsDetailModal';
 
 // import static image
 import { MainLayout } from '../components/Layouts';
-import Products from './admin/products';
 
 const OurClients = () => {
 	const [isOpenModal, setOpenModal] = useState(false);
@@ -140,14 +140,14 @@ const OurClients = () => {
 	const handleOpenModal = (category) => {
 		setOpenModal(true);
 		setModalCategory(category);
-	}
+	};
 
 	const handleCloseModal = () => {
 		setOpenModal(false);
-	}
+	};
 
 	const modalContent = useMemo(() => {
-		switch(modalCategory) {
+		switch (modalCategory) {
 			case 'household':
 				return (
 					<HStack flexWrap="wrap" justifyContent="space-around" my={14}>
@@ -160,7 +160,7 @@ const OurClients = () => {
 							</Box>
 						))}
 					</HStack>
-				)
+				);
 			case 'skincare':
 				return (
 					<HStack flexWrap="wrap" justifyContent="space-around" my={20}>
@@ -173,7 +173,7 @@ const OurClients = () => {
 							</Box>
 						))}
 					</HStack>
-				)
+				);
 			case 'testimoni':
 				return (
 					<HStack justifyContent="center" flexWrap="wrap" gap={8} my={20}>
@@ -185,12 +185,16 @@ const OurClients = () => {
 								key={idx}
 								bg="primaxBlue"
 								ml="0!important"
+								minH="210px"
 							>
 								<Image
 									src={testi.photo}
 									alt={testi.photo}
 									my="auto"
 									mx="auto"
+									w="166px"
+									h="166px"
+									objectFit="contain"
 								/>
 								<Text as="p" pl={6}>
 									{testi.message}
@@ -198,12 +202,41 @@ const OurClients = () => {
 							</Box>
 						))}
 					</HStack>
-				)
+				);
 		}
 	}, [modalCategory, householdProducts, skinCareProducts]);
 
 	return (
 		<>
+			<Head>
+				<title>Our clients that trust us</title>
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+				<meta
+					name="description"
+					content="Kami memiliki banyak client yang sudah mempercayakan kami dalam mewujudkan produk impian mereka. Bisnis anda menjadi mudah dengan maklon bersama Primaxcel."
+				></meta>
+				<meta name="robots" content="index,follow"></meta>
+				<meta name="googlebot" content="index,follow"></meta>
+				<meta property="og:type" content="website"></meta>
+				<meta
+					property="og:url"
+					content="https://primaxcelinovasi.co.id/our-clients"
+				></meta>
+				<meta property="og:title" content="Maklon with us"></meta>
+				<meta
+					property="og:description"
+					content="Bisnis skin care anda menjadi mudah dengan maklon bersama Primaxcel. Hubungi kami untuk memulai bisnis anda."
+				></meta>
+				{/* <meta property="og:image" content="LINK TO IMAGE"></meta> */}
+				<meta name="twitter:title" content="Maklon with us"></meta>
+				<meta
+					name="twitter:description"
+					content="Bisnis skin care anda menjadi mudah dengan maklon bersama Primaxcel. Hubungi kami untuk memulai bisnis anda."
+				></meta>
+				{/* <meta name="twitter:image" content="LINK TO IMAGE"></meta> */}
+				{/* <meta name="twitter:site" content="@USERNAME"></meta>
+				<meta name="twitter:creator" content="@USERNAME"></meta> */}
+			</Head>
 			<Box minH={100}></Box>
 			<div
 				style={{
@@ -237,7 +270,7 @@ const OurClients = () => {
 					textAlign="center"
 				>
 					<Text
-						as="h2"
+						as="h3"
 						fontSize="4xl"
 						fontWeight="bold"
 						color="primaxPurple"
@@ -257,7 +290,12 @@ const OurClients = () => {
 						))}
 					</HStack>
 
-					<Button mt={12} px={16} py={7} onClick={() => handleOpenModal('household')}>
+					<Button
+						mt={12}
+						px={16}
+						py={7}
+						onClick={() => handleOpenModal('household')}
+					>
 						Lihat Selengkapnya
 					</Button>
 				</Container>
@@ -271,7 +309,7 @@ const OurClients = () => {
 					textAlign="center"
 				>
 					<Text
-						as="h2"
+						as="h3"
 						fontSize="4xl"
 						fontWeight="bold"
 						color="primaxPurple"
@@ -291,7 +329,12 @@ const OurClients = () => {
 						))}
 					</HStack>
 
-					<Button mt={12} px={16} py={7} onClick={() => handleOpenModal('skincare')}>
+					<Button
+						mt={12}
+						px={16}
+						py={7}
+						onClick={() => handleOpenModal('skincare')}
+					>
 						Lihat Selengkapnya
 					</Button>
 				</Container>
@@ -323,12 +366,16 @@ const OurClients = () => {
 								key={idx}
 								bg="primaxBlue"
 								ml="0!important"
+								minH="210px"
 							>
 								<Image
 									src={testi.photo}
 									alt={testi.photo}
 									my="auto"
 									mx="auto"
+									w="166px"
+									h="166px"
+									objectFit="contain"
 								/>
 								<Text as="p" pl={6}>
 									{testi.message}
@@ -337,7 +384,12 @@ const OurClients = () => {
 						))}
 					</HStack>
 
-					<Button mt={12} px={16} py={7} onClick={() => handleOpenModal('testimoni')}>
+					<Button
+						mt={12}
+						px={16}
+						py={7}
+						onClick={() => handleOpenModal('testimoni')}
+					>
 						Lihat Selengkapnya
 					</Button>
 				</Container>
@@ -370,7 +422,7 @@ const OurClients = () => {
 					</Box>
 				}
 				rightContent={
-					<Box minW="lg">
+					<Box pr="60px">
 						<Text as="h3" fontSize="4xl" fontWeight="bold" color="primaxPurple">
 							Bisnis skincare menjadi mudah dengan maklon bersama Primaxcel
 						</Text>
@@ -386,7 +438,11 @@ const OurClients = () => {
 				}
 			/>
 
-			<ClientsDetailModal isOpen={isOpenModal} onClose={handleCloseModal} content={modalContent} />
+			<ClientsDetailModal
+				isOpen={isOpenModal}
+				onClose={handleCloseModal}
+				content={modalContent}
+			/>
 		</>
 	);
 };
