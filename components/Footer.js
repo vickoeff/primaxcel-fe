@@ -1,12 +1,4 @@
-import {
-	Container,
-	Box,
-	Flex,
-	Button,
-	VStack,
-	HStack,
-	Text,
-} from '@chakra-ui/react';
+import { Container, Box, Flex, Button, VStack, Text } from '@chakra-ui/react';
 
 const Footer = (props) => {
 	const { logo, faqLinks, sosmedLinks, ...rest } = props;
@@ -19,14 +11,48 @@ const Footer = (props) => {
 	};
 
 	return (
-		<Box bg="footer" boxShadow="lg" pb="6" {...rest}>
+		<Box
+			bg="footer"
+			boxShadow="lg"
+			pb="6"
+			{...rest}
+			display="flex"
+			flexDirection={{
+				base: 'column',
+				md: 'row',
+			}}
+		>
 			<Container maxW="container.xl" pt="5" pb="2">
-				<Flex justifyContent="space-between" gap={8}>
-					<Box minW="30%">
+				<Flex
+					justifyContent={{
+						base: 'flex-start',
+						md: 'space-between',
+					}}
+					alignItems={{
+						base: 'center',
+						md: 'flex-start',
+					}}
+					gap={8}
+					flexDirection={{
+						base: 'column',
+						md: 'row',
+					}}
+				>
+					<Box
+						textAlign={{
+							base: 'center',
+							md: 'left',
+						}}
+					>
 						<Text as="h3" {...h3Style}>
 							FAQ
 						</Text>
-						<VStack alignItems="start">
+						<VStack
+							alignItems={{
+								base: 'center',
+								md: 'flex-start',
+							}}
+						>
 							{faqLinks.map((link, index) => (
 								<Button
 									as="a"
@@ -43,21 +69,42 @@ const Footer = (props) => {
 						</VStack>
 					</Box>
 
-					<Box minW="35%">
+					<Box
+						textAlign={{
+							base: 'center',
+							md: 'left',
+						}}
+						width={{
+							base: '90%',
+							md: '400px',
+						}}
+					>
 						<Text as="h3" {...h3Style}>
 							Visit Us
 						</Text>
-						<Text as="p" fontSize="lg">
+						<Text
+							as="p"
+							fontSize="lg"
+							textAlign={{
+								base: 'center',
+								md: 'left',
+							}}
+						>
 							Jl. Serpong-Parung No.20, Curug, Kec. Gn. Sindur, Kabupaten Bogor,
 							Jawa Barat 16340
 						</Text>
 					</Box>
 
-					<Box minW="35%">
+					<Box
+						textAlign={{
+							base: 'center',
+							md: 'left',
+						}}
+					>
 						<Text as="h3" {...h3Style}>
 							Contact Us
 						</Text>
-						<HStack gap={4}>
+						<Flex gap={4} flexWrap="wrap">
 							{sosmedLinks.map((link, index) => (
 								<Button
 									as="a"
@@ -74,7 +121,7 @@ const Footer = (props) => {
 									{link.label}
 								</Button>
 							))}
-						</HStack>
+						</Flex>
 					</Box>
 				</Flex>
 			</Container>

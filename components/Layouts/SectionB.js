@@ -10,6 +10,7 @@ export const SectionB = (props) => {
 		alignItems,
 		containerWidth,
 		containerPadding,
+		minH,
 		...rest
 	} = props;
 
@@ -30,17 +31,30 @@ export const SectionB = (props) => {
 			>
 				<Flex
 					pos="relative"
-					minH="2xl"
-					flexDirection={isReverse ? 'row-reverse' : null}
+					minH={minH || '2xl'}
+					flexDirection={{
+						base: 'column',
+						md: isReverse ? 'row-reverse' : 'row',
+					}}
 					alignItems={alignItems ? alignItems : 'center'}
 				>
 					<Box
 						pos="relative"
-						minW={customSize ? customSize[0] : '50%'}
-						minH="2xl"
+						minW={{
+							base: '100%',
+							md: customSize ? customSize[0] : '50%',
+						}}
+						minH={minH || '2xl'}
 					></Box>
 					<Box {...imgLocationStyle}>{img}</Box>
-					<Box maxW={customSize ? customSize[0] : '50%'}>{content}</Box>
+					<Box
+						maxW={{
+							base: '100%',
+							md: customSize ? customSize[0] : '50%',
+						}}
+					>
+						{content}
+					</Box>
 				</Flex>
 			</Container>
 		</Box>

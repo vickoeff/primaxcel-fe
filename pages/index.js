@@ -10,6 +10,7 @@ import {
 	Input,
 	Textarea,
 	Select,
+	Flex,
 } from '@chakra-ui/react';
 import Head from 'next/head';
 import { SectionA, SectionB, SectionC } from '@/components/Layouts';
@@ -23,6 +24,7 @@ import {
 	PRODUCT_BUDGET,
 	PRODUCT_OWNERSHIP,
 } from '@/constant/products';
+import useWindowSize from '@/hooks/useWindowSize';
 
 // import static image
 import modernBeauty from '../public/home/primaxcel-maklon-dengan-kami.jpg';
@@ -47,6 +49,7 @@ const Home = () => {
 		formState: { errors },
 	} = useForm();
 	const onSubmit = (data) => console.log(data);
+	const { isMobile } = useWindowSize();
 
 	console.log(watch('example'));
 
@@ -64,7 +67,10 @@ const Home = () => {
 		backgroundColor: 'primaxBlue',
 		borderRadius: '0',
 		border: 'unset',
-		marginBottom: '6',
+		marginBottom: {
+			base: '2',
+			sm: '6',
+		},
 	};
 
 	const formLabelStyle = {
@@ -110,9 +116,18 @@ const Home = () => {
 			<Box minH={100} bg="primaxLightBlue"></Box>
 			<SectionA
 				isReverse
+				isFitContent
+				customSize={isMobile ? ['0', '100%'] : ['50%', '50%']}
 				bg="primaxLightBlue"
 				leftContent={
-					<Box pos="absolute" right={0} top={0} maxW="60%" zIndex={0}>
+					<Box
+						pos="absolute"
+						right={0}
+						top={0}
+						maxW={{ base: '100%', md: '60%' }}
+						zIndex={0}
+						opacity={{ base: '0.3', md: '1' }}
+					>
 						<ImageChakra
 							src="/home/primaxcel-produksi-kosmetik.png"
 							alt="Kosmetik produsen"
@@ -120,37 +135,83 @@ const Home = () => {
 					</Box>
 				}
 				rightContent={
-					<Box pos="relative" zIndex={1} mt="-48px">
-						<Box>
+					<Flex
+						pos="relative"
+						flexDirection="column"
+						zIndex={1}
+						mt={{ base: '0', md: '-48px' }}
+						minH={{ base: '350px', sm: '450px', md: 'lg', lg: 'xl', xl: '3xl' }}
+						alignItems={{ base: 'center', md: 'flex-start' }}
+						justifyContent="center"
+					>
+						<Box display={{ base: 'none', md: 'block' }}>
 							<ImageChakra
 								src="/home/primaxcel-logo.png"
 								alt="Primaxcel logo"
 								maxW="100%"
 							/>
 						</Box>
-						<Text as="p" maxW="70%" fontWeight={700} color="primaxLightPurple">
+						<Text
+							as="p"
+							maxW={{ base: '100%', md: '70%' }}
+							fontWeight={700}
+							color="primaxLightPurple"
+							textAlign={{ base: 'center', md: 'justify' }}
+						>
 							Didirikan sebagai perusahaan produksi progresif, berfokus pada
 							produksi kosmetik dan makanan sehat dengan kualitas terbaik dan
 							sesuai standar Nasional & Internasional.
 						</Text>
-					</Box>
+					</Flex>
 				}
 			/>
 			<SectionB
 				bg="primaxLightBlue"
 				alignItems="center"
+				imgWidth={{
+					base: '100%',
+					md: '50%',
+				}}
 				img={
-					<Box pos="absolute" bottom="-8px">
+					<Box
+						pos="absolute"
+						bottom="-8px"
+						zIndex={{
+							base: 1,
+							md: 0,
+						}}
+						opacity={{
+							base: '0.3',
+							md: '1',
+						}}
+					>
 						<ImageChakra
 							src="/home/primaxcel-botol-kosmetik.png"
 							alt="Primaxcel botol RnD"
 						/>
 					</Box>
 				}
+				minH={{
+					base: '0',
+					md: '2xl',
+				}}
 				containerWidth="100%"
-				containerPadding="0 60px 0 0"
+				containerPadding={{
+					base: '0',
+					md: '0 60px 0 0',
+				}}
 				content={
-					<Box>
+					<Box
+						zIndex={{
+							base: 1,
+							md: 0,
+						}}
+						position="relative"
+						padding={{
+							base: '40px 16px',
+							md: 0,
+						}}
+					>
 						<Text
 							as="h1"
 							textColor="primaxLightPurple"
@@ -191,14 +252,29 @@ const Home = () => {
 							w="50%"
 							h="2xl"
 							bg="primaxBlue"
+							display={{
+								base: 'none',
+								md: 'block',
+							}}
 						></Box>
-						<Box pos="relative" width="110%">
+						<Box
+							pos="relative"
+							width={{
+								base: '100%',
+								md: '110%',
+							}}
+						>
 							<Image src={modernBeauty} alt="Maklon bersama Primaxcel" />
 						</Box>
 					</>
 				}
 				rightContent={
-					<Box ml="90px">
+					<Box
+						ml={{
+							base: '0',
+							md: '90px',
+						}}
+					>
 						<Text as="h2" textColor="primaxLightPurple" mb={4}>
 							Maklon bersama kami
 						</Text>
@@ -217,7 +293,14 @@ const Home = () => {
 							<br />
 							Jangan ragu lagi
 						</Text>
-						<Button py={6} px={14}>
+						<Button
+							py={6}
+							px={14}
+							width={{
+								base: '100%',
+								md: 'auto',
+							}}
+						>
 							Hubungi Kami
 						</Button>
 					</Box>
@@ -230,7 +313,14 @@ const Home = () => {
 				padding="40px 0"
 				leftContent={
 					<>
-						<Box pos="relative" pl="40px">
+						<Box
+							pos="relative"
+							pl="40px"
+							display={{
+								base: 'none',
+								md: 'block',
+							}}
+						>
 							<Box
 								pos="absolute"
 								top={0}
@@ -247,7 +337,12 @@ const Home = () => {
 					</>
 				}
 				rightContent={
-					<Box mr="50px">
+					<Box
+						mr={{
+							base: '0',
+							md: '50px',
+						}}
+					>
 						<Text as="h2" textColor="primaxLightPurple" mb={6}>
 							Mengenai Maklon
 						</Text>
@@ -271,7 +366,7 @@ const Home = () => {
 					</Box>
 				}
 			/>
-			<Box py={10} bg="primaxLightBlue" textAlign="center">
+			{/* <Box py={10} bg="primaxLightBlue" textAlign="center">
 				<Text as="h2">Produk yang kami produksi</Text>
 
 				<Slider {...carouselSettings}>
@@ -290,20 +385,35 @@ const Home = () => {
 				<Button py={8} px={14}>
 					Cara Order
 				</Button>
-			</Box>
+			</Box> */}
 
 			<Box py={8}>
 				<Container maxW="container.xl">
 					<Text as="h2" textAlign="center">
 						Mengapa Maklon Bersama Primaxcel?
 					</Text>
-
-					<HStack mt={8} gap={6} alignItems="start" justifyContent="center">
-						<Box textAlign="center" maxW="435px">
+					<Flex
+						mt={8}
+						gap={6}
+						alignItems="start"
+						justifyContent="center"
+						flexDirection={{
+							base: 'column',
+							md: 'row',
+						}}
+					>
+						<Flex
+							textAlign="center"
+							flexDirection="column"
+							width={{
+								base: '100%',
+								md: 'calc(100% / 3)',
+							}}
+						>
 							<Box
 								display="flex"
 								justifyContent="center"
-								alignItems="end"
+								alignItems="center"
 								minH="155px"
 							>
 								<Image src={discuss} alt="Proses mudah" />
@@ -322,13 +432,20 @@ const Home = () => {
 								membimbing anda, merubah ide menjadi produk yang unik dan bisa
 								dipasarkan.
 							</Text>
-						</Box>
+						</Flex>
 
-						<Box textAlign="center" maxW="435px">
+						<Flex
+							textAlign="center"
+							flexDirection="column"
+							width={{
+								base: '100%',
+								md: 'calc(100% / 3)',
+							}}
+						>
 							<Box
 								display="flex"
 								justifyContent="center"
-								alignItems="end"
+								alignItems="center"
 								minH="155px"
 							>
 								<Image src={money} alt="Modal kecil" />
@@ -347,13 +464,20 @@ const Home = () => {
 								kemudahan pembayaran serta MOQ yang bisa disesuaikan. Memastikan
 								konsumen memperoleh produk dengan harga yang kompetitif.
 							</Text>
-						</Box>
+						</Flex>
 
-						<Box textAlign="center" maxW="435px">
+						<Flex
+							textAlign="center"
+							flexDirection="column"
+							width={{
+								base: '100%',
+								md: 'calc(100% / 3)',
+							}}
+						>
 							<Box
 								display="flex"
 								justifyContent="center"
-								alignItems="end"
+								alignItems="center"
 								minH="155px"
 							>
 								<Image src={science} alt="RnD" />
@@ -372,14 +496,29 @@ const Home = () => {
 								produk-produk kosmetik, makanan sehat, serta produk rumah tangga
 								berkualitas tinggi.
 							</Text>
-						</Box>
-					</HStack>
-					<HStack mt={8} gap={6} alignItems="start" justifyContent="center">
-						<Box textAlign="center" maxW="435px">
+						</Flex>
+					</Flex>
+					<Flex
+						mt={8}
+						gap={6}
+						alignItems="start"
+						justifyContent="center"
+						flexDirection={{
+							base: 'column',
+							md: 'row',
+						}}
+					>
+						<Box
+							textAlign="center"
+							width={{
+								base: '100%',
+								md: 'calc(100% / 3)',
+							}}
+						>
 							<Box
 								display="flex"
 								justifyContent="center"
-								alignItems="end"
+								alignItems="center"
 								minH="155px"
 							>
 								<Image src={shield} alt="Jaminan mutu dan kualitas" />
@@ -401,11 +540,16 @@ const Home = () => {
 							</Text>
 						</Box>
 
-						<Box textAlign="center" maxW="435px">
+						<Box
+							width={{
+								base: '100%',
+								md: 'calc(100% / 3)',
+							}}
+						>
 							<Box
 								display="flex"
 								justifyContent="center"
-								alignItems="end"
+								alignItems="center"
 								minH="155px"
 							>
 								<Image src={paper} alt="Perizinan mudah" />
@@ -425,49 +569,71 @@ const Home = () => {
 								Dermatologi, dan Hak paten.
 							</Text>
 						</Box>
-					</HStack>
+					</Flex>
 				</Container>
 			</Box>
 
-			<Box pt={8} pb={16} bg="primaxLightBlue">
+			<Box
+				py={{
+					base: 8,
+					md: 16,
+				}}
+				bg="primaxLightBlue"
+			>
 				<Container maxW="container.xl">
 					<Text as="h2" textAlign="center">
 						Company Certifications
 					</Text>
-					<HStack mt={8} justifyContent="space-between">
+					<Flex mt={8} flexWrap="wrap">
 						<Box
 							display="flex"
 							justifyContent="center"
-							alignItems="end"
-							minH="155px"
+							alignItems="center"
+							width={{
+								base: '50%',
+								md: '25%',
+							}}
 						>
-							<Image src={halalLogo} alt="Sertifikasi halal" />
+							<Image
+								src={halalLogo}
+								alt="Sertifikasi halal"
+								objectFit="contain"
+							/>
 						</Box>
 						<Box
 							display="flex"
 							justifyContent="center"
-							alignItems="end"
-							minH="155px"
+							alignItems="center"
+							width={{
+								base: '50%',
+								md: '25%',
+							}}
 						>
 							<Image src={bpomLogo} alt="Sertifikasi BPM" />
 						</Box>
 						<Box
 							display="flex"
 							justifyContent="center"
-							alignItems="end"
-							minH="155px"
+							alignItems="center"
+							width={{
+								base: '50%',
+								md: '25%',
+							}}
 						>
 							<Image src={gmpLogo} alt="Sertifikasi GMP" />
 						</Box>
 						<Box
 							display="flex"
 							justifyContent="center"
-							alignItems="end"
-							minH="155px"
+							alignItems="center"
+							width={{
+								base: '50%',
+								md: '25%',
+							}}
 						>
 							<Image src={cpkbLogo} alt="Sertifikasi CPKB" />
 						</Box>
-					</HStack>
+					</Flex>
 				</Container>
 			</Box>
 
@@ -480,9 +646,15 @@ const Home = () => {
 			>
 				<Text
 					as="h2"
-					py={48}
+					py={{
+						base: '24',
+						md: '48',
+					}}
 					color="primaxPurple"
-					fontSize="6xl"
+					fontSize={{
+						base: '3xl',
+						md: '6xl',
+					}}
 					fontWeight="bold"
 					textAlign="center"
 					backgroundColor="rgba(196, 196, 196, 0.6)"
@@ -494,7 +666,12 @@ const Home = () => {
 			<SectionC
 				customSize={['30%', '70%']}
 				leftContent={
-					<Box h="full" px={12} py={16} bg="primaxLightBlue">
+					<Box
+						h="full"
+						py={{ base: '10', lg: '16' }}
+						px={{ base: '4', md: '8', lg: '16' }}
+						bg="primaxLightBlue"
+					>
 						<Text
 							as="h3"
 							fontSize="2xl"
@@ -516,10 +693,26 @@ const Home = () => {
 					</Box>
 				}
 				rightContent={
-					<Box px={20} py={16}>
-						<Container maxW="container.md">
+					<Box
+						py={{ base: '10', lg: '16' }}
+						px={{ base: '4', md: '8', lg: '16' }}
+					>
+						<Container
+							maxW="container.md"
+							padding={{
+								base: '0',
+								md: '0 16px',
+							}}
+						>
 							<form onSubmit={handleSubmit(onSubmit)}>
-								<HStack justifyContent="space-between" gap={4}>
+								<Flex
+									justifyContent="space-between"
+									gap={4}
+									flexDirection={{
+										base: 'column',
+										sm: 'row',
+									}}
+								>
 									<FormControl>
 										<FormLabel {...formLabelStyle}>Nama</FormLabel>
 										<Input
@@ -538,8 +731,15 @@ const Home = () => {
 											{...formStyle}
 										/>
 									</FormControl>
-								</HStack>
-								<HStack justifyContent="space-between" gap={4}>
+								</Flex>
+								<Flex
+									flexDirection={{
+										base: 'column',
+										sm: 'row',
+									}}
+									justifyContent="space-between"
+									gap={4}
+								>
 									<FormControl>
 										<FormLabel fontSize="xl" fontWeight="bold">
 											Domisili
@@ -560,8 +760,15 @@ const Home = () => {
 											{...formStyle}
 										/>
 									</FormControl>
-								</HStack>
-								<HStack justifyContent="space-between" gap={4}>
+								</Flex>
+								<Flex
+									flexDirection={{
+										base: 'column',
+										sm: 'row',
+									}}
+									justifyContent="space-between"
+									gap={4}
+								>
 									<FormControl>
 										<FormLabel {...formLabelStyle}>Jenis Produk</FormLabel>
 										<Select {...formStyle}>
@@ -585,8 +792,15 @@ const Home = () => {
 											))}
 										</Select>
 									</FormControl>
-								</HStack>
-								<HStack justifyContent="space-between" gap={4}>
+								</Flex>
+								<Flex
+									flexDirection={{
+										base: 'column',
+										sm: 'row',
+									}}
+									justifyContent="space-between"
+									gap={4}
+								>
 									<FormControl>
 										<FormLabel {...formLabelStyle}>Kepemilikan</FormLabel>
 										<Select {...formStyle}>
@@ -610,7 +824,7 @@ const Home = () => {
 											))}
 										</Select>
 									</FormControl>
-								</HStack>
+								</Flex>
 								<FormControl>
 									<FormLabel {...formLabelStyle}>Informasi Lainnya</FormLabel>
 									<Textarea
@@ -619,7 +833,21 @@ const Home = () => {
 										{...register('example')}
 									/>
 								</FormControl>
-								<Button mt={12} px={16} py={7}>
+								<Button
+									px={{
+										base: 0,
+										md: 16,
+									}}
+									width={{
+										base: '100%',
+										md: 'auto',
+									}}
+									py={6}
+									mt={{
+										base: 4,
+										md: 8,
+									}}
+								>
 									Submit
 								</Button>
 							</form>

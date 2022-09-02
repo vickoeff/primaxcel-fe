@@ -24,19 +24,34 @@ export const SectionA = (props) => {
 			>
 				<Flex
 					minH={isFitContent ? 'unset' : '2xl'}
-					flexDirection={isReverse ? 'row-reverse' : null}
+					flexDirection={{
+						base: 'column',
+						md: isReverse ? 'row-reverse' : 'row',
+					}}
 					alignItems={alignItems ? alignItems : 'center'}
 					gap={gap ? gap : 'unset'}
 				>
 					<Box
-						minW={customSize ? customSize[0] : '50%'}
-						maxW={customSize ? customSize[0] : '50%'}
+						minW={{
+							base: '100%',
+							md: customSize ? customSize[0] : '50%',
+						}}
+						maxW={{
+							base: '100%',
+							md: customSize ? customSize[0] : '50%',
+						}}
 					>
 						{img ? <Image src={img} alt={`image_${img}`} /> : leftContent}
 					</Box>
 					<Box
-						minW={customSize ? customSize[1] : '50%'}
-						maxW={customSize ? customSize[1] : '50%'}
+						minW={{
+							base: '100%',
+							md: customSize ? customSize[1] : '50%',
+						}}
+						maxW={{
+							base: '100%',
+							md: customSize ? customSize[1] : '50%',
+						}}
 					>
 						{rightContent}
 					</Box>
