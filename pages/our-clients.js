@@ -2,7 +2,15 @@ import { useState, useMemo } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { SectionA } from '@/components/Layouts';
-import { Box, Container, HStack, Text, Image, Button } from '@chakra-ui/react';
+import {
+	Box,
+	Container,
+	HStack,
+	Text,
+	Image,
+	Button,
+	Flex,
+} from '@chakra-ui/react';
 import ClientsDetailModal from '@/components/ClientsDetailModal';
 
 // import static image
@@ -234,33 +242,51 @@ const OurClients = () => {
 					content="Bisnis skin care anda menjadi mudah dengan maklon bersama Primaxcel. Hubungi kami untuk memulai bisnis anda."
 				></meta>
 				{/* <meta name="twitter:image" content="LINK TO IMAGE"></meta> */}
-				{/* <meta name="twitter:site" content="@USERNAME"></meta>
-				<meta name="twitter:creator" content="@USERNAME"></meta> */}
+				<meta name="twitter:site" content="@primaxcel_inv"></meta>
+				<meta name="twitter:creator" content="@primaxcel_inv"></meta>
 			</Head>
-			<Box minH={100}></Box>
-			<div
-				style={{
-					minHeight: 'calc(90vh - 77px)',
-					backgroundImage: `url(${imgPath}/primaxcel-produk.png)`,
-					backgroundPosition: 'bottom',
-					backgroundRepeat: 'no-repeat',
-					backgroundSize: '100%',
-					backgroundColor: 'white',
+			<Box
+				pt={{
+					base: '57px',
+					md: '65px',
 				}}
+				minHeight={{
+					base: '550px',
+					md: '100vh',
+				}}
+				backgroundImage={`url(${imgPath}/primaxcel-produk.png)`}
+				backgroundPosition="bottom"
+				backgroundRepeat="no-repeat"
+				backgroundSize={{
+					base: 'auto',
+					lg: '100%',
+				}}
+				backgroundColor="white"
 			>
 				<Container pos="relative" maxW="container.xl">
 					<Box
 						display="flex"
 						justifyContent="center"
 						alignItems="start"
-						pt={100}
+						pt={{
+							base: 50,
+							lg: 100,
+						}}
 					>
-						<Text as="h1" fontSize="6xl" fontWeight="bold" color="primaxPurple">
+						<Text
+							as="h1"
+							fontWeight="bold"
+							color="primaxPurple"
+							fontSize={{
+								base: '4xl',
+								md: '6xl',
+							}}
+						>
 							Our Clients
 						</Text>
 					</Box>
 				</Container>
-			</div>
+			</Box>
 
 			<Box minH={100} bg="primaxLightBlue">
 				<Container
@@ -281,9 +307,36 @@ const OurClients = () => {
 
 					<HStack flexWrap="wrap" justifyContent="space-around" mt={14}>
 						{householdProducts.map((product) => (
-							<Box minW="30%" key={product.name}>
-								<Image src={product.src} alt={product.name} mx="auto" />
-								<Text as="p" textAlign="center" fontWeight="bold">
+							<Box
+								w={{
+									base: 'calc(50% - 8px)',
+									md: '30%',
+								}}
+								key={product.name}
+							>
+								<Flex
+									alignItems="center"
+									justifyContent="center"
+									overflow="hidden"
+									w="100%"
+									h={{
+										base: '300px',
+									}}
+								>
+									<Image
+										src={product.src}
+										alt={product.name}
+										objectFit="contain"
+									/>
+								</Flex>
+								<Text
+									as="p"
+									textAlign="center"
+									fontWeight="bold"
+									overflow="hidden"
+									whiteSpace="nowrap"
+									textOverflow="ellipsis"
+								>
 									{product.name}
 								</Text>
 							</Box>
@@ -320,9 +373,36 @@ const OurClients = () => {
 
 					<HStack flexWrap="wrap" justifyContent="space-around" mt={20}>
 						{skinCareProducts.map((product) => (
-							<Box minW="30%" key={product.name}>
-								<Image src={product.src} alt={product.name} mx="auto" />
-								<Text as="p" textAlign="center" fontWeight="bold">
+							<Box
+								w={{
+									base: 'calc(50% - 8px)',
+									md: '30%',
+								}}
+								key={product.name}
+							>
+								<Flex
+									alignItems="center"
+									justifyContent="center"
+									overflow="hidden"
+									w="100%"
+									h={{
+										base: '300px',
+									}}
+								>
+									<Image
+										src={product.src}
+										alt={product.name}
+										objectFit="contain"
+									/>
+								</Flex>
+								<Text
+									as="p"
+									textAlign="center"
+									fontWeight="bold"
+									overflow="hidden"
+									whiteSpace="nowrap"
+									textOverflow="ellipsis"
+								>
 									{product.name}
 								</Text>
 							</Box>
@@ -352,21 +432,49 @@ const OurClients = () => {
 						fontSize="4xl"
 						fontWeight="bold"
 						color="primaxPurple"
-						textAlign="left"
+						textAlign={{
+							base: 'center',
+							md: 'left',
+						}}
 					>
 						What they say
 					</Text>
 
-					<HStack justifyContent="center" flexWrap="wrap" gap={8} mt={20}>
+					<HStack
+						justifyContent="center"
+						flexWrap="wrap"
+						gap={{
+							base: 4,
+							md: 8,
+						}}
+						mt={{
+							base: 8,
+							md: 20,
+						}}
+						flexDirection={{
+							base: 'column',
+							lg: 'row',
+						}}
+					>
 						{testimoni.map((testi, idx) => (
 							<Box
 								display="flex"
-								maxW="calc(50% - 1.3rem)"
-								p={6}
+								maxW={{
+									base: '100%',
+									lg: 'calc(50% - 1.3rem)',
+								}}
+								p={{
+									base: 4,
+									md: 6,
+								}}
 								key={idx}
 								bg="primaxBlue"
 								ml="0!important"
-								minH="210px"
+								height={{
+									base: '320px',
+									md: '250px',
+								}}
+								overflow="hidden"
 							>
 								<Image
 									src={testi.photo}
@@ -396,7 +504,10 @@ const OurClients = () => {
 			</Box>
 
 			<SectionA
-				maxH="2xl"
+				maxH={{
+					base: 'none',
+					md: '2xl',
+				}}
 				py={24}
 				gap={16}
 				alignItems="start"
@@ -422,8 +533,30 @@ const OurClients = () => {
 					</Box>
 				}
 				rightContent={
-					<Box pr="60px">
-						<Text as="h3" fontSize="4xl" fontWeight="bold" color="primaxPurple">
+					<Box
+						pr={{
+							base: '0',
+							md: '60px',
+						}}
+						mt={{
+							base: 20,
+							md: 0,
+						}}
+					>
+						<Text
+							as="h3"
+							fontSize="4xl"
+							fontWeight="bold"
+							color="primaxPurple"
+							textAlign={{
+								base: 'center',
+								md: 'left',
+							}}
+							mt={{
+								base: 10,
+								md: 0,
+							}}
+						>
 							Bisnis skincare menjadi mudah dengan maklon bersama Primaxcel
 						</Text>
 						<Text as="p" mt={6}>
@@ -431,9 +564,16 @@ const OurClients = () => {
 							memulai bisnis anda, maupun untuk info lebih lanjut mengenai
 							maklon skincare dan household products.
 						</Text>
-						<Button mt={6} px={16} py={7}>
-							Hubungi Kami
-						</Button>
+						<Flex
+							justifyContent={{
+								base: 'center',
+								md: 'flex-start',
+							}}
+						>
+							<Button mt={6} px={16} py={7}>
+								Hubungi Kami
+							</Button>
+						</Flex>
 					</Box>
 				}
 			/>

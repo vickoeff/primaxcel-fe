@@ -11,15 +11,17 @@ import {
 import Slider from 'react-slick';
 import Head from 'next/head';
 import { MainLayout } from '../components/Layouts';
+import useWindowSize from '@/hooks/useWindowSize';
 
 const OurCompany = () => {
+	const { isMobile } = useWindowSize();
 	const carouselSettings = {
 		dots: false,
 		arrows: false,
 		centerMode: true,
 		infinite: true,
 		speed: 500,
-		slidesToShow: 3,
+		slidesToShow: isMobile ? 1 : 3,
 		slidesToScroll: 1,
 	};
 
@@ -51,23 +53,56 @@ const OurCompany = () => {
 					content="Ketahui riwayat perusahaan, visi, misi, brand yang sudah bekerja sama dengan kami, dan telusuri profile Primaxcel."
 				></meta>
 				{/* <meta name="twitter:image" content="LINK TO IMAGE"></meta> */}
-				{/* <meta name="twitter:site" content="@USERNAME"></meta>
-				<meta name="twitter:creator" content="@USERNAME"></meta> */}
+				<meta name="twitter:site" content="@primaxcel_inv"></meta>
+				<meta name="twitter:creator" content="@primaxcel_inv"></meta>
 			</Head>
-			<Box bg="primaxLightBlue" mt="50px" pos="relative">
-				<Box maxH="3xl" w="70%">
+			<Box
+				bg="primaxLightBlue"
+				mt={{
+					base: '57px',
+					md: '50px',
+				}}
+				pos="relative"
+			>
+				<Box
+					maxH={{
+						base: '3xl',
+						md: '3xl',
+					}}
+					w={{
+						base: '100%',
+						md: '70%',
+					}}
+				>
 					<Image
 						src="/our-company/set-skin-care-package-banner-design-resource.jpg"
 						alt="Skin care package"
-						layout="fill"
+						objectFit="cover"
+						height={{
+							base: '400px',
+							md: 'auto',
+						}}
 					/>
 				</Box>
 				<Box
 					pos="absolute"
 					top="50%"
-					right="200px"
-					bg="primaxBlue"
-					transform="translate(0% , -50%)"
+					right={{
+						base: 'auto',
+						md: '200px',
+					}}
+					left={{
+						base: '50%',
+						md: 'auto',
+					}}
+					bg={{
+						base: 'rgba(201, 229, 235, 0.7)',
+						md: 'primaxBlue',
+					}}
+					transform={{
+						base: 'translate(-50% , -50%)',
+						md: 'translate(0% , -50%)',
+					}}
 				>
 					<Flex flexDirection="column" w="400px" p="32px" h="350px">
 						<Text
@@ -87,11 +122,17 @@ const OurCompany = () => {
 				</Box>
 			</Box>
 			<SectionA
-				maxH="lg"
 				py={24}
 				alignItems="start"
+				isFitContent
 				leftContent={
-					<Box minW="lg" textAlign="center" mr="32px">
+					<Box
+						textAlign="center"
+						mr={{
+							base: '0',
+							md: '32px',
+						}}
+					>
 						<Text as="h1" fontSize="4xl" fontWeight="bold" color="primaxPurple">
 							VISI
 						</Text>
@@ -103,7 +144,17 @@ const OurCompany = () => {
 					</Box>
 				}
 				rightContent={
-					<Box minW="lg" textAlign="center" ml="32px">
+					<Box
+						textAlign="center"
+						ml={{
+							base: '0',
+							md: '32px',
+						}}
+						mt={{
+							base: '8',
+							md: '0',
+						}}
+					>
 						<Text as="h1" fontSize="4xl" fontWeight="bold" color="primaxPurple">
 							MISI
 						</Text>
@@ -135,35 +186,37 @@ const OurCompany = () => {
 				<Text as="h2" mb={12}>
 					Brand yang Maklon di Primaxcel
 				</Text>
-				<Slider {...carouselSettings}>
-					<Flex width="500px" height="250px" overflow="hidden" padding="10px">
-						<Image
-							src="/our-company/ayu-derma.png"
-							alt="ayu-derma"
-							w="100%"
-							h="100%"
-							objectFit="cover"
-						/>
-					</Flex>
-					<Flex width="500px" height="250px" overflow="hidden" padding="10px">
-						<Image
-							src="/our-company/ayu-derma.png"
-							alt="ayu-derma"
-							w="100%"
-							h="100%"
-							objectFit="cover"
-						/>
-					</Flex>
-					<Flex width="500px" height="250px" overflow="hidden" padding="10px">
-						<Image
-							src="/our-company/ayu-derma.png"
-							alt="ayu-derma"
-							w="100%"
-							h="100%"
-							objectFit="cover"
-						/>
-					</Flex>
-				</Slider>
+				<Box maxW="1280px" margin="0 auto">
+					<Slider {...carouselSettings}>
+						<Flex width="500px" height="250px" overflow="hidden" padding="10px">
+							<Image
+								src="/our-company/ayu-derma.png"
+								alt="ayu-derma"
+								w="100%"
+								h="100%"
+								objectFit="cover"
+							/>
+						</Flex>
+						<Flex width="500px" height="250px" overflow="hidden" padding="10px">
+							<Image
+								src="/our-company/ayu-derma.png"
+								alt="ayu-derma"
+								w="100%"
+								h="100%"
+								objectFit="cover"
+							/>
+						</Flex>
+						<Flex width="500px" height="250px" overflow="hidden" padding="10px">
+							<Image
+								src="/our-company/ayu-derma.png"
+								alt="ayu-derma"
+								w="100%"
+								h="100%"
+								objectFit="cover"
+							/>
+						</Flex>
+					</Slider>
+				</Box>
 			</Box>
 
 			<Box py={12} textAlign="center">
@@ -171,9 +224,16 @@ const OurCompany = () => {
 					Company Profile
 				</Text>
 				<Flex justifyContent="center">
-					<Box p={4} bg="primaxBlue">
+					<Box
+						p={4}
+						bg="primaxBlue"
+						width={{
+							base: '100%',
+							md: '770px',
+						}}
+					>
 						<iframe
-							width="770"
+							width="100%"
 							height="433"
 							src="https://www.youtube.com/embed/q9Rc0pgYQtY?rel=0&controls=0"
 							title="YouTube video player"
@@ -188,11 +248,28 @@ const OurCompany = () => {
 			<SectionC
 				customSize={['40%', '60%']}
 				leftContent={
-					<Box px={24} py={40} bg="primaxLightBlue" minH="full">
+					<Box
+						px={{
+							base: 8,
+							md: 24,
+						}}
+						py={{
+							base: 12,
+							md: 40,
+						}}
+						bg="primaxLightBlue"
+						minH="full"
+					>
 						<Text as="h2" mb={6} color="primaxPurple">
 							Tertarik maklon bersama Primaxcel?
 						</Text>
-						<Box h="76px"></Box>
+						<Box
+							h="76px"
+							display={{
+								base: 'none',
+								md: 'block',
+							}}
+						></Box>
 						<Button>Hubungi Kami</Button>
 					</Box>
 				}
@@ -205,7 +282,14 @@ const OurCompany = () => {
 							backgroundSize: 'cover',
 						}}
 					>
-						<Box px={24} py={40} maxW="550px">
+						<Box
+							px={{
+								base: 8,
+								md: 24,
+							}}
+							py={40}
+							maxW="550px"
+						>
 							<Text as="h2" mb={6} color="primaxPurple">
 								Sudah memiliki konsep produk?
 							</Text>

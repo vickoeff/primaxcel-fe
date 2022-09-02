@@ -33,22 +33,35 @@ const SkinCare = () => {
 					content="Primaxcel menyediakan berbagai produk face care, hair and body care, dan juga produk rumah tangga. Hubungi kamu untuk mewujudkan produk impianmu."
 				></meta>
 				{/* <meta name="twitter:image" content="LINK TO IMAGE"></meta> */}
-				{/* <meta name="twitter:site" content="@USERNAME"></meta>
-				<meta name="twitter:creator" content="@USERNAME"></meta> */}
+				<meta name="twitter:site" content="@primaxcel_inv"></meta>
+				<meta name="twitter:creator" content="@primaxcel_inv"></meta>
 			</Head>
 			<SectionA
-				pt="14rem"
+				pt={{
+					base: 24,
+					md: 24,
+				}}
 				pb="4rem"
 				bg="primaxLightBlue"
 				alignItems="start"
 				id="face-care"
-				containerWidth="100%"
-				containerPadding="0 0 0 60px"
+				containerWidth={{
+					base: '100%',
+					xl: '1280px',
+				}}
+				containerPadding={{
+					base: '0 16px',
+					md: '0 0 0 60px',
+				}}
+				customSize={['50%', '50%']}
 				leftContent={
 					<Box width="full">
 						<Text
 							as="h2"
-							fontSize="6xl"
+							fontSize={{
+								base: '4xl',
+								md: '6xl',
+							}}
 							fontWeight={700}
 							mb={6}
 							color="primaxDarkPurple"
@@ -56,7 +69,18 @@ const SkinCare = () => {
 							FACE CARE
 						</Text>
 
-						<HStack gap={24} mb={4} alignItems="start">
+						<HStack
+							gap={{
+								base: 4,
+								md: 6,
+							}}
+							mb={4}
+							alignItems="start"
+							flexDirection={{
+								base: 'column',
+								md: 'row',
+							}}
+						>
 							<Box minW="220px">
 								<Text
 									as="h3"
@@ -78,7 +102,12 @@ const SkinCare = () => {
 									<ListItem>Facial Wash</ListItem>
 								</UnorderedList>
 							</Box>
-							<Box>
+							<Box
+								marginInlineStart={{
+									base: '0 !important',
+									md: '0.5rem !important',
+								}}
+							>
 								<Text
 									as="h3"
 									fontSize="2xl"
@@ -100,7 +129,18 @@ const SkinCare = () => {
 							</Box>
 						</HStack>
 
-						<HStack gap={24} mb={4} alignItems="start">
+						<HStack
+							gap={{
+								base: 4,
+								md: 6,
+							}}
+							mb={4}
+							alignItems="start"
+							flexDirection={{
+								base: 'column',
+								md: 'row',
+							}}
+						>
 							<Box minW="220px">
 								<Text
 									as="h3"
@@ -121,7 +161,12 @@ const SkinCare = () => {
 									<ListItem>Calming Serum</ListItem>
 								</UnorderedList>
 							</Box>
-							<Box>
+							<Box
+								marginInlineStart={{
+									base: '0 !important',
+									md: '0.5rem !important',
+								}}
+							>
 								<Text
 									as="h3"
 									fontSize="2xl"
@@ -143,7 +188,17 @@ const SkinCare = () => {
 							</Box>
 						</HStack>
 
-						<HStack gap={24} alignItems="start">
+						<HStack
+							gap={{
+								base: 4,
+								md: 6,
+							}}
+							alignItems="start"
+							flexDirection={{
+								base: 'column',
+								md: 'row',
+							}}
+						>
 							<Box minW="220px">
 								<Text
 									as="h3"
@@ -167,7 +222,12 @@ const SkinCare = () => {
 									<ListItem>Sunscreen Lotion</ListItem>
 								</UnorderedList>
 							</Box>
-							<Box>
+							<Box
+								marginInlineStart={{
+									base: '0 !important',
+									md: '0.5rem !important',
+								}}
+							>
 								<Text
 									as="h3"
 									fontSize="2xl"
@@ -188,7 +248,13 @@ const SkinCare = () => {
 					</Box>
 				}
 				rightContent={
-					<Box pos="relative">
+					<Box
+						pos="relative"
+						display={{
+							base: 'none',
+							md: 'block',
+						}}
+					>
 						<Box
 							pos="absolute"
 							top="-2rem"
@@ -202,6 +268,7 @@ const SkinCare = () => {
 								src="/products/category/produk-skin-care.jpg"
 								alt="Produk skin care primaxcel"
 								layout="fill"
+								objectFit="cover"
 							/>
 						</Box>
 					</Box>
@@ -209,17 +276,30 @@ const SkinCare = () => {
 			/>
 
 			<SectionA
-				py="24"
+				pt={{
+					base: 16,
+					md: 24,
+				}}
+				pb="4rem"
 				bg="primaxWhite"
 				alignItems="start"
 				id="hair-and-body"
-				containerWidth="100%"
-				containerPadding="0 0 0 60px"
+				containerWidth={{
+					base: '100%',
+					xl: '1280px',
+				}}
+				containerPadding={{
+					base: '0 16px',
+					md: '0 0 0 60px',
+				}}
 				leftContent={
 					<Box width="full">
 						<Text
 							as="h2"
-							fontSize="6xl"
+							fontSize={{
+								base: '4xl',
+								md: '6xl',
+							}}
 							fontWeight={700}
 							mb={6}
 							color="primaxDarkPurple"
@@ -227,7 +307,18 @@ const SkinCare = () => {
 							HAIR & BODY CARE
 						</Text>
 
-						<HStack gap={24} mb={4} alignItems="start">
+						<HStack
+							gap={{
+								base: 4,
+								md: 6,
+							}}
+							mb={4}
+							alignItems="start"
+							flexDirection={{
+								base: 'column',
+								md: 'row',
+							}}
+						>
 							<Box minW="220px">
 								<Text
 									as="h3"
@@ -251,7 +342,12 @@ const SkinCare = () => {
 									<ListItem>Foot Cream</ListItem>
 								</UnorderedList>
 							</Box>
-							<Box>
+							<Box
+								marginInlineStart={{
+									base: '0 !important',
+									md: '0.5rem !important',
+								}}
+							>
 								<Text
 									as="h3"
 									fontSize="2xl"
@@ -273,7 +369,18 @@ const SkinCare = () => {
 							</Box>
 						</HStack>
 
-						<HStack gap={24} mb={4} alignItems="start">
+						<HStack
+							gap={{
+								base: 4,
+								md: 6,
+							}}
+							mb={4}
+							alignItems="start"
+							flexDirection={{
+								base: 'column',
+								md: 'row',
+							}}
+						>
 							<Box minW="220px">
 								<Text
 									as="h3"
@@ -302,7 +409,12 @@ const SkinCare = () => {
 									<ListItem>Hair Color</ListItem>
 								</UnorderedList>
 							</Box>
-							<Box>
+							<Box
+								marginInlineStart={{
+									base: '0 !important',
+									md: '0.5rem !important',
+								}}
+							>
 								<Text
 									as="h3"
 									fontSize="2xl"
@@ -325,7 +437,14 @@ const SkinCare = () => {
 					</Box>
 				}
 				rightContent={
-					<Box pos="relative" mt="140px">
+					<Box
+						pos="relative"
+						mt="140px"
+						display={{
+							base: 'none',
+							md: 'block',
+						}}
+					>
 						<Box
 							pos="absolute"
 							top="-2rem"
@@ -339,6 +458,7 @@ const SkinCare = () => {
 								src="/products/category/produk-hair-and-body-care.jpg"
 								alt="Produk hair and body care"
 								layout="fill"
+								objectFit="cover"
 							/>
 						</Box>
 					</Box>
@@ -346,19 +466,31 @@ const SkinCare = () => {
 			/>
 
 			<SectionA
-				pt="24"
-				pb="80"
+				pt={{
+					base: 16,
+					md: 24,
+				}}
+				pb="4rem"
 				bg="primaxLightBlue"
 				alignItems="start"
 				id="household"
 				customSize={['100%', '0']}
-				containerWidth="100%"
-				containerPadding="0 0 0 60px"
+				containerWidth={{
+					base: '100%',
+					xl: '1280px',
+				}}
+				containerPadding={{
+					base: '0 16px',
+					md: '0 0 0 60px',
+				}}
 				leftContent={
 					<Box width="full">
 						<Text
 							as="h2"
-							fontSize="6xl"
+							fontSize={{
+								base: '4xl',
+								md: '6xl',
+							}}
 							fontWeight={700}
 							mb={6}
 							color="primaxDarkPurple"
@@ -366,7 +498,18 @@ const SkinCare = () => {
 							PRODUK RUMAH TANGGA
 						</Text>
 
-						<HStack gap={24} mb={4} alignItems="start">
+						<HStack
+							gap={{
+								base: 4,
+								md: 6,
+							}}
+							mb={4}
+							alignItems="start"
+							flexDirection={{
+								base: 'column',
+								md: 'row',
+							}}
+						>
 							<Box minW="220px">
 								<Text
 									as="h3"
@@ -385,7 +528,12 @@ const SkinCare = () => {
 									<ListItem>Medicated Shampoo</ListItem>
 								</UnorderedList>
 							</Box>
-							<Box>
+							<Box
+								marginInlineStart={{
+									base: '0 !important',
+									md: '0.5rem !important',
+								}}
+							>
 								<Text
 									as="h3"
 									fontSize="2xl"
@@ -406,7 +554,18 @@ const SkinCare = () => {
 							</Box>
 						</HStack>
 
-						<HStack gap={24} mb={4} alignItems="start">
+						<HStack
+							gap={{
+								base: 4,
+								md: 6,
+							}}
+							mb={4}
+							alignItems="start"
+							flexDirection={{
+								base: 'column',
+								md: 'row',
+							}}
+						>
 							<Box minW="220px">
 								<Text
 									as="h3"
@@ -426,7 +585,12 @@ const SkinCare = () => {
 									<ListItem>Surface Desinfectant</ListItem>
 								</UnorderedList>
 							</Box>
-							<Box>
+							<Box
+								marginInlineStart={{
+									base: '0 !important',
+									md: '0.5rem !important',
+								}}
+							>
 								<Text
 									as="h3"
 									fontSize="2xl"
@@ -454,15 +618,25 @@ const SkinCare = () => {
 				rightContent={
 					<Box
 						pos="absolute"
-						width="50%"
-						right="0"
+						width={{
+							base: '50%',
+							xl: '640px',
+						}}
+						right={{
+							base: 0,
+							xl: 'calc((100% - 1280px) / 2)',
+						}}
 						top="200px"
 						bottom="120px"
 						bg="primaxBlue"
 						pt="8"
 						pl="8"
+						display={{
+							base: 'none',
+							md: 'block',
+						}}
 					>
-						<Box pos="relative" width="100%" height="770px">
+						<Box pos="relative" width="100%" height="500px">
 							<Image
 								src="/products/category/produk-rumah-tangga.jpg"
 								alt="Produk rumah tangga"

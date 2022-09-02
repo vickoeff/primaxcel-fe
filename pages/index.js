@@ -3,7 +3,6 @@ import {
 	Box,
 	Text,
 	Button,
-	HStack,
 	FormControl,
 	FormLabel,
 	Image as ImageChakra,
@@ -51,16 +50,16 @@ const Home = () => {
 	const onSubmit = (data) => console.log(data);
 	const { isMobile } = useWindowSize();
 
-	console.log(watch('example'));
-
 	const carouselSettings = {
 		dots: false,
 		arrows: false,
 		centerMode: true,
 		infinite: true,
 		speed: 500,
-		slidesToShow: 5,
+		slidesToShow: isMobile ? 1 : 5,
 		slidesToScroll: 1,
+		autplay: true,
+		autoplaySpeed: 500,
 	};
 
 	const formStyle = {
@@ -109,8 +108,8 @@ const Home = () => {
 					content="Produsen produk kecantikan terbaik, membuat produk dengan standar Nasional dan Internasional. Wujudkan produk anda bersama Primaxcel."
 				></meta>
 				{/* <meta name="twitter:image" content="LINK TO IMAGE"></meta> */}
-				{/* <meta name="twitter:site" content="@USERNAME"></meta>
-				<meta name="twitter:creator" content="@USERNAME"></meta> */}
+				<meta name="twitter:site" content="@primaxcel_inv"></meta>
+				<meta name="twitter:creator" content="@primaxcel_inv"></meta>
 				<link rel="canonical" href="https://primaxcelinovasi.co.id" />
 			</Head>
 			<Box minH={100} bg="primaxLightBlue"></Box>
@@ -250,7 +249,10 @@ const Home = () => {
 							top={0}
 							left={0}
 							w="50%"
-							h="2xl"
+							h={{
+								base: '520px',
+								xl: '550px',
+							}}
 							bg="primaxBlue"
 							display={{
 								base: 'none',
@@ -275,10 +277,24 @@ const Home = () => {
 							md: '90px',
 						}}
 					>
-						<Text as="h2" textColor="primaxLightPurple" mb={4}>
+						<Text
+							as="h2"
+							textColor="primaxLightPurple"
+							mb={4}
+							textAlign={{
+								base: 'center',
+								md: 'left',
+							}}
+						>
 							Maklon bersama kami
 						</Text>
-						<Text as="p">
+						<Text
+							as="p"
+							textAlign={{
+								base: 'center',
+								md: 'left',
+							}}
+						>
 							Anda memiliki ide bisnis?
 							<br /> Bingung mulai bisnis dari mana?
 						</Text>
@@ -296,9 +312,13 @@ const Home = () => {
 						<Button
 							py={6}
 							px={14}
-							width={{
-								base: '100%',
-								md: 'auto',
+							display={{
+								base: 'flex',
+								md: 'inline-flex',
+							}}
+							margin={{
+								base: '0 auto',
+								md: '0',
 							}}
 						>
 							Hubungi Kami
@@ -366,7 +386,7 @@ const Home = () => {
 					</Box>
 				}
 			/>
-			{/* <Box py={10} bg="primaxLightBlue" textAlign="center">
+			<Box py={10} bg="primaxLightBlue" textAlign="center">
 				<Text as="h2">Produk yang kami produksi</Text>
 
 				<Slider {...carouselSettings}>
@@ -382,10 +402,10 @@ const Home = () => {
 					<CarouselItem img={skinCare} label="Lorem Ipsum" />
 				</Slider>
 
-				<Button py={8} px={14}>
+				<Button py={6} px={14}>
 					Cara Order
 				</Button>
-			</Box> */}
+			</Box>
 
 			<Box py={8}>
 				<Container maxW="container.xl">

@@ -1,6 +1,8 @@
 import { Container, Box, Flex, Button, VStack, Text } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 
 const Footer = (props) => {
+	const router = useRouter();
 	const { logo, faqLinks, sosmedLinks, ...rest } = props;
 
 	const h3Style = {
@@ -8,6 +10,10 @@ const Footer = (props) => {
 		fontWeight: 600,
 		textColor: 'primaxPurple',
 		mb: 3,
+	};
+
+	const onGoToFaq = () => {
+		router.push('/faq');
 	};
 
 	return (
@@ -62,6 +68,7 @@ const Footer = (props) => {
 									fontSize="lg"
 									fontWeight={400}
 									textColor="primaxDarkPurple"
+									onClick={onGoToFaq}
 								>
 									{link.label}
 								</Button>

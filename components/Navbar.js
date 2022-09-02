@@ -96,18 +96,21 @@ const Navbar = (props) => {
 							</Link>
 						))}
 					</HStack>
-					<Icon
-						as={GiHamburgerMenu}
-						display={{ base: 'block', md: 'none' }}
-						fontSize="20px"
-						cursor="pointer"
+					<Flex
+						ref={btnRef}
+						onClick={onOpen}
 						pos="absolute"
 						top="50%"
 						right="0"
 						transform="translate(0, -50%)"
-						ref={btnRef}
-						onClick={onOpen}
-					/>
+					>
+						<Icon
+							as={GiHamburgerMenu}
+							display={{ base: 'block', md: 'none' }}
+							fontSize="20px"
+							cursor="pointer"
+						/>
+					</Flex>
 				</Flex>
 			</Container>
 		</Box>

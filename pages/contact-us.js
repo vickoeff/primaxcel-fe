@@ -3,7 +3,6 @@ import {
 	Box,
 	Text,
 	Button,
-	HStack,
 	FormControl,
 	FormLabel,
 	Image,
@@ -15,7 +14,7 @@ import {
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-import { SectionA, SectionC } from '@/components/Layouts';
+import { SectionC } from '@/components/Layouts';
 import { useForm } from 'react-hook-form';
 import {
 	PRODUCT_CONTACT_TYPE,
@@ -78,10 +77,21 @@ const ContactUs = () => {
 					content="Hubungi kami untuk menanyakan produk impian anda. Tim riset dan development kami memiliki latar belakang yang kuat dalam produk farmasi."
 				></meta>
 				{/* <meta name="twitter:image" content="LINK TO IMAGE"></meta> */}
-				{/* <meta name="twitter:site" content="@USERNAME"></meta>
-				<meta name="twitter:creator" content="@USERNAME"></meta> */}
+				<meta name="twitter:site" content="@primaxcel_inv"></meta>
+				<meta name="twitter:creator" content="@primaxcel_inv"></meta>
 			</Head>
-			<Container py={16} pt={24} maxW="100%" bg="primaxWhite">
+			<Container
+				py={16}
+				maxW={{
+					base: '100%',
+					xl: '1280px',
+				}}
+				bg="primaxWhite"
+				pt={{
+					base: '80px',
+					md: 24,
+				}}
+			>
 				<Box
 					pos="relative"
 					display="flex"
@@ -90,9 +100,16 @@ const ContactUs = () => {
 				>
 					<Text
 						pos="absolute"
+						zIndex={1}
 						as="h1"
-						left="48px"
-						fontSize="7xl"
+						left={{
+							base: '0',
+							md: '48px',
+						}}
+						fontSize={{
+							base: '4xl',
+							md: '6xl',
+						}}
 						fontWeight={700}
 						color="primaxDarkPurple"
 					>
@@ -100,7 +117,12 @@ const ContactUs = () => {
 						<br />
 						bersama Primaxcel
 					</Text>
-					<Box>
+					<Box
+						opacity={{
+							base: '0.5',
+							md: '1',
+						}}
+					>
 						<Image
 							src={`${imgPath}/primaxcel-botol-spray.png`}
 							alt="Primaxcel botol spray"
@@ -109,16 +131,36 @@ const ContactUs = () => {
 				</Box>
 			</Container>
 
-			<Container pb={16} maxW="container.md" bg="primaxWhite">
+			<Container
+				pb={{
+					base: 0,
+					md: 16,
+				}}
+				maxW="container.md"
+				bg="primaxWhite"
+			>
 				<Text as="p">
 					KMI PERTim Riset dan Developmen kami mmeiliki latar belakang dan
 					portfolio yang kuat dalam formulasi produk farmasi,
 				</Text>
 			</Container>
 
-			<Container py={16} maxW="container.xl" bg="primaxWhite">
+			<Container
+				py={{
+					base: 2,
+					md: 16,
+				}}
+				maxW="container.xl"
+				bg="primaxWhite"
+			>
 				<Flex justifyContent="center" alignItems="center" w="100%">
-					<Flex flexDirection="column" w="80%">
+					<Flex
+						flexDirection="column"
+						w={{
+							base: '100%',
+							md: '80%',
+						}}
+					>
 						<Text
 							as="h2"
 							fontSize="4xl"
@@ -143,9 +185,15 @@ const ContactUs = () => {
 			</Container>
 
 			<SectionC
+				id="form"
 				customSize={['30%', '70%']}
 				leftContent={
-					<Box h="full" px={12} py={16} bg="primaxLightBlue">
+					<Box
+						h="full"
+						py={{ base: '10', lg: '16' }}
+						px={{ base: '4', md: '8', lg: '16' }}
+						bg="primaxLightBlue"
+					>
 						<Text
 							as="h3"
 							fontSize="2xl"
@@ -167,10 +215,26 @@ const ContactUs = () => {
 					</Box>
 				}
 				rightContent={
-					<Box px={20} py={16}>
-						<Container maxW="container.md">
+					<Box
+						py={{ base: '10', lg: '16' }}
+						px={{ base: '4', md: '8', lg: '16' }}
+					>
+						<Container
+							maxW="container.md"
+							padding={{
+								base: '0',
+								md: '0 16px',
+							}}
+						>
 							<form onSubmit={handleSubmit(onSubmit)}>
-								<HStack justifyContent="space-between" gap={4}>
+								<Flex
+									justifyContent="space-between"
+									gap={4}
+									flexDirection={{
+										base: 'column',
+										sm: 'row',
+									}}
+								>
 									<FormControl>
 										<FormLabel {...formLabelStyle}>Nama</FormLabel>
 										<Input
@@ -189,8 +253,15 @@ const ContactUs = () => {
 											{...formStyle}
 										/>
 									</FormControl>
-								</HStack>
-								<HStack justifyContent="space-between" gap={4}>
+								</Flex>
+								<Flex
+									flexDirection={{
+										base: 'column',
+										sm: 'row',
+									}}
+									justifyContent="space-between"
+									gap={4}
+								>
 									<FormControl>
 										<FormLabel fontSize="xl" fontWeight="bold">
 											Domisili
@@ -211,8 +282,15 @@ const ContactUs = () => {
 											{...formStyle}
 										/>
 									</FormControl>
-								</HStack>
-								<HStack justifyContent="space-between" gap={4}>
+								</Flex>
+								<Flex
+									flexDirection={{
+										base: 'column',
+										sm: 'row',
+									}}
+									justifyContent="space-between"
+									gap={4}
+								>
 									<FormControl>
 										<FormLabel {...formLabelStyle}>Jenis Produk</FormLabel>
 										<Select {...formStyle}>
@@ -236,8 +314,15 @@ const ContactUs = () => {
 											))}
 										</Select>
 									</FormControl>
-								</HStack>
-								<HStack justifyContent="space-between" gap={4}>
+								</Flex>
+								<Flex
+									flexDirection={{
+										base: 'column',
+										sm: 'row',
+									}}
+									justifyContent="space-between"
+									gap={4}
+								>
 									<FormControl>
 										<FormLabel {...formLabelStyle}>Kepemilikan</FormLabel>
 										<Select {...formStyle}>
@@ -261,7 +346,7 @@ const ContactUs = () => {
 											))}
 										</Select>
 									</FormControl>
-								</HStack>
+								</Flex>
 								<FormControl>
 									<FormLabel {...formLabelStyle}>Informasi Lainnya</FormLabel>
 									<Textarea
@@ -270,7 +355,21 @@ const ContactUs = () => {
 										{...register('example')}
 									/>
 								</FormControl>
-								<Button mt={12} px={16} py={7}>
+								<Button
+									px={{
+										base: 0,
+										md: 16,
+									}}
+									width={{
+										base: '100%',
+										md: 'auto',
+									}}
+									py={6}
+									mt={{
+										base: 4,
+										md: 8,
+									}}
+								>
 									Submit
 								</Button>
 							</form>

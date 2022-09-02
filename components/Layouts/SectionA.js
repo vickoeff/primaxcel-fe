@@ -40,6 +40,7 @@ export const SectionA = (props) => {
 							base: '100%',
 							md: customSize ? customSize[0] : '50%',
 						}}
+						zIndex={1}
 					>
 						{img ? <Image src={img} alt={`image_${img}`} /> : leftContent}
 					</Box>

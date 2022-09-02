@@ -7,7 +7,6 @@ import {
 	Text,
 	UnorderedList,
 	ListItem,
-	HStack,
 	Flex,
 	Button,
 	Image as ImageChakra,
@@ -17,7 +16,6 @@ import { useRouter } from 'next/router';
 
 const Services = () => {
 	const router = useRouter();
-	const galleryEl = useRef(null);
 
 	const handleServicesDetail = () => {
 		router.push(`${router.pathname}/category`);
@@ -53,30 +51,71 @@ const Services = () => {
 					content="Primaxcel menyediakan berbagai produk face care, hair and body care, dan juga produk rumah tangga. Hubungi kamu untuk mewujudkan produk impianmu."
 				></meta>
 				{/* <meta name="twitter:image" content="LINK TO IMAGE"></meta> */}
-				{/* <meta name="twitter:site" content="@USERNAME"></meta>
-				<meta name="twitter:creator" content="@USERNAME"></meta> */}
+				<meta name="twitter:site" content="@primaxcel_inv"></meta>
+				<meta name="twitter:creator" content="@primaxcel_inv"></meta>
 			</Head>
 			<SectionA
-				pt={20}
+				pt={{
+					base: '57px',
+					md: '65px',
+				}}
 				bg="primaxWhite"
-				containerWidth="100%"
+				containerWidth={{
+					base: '100%',
+					xl: '1280px',
+				}}
 				containerPadding="0"
+				isFitContent
 				leftContent={
-					<Box pos="relative" width="100%" height="723px">
+					<Box
+						pos="relative"
+						width="100%"
+						height={{
+							base: '500px',
+							md: '723px',
+						}}
+						opacity={{
+							base: '0.3',
+							md: '1',
+						}}
+					>
 						<Image
 							src={imgPath + '/face-scrub.jpg'}
 							alt="Face scrub produk"
 							layout="fill"
+							objectFit="cover"
 						/>
 					</Box>
 				}
 				rightContent={
 					<Box
 						display="flex"
-						bg="primaxLightBlue"
+						bg={{
+							base: 'none',
+							md: 'primaxLightBlue',
+						}}
 						alignItems="center"
 						justifyContent="center"
-						height="723px"
+						height={{
+							base: 'auto',
+							md: '723px',
+						}}
+						pos={{
+							base: 'absolute',
+							md: 'relative',
+						}}
+						top={{
+							base: '100px',
+							md: 'auto',
+						}}
+						left={{
+							base: '50%',
+							md: 'auto',
+						}}
+						transform={{
+							base: 'translate(-50%, 0)',
+							md: 'none',
+						}}
 					>
 						<Box width="400px">
 							<Text
@@ -141,13 +180,25 @@ const Services = () => {
 					>
 						Tahapan Maklon
 					</Text>
-					<HStack gap={6}>
+					<Flex
+						gap={6}
+						flexDirection={{
+							base: 'column',
+							md: 'row',
+						}}
+					>
 						<Box
 							display="flex"
 							flexDirection="column"
-							justifyContent="space-between"
+							justifyContent={{
+								base: 'flex-start',
+								md: 'space-between',
+							}}
 							flex={1}
-							minH="635px"
+							minH={{
+								base: '0',
+								md: '635px',
+							}}
 							p={10}
 							bg="primaxWhite"
 							boxShadow="4px 18px 24px #00000064"
@@ -192,9 +243,15 @@ const Services = () => {
 						<Box
 							display="flex"
 							flexDirection="column"
-							justifyContent="space-between"
+							justifyContent={{
+								base: 'flex-start',
+								md: 'space-between',
+							}}
 							flex={1}
-							minH="635px"
+							minH={{
+								base: '0',
+								md: '635px',
+							}}
 							p={10}
 							bg="primaxWhite"
 							boxShadow="4px 18px 24px #00000064"
@@ -239,9 +296,15 @@ const Services = () => {
 						<Box
 							display="flex"
 							flexDirection="column"
-							justifyContent="space-between"
+							justifyContent={{
+								base: 'flex-start',
+								md: 'space-between',
+							}}
 							flex={1}
-							minH="635px"
+							minH={{
+								base: '0',
+								md: '635px',
+							}}
 							p={10}
 							bg="primaxWhite"
 							boxShadow="4px 18px 24px #00000064"
@@ -284,7 +347,7 @@ const Services = () => {
 								</Text>
 							</Button>
 						</Box>
-					</HStack>
+					</Flex>
 
 					<Button mt={12} px={16} py={7}>
 						Hubungi Kami
@@ -292,7 +355,20 @@ const Services = () => {
 				</Container>
 			</Box>
 
-			<Box bg="primaxWhite" pt={16} pb={24} px="60px">
+			<Box
+				bg="primaxWhite"
+				pt={16}
+				pb={24}
+				px={{
+					base: '16px',
+					md: '60px',
+				}}
+				maxW={{
+					base: '100%',
+					xl: '1280px',
+				}}
+				margin="0 auto"
+			>
 				<Text
 					as="h2"
 					color="primaxPurple"
@@ -303,8 +379,21 @@ const Services = () => {
 				>
 					Fasilitas Produksi Primaxcel
 				</Text>
-				<Flex justifyContent="space-between">
-					<Flex height="250px" width="calc((100% / 3) - 8px)" overflow="hidden">
+				<Flex
+					justifyContent="space-between"
+					flexDirection={{
+						base: 'column',
+						md: 'row',
+					}}
+				>
+					<Flex
+						height="250px"
+						width={{
+							base: '100%',
+							md: 'calc((100% / 3) - 8px)',
+						}}
+						overflow="hidden"
+					>
 						<ImageChakra
 							src="/services/fasilitas-produksi-primaxcel-1.jpg"
 							w="100%"
@@ -312,7 +401,18 @@ const Services = () => {
 							objectFit="cover"
 						></ImageChakra>
 					</Flex>
-					<Flex height="250px" width="calc((100% / 3) - 8px)" overflow="hidden">
+					<Flex
+						height="250px"
+						width={{
+							base: '100%',
+							md: 'calc((100% / 3) - 8px)',
+						}}
+						overflow="hidden"
+						mt={{
+							base: '20px',
+							md: '0',
+						}}
+					>
 						<ImageChakra
 							src="/services/fasilitas-produksi-primaxcel-2.jpg"
 							w="100%"
@@ -320,7 +420,18 @@ const Services = () => {
 							objectFit="cover"
 						></ImageChakra>
 					</Flex>
-					<Flex height="250px" width="calc((100% / 3) - 8px)" overflow="hidden">
+					<Flex
+						height="250px"
+						width={{
+							base: '100%',
+							md: 'calc((100% / 3) - 8px)',
+						}}
+						overflow="hidden"
+						mt={{
+							base: '20px',
+							md: '0',
+						}}
+					>
 						<ImageChakra
 							src="/services/fasilitas-produksi-primaxcel-3.jpg"
 							w="100%"
@@ -329,8 +440,25 @@ const Services = () => {
 						></ImageChakra>
 					</Flex>
 				</Flex>
-				<Flex justifyContent="space-between" mt="100px">
-					<Flex height="250px" width="calc((100% / 3) - 8px)" overflow="hidden">
+				<Flex
+					justifyContent="space-between"
+					mt={{
+						base: '20px',
+						md: '100px',
+					}}
+					flexDirection={{
+						base: 'column',
+						md: 'row',
+					}}
+				>
+					<Flex
+						height="250px"
+						width={{
+							base: '100%',
+							md: 'calc((100% / 3) - 8px)',
+						}}
+						overflow="hidden"
+					>
 						<ImageChakra
 							src="/services/fasilitas-produksi-primaxcel-4.jpg"
 							w="100%"
@@ -338,7 +466,18 @@ const Services = () => {
 							objectFit="cover"
 						></ImageChakra>
 					</Flex>
-					<Flex height="250px" width="calc((100% / 3) - 8px)" overflow="hidden">
+					<Flex
+						height="250px"
+						width={{
+							base: '100%',
+							md: 'calc((100% / 3) - 8px)',
+						}}
+						overflow="hidden"
+						mt={{
+							base: '20px',
+							md: '0',
+						}}
+					>
 						<ImageChakra
 							src="/services/fasilitas-produksi-primaxcel-5.jpg"
 							w="100%"
@@ -346,7 +485,18 @@ const Services = () => {
 							objectFit="cover"
 						></ImageChakra>
 					</Flex>
-					<Flex height="250px" width="calc((100% / 3) - 8px)" overflow="hidden">
+					<Flex
+						height="250px"
+						width={{
+							base: '100%',
+							md: 'calc((100% / 3) - 8px)',
+						}}
+						overflow="hidden"
+						mt={{
+							base: '20px',
+							md: '0',
+						}}
+					>
 						<ImageChakra
 							src="/services/fasilitas-produksi-primaxcel-6.jpg"
 							w="100%"
@@ -360,51 +510,133 @@ const Services = () => {
 			<SectionA
 				bg="primaxLightBlue"
 				customSize={['50%', '50%']}
-				containerWidth="100%"
-				containerPadding="0 0 0 60px"
+				containerWidth={{
+					base: '100%',
+					xl: '1280px',
+				}}
+				containerPadding={{
+					base: '40px 0 0',
+					md: '0 0 0 60px',
+				}}
 				leftContent={
 					<>
-						<Text as="h2" mb={6} color="primaxPurple">
+						<Text
+							as="h2"
+							mb={6}
+							color="primaxPurple"
+							textAlign={{
+								base: 'center',
+								md: 'left',
+							}}
+						>
 							Kami mengerti anda
 						</Text>
-						<Box pr={8} mb={16} minH="full">
+						<Box
+							mb={16}
+							minH="full"
+							pr={{
+								base: 0,
+								md: 8,
+							}}
+						>
 							<Text
 								as="h3"
 								fontSize="2xl"
 								fontWeight="bold"
 								color="primaxPurple"
 								mb={4}
+								textAlign={{
+									base: 'center',
+									md: 'left',
+								}}
+								w={{
+									base: 'calc(100% - 32px)',
+									md: '100%',
+								}}
+								margin="0 auto"
 							>
 								Sudah memiliki konsep produk impian anda?
 							</Text>
-							<Text as="p">
+							<Text
+								as="p"
+								textAlign={{
+									base: 'center',
+									md: 'left',
+								}}
+								w={{
+									base: 'calc(100% - 32px)',
+									md: '100%',
+								}}
+								mx="auto"
+							>
 								Ceritakan kepada kami sekarang. Kami bantu kembangkan produk
 								anda hingga siap dipasarkan.
 							</Text>
-							<Button>Hubungi Kami</Button>
+							<Flex
+								justifyContent={{
+									base: 'center',
+									md: 'flex-start',
+								}}
+							>
+								<Button>Hubungi Kami</Button>
+							</Flex>
 						</Box>
-						<Box pr={8} my={16} minH="full">
+						<Box
+							mb={16}
+							pr={{
+								base: 0,
+								md: 8,
+							}}
+							minH="full"
+						>
 							<Text
 								as="h3"
 								fontSize="2xl"
 								fontWeight="bold"
 								color="primaxPurple"
+								textAlign={{
+									base: 'center',
+									md: 'left',
+								}}
+								w={{
+									base: 'calc(100% - 32px)',
+									md: '100%',
+								}}
+								margin="0 auto"
 							>
 								Masih bingung ingin membuat produk seperti apa?
 							</Text>
-							<Text as="p">
+							<Text
+								as="p"
+								textAlign={{
+									base: 'center',
+									md: 'left',
+								}}
+								w={{
+									base: 'calc(100% - 32px)',
+									md: '100%',
+								}}
+								mx="auto"
+							>
 								Jangan ragu untuk menghubungi kami. Kami bantu anda menentukan
 								konsep produk sampai produk anda siap dipasarkan.
 							</Text>
-							<Button>Hubungi Kami</Button>
+							<Flex
+								justifyContent={{
+									base: 'center',
+									md: 'flex-start',
+								}}
+							>
+								<Button>Hubungi Kami</Button>
+							</Flex>
 						</Box>
 					</>
 				}
 				rightContent={
 					<Box pos="relative" width="100%" height="456px">
 						<Image
-							src={`${imgPath}/flat-lay-natural-self-care-products-composition.png`}
-							alt="flat-lay-natural-self-care-products-composition"
+							src="/services/produk-natural-self-care.jpg"
+							alt="Primaxcel natural self care produk"
 							layout="fill"
 						/>
 					</Box>

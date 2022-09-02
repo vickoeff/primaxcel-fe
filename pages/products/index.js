@@ -40,13 +40,25 @@ const Products = () => {
 					content="Kami adalah produsen produk kecantikan seperti face care, hair and body care, dan juga produk produk rumah tangga. Kami akan mewujudkan produk impian anda."
 				></meta>
 				{/* <meta name="twitter:image" content="LINK TO IMAGE"></meta> */}
-				{/* <meta name="twitter:site" content="@USERNAME"></meta>
-				<meta name="twitter:creator" content="@USERNAME"></meta> */}
+				<meta name="twitter:site" content="@primaxcel_inv"></meta>
+				<meta name="twitter:creator" content="@primaxcel_inv"></meta>
 			</Head>
-			<Box minH={100} bg="primaxWhite"></Box>
+			<Box
+				minH={{
+					base: '57px',
+					md: '65px',
+				}}
+			></Box>
 			<SectionB
 				bg="primaxWhite"
-				imgWidth="60%"
+				minH={{
+					base: '500px',
+					md: '2xl',
+				}}
+				imgWidth={{
+					base: '100%',
+					md: '60%',
+				}}
 				containerWidth="100%"
 				containerPadding="0"
 				img={
@@ -54,7 +66,14 @@ const Products = () => {
 						width="full"
 						zIndex={2}
 						height="100%"
-						ml="-24px"
+						ml={{
+							base: '0',
+							md: '-24px',
+						}}
+						top={{
+							base: '75px',
+							md: 'auto',
+						}}
 						position="relative"
 					>
 						<Image
@@ -66,10 +85,40 @@ const Products = () => {
 					</Box>
 				}
 				content={
-					<Box width="full" marginLeft="160px">
+					<Box
+						w={{
+							base: '250px',
+							lg: '400px',
+						}}
+						textAlign="center"
+						marginLeft={{
+							base: '0',
+							md: '80px',
+							lg: '120px',
+						}}
+						position={{
+							base: 'absolute',
+							md: 'relative',
+						}}
+						top={{
+							base: '55px',
+							md: 'auto',
+						}}
+						left={{
+							base: '50%',
+							md: 'auto',
+						}}
+						transform={{
+							base: 'translate(-50%, 0%)',
+							md: 'none',
+						}}
+					>
 						<Text
 							as="h1"
-							fontSize="6xl"
+							fontSize={{
+								base: '4xl',
+								lg: '6xl',
+							}}
 							fontWeight={700}
 							color="primaxDarkPurple"
 						>
@@ -80,13 +129,48 @@ const Products = () => {
 			/>
 
 			<SectionA
+				isFitContent
 				customSize={['65%', '35%']}
 				bg="primaxWhite"
-				containerWidth="100%"
-				containerPadding="0 0 0 120px"
+				containerWidth={{
+					base: '100%',
+					xl: '1280px',
+				}}
+				containerPadding={{
+					base: '0',
+					md: '0 0 0 80px',
+					lg: '0 0 0 120px',
+					xl: '0',
+				}}
 				leftContent={
-					<Box mr="6" maxW="60%" pb={24}>
-						<Text as="h2" mb={6}>
+					<Box
+						mr={{
+							base: 0,
+							md: 6,
+						}}
+						maxW={{
+							base: '100%',
+							md: '80%',
+							xl: '60%',
+						}}
+						pos="relative"
+						py={{
+							base: '40px',
+							md: '0',
+						}}
+						px={{
+							base: '16px',
+							md: '0',
+						}}
+					>
+						<Text
+							as="h2"
+							mb={6}
+							textAlign={{
+								base: 'center',
+								md: 'left',
+							}}
+						>
 							Face Care
 						</Text>
 						<Text as="p" mb={6}>
@@ -108,35 +192,80 @@ const Products = () => {
 					</Box>
 				}
 				rightContent={
-					<Box pos="relative" width="100%" height="723px">
+					<Box
+						pos="relative"
+						width="100%"
+						display={{
+							base: 'none',
+							md: 'block',
+						}}
+						height="400px"
+					>
 						<Image
 							src="/products/produk-skin-care-primaxcel.jpg"
 							alt="Produk skin care primaxcel"
 							layout="fill"
+							objectFit="cover"
 						/>
 					</Box>
 				}
 			/>
 
 			<SectionA
-				mt="-8px"
 				isFitContent
 				bg="primaxLightBlue"
 				customSize={['45%', '55%']}
-				containerWidth="100%"
-				containerPadding="0"
+				containerWidth={{
+					base: '100%',
+					xl: '1280px',
+				}}
+				containerPadding={{
+					base: '0',
+					md: '0 80px 0 0',
+					lg: '0 120px 0 0',
+					xl: '0',
+				}}
 				leftContent={
-					<Box pos="relative" width="100%" height="612px">
+					<Box
+						pos="relative"
+						width="100%"
+						display={{
+							base: 'none',
+							md: 'block',
+						}}
+						height="450px"
+					>
 						<Image
 							src="/products/produk-hair-and-body-care.jpg"
 							alt="Produk hair and body care primaxcel"
 							layout="fill"
+							objectFit="cover"
 						/>
 					</Box>
 				}
 				rightContent={
-					<Box pt={16} pl={24} pr={40}>
-						<Text as="h2" mb={6}>
+					<Box
+						py={{
+							base: '40px',
+							md: '0',
+						}}
+						px={{
+							base: '16px',
+							md: '0',
+						}}
+						ml={{
+							base: 0,
+							md: 24,
+						}}
+					>
+						<Text
+							as="h2"
+							mb={6}
+							textAlign={{
+								base: 'center',
+								md: 'left',
+							}}
+						>
 							Hair & Body Care
 						</Text>
 						<Text as="p" mb={6}>
@@ -161,15 +290,48 @@ const Products = () => {
 			/>
 
 			<SectionA
-				mt="-8px"
 				isFitContent
 				customSize={['65%', '35%']}
 				bg="primaxWhite"
-				containerWidth="100%"
-				containerPadding="0 0 0 120px"
+				containerWidth={{
+					base: '100%',
+					xl: '1280px',
+				}}
+				containerPadding={{
+					base: '0',
+					md: '0 0 0 80px',
+					lg: '0 0 0 120px',
+					xl: '0',
+				}}
 				leftContent={
-					<Box mr="6" maxW="60%" pt={24}>
-						<Text as="h2" mb={6}>
+					<Box
+						mr={{
+							base: 0,
+							md: 6,
+						}}
+						maxW={{
+							base: '100%',
+							md: '80%',
+							xl: '60%',
+						}}
+						pos="relative"
+						py={{
+							base: '40px',
+							md: '0',
+						}}
+						px={{
+							base: '16px',
+							md: '0',
+						}}
+					>
+						<Text
+							as="h2"
+							mb={6}
+							textAlign={{
+								base: 'center',
+								md: 'left',
+							}}
+						>
 							Produk Rumah Tangga
 						</Text>
 						<Text as="p" mb={6}>
@@ -190,11 +352,20 @@ const Products = () => {
 					</Box>
 				}
 				rightContent={
-					<Box pos="relative" width="100%" height="723px">
+					<Box
+						pos="relative"
+						width="100%"
+						display={{
+							base: 'none',
+							md: 'block',
+						}}
+						height="400px"
+					>
 						<Image
 							src="/products/produk-rumah-tangga.jpg"
 							alt="Produk rumah tangga primaxcel"
 							layout="fill"
+							objectFit="cover"
 						/>
 					</Box>
 				}
@@ -204,7 +375,14 @@ const Products = () => {
 				<Container maxW="container.xl">
 					<Text as="h2">Tanya kami</Text>
 
-					<HStack justifyContent="space-between" mt="32px">
+					<HStack
+						justifyContent="space-between"
+						mt="32px"
+						flexDirection={{
+							base: 'column',
+							lg: 'row',
+						}}
+					>
 						<Box
 							display="inline-block"
 							bg="primaxBlue"
@@ -212,6 +390,8 @@ const Products = () => {
 							h="396px"
 							pt="26px"
 							px="40px"
+							mt={4}
+							ml="0 !important"
 						>
 							<Box pos="relative" width="100%" height="268px">
 								<Image
@@ -232,6 +412,11 @@ const Products = () => {
 							h="396px"
 							pt="26px"
 							px="40px"
+							mt={{
+								base: '4 !important',
+								lg: '0',
+							}}
+							ml="0 !important"
 						>
 							<Box pos="relative" width="100%" height="268px">
 								<Image
@@ -252,6 +437,11 @@ const Products = () => {
 							h="396px"
 							pt="26px"
 							px="40px"
+							mt={{
+								base: '4 !important',
+								lg: '0',
+							}}
+							ml="0 !important"
 						>
 							<Box pos="relative" width="100%" height="268px">
 								<Image
