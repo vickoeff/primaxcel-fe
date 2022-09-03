@@ -62,7 +62,7 @@ const Services = () => {
 				bg="primaxWhite"
 				containerWidth={{
 					base: '100%',
-					xl: '1280px',
+					'2xl': '1280px',
 				}}
 				containerPadding="0"
 				isFitContent

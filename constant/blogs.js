@@ -35,3 +35,30 @@ export const BLOG_TYPE_VALUE = {
 	4: 'online_marketing',
 	5: 'company_updates',
 };
+
+export const BLOG_CATEGORIES = [
+	{
+		text: 'All',
+		query: '',
+	},
+	{
+		text: 'New Trend',
+		query: 'new_trend',
+	},
+	{
+		text: 'Beauty Tips',
+		query: 'beauty_tips',
+	},
+	{
+		text: 'Maklon',
+		query: 'maklon',
+	},
+	{
+		text: 'Online Marketing',
+		query: 'online_marketing',
+	},
+	{
+		text: 'Company Updates',
+		query: 'company_updates',
+	},
+];
