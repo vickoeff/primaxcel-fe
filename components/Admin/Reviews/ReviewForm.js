@@ -180,10 +180,16 @@ const ReviewForm = ({ onSubmitReview, currentReview = null }) => {
 			</FormControl>
 			<FormControl isInvalid={error.description} mt={4}>
 				<FormLabel fontWeight={600} fontSize="14px" mb="0">
-					Description
+					<Flex justifyContent="space-between" alignItems="center">
+						Description
+						<Text as="span" fontSize="12px" color="gray.600">
+							{review.description.length} / 200
+						</Text>
+					</Flex>
 				</FormLabel>
 				<Textarea
 					mt={1}
+					maxLength={200}
 					value={review.description}
 					name="description"
 					onChange={onFormChange}

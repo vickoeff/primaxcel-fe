@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { SectionA } from '@/components/Layouts';
@@ -10,15 +10,21 @@ import {
 	Image,
 	Button,
 	Flex,
+	useToast,
+	Skeleton,
 } from '@chakra-ui/react';
 import ClientsDetailModal from '@/components/ClientsDetailModal';
+import services from '@/services';
 
 // import static image
 import { MainLayout } from '../components/Layouts';
 
 const OurClients = () => {
+	const toast = useToast();
 	const [isOpenModal, setOpenModal] = useState(false);
 	const [modalCategory, setModalCategory] = useState('');
+	const [reviews, setReviews] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
 	const router = useRouter();
 
 	const imgPath = router.pathname;
@@ -145,6 +151,37 @@ const OurClients = () => {
 		},
 	];
 
+	useEffect(() => {
+		const getReviews = async () => {
+			try {
+				setIsLoading(true);
+
+				const response = await services.getReviews({
+					limit: 100,
+					page: 1,
+					status: 'active',
+				});
+
+				if (response && response.status && response.data) {
+					const { data } = response.data;
+
+					setReviews(data);
+				}
+			} catch (error) {
+				toast({
+					position: 'top',
+					description: 'Failed to get reviews data',
+					status: 'error',
+					duration: 3000,
+				});
+			} finally {
+				setIsLoading(false);
+			}
+		};
+
+		getReviews();
+	}, []);
+
 	const handleOpenModal = (category) => {
 		setOpenModal(true);
 		setModalCategory(category);
@@ -185,27 +222,42 @@ const OurClients = () => {
 			case 'testimoni':
 				return (
 					<HStack justifyContent="center" flexWrap="wrap" gap={8} my={20}>
-						{testimoni.map((testi, idx) => (
+						{reviews.map((review, index) => (
 							<Box
 								display="flex"
-								maxW="calc(50% - 1.3rem)"
-								p={6}
-								key={idx}
+								maxW={{
+									base: '100%',
+									lg: 'calc(50% - 1.3rem)',
+								}}
+								p={{
+									base: 4,
+									md: 6,
+								}}
+								key={`review-${index}`}
 								bg="primaxBlue"
 								ml="0!important"
-								minH="210px"
+								height={{
+									base: 'auto',
+									lg: '320px',
+									xl: '250px',
+								}}
+								overflow="hidden"
+								alignItems={{
+									base: 'center',
+									lg: 'flex-start',
+								}}
 							>
 								<Image
-									src={testi.photo}
-									alt={testi.photo}
+									src={review.imageUrl}
+									alt={`Primaxcel user review ${index + 1}`}
 									my="auto"
 									mx="auto"
 									w="166px"
 									h="166px"
 									objectFit="contain"
 								/>
-								<Text as="p" pl={6}>
-									{testi.message}
+								<Text as="p" pl={6} mb={0}>
+									{review.description}
 								</Text>
 							</Box>
 						))}
@@ -420,88 +472,116 @@ const OurClients = () => {
 				</Container>
 			</Box>
 
-			<Box minH={100} bg="primaxLightBlue">
-				<Container
-					pos="relative"
-					maxW="container.xl"
-					py={16}
-					textAlign="center"
-				>
-					<Text
-						as="h2"
-						fontSize="4xl"
-						fontWeight="bold"
-						color="primaxPurple"
-						textAlign={{
-							base: 'center',
-							md: 'left',
-						}}
+			{(!isLoading && reviews.length) || isLoading ? (
+				<Box minH={100} bg="primaxLightBlue">
+					<Container
+						pos="relative"
+						maxW="container.xl"
+						py={16}
+						textAlign="center"
 					>
-						What they say
-					</Text>
+						<Text
+							as="h2"
+							fontSize="4xl"
+							fontWeight="bold"
+							color="primaxPurple"
+							textAlign={{
+								base: 'center',
+								md: 'left',
+							}}
+						>
+							What they say
+						</Text>
 
-					<HStack
-						justifyContent="center"
-						flexWrap="wrap"
-						gap={{
-							base: 4,
-							md: 8,
-						}}
-						mt={{
-							base: 8,
-							md: 20,
-						}}
-						flexDirection={{
-							base: 'column',
-							lg: 'row',
-						}}
-					>
-						{testimoni.map((testi, idx) => (
-							<Box
-								display="flex"
-								maxW={{
-									base: '100%',
-									lg: 'calc(50% - 1.3rem)',
-								}}
-								p={{
-									base: 4,
-									md: 6,
-								}}
-								key={idx}
-								bg="primaxBlue"
-								ml="0!important"
-								height={{
-									base: '320px',
-									md: '250px',
-								}}
-								overflow="hidden"
+						<HStack
+							justifyContent="center"
+							flexWrap="wrap"
+							gap={{
+								base: 4,
+								md: 8,
+							}}
+							mt={{
+								base: 8,
+								md: 20,
+							}}
+							flexDirection={{
+								base: 'column',
+								lg: 'row',
+							}}
+						>
+							{isLoading
+								? Array.from(Array(4), (_, index) => {
+										return (
+											<Skeleton
+												display="flex"
+												w="100%"
+												ml="0!important"
+												maxW={{
+													base: '100%',
+													lg: 'calc(50% - 1.3rem)',
+												}}
+												h="250px"
+												key={`skeleton-${index}`}
+											></Skeleton>
+										);
+								  })
+								: reviews.map((review, index) => (
+										<Box
+											display="flex"
+											maxW={{
+												base: '100%',
+												lg: 'calc(50% - 1.3rem)',
+											}}
+											p={{
+												base: 4,
+												md: 6,
+											}}
+											key={`review-${index}`}
+											bg="primaxBlue"
+											ml="0!important"
+											height={{
+												base: 'auto',
+												lg: '320px',
+												xl: '250px',
+											}}
+											overflow="hidden"
+											alignItems={{
+												base: 'center',
+												lg: 'flex-start',
+											}}
+										>
+											<Image
+												src={review.imageUrl}
+												alt={`Primaxcel user review ${index + 1}`}
+												my="auto"
+												mx="auto"
+												w="166px"
+												h="166px"
+												objectFit="contain"
+											/>
+											<Text as="p" pl={6} mb={0}>
+												{review.description}
+											</Text>
+										</Box>
+								  ))}
+						</HStack>
+						{isLoading ? (
+							<Flex justifyContent="center" mt={12}>
+								<Skeleton w="250px" h="56px"></Skeleton>
+							</Flex>
+						) : (
+							<Button
+								mt={12}
+								px={16}
+								py={7}
+								onClick={() => handleOpenModal('testimoni')}
 							>
-								<Image
-									src={testi.photo}
-									alt={testi.photo}
-									my="auto"
-									mx="auto"
-									w="166px"
-									h="166px"
-									objectFit="contain"
-								/>
-								<Text as="p" pl={6}>
-									{testi.message}
-								</Text>
-							</Box>
-						))}
-					</HStack>
-
-					<Button
-						mt={12}
-						px={16}
-						py={7}
-						onClick={() => handleOpenModal('testimoni')}
-					>
-						Lihat Selengkapnya
-					</Button>
-				</Container>
-			</Box>
+								Lihat Selengkapnya
+							</Button>
+						)}
+					</Container>
+				</Box>
+			) : null}
 
 			<SectionA
 				maxH={{
@@ -509,7 +589,6 @@ const OurClients = () => {
 					md: '2xl',
 				}}
 				py={24}
-				gap={16}
 				alignItems="start"
 				leftContent={
 					<Box pos="relative">
@@ -534,13 +613,13 @@ const OurClients = () => {
 				}
 				rightContent={
 					<Box
-						pr={{
-							base: '0',
-							md: '60px',
-						}}
 						mt={{
 							base: 20,
 							md: 0,
+						}}
+						pl={{
+							base: '0',
+							md: '60px',
 						}}
 					>
 						<Text
@@ -553,7 +632,7 @@ const OurClients = () => {
 								md: 'left',
 							}}
 							mt={{
-								base: 10,
+								base: '140px',
 								md: 0,
 							}}
 						>

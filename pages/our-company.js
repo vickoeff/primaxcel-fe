@@ -7,14 +7,21 @@ import {
 	ListItem,
 	Image,
 	Button,
+	useToast,
+	Skeleton,
 } from '@chakra-ui/react';
 import Slider from 'react-slick';
 import Head from 'next/head';
 import { MainLayout } from '../components/Layouts';
 import useWindowSize from '@/hooks/useWindowSize';
+import services from '@/services';
+import { useState, useEffect } from 'react';
 
 const OurCompany = () => {
+	const toast = useToast();
 	const { isMobile } = useWindowSize();
+	const [videoUrl, setVideoUrl] = useState('');
+	const [isLoading, setIsLoading] = useState(true);
 	const carouselSettings = {
 		dots: false,
 		arrows: false,
@@ -24,6 +31,31 @@ const OurCompany = () => {
 		slidesToShow: isMobile ? 1 : 3,
 		slidesToScroll: 1,
 	};
+
+	useEffect(() => {
+		const getCompanyDetail = async () => {
+			try {
+				setIsLoading(true);
+
+				const response = await services.getCompany();
+
+				if (response && response.status && response.data) {
+					setVideoUrl(response.data.videoProfileUrl);
+				}
+			} catch (error) {
+				toast({
+					position: 'top',
+					description: 'Failed to get company data',
+					status: 'error',
+					duration: 3000,
+				});
+			} finally {
+				setIsLoading(false);
+			}
+		};
+
+		getCompanyDetail();
+	}, []);
 
 	return (
 		<>
@@ -219,31 +251,43 @@ const OurCompany = () => {
 				</Box>
 			</Box>
 
-			<Box py={12} textAlign="center">
-				<Text as="h2" mb={6} color="primaxPurple">
-					Company Profile
-				</Text>
-				<Flex justifyContent="center">
-					<Box
-						p={4}
-						bg="primaxBlue"
-						width={{
-							base: '100%',
-							md: '770px',
-						}}
-					>
-						<iframe
-							width="100%"
-							height="433"
-							src="https://www.youtube.com/embed/q9Rc0pgYQtY?rel=0&controls=0"
-							title="YouTube video player"
-							frameBorder="0"
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-							allowFullScreen
-						></iframe>
-					</Box>
-				</Flex>
-			</Box>
+			{(videoUrl && !isLoading) || isLoading ? (
+				<Box py={12} textAlign="center">
+					<Text as="h2" mb={6} color="primaxPurple">
+						Company Profile
+					</Text>
+					<Flex justifyContent="center">
+						{isLoading ? (
+							<Skeleton
+								width={{
+									base: '100%',
+									md: '770px',
+								}}
+								height="433px"
+							></Skeleton>
+						) : (
+							<Box
+								p={4}
+								bg="primaxBlue"
+								width={{
+									base: '100%',
+									md: '770px',
+								}}
+							>
+								<iframe
+									width="100%"
+									height="433"
+									src={`${videoUrl}?rel=0&controls=0`}
+									title="YouTube video player"
+									frameBorder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									allowFullScreen
+								></iframe>
+							</Box>
+						)}
+					</Flex>
+				</Box>
+			) : null}
 
 			<SectionC
 				customSize={['40%', '60%']}
