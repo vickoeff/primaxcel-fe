@@ -1,28 +1,82 @@
-import { Container, Flex, Image, Text } from '@chakra-ui/react';
+import {
+	Container,
+	Flex,
+	Image,
+	Text,
+	useToast,
+	Skeleton,
+} from '@chakra-ui/react';
 import Head from 'next/head';
 import { MainLayout } from '@/components/Layouts';
-import { useState } from 'react';
-import { BLOG_CATEGORIES } from '@/constant/blogs';
+import { BLOG_CATEGORIES, BLOG_TYPE } from '@/constant/blogs';
+import { useEffect, useState } from 'react';
+import services from '@/services';
+import { useRouter } from 'next/router';
 
 const Blogs = () => {
-	const [category, setCategory] = useState('');
-	const [blogs, setBlogs] = useState([
-		{
-			id: 1,
-		},
-		{
-			id: 2,
-		},
-		{
-			id: 3,
-		},
-		{
-			id: 4,
-		},
-	]);
+	const toast = useToast();
+	const [blogs, setBlogs] = useState([]);
+	const router = useRouter();
+	const [isLoading, setIsLoading] = useState(true);
+	const [pagination, setPagination] = useState({
+		limit: 6,
+		currentPage: 1,
+		total: 1,
+		totalPages: 1,
+	});
+	const [filter, setFilter] = useState({
+		type: '',
+		status: 'active',
+	});
+
+	const getBlogs = async () => {
+		try {
+			setIsLoading(true);
+
+			const response = await services.getBlogs({
+				limit: pagination.limit,
+				page: pagination.currentPage,
+				...filter,
+			});
+
+			if (response && response.status && response.data) {
+				const { data } = response.data;
+
+				setBlogs(data);
+
+				setPagination({
+					...pagination,
+					limit: response.data.limit,
+					total: response.data.total,
+					totalPages: response.data.totalPages,
+					currentPage: response.data.currentPage,
+				});
+			}
+		} catch (error) {
+			toast({
+				position: 'top',
+				description: 'Failed to get blogs data',
+				status: 'error',
+				duration: 3000,
+			});
+		} finally {
+			setIsLoading(false);
+		}
+	};
+
+	useEffect(() => {
+		getBlogs();
+	}, [filter.type]);
 
 	const onSetCategory = (type) => {
-		setCategory(type);
+		setFilter({
+			...filter,
+			type,
+		});
+	};
+
+	const onGoToDetailBlog = (id) => {
+		router.push(`/blogs/${id}`);
 	};
 
 	return (
@@ -92,15 +146,15 @@ const Blogs = () => {
 							alignItems="center"
 							fontSize="20px"
 							color={
-								blogCategory.query === category ? 'primaxPurple' : 'inherit'
+								blogCategory.query === filter.type ? 'primaxPurple' : 'inherit'
 							}
 							cursor="pointer"
-							fontWeight={blogCategory.query === category ? '700' : '400'}
+							fontWeight={blogCategory.query === filter.type ? '700' : '400'}
 							onClick={() => onSetCategory(blogCategory.query)}
 							whiteSpace="nowrap"
 						>
 							{blogCategory.text}
-							{blogCategory.query === category ? (
+							{blogCategory.query === filter.type ? (
 								<Flex
 									position="absolute"
 									left="0"
@@ -127,78 +181,121 @@ const Blogs = () => {
 				}}
 				flexWrap="wrap"
 			>
-				{blogs.map((blog, index) => (
-					<Flex
-						w={{
-							base: '100%',
-							lg: 'calc(50% - 12px)',
-							xl: 'calc(50% - 20px)',
-						}}
-						key={`blog-${index}`}
-						mt={{
-							base: '20px',
-							lg: '40px',
-						}}
-						_even={{
-							ml: {
-								base: '0',
-								lg: '12px',
-								xl: '20px',
-							},
-						}}
-						_odd={{
-							mr: {
-								base: '0',
-								lg: '12px',
-								xl: '20px',
-							},
-						}}
-					>
-						<Flex h="240px" w="240px" bg="gray.200"></Flex>
-						<Flex flexDirection="column" ml="20px" flex="1">
-							<Text as="h2" fontWeight={700} fontSize="20px" noOfLines={3}>
-								Pertumbuhan bisnis skincare diperkirakan meningkat hingga 500%
-								di tahun 2022
-							</Text>
-							<Text as="span" fontSize="16px" mt="4px">
-								New Trend
-							</Text>
-							<Text as="p" fontSize="16px" noOfLines={3} mt="8px" mb="0">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-								eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-								enim ad minim veniam, quis nostrud exercitation ullamco laboris
-								nisi ut aliquip ex ea commodo consequat.
-							</Text>
+				{isLoading ? (
+					Array.from(Array(4), (_, index) => {
+						return (
 							<Flex
-								flex="1"
-								fontWeight={700}
-								alignItems="flex-end"
-								fontSize="18px"
-								cursor="pointer"
+								key={`blog-loading-${index}`}
+								w={{
+									base: '100%',
+									lg: 'calc(50% - 12px)',
+									xl: 'calc(50% - 20px)',
+								}}
+								mt={{
+									base: '20px',
+									lg: '40px',
+								}}
+								_even={{
+									ml: {
+										base: '0',
+										lg: '12px',
+										xl: '20px',
+									},
+								}}
+								_odd={{
+									mr: {
+										base: '0',
+										lg: '12px',
+										xl: '20px',
+									},
+								}}
 							>
-								Read more
+								<Skeleton w="240px" h="240px"></Skeleton>
+								<Flex flexDirection="column" ml="20px" flex="1">
+									<Skeleton w="100%" h="30px"></Skeleton>
+									<Skeleton w="100%" h="30px" mt="1"></Skeleton>
+									<Skeleton w="100px" h="20px" mt="2"></Skeleton>
+									<Skeleton w="100%" h="20px" mt="5"></Skeleton>
+									<Skeleton w="100%" h="20px" mt="2"></Skeleton>
+									<Skeleton w="100%" h="20px" mt="2"></Skeleton>
+									<Flex flex="1" alignItems="flex-end">
+										<Skeleton w="120px" h="30px" mt="2"></Skeleton>
+									</Flex>
+								</Flex>
+							</Flex>
+						);
+					})
+				) : blogs.length ? (
+					blogs.map((blog, index) => (
+						<Flex
+							w={{
+								base: '100%',
+								lg: 'calc(50% - 12px)',
+								xl: 'calc(50% - 20px)',
+							}}
+							key={`blog-${index}`}
+							mt={{
+								base: '20px',
+								lg: '40px',
+							}}
+							_even={{
+								ml: {
+									base: '0',
+									lg: '12px',
+									xl: '20px',
+								},
+							}}
+							_odd={{
+								mr: {
+									base: '0',
+									lg: '12px',
+									xl: '20px',
+								},
+							}}
+						>
+							<Flex h="240px" w="240px" bg="gray.200">
+								<Image
+									objectFit="cover"
+									src={blog.imageUrl}
+									alt={blog.title}
+								></Image>
+							</Flex>
+							<Flex flexDirection="column" ml="20px" flex="1">
+								<Text as="h2" fontWeight={700} fontSize="20px" noOfLines={3}>
+									{blog.title}
+								</Text>
+								<Text as="span" fontSize="16px" mt="4px">
+									{BLOG_TYPE[blog.type]}
+								</Text>
+								<Text
+									as="p"
+									fontSize="16px"
+									noOfLines={3}
+									mt="8px"
+									mb="0"
+									className="blog-page-preview-title"
+									dangerouslySetInnerHTML={{
+										__html: blog.blogSections[0].description,
+									}}
+								></Text>
+								<Flex
+									flex="1"
+									fontWeight={700}
+									alignItems="flex-end"
+									fontSize="18px"
+									cursor="pointer"
+									onClick={() => onGoToDetailBlog(blog.id)}
+								>
+									Read more
+								</Flex>
 							</Flex>
 						</Flex>
+					))
+				) : (
+					<Flex justifyContent="center" w="100%" mt="60px">
+						<Text>Currently, there is no articles for this category</Text>
 					</Flex>
-				))}
-				{/* <Flex w="50%">
-					<Flex h="240px" w="240px" border="1px solid red"></Flex>
-					<Flex
-						flexDirection="column"
-						ml="20px"
-						border="1px solid red"
-						flex="1"
-					></Flex>
-				</Flex>
-				<Flex w="50%">
-					<Flex h="240px" w="240px" border="1px solid red"></Flex>
-					<Flex
-						flexDirection="column"
-						ml="20px"
-						border="1px solid red"
-						flex="1"
-					></Flex>
-				</Flex> */}
+				)}
 			</Container>
 		</>
 	);

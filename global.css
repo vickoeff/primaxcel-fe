@@ -21,3 +21,7 @@
 .blog-preview__title {
   margin-bottom: 16px !important;
 }
+
+.blog-page-preview-title > p{
+  font-size: 16px !important;
+}
