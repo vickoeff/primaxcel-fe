@@ -67,6 +67,8 @@ const ProductTable = ({ data, isLoading, onOpenDeleteModal, onEditAction }) => {
 												src={product.imageUrl}
 												alt="Product image"
 												objectFit="contain"
+												w="100%"
+												h="100%"
 											/>
 										</Flex>
 									</Td>

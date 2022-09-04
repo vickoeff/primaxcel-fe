@@ -5,6 +5,8 @@ import {
 	Button,
 	Image as ImageChakra,
 	Flex,
+	useToast,
+	Skeleton,
 } from '@chakra-ui/react';
 import Head from 'next/head';
 import { SectionA, SectionB } from '@/components/Layouts';
@@ -30,8 +32,14 @@ import bpomLogo from '../public/home/primaxcel-sertifikasi-bpom.png';
 import { MainLayout } from '../components/Layouts';
 import ContactForm from '@/components/ContactForm';
 
+import { useEffect, useState } from 'react';
+import services from '@/services';
+
 const Home = () => {
+	const toast = useToast();
 	const { isMobile } = useWindowSize();
+	const [isLoading, setIsLoading] = useState(true);
+	const [producedProduct, setProducedProduct] = useState([]);
 
 	const carouselSettings = {
 		dots: false,
@@ -39,15 +47,49 @@ const Home = () => {
 		centerMode: true,
 		infinite: true,
 		speed: 500,
-		slidesToShow: isMobile ? 1 : 5,
 		slidesToScroll: 1,
 		autplay: true,
 		autoplaySpeed: 500,
 	};
 
+	useEffect(() => {
+		const getProducedProduct = async () => {
+			try {
+				setIsLoading(true);
+
+				const response = await services.getProducts({
+					limit: 30,
+					page: 1,
+					type: 'produced',
+				});
+
+				if (response && response.status && response.data) {
+					setProducedProduct(response.data.data);
+				}
+			} catch (error) {
+				toast({
+					position: 'top',
+					description: 'Failed to get produced product',
+					status: 'error',
+					duration: 3000,
+				});
+			} finally {
+				setIsLoading(false);
+			}
+		};
+
+		getProducedProduct();
+	}, []);
+
 	const onGoToContactForm = () => {
 		const contactForm = document.getElementById('contact-form');
 		window.scrollTo(0, contactForm.offsetTop);
+	};
+
+	const getSlideCount = () => {
+		if (isMobile) return 1;
+
+		return producedProduct.length < 4 ? producedProduct.length : 4;
 	};
 
 	return (
@@ -360,26 +402,29 @@ const Home = () => {
 					</Box>
 				}
 			/>
-			<Box py={10} bg="primaxLightBlue" textAlign="center">
-				<Text as="h2">Produk yang kami produksi</Text>
+			{(!producedProduct.length && isLoading) || !isLoading ? (
+				<Box py={10} bg="primaxLightBlue" textAlign="center">
+					<Text as="h2">Produk yang kami produksi</Text>
 
-				<Slider {...carouselSettings}>
-					<CarouselItem img={skinCare} label="Lorem Ipsum" />
-					<CarouselItem img={skinCare} label="Lorem Ipsum" />
-					<CarouselItem img={skinCare} label="Lorem Ipsum" />
-					<CarouselItem img={skinCare} label="Lorem Ipsum" />
-					<CarouselItem img={skinCare} label="Lorem Ipsum" />
-					<CarouselItem img={skinCare} label="Lorem Ipsum" />
-					<CarouselItem img={skinCare} label="Lorem Ipsum" />
-					<CarouselItem img={skinCare} label="Lorem Ipsum" />
-					<CarouselItem img={skinCare} label="Lorem Ipsum" />
-					<CarouselItem img={skinCare} label="Lorem Ipsum" />
-				</Slider>
+					{isLoading ? (
+						<Skeleton w="80%" h="300px" mx="auto" my="40px"></Skeleton>
+					) : producedProduct.length ? (
+						<Slider {...carouselSettings} slidesToShow={getSlideCount()}>
+							{producedProduct.map((product, index) => (
+								<CarouselItem
+									img={product.imageUrl}
+									label={product.title}
+									key={`produced-product-${index}`}
+								/>
+							))}
+						</Slider>
+					) : null}
 
-				<Button py={6} px={14} onClick={onGoToContactForm}>
-					Cara Order
-				</Button>
-			</Box>
+					<Button py={6} px={14} onClick={onGoToContactForm}>
+						Cara Order
+					</Button>
+				</Box>
+			) : null}
 
 			<Box py={8}>
 				<Container maxW="container.xl">
@@ -592,6 +637,8 @@ const Home = () => {
 								src={halalLogo}
 								alt="Sertifikasi halal"
 								objectFit="contain"
+								w="100%"
+								h="100%"
 							/>
 						</Box>
 						<Box

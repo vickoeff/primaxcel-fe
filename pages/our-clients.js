@@ -15,6 +15,7 @@ import {
 } from '@chakra-ui/react';
 import ClientsDetailModal from '@/components/ClientsDetailModal';
 import services from '@/services';
+import ProductCard from '@/components/ProductCard';
 
 // import static image
 import { MainLayout } from '../components/Layouts';
@@ -26,6 +27,12 @@ const OurClients = () => {
 	const [reviews, setReviews] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const router = useRouter();
+	const [householdProduct, setHouseholdProduct] = useState([]);
+	const [isHouseholdProductLoading, setIsHouseholdProductLoading] =
+		useState(true);
+	const [skinCareProduct, setSkinCareProduct] = useState([]);
+	const [isSkinCareProductLoading, setIsSkinCareProductLoading] =
+		useState(true);
 
 	const imgPath = router.pathname;
 
@@ -33,84 +40,63 @@ const OurClients = () => {
 		router.push('/contact-us#contact-form');
 	};
 
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	const householdProducts = [
-		{
-			src: `${imgPath}/cofit.png`,
-			name: 'Hand Sanitizer',
-		},
-		{
-			src: `${imgPath}/coronex.png`,
-			name: 'Disinfectant',
-		},
-		{
-			src: `${imgPath}/septico-spray.png`,
-			name: 'Antiseptic',
-		},
-		{
-			src: `${imgPath}/cofit.png`,
-			name: 'Edit Text with Catalogue',
-		},
-		{
-			src: `${imgPath}/coronex.png`,
-			name: 'Edit Text with Catalogue',
-		},
-		{
-			src: `${imgPath}/septico-spray.png`,
-			name: 'Edit Text with Catalogue',
-		},
-	];
+	useEffect(() => {
+		const getHouseholdProduct = async () => {
+			try {
+				setIsHouseholdProductLoading(true);
 
-	const skinCareProducts = [
-		{
-			src: `${imgPath}/micelar-water.png`,
-			name: 'Toner and Micellar Water',
-		},
-		{
-			src: `${imgPath}/face-n-body-wash.png`,
-			name: 'Face and Body Wash',
-		},
-		{
-			src: `${imgPath}/face-n-body-wash.png`,
-			name: 'Edit Text with Catalogue',
-		},
-		{
-			src: `${imgPath}/cream.png`,
-			name: 'Cream',
-		},
-		{
-			src: `${imgPath}/face-oil.png`,
-			name: 'Face Oil, Treatment Gel',
-		},
-		{
-			src: `${imgPath}/face-oil.png`,
-			name: 'Edit Text with Catalogue',
-		},
-		{
-			src: `${imgPath}/serum.png`,
-			name: 'Serum',
-		},
-		{
-			src: `${imgPath}/treatment-gel.png`,
-			name: 'Treatment Gel',
-		},
-		{
-			src: `${imgPath}/treatment-gel.png`,
-			name: 'Edit Text with Catalogue',
-		},
-		{
-			src: `${imgPath}/serum.png`,
-			name: 'Edit Text with Catalogue',
-		},
-		{
-			src: `${imgPath}/treatment-gel.png`,
-			name: 'Treatment Gel',
-		},
-		{
-			src: `${imgPath}/treatment-gel.png`,
-			name: 'Edit Text with Catalogue',
-		},
-	];
+				const response = await services.getProducts({
+					limit: 30,
+					page: 1,
+					type: 'household',
+				});
+
+				if (response && response.status && response.data) {
+					setHouseholdProduct(response.data.data);
+				}
+			} catch (error) {
+				toast({
+					position: 'top',
+					description: 'Failed to get household product',
+					status: 'error',
+					duration: 3000,
+				});
+			} finally {
+				setIsHouseholdProductLoading(false);
+			}
+		};
+
+		getHouseholdProduct();
+	}, []);
+
+	useEffect(() => {
+		const getSkinCareProduct = async () => {
+			try {
+				setIsSkinCareProductLoading(true);
+
+				const response = await services.getProducts({
+					limit: 30,
+					page: 1,
+					type: 'skincare',
+				});
+
+				if (response && response.status && response.data) {
+					setSkinCareProduct(response.data.data);
+				}
+			} catch (error) {
+				toast({
+					position: 'top',
+					description: 'Failed to get skin care product',
+					status: 'error',
+					duration: 3000,
+				});
+			} finally {
+				setIsSkinCareProductLoading(false);
+			}
+		};
+
+		getSkinCareProduct();
+	}, []);
 
 	useEffect(() => {
 		const getReviews = async () => {
@@ -157,26 +143,24 @@ const OurClients = () => {
 			case 'household':
 				return (
 					<HStack flexWrap="wrap" justifyContent="space-around" my={14}>
-						{householdProducts.map((product) => (
-							<Box minW="30%" key={product.name}>
-								<Image src={product.src} alt={product.name} mx="auto" />
-								<Text as="p" textAlign="center" fontWeight="bold">
-									{product.name}
-								</Text>
-							</Box>
+						{householdProduct.map((product, index) => (
+							<ProductCard
+								key={`household-modal-${index}`}
+								url={product.imageUrl}
+								title={product.title}
+							></ProductCard>
 						))}
 					</HStack>
 				);
 			case 'skincare':
 				return (
 					<HStack flexWrap="wrap" justifyContent="space-around" my={20}>
-						{skinCareProducts.map((product) => (
-							<Box minW="30%" key={product.name}>
-								<Image src={product.src} alt={product.name} mx="auto" />
-								<Text as="p" textAlign="center" fontWeight="bold">
-									{product.name}
-								</Text>
-							</Box>
+						{skinCareProduct.map((product, index) => (
+							<ProductCard
+								key={`skincare-modal-${index}`}
+								url={product.imageUrl}
+								title={product.title}
+							></ProductCard>
 						))}
 					</HStack>
 				);
@@ -225,7 +209,7 @@ const OurClients = () => {
 					</HStack>
 				);
 		}
-	}, [modalCategory, householdProducts, skinCareProducts]);
+	}, [modalCategory, householdProduct, skinCareProduct]);
 
 	return (
 		<>
@@ -301,137 +285,112 @@ const OurClients = () => {
 				</Container>
 			</Box>
 
-			<Box minH={100} bg="primaxLightBlue">
-				<Container
-					pos="relative"
-					maxW="container.xl"
-					py={16}
-					textAlign="center"
-				>
-					<Text
-						as="h3"
-						fontSize="4xl"
-						fontWeight="bold"
-						color="primaxPurple"
+			{(householdProduct.length && !isHouseholdProductLoading) ||
+			isHouseholdProductLoading ? (
+				<Box minH={100} bg="primaxLightBlue">
+					<Container
+						pos="relative"
+						maxW="container.xl"
+						py={16}
 						textAlign="center"
 					>
-						Household Products
-					</Text>
+						<Text
+							as="h3"
+							fontSize="4xl"
+							fontWeight="bold"
+							color="primaxPurple"
+							textAlign="center"
+						>
+							Household Products
+						</Text>
+						<HStack flexWrap="wrap" justifyContent="space-around" mt={14}>
+							{isHouseholdProductLoading
+								? Array.from(Array(3), (_, index) => (
+										<Skeleton
+											key={`household-product-loading-${index}`}
+											w={{
+												base: 'calc(50% - 8px)',
+												md: '30%',
+											}}
+											h="300px"
+										></Skeleton>
+								  ))
+								: householdProduct.map((product, index) => (
+										<ProductCard
+											key={`household-product-${index}`}
+											url={product.imageUrl}
+											title={product.title}
+										></ProductCard>
+								  ))}
+						</HStack>
 
-					<HStack flexWrap="wrap" justifyContent="space-around" mt={14}>
-						{householdProducts.map((product) => (
-							<Box
-								w={{
-									base: 'calc(50% - 8px)',
-									md: '30%',
-								}}
-								key={product.name}
+						{isHouseholdProductLoading ? null : (
+							<Button
+								mt={12}
+								px={16}
+								py={7}
+								onClick={() => handleOpenModal('household')}
 							>
-								<Flex
-									alignItems="center"
-									justifyContent="center"
-									overflow="hidden"
-									w="100%"
-									h={{
-										base: '300px',
-									}}
-								>
-									<Image
-										src={product.src}
-										alt={product.name}
-										objectFit="contain"
-									/>
-								</Flex>
-								<Text
-									as="p"
-									textAlign="center"
-									fontWeight="bold"
-									overflow="hidden"
-									whiteSpace="nowrap"
-									textOverflow="ellipsis"
-								>
-									{product.name}
-								</Text>
-							</Box>
-						))}
-					</HStack>
+								Lihat Selengkapnya
+							</Button>
+						)}
+					</Container>
+				</Box>
+			) : null}
 
-					<Button
-						mt={12}
-						px={16}
-						py={7}
-						onClick={() => handleOpenModal('household')}
-					>
-						Lihat Selengkapnya
-					</Button>
-				</Container>
-			</Box>
-
-			<Box minH={100} bg="primaxWhite">
-				<Container
-					pos="relative"
-					maxW="container.xl"
-					py={16}
-					textAlign="center"
-				>
-					<Text
-						as="h3"
-						fontSize="4xl"
-						fontWeight="bold"
-						color="primaxPurple"
+			{(skinCareProduct.length && !isSkinCareProductLoading) ||
+			isSkinCareProductLoading ? (
+				<Box minH={100} bg="primaxWhite">
+					<Container
+						pos="relative"
+						maxW="container.xl"
+						py={16}
 						textAlign="center"
 					>
-						Skincare Products
-					</Text>
+						<Text
+							as="h3"
+							fontSize="4xl"
+							fontWeight="bold"
+							color="primaxPurple"
+							textAlign="center"
+						>
+							Skincare Products
+						</Text>
 
-					<HStack flexWrap="wrap" justifyContent="space-around" mt={20}>
-						{skinCareProducts.map((product) => (
-							<Box
-								w={{
-									base: 'calc(50% - 8px)',
-									md: '30%',
-								}}
-								key={product.name}
+						<HStack flexWrap="wrap" justifyContent="space-around" mt={14}>
+							{isSkinCareProductLoading
+								? Array.from(Array(3), (_, index) => (
+										<Skeleton
+											key={`household-product-loading-${index}`}
+											w={{
+												base: 'calc(50% - 8px)',
+												md: '30%',
+											}}
+											h="300px"
+										></Skeleton>
+								  ))
+								: skinCareProduct.map((product, index) => (
+										<ProductCard
+											key={`skincare-product-${index}`}
+											url={product.imageUrl}
+											title={product.title}
+										></ProductCard>
+								  ))}
+						</HStack>
+
+						{isSkinCareProductLoading ? null : (
+							<Button
+								mt={12}
+								px={16}
+								py={7}
+								onClick={() => handleOpenModal('skincare')}
 							>
-								<Flex
-									alignItems="center"
-									justifyContent="center"
-									overflow="hidden"
-									w="100%"
-									h={{
-										base: '300px',
-									}}
-								>
-									<Image
-										src={product.src}
-										alt={product.name}
-										objectFit="contain"
-									/>
-								</Flex>
-								<Text
-									as="p"
-									textAlign="center"
-									fontWeight="bold"
-									overflow="hidden"
-									whiteSpace="nowrap"
-									textOverflow="ellipsis"
-								>
-									{product.name}
-								</Text>
-							</Box>
-						))}
-					</HStack>
-
-					<Button
-						mt={12}
-						px={16}
-						py={7}
-						onClick={() => handleOpenModal('skincare')}
-					>
-						Lihat Selengkapnya
-					</Button>
-				</Container>
-			</Box>
+								Lihat Selengkapnya
+							</Button>
+						)}
+					</Container>
+				</Box>
+			) : null}
 
 			{(!isLoading && reviews.length) || isLoading ? (
 				<Box minH={100} bg="primaxLightBlue">

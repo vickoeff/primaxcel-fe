@@ -24,6 +24,8 @@ const OurCompany = () => {
 	const { isMobile } = useWindowSize();
 	const [videoUrl, setVideoUrl] = useState('');
 	const [isLoading, setIsLoading] = useState(true);
+	const [maklonProduct, setMaklonProduct] = useState([]);
+	const [isProductLoading, setIsProductLoading] = useState(true);
 	const carouselSettings = {
 		dots: false,
 		arrows: false,
@@ -57,6 +59,35 @@ const OurCompany = () => {
 		};
 
 		getCompanyDetail();
+	}, []);
+
+	useEffect(() => {
+		const getMaklonProduct = async () => {
+			try {
+				setIsProductLoading(true);
+
+				const response = await services.getProducts({
+					limit: 30,
+					page: 1,
+					type: 'maklon',
+				});
+
+				if (response && response.status && response.data) {
+					setMaklonProduct(response.data.data);
+				}
+			} catch (error) {
+				toast({
+					position: 'top',
+					description: 'Failed to get maklon product',
+					status: 'error',
+					duration: 3000,
+				});
+			} finally {
+				setIsProductLoading(false);
+			}
+		};
+
+		getMaklonProduct();
 	}, []);
 
 	const onGoToContactForm = () => {
@@ -220,42 +251,38 @@ const OurCompany = () => {
 				}
 			/>
 
-			<Box py={12} bg="primaxLightBlue" textAlign="center">
-				<Text as="h2" mb={12}>
-					Brand yang Maklon di Primaxcel
-				</Text>
-				<Box maxW="1280px" margin="0 auto">
-					<Slider {...carouselSettings}>
-						<Flex width="500px" height="250px" overflow="hidden" padding="10px">
-							<Image
-								src="/our-company/ayu-derma.png"
-								alt="ayu-derma"
-								w="100%"
-								h="100%"
-								objectFit="cover"
-							/>
-						</Flex>
-						<Flex width="500px" height="250px" overflow="hidden" padding="10px">
-							<Image
-								src="/our-company/ayu-derma.png"
-								alt="ayu-derma"
-								w="100%"
-								h="100%"
-								objectFit="cover"
-							/>
-						</Flex>
-						<Flex width="500px" height="250px" overflow="hidden" padding="10px">
-							<Image
-								src="/our-company/ayu-derma.png"
-								alt="ayu-derma"
-								w="100%"
-								h="100%"
-								objectFit="cover"
-							/>
-						</Flex>
-					</Slider>
+			{(maklonProduct.length && !isLoading) || isLoading ? (
+				<Box py={12} bg="primaxLightBlue" textAlign="center">
+					<Text as="h2" mb={12}>
+						Brand yang Maklon di Primaxcel
+					</Text>
+					<Box maxW="1280px" margin="0 auto">
+						{isProductLoading ? (
+							<Skeleton w="80%" h="240px" mx="auto" my="40px"></Skeleton>
+						) : maklonProduct.length ? (
+							<Slider {...carouselSettings}>
+								{maklonProduct.map((maklon, index) => (
+									<Flex
+										key={`maklon-product-${index}`}
+										width="500px"
+										height="250px"
+										overflow="hidden"
+										padding="10px"
+									>
+										<Image
+											src={maklon.imageUrl}
+											alt={maklon.title}
+											w="100%"
+											h="100%"
+											objectFit="cover"
+										/>
+									</Flex>
+								))}
+							</Slider>
+						) : null}
+					</Box>
 				</Box>
-			</Box>
+			) : null}
 
 			{(videoUrl && !isLoading) || isLoading ? (
 				<Box py={12} textAlign="center">

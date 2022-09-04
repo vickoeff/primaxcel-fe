@@ -86,6 +86,8 @@ const Products = () => {
 							alt="Produk primaxcel"
 							layout="fill"
 							objectFit="contain"
+							w="100%"
+							h="100%"
 						/>
 					</Box>
 				}

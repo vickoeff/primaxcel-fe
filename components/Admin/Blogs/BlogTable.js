@@ -80,6 +80,8 @@ const BlogTable = ({
 												src={blog.imageUrl}
 												alt="Blog image"
 												objectFit="contain"
+												w="100%"
+												h="100%"
 											/>
 										</Flex>
 									</Td>

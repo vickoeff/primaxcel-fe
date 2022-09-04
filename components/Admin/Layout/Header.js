@@ -37,6 +37,8 @@ const AdminHeader = () => {
 					src="/primaxcel_logo.svg"
 					alt="Primaxcel logo"
 					objectFit="contain"
+					w="100%"
+					h="100%"
 				/>
 			</Flex>
 			<Popover placement="bottom-end">

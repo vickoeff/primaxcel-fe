@@ -135,7 +135,13 @@ const ReviewForm = ({ onSubmitReview, currentReview = null }) => {
 				bg="gray.100"
 			>
 				{imagePreview ? (
-					<Image src={imagePreview} alt="Review image" objectFit="contain" />
+					<Image
+						src={imagePreview}
+						alt="Review image"
+						objectFit="contain"
+						w="100%"
+						h="100%"
+					/>
 				) : (
 					<Text as="span" fontSize="12px" color="gray.600">
 						No image

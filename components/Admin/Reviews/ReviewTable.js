@@ -66,6 +66,8 @@ const ReviewTable = ({ data, isLoading, onOpenDeleteModal, onEditAction }) => {
 												src={review.imageUrl}
 												alt="Review image"
 												objectFit="contain"
+												w="100%"
+												h="100%"
 											/>
 										</Flex>
 									</Td>

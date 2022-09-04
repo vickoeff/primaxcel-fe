@@ -67,6 +67,8 @@ const SocmedTable = ({ data, isLoading, onOpenDeleteModal, onEditAction }) => {
 												src={socmed.imageUrl}
 												alt={socmed.alt}
 												objectFit="contain"
+												w="100%"
+												h="100%"
 											/>
 										</Flex>
 									</Td>

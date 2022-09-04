@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 const usePagination = () => {
 	const [pagination, setPagination] = useState({
-		limit: 1,
+		limit: 10,
 		currentPage: 1,
 		total: 1,
 		totalPages: 1,
