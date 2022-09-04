@@ -26,13 +26,16 @@ const OurCompany = () => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [maklonProduct, setMaklonProduct] = useState([]);
 	const [isProductLoading, setIsProductLoading] = useState(true);
-	const carouselSettings = {
+
+	const settings = {
 		dots: false,
-		arrows: false,
 		centerMode: true,
+		arrows: false,
 		infinite: true,
-		speed: 500,
+		slidesToShow: 3,
 		slidesToScroll: 1,
+		autoplay: true,
+		autoplaySpeed: 3000,
 	};
 
 	useEffect(() => {
@@ -265,12 +268,25 @@ const OurCompany = () => {
 						{isProductLoading ? (
 							<Skeleton w="80%" h="240px" mx="auto" my="40px"></Skeleton>
 						) : maklonProduct.length ? (
-							<Slider {...carouselSettings} slidesToShow={getSlideCount()}>
+							<Slider {...settings} slidesToShow={getSlideCount()}>
 								{maklonProduct.map((maklon, index) => (
 									<Flex
 										key={`maklon-product-${index}`}
-										maxWidth="500px"
-										height="250px"
+										maxW={{
+											base: 'calc(0.8 * 100vw)',
+											md: 'calc((100vw / 3) - 40px)',
+											xl: '380px',
+										}}
+										minW={{
+											base: 'calc(0.8 * 100vw)',
+											md: 'calc((100vw / 3) - 40px)',
+											xl: '380px',
+										}}
+										height={{
+											base: 'calc((0.8 * 100vw) / 2)',
+											md: 'calc(((100vw / 3) - 40px) / 2)',
+											xl: '190px',
+										}}
 										overflow="hidden"
 										padding="10px"
 									>

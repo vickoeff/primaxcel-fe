@@ -152,7 +152,7 @@ const SocmedForm = ({ onSubmitSocmed, currentSocmed = null }) => {
 			</Flex>
 			<FormControl isInvalid={error.image} mt={2}>
 				<FormLabel fontWeight={600} fontSize="14px" mb="0">
-					Image
+					Image (ratio 1:1)
 				</FormLabel>
 				<input
 					type="file"

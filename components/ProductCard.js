@@ -5,7 +5,13 @@ const ProductCard = ({ url, title }) => {
 		<Box
 			w={{
 				base: 'calc(50% - 8px)',
-				md: '30%',
+				md: '300px',
+				lg: '320px',
+			}}
+			ml="0 !important"
+			mt={{
+				base: '16px !important',
+				md: '32px !important',
 			}}
 		>
 			<Flex
@@ -14,7 +20,9 @@ const ProductCard = ({ url, title }) => {
 				overflow="hidden"
 				w="100%"
 				h={{
-					base: '300px',
+					base: 'calc(((100vw / 2) - 26px) / 4 * 5)',
+					md: '375px',
+					lg: '400px',
 				}}
 			>
 				<Image src={url} alt={title} objectFit="contain" w="100%" h="100%" />

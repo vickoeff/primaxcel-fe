@@ -40,15 +40,14 @@ const Home = () => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [producedProduct, setProducedProduct] = useState([]);
 
-	const carouselSettings = {
+	const settings = {
 		dots: false,
-		arrows: false,
 		centerMode: true,
+		arrows: false,
 		infinite: true,
-		speed: 500,
 		slidesToScroll: 1,
-		autplay: true,
-		autoplaySpeed: 500,
+		autoplay: true,
+		autoplaySpeed: 3000,
 	};
 
 	useEffect(() => {
@@ -86,7 +85,13 @@ const Home = () => {
 	};
 
 	const getSlideCount = () => {
-		if (isMobile) return 1;
+		if (window.innerWidth < 480) {
+			return 1;
+		} else if (window.innerWidth < 768) {
+			return 2;
+		} else if (window.innerWidth < 960) {
+			return 3;
+		}
 
 		return producedProduct.length < 4 ? producedProduct.length : 4;
 	};
@@ -408,7 +413,7 @@ const Home = () => {
 					{isLoading ? (
 						<Skeleton w="80%" h="300px" mx="auto" my="40px"></Skeleton>
 					) : producedProduct.length ? (
-						<Slider {...carouselSettings} slidesToShow={getSlideCount()}>
+						<Slider {...settings} slidesToShow={getSlideCount()}>
 							{producedProduct.map((product, index) => (
 								<CarouselItem
 									img={product.imageUrl}

@@ -34,6 +34,32 @@ export const PRODUCT_TYPE_VALUE = {
 	4: 'skincare',
 };
 
+export const PRODUCT_IMAGE_RATIO = {
+	produce: '(ratio 5:6)',
+	maklon: '(ratio 2:1)',
+	household: '(ratio 4:5)',
+	skincare: '(ratio 4:5)',
+};
+
+export const PRODUCT_IMAGE_DIMENSION = {
+	produce: {
+		width: '200px',
+		height: '240px',
+	},
+	maklon: {
+		width: '200px',
+		height: '100px',
+	},
+	household: {
+		width: '160px',
+		height: '200px',
+	},
+	skincare: {
+		width: '160px',
+		height: '200px',
+	},
+};
+
 export const PRODUCT_CONTACT_TYPE = [
 	'Cleanser',
 	'Moisturizer',

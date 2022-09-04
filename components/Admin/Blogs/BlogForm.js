@@ -260,7 +260,7 @@ const BlogForm = ({
 			<Flex width="480px" flexDirection="column">
 				<FormControl isInvalid={error.image} mt={2}>
 					<FormLabel fontWeight={600} fontSize="14px" mb="0">
-						Thumbnail image
+						Thumbnail image (ratio 1:1)
 					</FormLabel>
 					<input
 						type="file"

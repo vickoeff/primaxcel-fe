@@ -13,6 +13,10 @@ import {
 import { useRouter } from 'next/router';
 import { useState, useRef, useEffect } from 'react';
 import { FaTrash } from 'react-icons/fa';
+import {
+	PRODUCT_IMAGE_RATIO,
+	PRODUCT_IMAGE_DIMENSION,
+} from '@/constant/products';
 
 const ProductForm = ({ onSubmitProduct, currentProduct = null }) => {
 	const router = useRouter();
@@ -105,6 +109,12 @@ const ProductForm = ({ onSubmitProduct, currentProduct = null }) => {
 		setImageFile(null);
 	};
 
+	const ratioLabel = PRODUCT_IMAGE_RATIO[product.type] || '';
+	const productImageDimension = PRODUCT_IMAGE_DIMENSION[product.type] || {
+		width: '100px',
+		height: '100px',
+	};
+
 	return (
 		<Flex
 			as="form"
@@ -116,8 +126,8 @@ const ProductForm = ({ onSubmitProduct, currentProduct = null }) => {
 		>
 			<Flex
 				as="div"
-				width="100px"
-				height="100px"
+				width={productImageDimension.width}
+				height={productImageDimension.height}
 				borderRadius="4px"
 				border="1px dashed"
 				alignItems="center"
@@ -141,7 +151,7 @@ const ProductForm = ({ onSubmitProduct, currentProduct = null }) => {
 			</Flex>
 			<FormControl isInvalid={error.image} mt={2}>
 				<FormLabel fontWeight={600} fontSize="14px" mb="0">
-					Image
+					Image {ratioLabel}
 				</FormLabel>
 				<input
 					type="file"

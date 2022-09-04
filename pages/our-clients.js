@@ -303,7 +303,7 @@ const OurClients = () => {
 						>
 							Household Products
 						</Text>
-						<HStack flexWrap="wrap" justifyContent="space-around" mt={14}>
+						<HStack flexWrap="wrap" justifyContent="space-around">
 							{isHouseholdProductLoading
 								? Array.from(Array(3), (_, index) => (
 										<Skeleton
@@ -357,7 +357,7 @@ const OurClients = () => {
 							Skincare Products
 						</Text>
 
-						<HStack flexWrap="wrap" justifyContent="space-around" mt={14}>
+						<HStack flexWrap="wrap" justifyContent="space-around">
 							{isSkinCareProductLoading
 								? Array.from(Array(3), (_, index) => (
 										<Skeleton
