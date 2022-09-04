@@ -19,7 +19,6 @@ import useWindowSize from '@/hooks/useWindowSize';
 // import static image
 import modernBeauty from '../public/home/primaxcel-maklon-dengan-kami.jpg';
 import oilDropper from '../public/home/primaxcel-maklon-skin-care.jpg';
-import skinCare from '../public/home/primaxcel-skin-care-product.jpg';
 import discuss from '../public/home/discuss.svg';
 import money from '../public/home/money.svg';
 import science from '../public/home/science.svg';
@@ -402,7 +401,7 @@ const Home = () => {
 					</Box>
 				}
 			/>
-			{(!producedProduct.length && isLoading) || !isLoading ? (
+			{(producedProduct.length && !isLoading) || isLoading ? (
 				<Box py={10} bg="primaxLightBlue" textAlign="center">
 					<Text as="h2">Produk yang kami produksi</Text>
 

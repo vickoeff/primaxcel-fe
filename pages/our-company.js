@@ -32,7 +32,6 @@ const OurCompany = () => {
 		centerMode: true,
 		infinite: true,
 		speed: 500,
-		slidesToShow: isMobile ? 1 : 3,
 		slidesToScroll: 1,
 	};
 
@@ -92,6 +91,12 @@ const OurCompany = () => {
 
 	const onGoToContactForm = () => {
 		router.push('/contact-us#contact-form');
+	};
+
+	const getSlideCount = () => {
+		if (isMobile) return 1;
+
+		return maklonProduct.length < 3 ? maklonProduct.length : 3;
 	};
 
 	return (
@@ -260,11 +265,11 @@ const OurCompany = () => {
 						{isProductLoading ? (
 							<Skeleton w="80%" h="240px" mx="auto" my="40px"></Skeleton>
 						) : maklonProduct.length ? (
-							<Slider {...carouselSettings}>
+							<Slider {...carouselSettings} slidesToShow={getSlideCount()}>
 								{maklonProduct.map((maklon, index) => (
 									<Flex
 										key={`maklon-product-${index}`}
-										width="500px"
+										maxWidth="500px"
 										height="250px"
 										overflow="hidden"
 										padding="10px"

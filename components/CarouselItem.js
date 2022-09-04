@@ -4,7 +4,7 @@ const CarouselItem = (props) => {
 	const { img, label } = props;
 
 	return (
-		<Box display="inline-block" my={8} minW="250px" px="8px">
+		<Box display="inline-block" my={8} minW="250px" maxW="330px" px="8px">
 			<Flex
 				flexDirection="column"
 				boxShadow="4px 12px 5px #00000045"
