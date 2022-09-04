@@ -4,12 +4,17 @@ import { Container, Box, Text, Button, HStack } from '@chakra-ui/react';
 import { SectionA, SectionB } from '@/components/Layouts';
 import Image from 'next/image';
 import { MainLayout } from '@/components/Layouts';
+import { ASK_US_CONTENT } from '@/constant/products';
 
 const Products = () => {
 	const router = useRouter();
 
 	const handleProductDetail = (_, path) => {
 		router.push(`${router.pathname}/category#${path}`);
+	};
+
+	const onGoToFaq = () => {
+		router.push('/faq');
 	};
 
 	return (
@@ -383,77 +388,28 @@ const Products = () => {
 							lg: 'row',
 						}}
 					>
-						<Box
-							display="inline-block"
-							bg="primaxBlue"
-							w="334px"
-							h="396px"
-							pt="26px"
-							px="40px"
-							mt={4}
-							ml="0 !important"
-						>
-							<Box pos="relative" width="100%" height="268px">
-								<Image
-									src="/products/paket-kecantikan.jpg"
-									alt="Paket kecantikan"
-									layout="fill"
-								/>
+						{ASK_US_CONTENT.map((content, index) => (
+							<Box
+								display="inline-block"
+								bg="primaxBlue"
+								w="334px"
+								h="396px"
+								pt="26px"
+								px="40px"
+								mt={4}
+								ml="0 !important"
+								key={`ask-us-content-${index}`}
+								cursor="pointer"
+								onClick={onGoToFaq}
+							>
+								<Box pos="relative" width="100%" height="268px">
+									<Image src={content.image} alt={content.alt} layout="fill" />
+								</Box>
+								<Text mt={4} textAlign="center">
+									{content.title}
+								</Text>
 							</Box>
-							<Text mt={4} textAlign="center">
-								Minimum MOQ & Packaging
-							</Text>
-						</Box>
-
-						<Box
-							display="inline-block"
-							bg="primaxBlue"
-							w="334px"
-							h="396px"
-							pt="26px"
-							px="40px"
-							mt={{
-								base: '4 !important',
-								lg: '0',
-							}}
-							ml="0 !important"
-						>
-							<Box pos="relative" width="100%" height="268px">
-								<Image
-									src="/products/hydro-alcoholic-gel.jpg"
-									alt="Hydro alcholic gel"
-									layout="fill"
-								/>
-							</Box>
-							<Text mt={4} textAlign="center">
-								Komposisi Produk & Hak Cipta
-							</Text>
-						</Box>
-
-						<Box
-							display="inline-block"
-							bg="primaxBlue"
-							w="334px"
-							h="396px"
-							pt="26px"
-							px="40px"
-							mt={{
-								base: '4 !important',
-								lg: '0',
-							}}
-							ml="0 !important"
-						>
-							<Box pos="relative" width="100%" height="268px">
-								<Image
-									src="/products/krim-pemutih-wajah.jpg"
-									alt="Krim pemutih wajah"
-									layout="fill"
-								/>
-							</Box>
-							<Text mt={4} textAlign="center">
-								Lainnya
-							</Text>
-						</Box>
+						))}
 					</HStack>
 				</Container>
 			</Box>

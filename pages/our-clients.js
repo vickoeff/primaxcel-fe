@@ -29,6 +29,10 @@ const OurClients = () => {
 
 	const imgPath = router.pathname;
 
+	const onGoToContactForm = () => {
+		router.push('/contact-us#contact-form');
+	};
+
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const householdProducts = [
 		{
@@ -105,49 +109,6 @@ const OurClients = () => {
 		{
 			src: `${imgPath}/treatment-gel.png`,
 			name: 'Edit Text with Catalogue',
-		},
-	];
-
-	const testimoni = [
-		{
-			photo: `${imgPath}/logo-oleum.png`,
-			message:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.',
-		},
-		{
-			photo: `${imgPath}/logo-silky-white.png`,
-			message:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.',
-		},
-		{
-			photo: `${imgPath}/logo-miju.png`,
-			message:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.',
-		},
-		{
-			photo: `${imgPath}/logo-i-skin.png`,
-			message:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.',
-		},
-		{
-			photo: `${imgPath}/logo-epidena.png`,
-			message:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.',
-		},
-		{
-			photo: `${imgPath}/logo-nbc.png`,
-			message:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.',
-		},
-		{
-			photo: `${imgPath}/logo-iface.png`,
-			message:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.',
-		},
-		{
-			photo: `${imgPath}/logo-clarium.png`,
-			message:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.',
 		},
 	];
 
@@ -649,7 +610,7 @@ const OurClients = () => {
 								md: 'flex-start',
 							}}
 						>
-							<Button mt={6} px={16} py={7}>
+							<Button mt={6} px={16} py={7} onClick={onGoToContactForm}>
 								Hubungi Kami
 							</Button>
 						</Flex>

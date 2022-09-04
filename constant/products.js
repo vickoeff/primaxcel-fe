@@ -48,3 +48,21 @@ export const PRODUCT_MIN_MOQ = ['Min. 5000', '>5000', '10000'];
 export const PRODUCT_BUDGET = ['75-200jt', '200-300jt', '>300jt'];
 
 export const PRODUCT_OWNERSHIP = ['Perorangan', 'Perusahaan'];
+
+export const ASK_US_CONTENT = [
+	{
+		image: '/products/paket-kecantikan.jpg',
+		alt: 'Paket kecantikan',
+		title: 'Minimum MOQ & Packaging',
+	},
+	{
+		image: '/products/hydro-alcoholic-gel.jpg',
+		alt: 'Hydro alcholic gel',
+		title: 'Komposisi Produk & Hak Cipta',
+	},
+	{
+		image: '/products/krim-pemutih-wajah.jpg',
+		alt: 'Krim pemutih wajah',
+		title: 'Lainnya',
+	},
+];

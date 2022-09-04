@@ -17,11 +17,11 @@ import { useRouter } from 'next/router';
 const Services = () => {
 	const router = useRouter();
 
-	const handleServicesDetail = () => {
-		router.push(`${router.pathname}/category`);
-	};
-
 	const imgPath = router.pathname;
+
+	const onGoToContactForm = () => {
+		router.push('/contact-us#contact-form');
+	};
 
 	return (
 		<>
@@ -224,7 +224,7 @@ const Services = () => {
 								as="a"
 								variant="link"
 								role="link"
-								onClick={handleServicesDetail}
+								onClick={onGoToContactForm}
 								textAlign="left"
 								display="flex"
 								justifyContent="flex-start"
@@ -266,7 +266,6 @@ const Services = () => {
 								<ListItem>Packing</ListItem>
 								<ListItem>Quality Control</ListItem>
 							</UnorderedList>
-
 							<Text as="p">
 								Kami menjamin seluruh proses menjaga keamanan dan kehalalan
 								produk. Semua proses dilakukan sesuai standarisasi nasional dan
@@ -277,7 +276,7 @@ const Services = () => {
 								as="a"
 								variant="link"
 								role="link"
-								onClick={handleServicesDetail}
+								onClick={onGoToContactForm}
 								textAlign="left"
 								display="flex"
 								justifyContent="flex-start"
@@ -332,7 +331,7 @@ const Services = () => {
 								as="a"
 								variant="link"
 								role="link"
-								onClick={handleServicesDetail}
+								onClick={onGoToContactForm}
 								textAlign="left"
 								display="flex"
 								justifyContent="flex-start"
@@ -349,7 +348,7 @@ const Services = () => {
 						</Box>
 					</Flex>
 
-					<Button mt={12} px={16} py={7}>
+					<Button mt={12} px={16} py={7} onClick={onGoToContactForm}>
 						Hubungi Kami
 					</Button>
 				</Container>
@@ -578,7 +577,7 @@ const Services = () => {
 									md: 'flex-start',
 								}}
 							>
-								<Button>Hubungi Kami</Button>
+								<Button onClick={onGoToContactForm}>Hubungi Kami</Button>
 							</Flex>
 						</Box>
 						<Box
@@ -627,7 +626,7 @@ const Services = () => {
 									md: 'flex-start',
 								}}
 							>
-								<Button>Hubungi Kami</Button>
+								<Button onClick={onGoToContactForm}>Hubungi Kami</Button>
 							</Flex>
 						</Box>
 					</>

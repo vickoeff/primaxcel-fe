@@ -74,10 +74,6 @@ const BlogDetail = () => {
 				const { data } = response.data;
 
 				if (data.length) {
-					setFilter({
-						...filter,
-						type,
-					});
 					setDetail({
 						...detail,
 						blogSections: data[0].blogSections,
@@ -91,6 +87,11 @@ const BlogDetail = () => {
 						title: '',
 					});
 				}
+
+				setFilter({
+					...filter,
+					type,
+				});
 			}
 		} catch (error) {
 			toast({

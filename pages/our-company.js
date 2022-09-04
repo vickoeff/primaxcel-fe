@@ -16,8 +16,10 @@ import { MainLayout } from '../components/Layouts';
 import useWindowSize from '@/hooks/useWindowSize';
 import services from '@/services';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 const OurCompany = () => {
+	const router = useRouter();
 	const toast = useToast();
 	const { isMobile } = useWindowSize();
 	const [videoUrl, setVideoUrl] = useState('');
@@ -56,6 +58,10 @@ const OurCompany = () => {
 
 		getCompanyDetail();
 	}, []);
+
+	const onGoToContactForm = () => {
+		router.push('/contact-us#contact-form');
+	};
 
 	return (
 		<>
@@ -314,7 +320,7 @@ const OurCompany = () => {
 								md: 'block',
 							}}
 						></Box>
-						<Button>Hubungi Kami</Button>
+						<Button onClick={onGoToContactForm}>Hubungi Kami</Button>
 					</Box>
 				}
 				rightContent={
@@ -340,7 +346,7 @@ const OurCompany = () => {
 							<Text as="p">
 								Jangan ragu untuk konsultasi konsep produk anda dengan Primaxcel
 							</Text>
-							<Button>Hubungi Kami</Button>
+							<Button onClick={onGoToContactForm}>Hubungi Kami</Button>
 						</Box>
 					</div>
 				}
