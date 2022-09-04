@@ -8,7 +8,7 @@ const Faq = () => {
 	const router = useRouter();
 
 	const onOpenFaq = () => {
-		router.push('/contact-us#form');
+		router.push('/contact-us#contact-form');
 	};
 
 	return (
@@ -107,6 +107,7 @@ const Faq = () => {
 								mt="8px"
 								mb="0"
 								onClick={onOpenFaq}
+								cursor="pointer"
 							>
 								Selengkapnya
 							</Text>
@@ -135,6 +136,7 @@ const Faq = () => {
 								mt="8px"
 								mb="0"
 								onClick={onOpenFaq}
+								cursor="pointer"
 							>
 								Selengkapnya
 							</Text>
