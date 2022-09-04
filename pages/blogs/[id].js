@@ -2,9 +2,18 @@ import { BLOG_TYPE_VALUE, BLOG_CATEGORIES } from '@/constant/blogs';
 import { useRouter } from 'next/router';
 import services from '@/services';
 import { MainLayout } from '@/components/Layouts';
-import { useToast, Skeleton, Box, Image, Flex, Text } from '@chakra-ui/react';
+import {
+	useToast,
+	Skeleton,
+	Box,
+	Image,
+	Flex,
+	Text,
+	Icon,
+} from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import 'react-quill/dist/quill.snow.css';
+import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 
 const BlogDetail = () => {
 	const toast = useToast();
@@ -19,44 +28,52 @@ const BlogDetail = () => {
 		type: '',
 		status: 'active',
 	});
+	const [other, setOthers] = useState({
+		prev: null,
+		next: null,
+	});
+
+	const getBlogDetail = async (id) => {
+		try {
+			setIsLoading(true);
+
+			const response = await services.getDetailBlog(id);
+
+			if (response && response.status && response.data) {
+				setFilter({
+					...filter,
+					type: BLOG_TYPE_VALUE[response.data.type],
+				});
+				setDetail({
+					...detail,
+					blogSections: response.data.blogSections,
+					imageUrl: response.data.imageUrl,
+					title: response.data.title,
+				});
+				setOthers({
+					prev: response.data.prev,
+					next: response.data.next,
+				});
+			}
+		} catch (error) {
+			toast({
+				position: 'top',
+				description: 'Failed to get blog data',
+				status: 'error',
+				duration: 3000,
+			});
+			router.push('/blogs');
+		} finally {
+			setIsLoading(false);
+		}
+	};
 
 	useEffect(() => {
 		if (!router.isReady) return;
 
 		const { id } = router.query;
 
-		const getBlogDetail = async () => {
-			try {
-				setIsLoading(true);
-
-				const response = await services.getDetailBlog(id);
-
-				if (response && response.status && response.data) {
-					setFilter({
-						...filter,
-						type: BLOG_TYPE_VALUE[response.data.type],
-					});
-					setDetail({
-						...detail,
-						blogSections: response.data.blogSections,
-						imageUrl: response.data.imageUrl,
-						title: response.data.title,
-					});
-				}
-			} catch (error) {
-				toast({
-					position: 'top',
-					description: 'Failed to get blog data',
-					status: 'error',
-					duration: 3000,
-				});
-				router.push('/blogs');
-			} finally {
-				setIsLoading(false);
-			}
-		};
-
-		getBlogDetail();
+		getBlogDetail(id);
 	}, [router.isReady]);
 
 	const onSetCategory = async (type) => {
@@ -74,17 +91,18 @@ const BlogDetail = () => {
 				const { data } = response.data;
 
 				if (data.length) {
-					setDetail({
-						...detail,
-						blogSections: data[0].blogSections,
-						imageUrl: data[0].imageUrl,
-						title: data[0].title,
-					});
+					const id = data[0].id;
+					router.push(`/blogs/${id}`);
+					getBlogDetail(id);
 				} else {
 					setDetail({
 						blogSections: [],
 						imageUrl: '',
 						title: '',
+					});
+					setOthers({
+						prev: null,
+						next: null,
 					});
 				}
 
@@ -102,6 +120,21 @@ const BlogDetail = () => {
 			});
 		} finally {
 			setIsLoading(false);
+		}
+	};
+
+	const onGoToArticle = (type) => {
+		let id = null;
+
+		if (type === 'prev') {
+			id = other.prev?.id ?? '';
+		} else {
+			id = other.next?.id ?? '';
+		}
+
+		if (id) {
+			router.push(`/blogs/${id}`);
+			getBlogDetail(id);
 		}
 	};
 
@@ -162,7 +195,7 @@ const BlogDetail = () => {
 				mx="auto"
 				pt="40px"
 				pb="80px"
-				minH="100vh"
+				minH="80vh"
 			>
 				<Box
 					as="article"
@@ -216,6 +249,87 @@ const BlogDetail = () => {
 						</Box>
 					)}
 				</Box>
+			</Flex>
+			<Flex
+				justifyContent="space-between"
+				maxW="container.xl"
+				mx="auto"
+				width={{
+					base: 'calc(100% - 32px)',
+					xl: '100%',
+				}}
+				mb="20px"
+			>
+				<Flex
+					flexDirection="column"
+					w="200px"
+					cursor="pointer"
+					onClick={() => onGoToArticle('prev')}
+				>
+					{other.prev ? (
+						<>
+							<Flex justifyContent="space-between" alignItems="center">
+								<Icon as={FaArrowLeft}></Icon>
+								<Text
+									as="span"
+									className="blog-page-preview-title"
+									mb="0"
+									fontSize="16px"
+									fontWeight={700}
+									color="primaxPurple"
+									textAlign="left"
+									noOfLines={3}
+								>
+									Previous Page
+								</Text>
+							</Flex>
+							<Text
+								className="blog-page-preview-title"
+								mb="0"
+								fontSize="14px"
+								textAlign="right"
+								noOfLines={3}
+							>
+								{other.prev.title}
+							</Text>
+						</>
+					) : null}
+				</Flex>
+				<Flex
+					flexDirection="column"
+					w="200px"
+					cursor="pointer"
+					onClick={() => onGoToArticle('next')}
+				>
+					{other.next ? (
+						<>
+							<Flex justifyContent="space-between" alignItems="center">
+								<Text
+									as="span"
+									className="blog-page-preview-title"
+									mb="0"
+									fontSize="16px"
+									fontWeight={700}
+									color="primaxPurple"
+									textAlign="left"
+									noOfLines={3}
+								>
+									Next Page
+								</Text>
+								<Icon as={FaArrowRight}></Icon>
+							</Flex>
+							<Text
+								className="blog-page-preview-title"
+								mb="0"
+								fontSize="14px"
+								textAlign="left"
+								noOfLines={3}
+							>
+								{other.next.title}
+							</Text>
+						</>
+					) : null}
+				</Flex>
 			</Flex>
 		</>
 	);

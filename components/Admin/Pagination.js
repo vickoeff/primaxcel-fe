@@ -36,7 +36,7 @@ const Pagination = ({ pagination, onRowChange, onPageChange, isLoading }) => {
 	};
 
 	return (
-		<Flex mt={4} alignItems="center" justifyContent="space-between">
+		<Flex mt={4} alignItems="center" justifyContent="space-between" w="100%">
 			<Flex alignItems="center">
 				{isLoading ? (
 					<Skeleton height="20px" width="300px"></Skeleton>

@@ -12,18 +12,16 @@ import { BLOG_CATEGORIES, BLOG_TYPE } from '@/constant/blogs';
 import { useEffect, useState } from 'react';
 import services from '@/services';
 import { useRouter } from 'next/router';
+import Pagination from '@/components/Admin/Pagination';
+import usePagination from '@/hooks/usePagination';
 
 const Blogs = () => {
 	const toast = useToast();
 	const [blogs, setBlogs] = useState([]);
 	const router = useRouter();
 	const [isLoading, setIsLoading] = useState(true);
-	const [pagination, setPagination] = useState({
-		limit: 6,
-		currentPage: 1,
-		total: 1,
-		totalPages: 1,
-	});
+	const { pagination, setPagination, onRowChange, onPageChange } =
+		usePagination();
 	const [filter, setFilter] = useState({
 		type: '',
 		status: 'active',
@@ -66,6 +64,14 @@ const Blogs = () => {
 
 	useEffect(() => {
 		getBlogs();
+	}, [pagination.limit, pagination.currentPage]);
+
+	useEffect(() => {
+		if (pagination.currentPage === 1) {
+			getBlogs();
+		} else {
+			onPageChange(1);
+		}
 	}, [filter.type]);
 
 	const onSetCategory = (type) => {
@@ -226,71 +232,81 @@ const Blogs = () => {
 						);
 					})
 				) : blogs.length ? (
-					blogs.map((blog, index) => (
-						<Flex
-							w={{
-								base: '100%',
-								lg: 'calc(50% - 12px)',
-								xl: 'calc(50% - 20px)',
-							}}
-							key={`blog-${index}`}
-							mt={{
-								base: '20px',
-								lg: '40px',
-							}}
-							_even={{
-								ml: {
-									base: '0',
-									lg: '12px',
-									xl: '20px',
-								},
-							}}
-							_odd={{
-								mr: {
-									base: '0',
-									lg: '12px',
-									xl: '20px',
-								},
-							}}
-						>
-							<Flex h="240px" w="240px" bg="gray.200">
-								<Image
-									objectFit="cover"
-									src={blog.imageUrl}
-									alt={blog.title}
-								></Image>
-							</Flex>
-							<Flex flexDirection="column" ml="20px" flex="1">
-								<Text as="h2" fontWeight={700} fontSize="20px" noOfLines={3}>
-									{blog.title}
-								</Text>
-								<Text as="span" fontSize="16px" mt="4px">
-									{BLOG_TYPE[blog.type]}
-								</Text>
-								<Text
-									as="p"
-									fontSize="16px"
-									noOfLines={3}
-									mt="8px"
-									mb="0"
-									className="blog-page-preview-title"
-									dangerouslySetInnerHTML={{
-										__html: blog.blogSections[0].description,
-									}}
-								></Text>
-								<Flex
-									flex="1"
-									fontWeight={700}
-									alignItems="flex-end"
-									fontSize="18px"
-									cursor="pointer"
-									onClick={() => onGoToDetailBlog(blog.id)}
-								>
-									Read more
+					<>
+						{blogs.map((blog, index) => (
+							<Flex
+								w={{
+									base: '100%',
+									lg: 'calc(50% - 12px)',
+									xl: 'calc(50% - 20px)',
+								}}
+								key={`blog-${index}`}
+								mt={{
+									base: '20px',
+									lg: '40px',
+								}}
+								_even={{
+									ml: {
+										base: '0',
+										lg: '12px',
+										xl: '20px',
+									},
+								}}
+								_odd={{
+									mr: {
+										base: '0',
+										lg: '12px',
+										xl: '20px',
+									},
+								}}
+							>
+								<Flex h="240px" w="240px" bg="gray.200">
+									<Image
+										objectFit="cover"
+										src={blog.imageUrl}
+										alt={blog.title}
+									></Image>
+								</Flex>
+								<Flex flexDirection="column" ml="20px" flex="1">
+									<Text as="h2" fontWeight={700} fontSize="20px" noOfLines={3}>
+										{blog.title}
+									</Text>
+									<Text as="span" fontSize="16px" mt="4px">
+										{BLOG_TYPE[blog.type]}
+									</Text>
+									<Text
+										as="p"
+										fontSize="16px"
+										noOfLines={3}
+										mt="8px"
+										mb="0"
+										className="blog-page-preview-title"
+										dangerouslySetInnerHTML={{
+											__html: blog.blogSections[0].description,
+										}}
+									></Text>
+									<Flex
+										flex="1"
+										fontWeight={700}
+										alignItems="flex-end"
+										fontSize="18px"
+										cursor="pointer"
+										onClick={() => onGoToDetailBlog(blog.id)}
+									>
+										Read more
+									</Flex>
 								</Flex>
 							</Flex>
+						))}
+						<Flex w="100%">
+							<Pagination
+								isLoading={isLoading}
+								pagination={pagination}
+								onRowChange={onRowChange}
+								onPageChange={onPageChange}
+							></Pagination>
 						</Flex>
-					))
+					</>
 				) : (
 					<Flex justifyContent="center" w="100%" mt="60px">
 						<Text>Currently, there is no articles for this category</Text>
