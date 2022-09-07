@@ -1,6 +1,6 @@
 import AdminMain from '@/components/Admin/Layout/Main.js';
 import Breadcrumb from '@/components/Admin/Breadcrumb';
-import { EDIT_BLOGS_NAVIGATIONS, BLOG_TYPE_VALUE } from '@/constant/blogs';
+import { EDIT_BLOG_NAVIGATIONS, BLOG_TYPE_VALUE } from '@/constant/blogs';
 import BlogForm from '@/components/Admin/Blogs/BlogForm';
 import { useRouter } from 'next/router';
 import services from '@/services';
@@ -150,7 +150,7 @@ const EditBlog = () => {
 		<>
 			<Breadcrumb
 				title="Edit blog"
-				navigations={EDIT_BLOGS_NAVIGATIONS}
+				navigations={EDIT_BLOG_NAVIGATIONS}
 			></Breadcrumb>
 			<BlogForm
 				onSubmitBlog={onEditBlog}
