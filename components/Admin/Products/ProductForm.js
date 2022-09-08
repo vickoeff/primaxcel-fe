@@ -149,7 +149,18 @@ const ProductForm = ({ onSubmitProduct, currentProduct = null }) => {
 					</Text>
 				)}
 			</Flex>
-			<FormControl isInvalid={error.image} mt={2}>
+			<FormControl mt={4}>
+				<FormLabel fontWeight={600} fontSize="14px" mb="0">
+					Type
+				</FormLabel>
+				<Select name="type" value={product.type} onChange={onFormChange} mt={1}>
+					<option value="produce">Produced</option>
+					<option value="maklon">Maklon</option>
+					<option value="household">Household</option>
+					<option value="skincare">Skincare</option>
+				</Select>
+			</FormControl>
+			<FormControl isInvalid={error.image} mt={4}>
 				<FormLabel fontWeight={600} fontSize="14px" mb="0">
 					Image {ratioLabel}
 				</FormLabel>
@@ -198,17 +209,7 @@ const ProductForm = ({ onSubmitProduct, currentProduct = null }) => {
 				/>
 				<FormErrorMessage mt={1}>{error.title}</FormErrorMessage>
 			</FormControl>
-			<FormControl mt={4}>
-				<FormLabel fontWeight={600} fontSize="14px" mb="0">
-					Type
-				</FormLabel>
-				<Select name="type" value={product.type} onChange={onFormChange}>
-					<option value="produce">Produced</option>
-					<option value="maklon">Maklon</option>
-					<option value="household">Household</option>
-					<option value="skincare">Skincare</option>
-				</Select>
-			</FormControl>
+
 			<Flex mt={5} alignSelf="flex-end">
 				<Button
 					padding="10px 20px !important"

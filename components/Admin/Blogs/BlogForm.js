@@ -193,19 +193,6 @@ const BlogForm = ({
 		);
 	};
 
-	const onUpdateSectionImagePosition = (event, index) => {
-		setSections(
-			sections.map((section, sectionIndex) => {
-				if (sectionIndex !== index) return section;
-
-				return {
-					...section,
-					imagePosition: event.target.value,
-				};
-			})
-		);
-	};
-
 	const onSectionDescChange = (payload, index) => {
 		setSections(
 			sections.map((section, sectionIndex) => {
@@ -356,7 +343,7 @@ const BlogForm = ({
 							</Flex>
 						) : null}
 						<Flex mt="2" justifyContent="space-between">
-							<FormControl width="calc(50% - 52px)">
+							<FormControl width="calc(100% - 32px)">
 								<FormLabel fontWeight={600} fontSize="14px" mb="0">
 									Image
 								</FormLabel>
@@ -390,22 +377,6 @@ const BlogForm = ({
 								>
 									<Icon as={FaTrash}></Icon>
 								</Flex>
-							</FormControl>
-							<FormControl width="calc(50% - 8px)">
-								<FormLabel fontWeight={600} fontSize="14px" mb="0">
-									Image position
-								</FormLabel>
-								<Select
-									value={section.imagePosition}
-									onChange={(event) =>
-										onUpdateSectionImagePosition(event, index)
-									}
-									mt={1}
-									placeholder="Your image position"
-								>
-									<option value="left">Left</option>
-									<option value="right">Right</option>
-								</Select>
 							</FormControl>
 						</Flex>
 						<FormControl isInvalid={!!section.error} mt={4}>

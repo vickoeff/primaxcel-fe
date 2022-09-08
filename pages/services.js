@@ -190,10 +190,6 @@ const Services = () => {
 						<Box
 							display="flex"
 							flexDirection="column"
-							justifyContent={{
-								base: 'flex-start',
-								md: 'space-between',
-							}}
 							flex={1}
 							minH={{
 								base: '0',
@@ -219,34 +215,31 @@ const Services = () => {
 								Jangan ragu maupun bingung representatif kami akan membantu Anda
 								dalam setiap proses, sampai memperoleh produk sesuai impian Anda
 							</Text>
-
-							<Button
-								as="a"
-								variant="link"
-								role="link"
-								onClick={onGoToContactForm}
-								textAlign="left"
-								display="flex"
-								justifyContent="flex-start"
-							>
-								<Text
-									as="p"
-									fontWeight="semibold"
-									m="0"
-									textDecoration="underline"
+							<Flex height="100%" alignItems="flex-end">
+								<Button
+									as="a"
+									variant="link"
+									role="link"
+									onClick={onGoToContactForm}
+									textAlign="left"
+									display="flex"
+									justifyContent="flex-start"
 								>
-									Informasi lebih lengkap
-								</Text>
-							</Button>
+									<Text
+										as="p"
+										fontWeight="semibold"
+										m="0"
+										textDecoration="underline"
+									>
+										Informasi lebih lengkap
+									</Text>
+								</Button>
+							</Flex>
 						</Box>
 
 						<Box
 							display="flex"
 							flexDirection="column"
-							justifyContent={{
-								base: 'flex-start',
-								md: 'space-between',
-							}}
 							flex={1}
 							minH={{
 								base: '0',
@@ -271,34 +264,31 @@ const Services = () => {
 								produk. Semua proses dilakukan sesuai standarisasi nasional dan
 								internasional. Terikat secara legal.
 							</Text>
-
-							<Button
-								as="a"
-								variant="link"
-								role="link"
-								onClick={onGoToContactForm}
-								textAlign="left"
-								display="flex"
-								justifyContent="flex-start"
-							>
-								<Text
-									as="p"
-									fontWeight="semibold"
-									m="0"
-									textDecoration="underline"
+							<Flex height="100%" alignItems="flex-end">
+								<Button
+									as="a"
+									variant="link"
+									role="link"
+									onClick={onGoToContactForm}
+									textAlign="left"
+									display="flex"
+									justifyContent="flex-start"
 								>
-									Informasi lebih lengkap
-								</Text>
-							</Button>
+									<Text
+										as="p"
+										fontWeight="semibold"
+										m="0"
+										textDecoration="underline"
+									>
+										Informasi lebih lengkap
+									</Text>
+								</Button>
+							</Flex>
 						</Box>
 
 						<Box
 							display="flex"
 							flexDirection="column"
-							justifyContent={{
-								base: 'flex-start',
-								md: 'space-between',
-							}}
 							flex={1}
 							minH={{
 								base: '0',
@@ -326,25 +316,26 @@ const Services = () => {
 								teknik marketing yang cocok dan sesuai dengan target pasar anda.
 								Informasi lebih lengkap
 							</Text>
-
-							<Button
-								as="a"
-								variant="link"
-								role="link"
-								onClick={onGoToContactForm}
-								textAlign="left"
-								display="flex"
-								justifyContent="flex-start"
-							>
-								<Text
-									as="p"
-									fontWeight="semibold"
-									m="0"
-									textDecoration="underline"
+							<Flex height="100%" alignItems="flex-end">
+								<Button
+									as="a"
+									variant="link"
+									role="link"
+									onClick={onGoToContactForm}
+									textAlign="left"
+									display="flex"
+									justifyContent="flex-start"
 								>
-									Informasi lebih lengkap
-								</Text>
-							</Button>
+									<Text
+										as="p"
+										fontWeight="semibold"
+										m="0"
+										textDecoration="underline"
+									>
+										Informasi lebih lengkap
+									</Text>
+								</Button>
+							</Flex>
 						</Box>
 					</Flex>
 

@@ -170,9 +170,9 @@ const OurClients = () => {
 						{reviews.map((review, index) => (
 							<Box
 								display="flex"
-								maxW={{
+								width={{
 									base: '100%',
-									lg: 'calc(50% - 1.3rem)',
+									lg: 'calc(50% - 24px)',
 								}}
 								p={{
 									base: 4,
@@ -187,23 +187,24 @@ const OurClients = () => {
 									xl: '250px',
 								}}
 								overflow="hidden"
-								alignItems={{
-									base: 'center',
-									lg: 'flex-start',
-								}}
+								alignItems="center"
 							>
-								<Image
-									src={review.imageUrl}
-									alt={`Primaxcel user review ${index + 1}`}
-									my="auto"
-									mx="auto"
-									w="166px"
-									h="166px"
-									objectFit="contain"
-								/>
-								<Text as="p" pl={6} mb={0}>
-									{review.description}
-								</Text>
+								<Flex w="166px" h="166px" flexShrink="0">
+									<Image
+										src={review.imageUrl}
+										alt={`Primaxcel user review ${index + 1}`}
+										my="auto"
+										mx="auto"
+										w="100%"
+										h="100%"
+										objectFit="contain"
+									/>
+								</Flex>
+								<Flex height="100%" pl={6} alignItems="center">
+									<Text as="p" mb={0}>
+										{review.description}
+									</Text>
+								</Flex>
 							</Box>
 						))}
 					</HStack>
@@ -436,9 +437,9 @@ const OurClients = () => {
 												display="flex"
 												w="100%"
 												ml="0!important"
-												maxW={{
+												width={{
 													base: '100%',
-													lg: 'calc(50% - 1.3rem)',
+													lg: 'calc(50% - 24px)',
 												}}
 												h="250px"
 												key={`skeleton-${index}`}
@@ -448,9 +449,9 @@ const OurClients = () => {
 								: reviews.map((review, index) => (
 										<Box
 											display="flex"
-											maxW={{
+											width={{
 												base: '100%',
-												lg: 'calc(50% - 1.3rem)',
+												lg: 'calc(50% - 24px)',
 											}}
 											p={{
 												base: 4,
@@ -465,23 +466,24 @@ const OurClients = () => {
 												xl: '250px',
 											}}
 											overflow="hidden"
-											alignItems={{
-												base: 'center',
-												lg: 'flex-start',
-											}}
+											alignItems="center"
 										>
-											<Image
-												src={review.imageUrl}
-												alt={`Primaxcel user review ${index + 1}`}
-												my="auto"
-												mx="auto"
-												w="166px"
-												h="166px"
-												objectFit="contain"
-											/>
-											<Text as="p" pl={6} mb={0}>
-												{review.description}
-											</Text>
+											<Flex w="166px" h="166px" flexShrink="0">
+												<Image
+													src={review.imageUrl}
+													alt={`Primaxcel user review ${index + 1}`}
+													my="auto"
+													mx="auto"
+													w="100%"
+													h="100%"
+													objectFit="contain"
+												/>
+											</Flex>
+											<Flex height="100%" pl={6} alignItems="center">
+												<Text as="p" mb={0}>
+													{review.description}
+												</Text>
+											</Flex>
 										</Box>
 								  ))}
 						</HStack>

@@ -584,6 +584,7 @@ const Home = () => {
 						</Box>
 
 						<Box
+							textAlign="center"
 							width={{
 								base: '100%',
 								md: 'calc(100% / 3)',

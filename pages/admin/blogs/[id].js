@@ -108,10 +108,7 @@ const EditBlog = () => {
 				`sections[${index}][description]`,
 				sections[index].description
 			);
-			formData.append(
-				`sections[${index}][imagePosition]`,
-				sections[index].imagePosition
-			);
+			formData.append(`sections[${index}][imagePosition]`, 'left');
 			formData.append(`sections[${index}][image]`, sections[index].image);
 			formData.append(
 				`sections[${index}][imageName]`,

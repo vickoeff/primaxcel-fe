@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useLoading } from '@/context/loading';
-import { useToast, Box, Image, Text } from '@chakra-ui/react';
+import { useToast, Box, Image, Text, Flex } from '@chakra-ui/react';
 import services from '@/services';
 import Loading from '@/components/Admin/Loading';
 import 'react-quill/dist/quill.snow.css';
@@ -56,6 +56,16 @@ const BlogPreview = () => {
 	) : (
 		<Box as="article" width="85%" margin="0 auto" className="ql-snow ">
 			<Box className="ql-editor">
+				<Flex mb="24px" justifyContent="center">
+					<Text
+						className="blog-preview__title"
+						as="h1"
+						fontWeight={600}
+						textAlign="center"
+					>
+						{blog.title}
+					</Text>
+				</Flex>
 				{blog.blogSections.map((section, index) => (
 					<Box
 						as="section"
@@ -64,13 +74,7 @@ const BlogPreview = () => {
 						className="blog-preview"
 					>
 						{section.imageUrl ? (
-							<Box
-								maxWidth="50%"
-								float={section.imagePosition}
-								mr={section.imagePosition === 'left' ? '16px' : 0}
-								ml={section.imagePosition === 'right' ? '16px' : 0}
-								mb="16px"
-							>
+							<Box mb="24px">
 								<Image
 									src={section.imageUrl}
 									alt={`Section image ${index + 1}`}

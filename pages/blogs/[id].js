@@ -201,15 +201,27 @@ const BlogDetail = () => {
 					as="article"
 					width={{
 						base: 'calc(100% - 32px)',
-						xl: '100%',
+						md: '750px',
+						xl: '850px',
 					}}
 					margin="0 auto"
-					className="ql-snow "
+					className="ql-snow"
 				>
 					{isLoading ? (
 						<Skeleton w="100%" h="500"></Skeleton>
 					) : (
 						<Box className="ql-editor">
+							<Flex mb="24px" justifyContent="center">
+								<Text
+									className="blog-preview__title"
+									as="h1"
+									fontWeight={600}
+									textAlign="center"
+								>
+									{detail.title}
+								</Text>
+							</Flex>
+
 							{detail.blogSections.length ? (
 								detail.blogSections.map((section, index) => (
 									<Box
@@ -219,21 +231,12 @@ const BlogDetail = () => {
 										className="blog-preview"
 									>
 										{section.imageUrl ? (
-											<Box
-												maxWidth="50%"
-												float={section.imagePosition}
-												mr={section.imagePosition === 'left' ? '16px' : 0}
-												ml={section.imagePosition === 'right' ? '16px' : 0}
-												mb="16px"
-											>
+											<Box mb="24px">
 												<Image
 													src={section.imageUrl}
 													alt={`Section image ${index + 1}`}
 												></Image>
 											</Box>
-										) : null}
-										{index === 0 ? (
-											<h1 className="blog-preview__title">{detail.title}</h1>
 										) : null}
 										<Box
 											dangerouslySetInnerHTML={{ __html: section.description }}
