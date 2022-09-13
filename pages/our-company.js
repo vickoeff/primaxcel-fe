@@ -192,8 +192,9 @@ const OurCompany = () => {
 							Company History
 						</Text>
 						<Text as="p">
-							Berpengalaman sejak 1993 mendaftarkan produk obat, skincare, dan
-							produk kecantikan untuk memperoleh sertifikasi BPOM.
+							Berpengalaman sejak tahun 1993 dalam memformulasikan dan
+							mendaftarkan produk obat, skincare, maupun kosmetik untuk
+							memperoleh sertifikasi BPOM.
 						</Text>
 					</Flex>
 				</Box>
@@ -216,7 +217,7 @@ const OurCompany = () => {
 						<Text as="p" mt={6}>
 							Menjadi pionir dalam menciptakan dan memasarkan produk kecantikan
 							dan makanan sehat yang tersertifikasi HALAL untuk meningkatkan
-							kualitas hidup masyarakat Indonesia
+							kualitas hidup masyarakat Indonesia.
 						</Text>
 					</Box>
 				}
@@ -392,7 +393,7 @@ const OurCompany = () => {
 								Sudah memiliki konsep produk?
 							</Text>
 							<Text as="p">
-								Jangan ragu untuk konsultasi konsep produk anda dengan Primaxcel
+								Jangan ragu untuk konsultasi konsep produk Anda dengan Primaxcel
 							</Text>
 							<Button onClick={onGoToContactForm}>Hubungi Kami</Button>
 						</Box>

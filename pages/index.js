@@ -318,12 +318,12 @@ const Home = () => {
 							<br /> Bingung mulai bisnis dari mana?
 						</Text>
 						<Text as="p">
-							Primaxcel bisa membantu anda mengubah ide kreatif yang anda miliki
-							menjadi produk impian anda.
+							Primaxcel bisa membantu Anda mengubah ide kreatif yang Anda miliki
+							menjadi produk impian Anda.
 						</Text>
 						<Text as="p">
 							Dengan langkah-langkah dan komunikasi yang mudah. Wujudkan produk
-							sesuai keinginan anda.
+							sesuai keinginan Anda.
 							<br />
 							<br />
 							Jangan ragu lagi
@@ -391,15 +391,15 @@ const Home = () => {
 							berkembang pesat saat ini. Tingginya ketertarikan konsumen
 							skincare yang terus meningkat, membuat kerjasama maklon menjadi
 							pilihan yang cepat dan tepat untuk memulai maupun mengembangkan
-							bisnis anda.
+							bisnis Anda.
 						</Text>
 						<Text as="p">
-							Dengan kemudahan pembuatan produk sesuai keinginan anda, Primaxcel
-							juga bisa membantu anda mendesain produk dari nol hingga siap
+							Dengan kemudahan pembuatan produk sesuai keinginan Anda, Primaxcel
+							juga bisa membantu Anda mendesain produk dari nol hingga siap
 							dipasarkan, dengan perizinan yang lengkap.
 						</Text>
 						<Text as="p">
-							Primaxcel siap melayani anda maklon produk beauty, makanan sehat,
+							Primaxcel siap melayani Anda maklon produk beauty, makanan sehat,
 							serta kebutuhan rumah tangga, dengan kualitas tinggi dan harga
 							bersaing.
 						</Text>
@@ -472,7 +472,7 @@ const Home = () => {
 							</Text>
 							<Text mt={4} as="p">
 								Representatif kami adalah profesional yang akan membantu dan
-								membimbing anda, merubah ide menjadi produk yang unik dan bisa
+								membimbing Anda, merubah ide menjadi produk yang unik dan bisa
 								dipasarkan.
 							</Text>
 						</Flex>
@@ -608,7 +608,7 @@ const Home = () => {
 								Perizinan Mudah
 							</Text>
 							<Text mt={4} as="p">
-								Kami pastikan legalitas, keamanan serta kehalalan produk anda
+								Kami pastikan legalitas, keamanan serta kehalalan produk Anda
 								sebelum dipasarkan. Dengan memperoleh izin BPOM, Halal MUI, Uji
 								Dermatologi, dan Hak paten.
 							</Text>

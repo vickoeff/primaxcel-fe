@@ -128,16 +128,12 @@ const Services = () => {
 								Our Services
 							</Text>
 							<Text as="p">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-								eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-								enim ad minim veniam, quis nostrud exercitation ullamco laboris
-								nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-								in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-								nulla pariatur.
-							</Text>
-							<Text as="p">
-								Duis aute irure dolor in reprehenderit in voluptate velit esse
-								cillum dolore eu fugiat nulla pariatur.
+								Mulailah bisnis Anda tanpa ragu bersama Primaxcel. Rasakan
+								pengalaman bisnis yang aman dan nyaman. Dengan pabrik modern
+								berstandar tinggi dan dilengkapi dengan fasilitas yang mutakhir,
+								kami akan membantu Anda dalam memproduksi skincare, kosmetik,
+								dan household sesuai harapan Anda. Tim konsultan kami siap
+								mendampingi Anda dari awal hingga produk siap untuk dipasarkan.
 							</Text>
 						</Box>
 					</Box>
@@ -209,11 +205,12 @@ const Services = () => {
 								<ListItem>Design packaging</ListItem>
 								<ListItem>Uji efektivitas sample</ListItem>
 								<ListItem>Persetujuan sample</ListItem>
-								<ListItem>Legalitas produk</ListItem>
+								<ListItem>Legalitas produk (BPOM, Halal, dll)</ListItem>
 							</UnorderedList>
 							<Text as="p">
-								Jangan ragu maupun bingung representatif kami akan membantu Anda
-								dalam setiap proses, sampai memperoleh produk sesuai impian Anda
+								Jangan ragu ataupun bingung. Representatif kami akan membantu
+								Anda dalam setiap proses, hingga memperoleh produk sesuai impian
+								Anda.
 							</Text>
 							<Flex height="100%" alignItems="flex-end">
 								<Button
@@ -255,9 +252,8 @@ const Services = () => {
 
 							<UnorderedList minH="160px" mb={6} fontSize="xl" textAlign="left">
 								<ListItem>Uji stabilitas produk</ListItem>
-								<ListItem>Sertifikasi BPOM, Halal, dll</ListItem>
-								<ListItem>Packing</ListItem>
-								<ListItem>Quality Control</ListItem>
+								<ListItem>Proses produksi</ListItem>
+								<ListItem>Packaging</ListItem>
 							</UnorderedList>
 							<Text as="p">
 								Kami menjamin seluruh proses menjaga keamanan dan kehalalan
@@ -303,18 +299,14 @@ const Services = () => {
 							</Text>
 
 							<UnorderedList mb={6} minH="160px" fontSize="xl" textAlign="left">
-								<ListItem>Penentuan konsep produk</ListItem>
-								<ListItem>Formulasi produk</ListItem>
-								<ListItem>Design packaging</ListItem>
-								<ListItem>Uji efektivitas sample</ListItem>
-								<ListItem>Persetujuan sample</ListItem>
-								<ListItem>Legalitas produk</ListItem>
+								<ListItem>Quality Control</ListItem>
+								<ListItem>Delivery produk</ListItem>
+								<ListItem>Periode post-delivery claim</ListItem>
 							</UnorderedList>
 							<Text as="p">
-								Kami pastikan keamanan produk Anda sampai tiba di warehouse, dan
-								siap dijual. Kami juga siap membantu anda untuk mempersiapkan
-								teknik marketing yang cocok dan sesuai dengan target pasar anda.
-								Informasi lebih lengkap
+								Kami pastikan keamanan produk Anda sampai tiba di warehouse dan
+								siap dijual. Kami akan membantu untuk mempersiapkan teknik
+								marketing yang cocok dan sesuai dengan target pasar Anda.
 							</Text>
 							<Flex height="100%" alignItems="flex-end">
 								<Button
@@ -519,7 +511,7 @@ const Services = () => {
 								md: 'left',
 							}}
 						>
-							Kami mengerti anda
+							Kami mengerti Anda
 						</Text>
 						<Box
 							mb={16}
@@ -545,7 +537,7 @@ const Services = () => {
 								}}
 								margin="0 auto"
 							>
-								Sudah memiliki konsep produk impian anda?
+								Sudah memiliki konsep produk impian Anda?
 							</Text>
 							<Text
 								as="p"
@@ -560,7 +552,7 @@ const Services = () => {
 								mx="auto"
 							>
 								Ceritakan kepada kami sekarang. Kami bantu kembangkan produk
-								anda hingga siap dipasarkan.
+								Anda hingga siap dipasarkan.
 							</Text>
 							<Flex
 								justifyContent={{
@@ -608,8 +600,8 @@ const Services = () => {
 								}}
 								mx="auto"
 							>
-								Jangan ragu untuk menghubungi kami. Kami bantu anda menentukan
-								konsep produk sampai produk anda siap dipasarkan.
+								Jangan ragu untuk menghubungi kami. Kami bantu Anda menentukan
+								konsep produk sampai produk Anda siap dipasarkan.
 							</Text>
 							<Flex
 								justifyContent={{

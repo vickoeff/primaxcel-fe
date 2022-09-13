@@ -561,9 +561,9 @@ const OurClients = () => {
 							Bisnis skincare menjadi mudah dengan maklon bersama Primaxcel
 						</Text>
 						<Text as="p" mt={6}>
-							Mulai bisnis skincare anda hari ini, mudah. Hubungi kami untuk
-							memulai bisnis anda, maupun untuk info lebih lanjut mengenai
-							maklon skincare dan household products.
+							Mulai bisnis Anda hari ini, mudah! Hubungi kami untuk memulai
+							bisnis maupun untuk info lebih lanjut seputar maklon skincare,
+							kosmetik, ataupun produk household.
 						</Text>
 						<Flex
 							justifyContent={{

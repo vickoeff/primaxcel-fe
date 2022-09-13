@@ -181,10 +181,10 @@ const Products = () => {
 							Face Care
 						</Text>
 						<Text as="p" mb={6}>
-							Buat produk perawatan wajah sesuai yang anda inginkan dengan
-							kualitas tinggi. Kami bisa membantu anda membuat rangkaian
-							perawatan wajah sesuai keinginan anda, hingga siap dipasarkan.
-							Dengan kualitas tinggi dan harga yang bisa bersaing.
+							Ciptakan produk perawatan wajah sesuai yang Anda inginkan dengan
+							kualitas terbaik. Kami dapat membantu Anda membuat rangkaian
+							perawatan wajah dan tubuh hingga siap dipasarkan, tentunya dengan
+							harga yang bersaing dipasaran.
 						</Text>
 						<Button
 							as="a"
@@ -276,11 +276,10 @@ const Products = () => {
 							Hair & Body Care
 						</Text>
 						<Text as="p" mb={6}>
-							Buat produk perawatan rambut & tubuh tubuh sesuai yang anda
-							inginkan dengan kualitas tinggi. Kami bisa membantu anda membuat
-							rangkaian perawatan rambut & tubuh sesuai keinginan anda, hingga
-							siap dipasarkan. Dengan kualitas tinggi dan harga yang bisa
-							bersaing.
+							Ciptakan produk perawatan rambut dan tubuh dengan kualitas terbaik
+							yang sesuai dengan harapan Anda. Kami berkomitmen membantu Anda
+							untuk membuat formulasi terbaik dengan harga yang bersaing, hingga
+							produk Anda siap untuk dipasarkan.
 						</Text>
 						<Button
 							as="a"
@@ -339,12 +338,13 @@ const Products = () => {
 								md: 'left',
 							}}
 						>
-							Produk Rumah Tangga
+							Household Product
 						</Text>
 						<Text as="p" mb={6}>
-							Buat produk rumah tangga sesuai yang anda inginkan untuk komersial
-							maupun korporasi dengan kualitas tinggi. Kami bisa membantu anda
-							membuat produk sesuai kebutuhan dengan kualitas tinggi.
+							Ciptakan produk rumah tangga sesuai dengan yang Anda inginkan,
+							baik untuk keperluan komersial maupun korporasi. Kami siap untuk
+							memberikan pelayanan dan kualitas produk terbaik sesuai harapan
+							Anda.
 						</Text>
 						<Button
 							as="a"

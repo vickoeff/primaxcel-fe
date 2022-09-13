@@ -101,8 +101,9 @@ const ContactUs = () => {
 				bg="primaxWhite"
 			>
 				<Text as="p">
-					KMI PERTim Riset dan Developmen kami mmeiliki latar belakang dan
-					portfolio yang kuat dalam formulasi produk farmasi,
+					Tim Riset dan Pengembangan kami memiliki latar belakang, pengalaman,
+					serta portofolio yang kuat dalam memformulasi produk skincare dan
+					kosmetik.
 				</Text>
 			</Container>
 

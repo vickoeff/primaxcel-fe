@@ -166,11 +166,11 @@ const ContactForm = () => {
 					</Text>
 					<Text as="p" fontSize="md">
 						Silahkan isi form di samping untuk memudahkan representatif kami
-						menghubungi anda.
+						menghubungi Anda.
 					</Text>
 					<Text as="p" fontSize="md" mb={0}>
-						Mohon sertakan minum MOQ yang ingin anda buat beserta informasi lain
-						seputar produk yang ingin anda buat maupun yang ingin anda ketahui.
+						Mohon sertakan minimum MOQ yang Anda harapkan beserta informasi lain
+						seputar produk yang ingin Anda buat maupun ketahui.
 					</Text>
 				</Box>
 			}
