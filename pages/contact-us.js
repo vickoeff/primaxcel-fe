@@ -129,6 +129,7 @@ const ContactUs = () => {
 							fontWeight="bold"
 							color="primaxPurple"
 							mb={4}
+							id="visit-us"
 						>
 							Kunjungi kami
 						</Text>

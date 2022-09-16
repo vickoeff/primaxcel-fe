@@ -347,57 +347,73 @@ const OurCompany = () => {
 			<SectionC
 				customSize={['40%', '60%']}
 				leftContent={
-					<Box
-						px={{
-							base: 8,
-							md: 24,
-						}}
-						py={{
-							base: 12,
-							md: 40,
-						}}
+					<Flex
 						bg="primaxLightBlue"
 						minH="full"
-					>
-						<Text as="h2" mb={6} color="primaxPurple">
-							Tertarik maklon bersama Primaxcel?
-						</Text>
-						<Box
-							h="76px"
-							display={{
-								base: 'none',
-								md: 'block',
-							}}
-						></Box>
-						<Button onClick={onGoToContactForm}>Hubungi Kami</Button>
-					</Box>
-				}
-				rightContent={
-					<div
-						style={{
-							backgroundImage:
-								'url(/our-company/aesthetic-spa-essentials-background-home-decor.jpg)',
-							backgroundPosition: 'center',
-							backgroundSize: 'cover',
+						alignItems="center"
+						height={{
+							base: 'auto',
+							md: '650px',
+						}}
+						py={{
+							base: '48px',
+							md: '0',
 						}}
 					>
-						<Box
-							px={{
-								base: 8,
-								md: 24,
+						<Flex
+							flexDirection="column"
+							width="100%"
+							px="60px"
+							height={{
+								base: 'auto',
+								md: '290px',
 							}}
-							py={40}
-							maxW="550px"
+							justifyContent={{
+								base: 'flex-start',
+								md: 'space-between',
+							}}
 						>
-							<Text as="h2" mb={6} color="primaxPurple">
+							<Text as="h2" color="primaxPurple">
+								Tertarik maklon bersama Primaxcel?
+							</Text>
+							<Button
+								onClick={onGoToContactForm}
+								alignSelf="flex-start"
+								mt={{
+									base: '24px',
+									md: '0',
+								}}
+							>
+								Hubungi Kami
+							</Button>
+						</Flex>
+					</Flex>
+				}
+				rightContent={
+					<Box
+						backgroundImage="url(/our-company/aesthetic-spa-essentials-background-home-decor.jpg)"
+						backgroundPosition="center"
+						backgroundSize="cover"
+						height="100%"
+						display="flex"
+						alignItems="center"
+						py={{
+							base: '48px',
+							md: '0',
+						}}
+					>
+						<Box width="360px" ml="60px" height="290px">
+							<Text as="h2" color="primaxPurple">
 								Sudah memiliki konsep produk?
 							</Text>
-							<Text as="p">
+							<Text as="p" mt="18px">
 								Jangan ragu untuk konsultasi konsep produk Anda dengan Primaxcel
 							</Text>
-							<Button onClick={onGoToContactForm}>Hubungi Kami</Button>
+							<Button mt="24px" onClick={onGoToContactForm}>
+								Hubungi Kami
+							</Button>
 						</Box>
-					</div>
+					</Box>
 				}
 			/>
 		</>

@@ -8,6 +8,7 @@ import {
 	Skeleton,
 	Image,
 } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 
 const Footer = (props) => {
 	const {
@@ -18,12 +19,25 @@ const Footer = (props) => {
 		handleGoToSocmed,
 		...rest
 	} = props;
+	const router = useRouter();
 
 	const h3Style = {
 		fontSize: '2xl',
 		fontWeight: 600,
 		textColor: 'primaxPurple',
 		mb: 3,
+	};
+
+	const onGoToVisitUsPage = () => {
+		router.push('/contact-us#visit-us');
+	};
+
+	const onGoToFAQPage = () => {
+		router.push('/faq');
+	};
+
+	const onGoToContactUs = () => {
+		router.push('/contact-us');
 	};
 
 	return (
@@ -60,7 +74,7 @@ const Footer = (props) => {
 							md: 'left',
 						}}
 					>
-						<Text as="h3" {...h3Style}>
+						<Text as="h3" {...h3Style} onClick={onGoToFAQPage} cursor="pointer">
 							FAQ
 						</Text>
 						<VStack
@@ -96,7 +110,12 @@ const Footer = (props) => {
 							md: '400px',
 						}}
 					>
-						<Text as="h3" {...h3Style}>
+						<Text
+							as="h3"
+							{...h3Style}
+							onClick={onGoToVisitUsPage}
+							cursor="pointer"
+						>
 							Visit Us
 						</Text>
 						<Text
@@ -118,7 +137,12 @@ const Footer = (props) => {
 							md: 'left',
 						}}
 					>
-						<Text as="h3" {...h3Style}>
+						<Text
+							as="h3"
+							{...h3Style}
+							onClick={onGoToContactUs}
+							cursor="pointer"
+						>
 							Contact Us
 						</Text>
 						<Flex gap={4} flexWrap="wrap">

@@ -147,7 +147,8 @@ const Products = () => {
 					base: '0',
 					md: '0 0 0 80px',
 					lg: '0 0 0 120px',
-					xl: '0',
+					xl: '0 0 0 80px',
+					'2xl': '0',
 				}}
 				leftContent={
 					<Box
@@ -230,7 +231,8 @@ const Products = () => {
 					base: '0',
 					md: '0 80px 0 0',
 					lg: '0 120px 0 0',
-					xl: '0',
+					xl: '0 80 0 0',
+					'2xl': '0',
 				}}
 				leftContent={
 					<Box
@@ -307,7 +309,8 @@ const Products = () => {
 					base: '0',
 					md: '0 0 0 80px',
 					lg: '0 0 0 120px',
-					xl: '0',
+					xl: '0 0 0 80px',
+					'2xl': '0',
 				}}
 				leftContent={
 					<Box
