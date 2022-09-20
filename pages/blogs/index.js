@@ -94,8 +94,6 @@ const Blogs = () => {
 					name="description"
 					content="Kunjungi daily blog kami yang selalu terupdate dengan info info terbaru seputar produk kecantian dan makanan sehat."
 				></meta>
-				<meta name="robots" content="index,follow"></meta>
-				<meta name="googlebot" content="index,follow"></meta>
 				<meta property="og:type" content="website"></meta>
 				<meta
 					property="og:url"
@@ -106,13 +104,19 @@ const Blogs = () => {
 					property="og:description"
 					content="Dapatkan info info terbaru seputar produk kecantian dan makanan sehat dari Primaxcel."
 				></meta>
-				{/* <meta property="og:image" content="LINK TO IMAGE"></meta> */}
+				<meta
+					property="og:image"
+					content="https://primaxcel.co.id/logogram.png"
+				></meta>
 				<meta name="twitter:title" content="Daily blog by Primaxcel"></meta>
 				<meta
 					name="twitter:description"
 					content="Dapatkan info info terbaru seputar produk kecantian dan makanan sehat dari Primaxcel."
 				></meta>
-				{/* <meta name="twitter:image" content="LINK TO IMAGE"></meta> */}
+				<meta
+					name="twitter:image"
+					content="https://primaxcel.co.id/logogram.png"
+				></meta>
 				<meta name="twitter:site" content="@primaxcel_inv"></meta>
 				<meta name="twitter:creator" content="@primaxcel_inv"></meta>
 			</Head>

@@ -111,8 +111,6 @@ const OurCompany = () => {
 					name="description"
 					content="Cari tahu lebih banyak tentang kami, dari riwayat perusahaan, visi, misi, brand yang sudah bekerja sama dengan kami, dan telusuri profile kami."
 				></meta>
-				<meta name="robots" content="index,follow"></meta>
-				<meta name="googlebot" content="index,follow"></meta>
 				<meta property="og:type" content="website"></meta>
 				<meta
 					property="og:url"
@@ -123,54 +121,58 @@ const OurCompany = () => {
 					property="og:description"
 					content="Ketahui riwayat perusahaan, visi, misi, brand yang sudah bekerja sama dengan kami, dan telusuri profile Primaxcel."
 				></meta>
-				{/* <meta property="og:image" content="LINK TO IMAGE"></meta> */}
+				<meta
+					property="og:image"
+					content="https://primaxcel.co.id/logogram.png"
+				></meta>
 				<meta name="twitter:title" content="Explore more about us"></meta>
 				<meta
 					name="twitter:description"
 					content="Ketahui riwayat perusahaan, visi, misi, brand yang sudah bekerja sama dengan kami, dan telusuri profile Primaxcel."
 				></meta>
-				{/* <meta name="twitter:image" content="LINK TO IMAGE"></meta> */}
+				<meta
+					name="twitter:image"
+					content="https://primaxcel.co.id/logogram.png"
+				></meta>
 				<meta name="twitter:site" content="@primaxcel_inv"></meta>
 				<meta name="twitter:creator" content="@primaxcel_inv"></meta>
 			</Head>
 			<Box
-				bg="primaxLightBlue"
-				mt={{
+				minH={{
 					base: '57px',
-					md: '50px',
+					md: '65px',
 				}}
+				bg="primaxLightBlue"
+			></Box>
+			<Box
+				bg="primaxLightBlue"
 				pos="relative"
+				height={{
+					base: 'calc(100vh - 57px)',
+					md: 'calc(100vh - 65px)',
+				}}
 			>
 				<Box
-					maxH={{
-						base: '3xl',
-						md: '3xl',
-					}}
 					w={{
 						base: '100%',
-						md: '70%',
+						md: '75%',
 					}}
+					height="100%"
 				>
 					<Image
 						src="/our-company/set-skin-care-package-banner-design-resource.jpg"
 						alt="Skin care package"
 						objectFit="cover"
-						height={{
-							base: '400px',
-							md: 'auto',
-						}}
+						height="100%"
 					/>
 				</Box>
 				<Box
 					pos="absolute"
 					top="50%"
-					right={{
-						base: 'auto',
-						md: '200px',
-					}}
 					left={{
 						base: '50%',
-						md: 'auto',
+						md: 'calc(75% - 200px)',
+						lg: 'calc(75% - 300px)',
 					}}
 					bg={{
 						base: 'rgba(201, 229, 235, 0.7)',
@@ -181,7 +183,7 @@ const OurCompany = () => {
 						md: 'translate(0% , -50%)',
 					}}
 				>
-					<Flex flexDirection="column" w="400px" p="32px" h="350px">
+					<Flex flexDirection="column" w="450px" p="32px" h="350px">
 						<Text
 							as="h2"
 							mb={4}
@@ -204,30 +206,29 @@ const OurCompany = () => {
 				alignItems="start"
 				isFitContent
 				leftContent={
-					<Box
-						textAlign="center"
-						mr={{
-							base: '0',
-							md: '32px',
-						}}
-					>
+					<Flex textAlign="center" flexDirection="column" alignItems="center">
 						<Text as="h1" fontSize="4xl" fontWeight="bold" color="primaxPurple">
 							VISI
 						</Text>
-						<Text as="p" mt={6}>
+						<Text
+							as="p"
+							mt={6}
+							width={{
+								base: 'auto',
+								md: '340px',
+							}}
+						>
 							Menjadi pionir dalam menciptakan dan memasarkan produk kecantikan
 							dan makanan sehat yang tersertifikasi HALAL untuk meningkatkan
 							kualitas hidup masyarakat Indonesia.
 						</Text>
-					</Box>
+					</Flex>
 				}
 				rightContent={
-					<Box
+					<Flex
 						textAlign="center"
-						ml={{
-							base: '0',
-							md: '32px',
-						}}
+						flexDirection="column"
+						alignItems="center"
 						mt={{
 							base: '8',
 							md: '0',
@@ -236,7 +237,13 @@ const OurCompany = () => {
 						<Text as="h1" fontSize="4xl" fontWeight="bold" color="primaxPurple">
 							MISI
 						</Text>
-						<UnorderedList mt={6}>
+						<UnorderedList
+							mt={6}
+							width={{
+								base: 'auto',
+								md: '500px',
+							}}
+						>
 							<ListItem>
 								<Text as="p">
 									Mewujudkan layanan yang mengutamakan pelanggan.
@@ -256,7 +263,7 @@ const OurCompany = () => {
 								</Text>
 							</ListItem>
 						</UnorderedList>
-					</Box>
+					</Flex>
 				}
 			/>
 

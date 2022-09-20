@@ -221,8 +221,6 @@ const OurClients = () => {
 					name="description"
 					content="Kami memiliki banyak client yang sudah mempercayakan kami dalam mewujudkan produk impian mereka. Bisnis anda menjadi mudah dengan maklon bersama Primaxcel."
 				></meta>
-				<meta name="robots" content="index,follow"></meta>
-				<meta name="googlebot" content="index,follow"></meta>
 				<meta property="og:type" content="website"></meta>
 				<meta
 					property="og:url"
@@ -233,13 +231,19 @@ const OurClients = () => {
 					property="og:description"
 					content="Bisnis skin care anda menjadi mudah dengan maklon bersama Primaxcel. Hubungi kami untuk memulai bisnis anda."
 				></meta>
-				{/* <meta property="og:image" content="LINK TO IMAGE"></meta> */}
+				<meta
+					property="og:image"
+					content="https://primaxcel.co.id/logogram.png"
+				></meta>
 				<meta name="twitter:title" content="Maklon with us"></meta>
 				<meta
 					name="twitter:description"
 					content="Bisnis skin care anda menjadi mudah dengan maklon bersama Primaxcel. Hubungi kami untuk memulai bisnis anda."
 				></meta>
-				{/* <meta name="twitter:image" content="LINK TO IMAGE"></meta> */}
+				<meta
+					name="twitter:image"
+					content="https://primaxcel.co.id/logogram.png"
+				></meta>
 				<meta name="twitter:site" content="@primaxcel_inv"></meta>
 				<meta name="twitter:creator" content="@primaxcel_inv"></meta>
 			</Head>

@@ -26,8 +26,6 @@ const Products = () => {
 					name="description"
 					content="Primaxcel adalah produsen produk face care, hair and body care, dan juga produk rumah tangga. Kami selalu menjaga kualitas produk produk yang kami produksi."
 				></meta>
-				<meta name="robots" content="index,follow"></meta>
-				<meta name="googlebot" content="index,follow"></meta>
 				<meta property="og:type" content="website"></meta>
 				<meta
 					property="og:url"
@@ -38,13 +36,19 @@ const Products = () => {
 					property="og:description"
 					content="Kami adalah produsen produk kecantikan seperti face care, hair and body care, dan juga produk produk rumah tangga. Kami akan mewujudkan produk impian anda."
 				></meta>
-				{/* <meta property="og:image" content="LINK TO IMAGE"></meta> */}
+				<meta
+					property="og:image"
+					content="https://primaxcel.co.id/logogram.png"
+				></meta>
 				<meta name="twitter:title" content="Primaxcel beauty products"></meta>
 				<meta
 					name="twitter:description"
 					content="Kami adalah produsen produk kecantikan seperti face care, hair and body care, dan juga produk produk rumah tangga. Kami akan mewujudkan produk impian anda."
 				></meta>
-				{/* <meta name="twitter:image" content="LINK TO IMAGE"></meta> */}
+				<meta
+					name="twitter:image"
+					content="https://primaxcel.co.id/logogram.png"
+				></meta>
 				<meta name="twitter:site" content="@primaxcel_inv"></meta>
 				<meta name="twitter:creator" content="@primaxcel_inv"></meta>
 			</Head>

@@ -9,16 +9,12 @@ import {
 	Skeleton,
 } from '@chakra-ui/react';
 import Head from 'next/head';
-import { SectionA, SectionB } from '@/components/Layouts';
 import CarouselItem from '@/components/CarouselItem';
 import Image from 'next/image';
 import Slider from 'react-slick';
 
-import useWindowSize from '@/hooks/useWindowSize';
-
 // import static image
 import modernBeauty from '../public/home/primaxcel-maklon-dengan-kami.jpg';
-import oilDropper from '../public/home/primaxcel-maklon-skin-care.jpg';
 import discuss from '../public/home/discuss.svg';
 import money from '../public/home/money.svg';
 import science from '../public/home/science.svg';
@@ -36,7 +32,6 @@ import services from '@/services';
 
 const Home = () => {
 	const toast = useToast();
-	const { isMobile } = useWindowSize();
 	const [isLoading, setIsLoading] = useState(true);
 	const [producedProduct, setProducedProduct] = useState([]);
 
@@ -105,8 +100,6 @@ const Home = () => {
 					name="description"
 					content="Primaxcel adalah produsen produk kecantikan terbaik, membuat produk dengan standar Nasional dan Internasional. Wujudkan produk anda bersama Primaxcel."
 				></meta>
-				<meta name="robots" content="index,follow"></meta>
-				<meta name="googlebot" content="index,follow"></meta>
 				<meta property="og:type" content="website"></meta>
 				<meta property="og:url" content="https://primaxcelinovasi.co.id"></meta>
 				<meta
@@ -117,7 +110,10 @@ const Home = () => {
 					property="og:description"
 					content="Produsen produk kecantikan terbaik, membuat produk dengan standar Nasional dan Internasional. Wujudkan produk anda bersama Primaxcel."
 				></meta>
-				{/* <meta property="og:image" content="LINK TO IMAGE"></meta> */}
+				<meta
+					property="og:image"
+					content="https://primaxcel.co.id/logogram.png"
+				></meta>
 				<meta
 					name="twitter:title"
 					content="Produce the best beauty product with Primaxcel"
@@ -126,52 +122,71 @@ const Home = () => {
 					name="twitter:description"
 					content="Produsen produk kecantikan terbaik, membuat produk dengan standar Nasional dan Internasional. Wujudkan produk anda bersama Primaxcel."
 				></meta>
-				{/* <meta name="twitter:image" content="LINK TO IMAGE"></meta> */}
+				<meta
+					name="twitter:image"
+					content="https://primaxcel.co.id/logogram.png"
+				></meta>
 				<meta name="twitter:site" content="@primaxcel_inv"></meta>
 				<meta name="twitter:creator" content="@primaxcel_inv"></meta>
 				<link rel="canonical" href="https://primaxcelinovasi.co.id" />
 			</Head>
-			<Box minH={100} bg="primaxLightBlue"></Box>
-			<SectionA
-				isReverse
-				isFitContent
-				customSize={isMobile ? ['0', '100%'] : ['50%', '50%']}
+			<Box
+				minH={{
+					base: '57px',
+					md: '65px',
+				}}
 				bg="primaxLightBlue"
-				leftContent={
-					<Box
-						pos="absolute"
-						right={0}
-						top={0}
-						maxW={{ base: '100%', md: '60%' }}
-						zIndex={0}
-						opacity={{ base: '0.3', md: '1' }}
-					>
-						<ImageChakra
-							src="/home/primaxcel-produksi-kosmetik.png"
-							alt="Kosmetik produsen"
-						/>
-					</Box>
-				}
-				rightContent={
+			></Box>
+			<Flex
+				bg="primaxLightBlue"
+				width="100%"
+				flexDirection="column"
+				alignItems="center"
+			>
+				<Flex
+					width="100%"
+					px={{
+						base: '16px',
+						md: '88px',
+					}}
+					height={{
+						base: '600px',
+						md: '700px',
+					}}
+					position="relative"
+					maxWidth={{
+						base: 'none',
+						'2xl': '1280px',
+					}}
+				>
 					<Flex
-						pos="relative"
 						flexDirection="column"
-						zIndex={1}
-						mt={{ base: '0', md: '-48px' }}
-						minH={{ base: '350px', sm: '450px', md: 'lg', lg: 'xl', xl: '3xl' }}
-						alignItems={{ base: 'center', md: 'flex-start' }}
 						justifyContent="center"
+						mt={{
+							base: '0',
+							xl: '80px',
+						}}
+						zIndex={1}
 					>
-						<Box display={{ base: 'none', md: 'block' }}>
+						<Flex
+							width={{
+								base: '100%',
+								md: '540px',
+							}}
+						>
 							<ImageChakra
 								src="/home/primaxcel-logo.png"
 								alt="Primaxcel logo"
 								maxW="100%"
 							/>
-						</Box>
+						</Flex>
 						<Text
 							as="p"
-							maxW={{ base: '100%', md: '70%' }}
+							width={{
+								base: '100%',
+								md: '450px',
+							}}
+							mt="12px"
 							fontWeight={700}
 							color="primaxLightPurple"
 							textAlign={{ base: 'center', md: 'justify' }}
@@ -181,60 +196,79 @@ const Home = () => {
 							sesuai standar Nasional & Internasional.
 						</Text>
 					</Flex>
-				}
-			/>
-			<SectionB
-				bg="primaxLightBlue"
-				alignItems="center"
-				imgWidth={{
-					base: '100%',
-					md: '50%',
-				}}
-				img={
 					<Box
 						pos="absolute"
-						bottom="-8px"
-						zIndex={{
-							base: 1,
-							md: 0,
-						}}
+						right={0}
+						bottom={0}
+						zIndex={0}
+						opacity={{ base: '0.3', xl: '1' }}
+					>
+						<ImageChakra
+							src="/home/primaxcel-produksi-kosmetik.png"
+							alt="Kosmetik produsen"
+							width={{
+								md: '700px',
+								xl: '770px',
+							}}
+						/>
+					</Box>
+				</Flex>
+				<Flex
+					width="100%"
+					pr={{
+						md: 0,
+						lg: '88px',
+					}}
+					pl={{
+						md: '88px',
+						lg: 0,
+					}}
+					px={{
+						base: '16px',
+						md: '88px',
+					}}
+					mt={{
+						base: '50px',
+						lg: '40px',
+					}}
+					maxWidth={{
+						base: 'none',
+						'2xl': '1280px',
+					}}
+					alignItems="center"
+					textAlign={{
+						base: 'center',
+						md: 'left',
+					}}
+				>
+					<Flex
+						width="50%"
+						alignItems="center"
+						flexShrink="0"
 						opacity={{
 							base: '0.3',
-							md: '1',
+							lg: '1',
+						}}
+						position={{
+							base: 'absolute',
+							lg: 'relative',
+						}}
+						display={{
+							base: 'none',
+							lg: 'flex',
 						}}
 					>
 						<ImageChakra
 							src="/home/primaxcel-botol-kosmetik.png"
 							alt="Primaxcel botol RnD"
 						/>
-					</Box>
-				}
-				minH={{
-					base: '0',
-					md: '2xl',
-				}}
-				containerWidth="100%"
-				containerPadding={{
-					base: '0',
-					md: '0 60px 0 0',
-				}}
-				content={
-					<Box
-						zIndex={{
-							base: 1,
-							md: 0,
-						}}
-						position="relative"
-						padding={{
-							base: '40px 16px',
-							md: 0,
-						}}
-					>
+					</Flex>
+					<Box>
 						<Text
 							as="h1"
 							textColor="primaxLightPurple"
-							fontSize="5xl"
-							fontWeight={800}
+							fontSize="48px"
+							fontWeight={700}
 						>
 							Mengapa Kami
 						</Text>
@@ -255,157 +289,298 @@ const Home = () => {
 							maklon di Primaxcel.
 						</Text>
 					</Box>
-				}
-			/>
-			<SectionA
-				bg="primaxWhite"
-				isFitContent
-				p="40px 0"
-				leftContent={
-					<>
-						<Box
-							pos="absolute"
-							top={0}
-							left={0}
-							w="50%"
-							h={{
-								base: '520px',
-								xl: '550px',
+				</Flex>
+				<Flex
+					width="100%"
+					height="auto"
+					padding={{
+						base: '40px 16px',
+						md: '0 88px',
+						lg: '0 88px 0 0',
+					}}
+					maxWidth={{
+						base: 'none',
+						'2xl': '1280px',
+					}}
+					mt={{
+						base: '50px',
+						lg: 0,
+					}}
+					alignItems="center"
+					textAlign={{
+						base: 'center',
+						md: 'left',
+					}}
+					flexDirection={{
+						base: 'column',
+						lg: 'row',
+					}}
+				>
+					<Flex
+						flex="1"
+						alignItems="center"
+						height={{
+							base: 'auto',
+							lg: '522px',
+						}}
+						width={{
+							base: '100%',
+							lg: 'auto',
+						}}
+						bg="primaxBlue"
+						position="relative"
+					>
+						<Flex
+							position={{
+								base: 'relative',
+								lg: 'absolute',
 							}}
-							bg="primaxBlue"
-							display={{
-								base: 'none',
-								md: 'block',
+							width="100%"
+							height={{
+								base: 'auto',
+								lg: 'calc(100% - 80px)',
 							}}
-						></Box>
+							left={{
+								base: 'auto',
+								lg: '56px',
+							}}
+						>
+							<Image
+								src={modernBeauty}
+								alt="Maklon bersama Primaxcel"
+								objectFit="cover"
+							/>
+						</Flex>
+					</Flex>
+					<Box
+						width={{
+							base: '100%',
+							lg: '500px',
+						}}
+						ml={{
+							base: 0,
+							lg: 'calc(88px + 20px)',
+						}}
+						py={{
+							base: 0,
+							lg: '40px',
+						}}
+						mt={{
+							base: '40px',
+							lg: 0,
+						}}
+					>
 						<Box
-							pos="relative"
 							width={{
 								base: '100%',
-								md: '110%',
+								lg: '450px',
+							}}
+							textAlign={{
+								base: 'center',
+								lg: 'left',
 							}}
 						>
-							<Image src={modernBeauty} alt="Maklon bersama Primaxcel" />
+							<Text
+								as="h2"
+								textColor="primaxLightPurple"
+								fontSize="40px"
+								mb={4}
+								textAlign={{
+									base: 'center',
+									lg: 'left',
+								}}
+							>
+								Maklon bersama kami
+							</Text>
+							<Text
+								as="p"
+								textAlign={{
+									base: 'center',
+									lg: 'left',
+								}}
+							>
+								Anda memiliki ide bisnis?
+								<br /> Bingung mulai bisnis dari mana?
+							</Text>
+							<Text
+								as="p"
+								textAlign={{
+									base: 'center',
+									lg: 'left',
+								}}
+							>
+								Primaxcel bisa membantu Anda mengubah ide kreatif yang Anda
+								miliki menjadi produk impian Anda.
+							</Text>
+							<Text
+								as="p"
+								textAlign={{
+									base: 'center',
+									lg: 'left',
+								}}
+							>
+								Dengan langkah-langkah dan komunikasi yang mudah. Wujudkan
+								produk sesuai keinginan Anda.
+								<br />
+								<br />
+								Jangan ragu lagi
+							</Text>
+							<Button
+								py={6}
+								px={14}
+								display={{
+									base: 'flex',
+									md: 'inline-flex',
+								}}
+								margin={{
+									base: '0 auto',
+									md: '0',
+								}}
+								onClick={onGoToContactForm}
+							>
+								Hubungi Kami
+							</Button>
 						</Box>
-					</>
-				}
-				rightContent={
+					</Box>
+				</Flex>
+				<Flex
+					width="100%"
+					height="auto"
+					padding={{
+						base: '40px 16px',
+						md: '0 88px',
+						lg: '0 40px 0 88px',
+					}}
+					maxWidth={{
+						base: 'none',
+						'2xl': '1280px',
+					}}
+					py={{
+						base: 0,
+						lg: '40px',
+					}}
+					flexDirection={{
+						base: 'column-reverse',
+						lg: 'row',
+					}}
+				>
 					<Box
-						ml={{
-							base: '0',
-							md: '90px',
+						width={{
+							base: '100%',
+							lg: '500px',
+						}}
+						mt={{
+							base: '40px',
+							lg: 0,
 						}}
 					>
-						<Text
-							as="h2"
-							textColor="primaxLightPurple"
-							mb={4}
-							textAlign={{
-								base: 'center',
-								md: 'left',
-							}}
-						>
-							Maklon bersama kami
-						</Text>
-						<Text
-							as="p"
-							textAlign={{
-								base: 'center',
-								md: 'left',
-							}}
-						>
-							Anda memiliki ide bisnis?
-							<br /> Bingung mulai bisnis dari mana?
-						</Text>
-						<Text as="p">
-							Primaxcel bisa membantu Anda mengubah ide kreatif yang Anda miliki
-							menjadi produk impian Anda.
-						</Text>
-						<Text as="p">
-							Dengan langkah-langkah dan komunikasi yang mudah. Wujudkan produk
-							sesuai keinginan Anda.
-							<br />
-							<br />
-							Jangan ragu lagi
-						</Text>
-						<Button
-							py={6}
-							px={14}
-							display={{
-								base: 'flex',
-								md: 'inline-flex',
-							}}
-							margin={{
-								base: '0 auto',
-								md: '0',
-							}}
-							onClick={onGoToContactForm}
-						>
-							Hubungi Kami
-						</Button>
-					</Box>
-				}
-			/>
-			<SectionA
-				isReverse
-				isFitContent
-				bg="primaxWhite"
-				padding="40px 0"
-				leftContent={
-					<>
 						<Box
-							pos="relative"
-							pl="40px"
-							display={{
-								base: 'none',
-								md: 'block',
+							width={{
+								base: '100%',
+								lg: '450px',
+							}}
+							textAlign={{
+								base: 'center',
+								lg: 'left',
 							}}
 						>
-							<Box
-								pos="absolute"
-								top={0}
-								bottom={0}
-								right={0}
-								left={0}
-								m="auto"
-								w="calc(100% + 40px)"
-								h="300px"
-								bg="primaxBlue"
-							></Box>
-							<Image src={oilDropper} alt="Maklon dengan produk kecantikan" />
+							<Text
+								as="h2"
+								textColor="primaxLightPurple"
+								fontSize="40px"
+								mb={4}
+								textAlign={{
+									base: 'center',
+									lg: 'left',
+								}}
+							>
+								Mengenai Maklon
+							</Text>
+							<Text as="p">
+								Maklon, terutama produk beauty berupa skincare menjadi bisnis
+								yang berkembang pesat saat ini. Tingginya ketertarikan konsumen
+								skincare yang terus meningkat, membuat kerjasama maklon menjadi
+								pilihan yang cepat dan tepat untuk memulai maupun mengembangkan
+								bisnis Anda.
+							</Text>
+							<Text as="p">
+								Dengan kemudahan pembuatan produk sesuai keinginan Anda,
+								Primaxcel juga bisa membantu Anda mendesain produk dari nol
+								hingga siap dipasarkan, dengan perizinan yang lengkap.
+							</Text>
+							<Text as="p">
+								Primaxcel siap melayani Anda maklon produk beauty, makanan
+								sehat, serta kebutuhan rumah tangga, dengan kualitas tinggi dan
+								harga bersaing.
+							</Text>
 						</Box>
-					</>
-				}
-				rightContent={
-					<Box
-						mr={{
-							base: '0',
-							md: '50px',
-						}}
-					>
-						<Text as="h2" textColor="primaxLightPurple" mb={6}>
-							Mengenai Maklon
-						</Text>
-						<Text as="p">
-							Maklon, terutama produk beauty berupa skincare menjadi bisnis yang
-							berkembang pesat saat ini. Tingginya ketertarikan konsumen
-							skincare yang terus meningkat, membuat kerjasama maklon menjadi
-							pilihan yang cepat dan tepat untuk memulai maupun mengembangkan
-							bisnis Anda.
-						</Text>
-						<Text as="p">
-							Dengan kemudahan pembuatan produk sesuai keinginan Anda, Primaxcel
-							juga bisa membantu Anda mendesain produk dari nol hingga siap
-							dipasarkan, dengan perizinan yang lengkap.
-						</Text>
-						<Text as="p">
-							Primaxcel siap melayani Anda maklon produk beauty, makanan sehat,
-							serta kebutuhan rumah tangga, dengan kualitas tinggi dan harga
-							bersaing.
-						</Text>
 					</Box>
-				}
-			/>
+					<Flex
+						width="100%"
+						height={{
+							base: 'auto',
+							lg: '440px',
+						}}
+						mt={{
+							base: '24px',
+							lg: '24px',
+						}}
+						ml={{
+							base: 0,
+							lg: '40px',
+						}}
+						overflow="hidden"
+					>
+						<Flex
+							flex="1"
+							alignItems="center"
+							justifyContent="center"
+							height={{
+								base: 'auto',
+								lg: '100%',
+							}}
+							width={{
+								base: '100%',
+								lg: 'auto',
+							}}
+							position="relative"
+						>
+							<Flex
+								bg="primaxBlue"
+								position="absolute"
+								left="0"
+								right="0"
+								top="40px"
+								height="calc(100% - 80px)"
+								display={{
+									base: 'none',
+									lg: 'flex',
+								}}
+							></Flex>
+							<Flex
+								width={{
+									base: '100%',
+									lg: 'calc(100% - 80px)',
+								}}
+								height={{
+									base: 'auto',
+									lg: '100%',
+								}}
+								zIndex="1"
+							>
+								<ImageChakra
+									src="/home/primaxcel-maklon-skin-care.jpg"
+									width="100%"
+									height="100%"
+									alt="Maklon dengan produk kecantikan"
+									objectFit="cover"
+								/>
+							</Flex>
+						</Flex>
+					</Flex>
+				</Flex>
+			</Flex>
+
 			{(producedProduct.length && !isLoading) || isLoading ? (
 				<Box py={10} bg="primaxLightBlue" textAlign="center">
 					<Text as="h2">Produk yang kami produksi</Text>
@@ -424,7 +599,7 @@ const Home = () => {
 						</Slider>
 					) : null}
 
-					<Button py={6} px={14} onClick={onGoToContactForm}>
+					<Button py={6} px={14} onClick={onGoToContactForm} mt="24px">
 						Cara Order
 					</Button>
 				</Box>
@@ -437,7 +612,10 @@ const Home = () => {
 					</Text>
 					<Flex
 						mt={8}
-						gap={6}
+						gap={{
+							base: 4,
+							md: 16,
+						}}
 						alignItems="start"
 						justifyContent="center"
 						flexDirection={{
@@ -542,8 +720,11 @@ const Home = () => {
 						</Flex>
 					</Flex>
 					<Flex
-						mt={8}
-						gap={6}
+						mt={2}
+						gap={{
+							base: 4,
+							md: 16,
+						}}
 						alignItems="start"
 						justifyContent="center"
 						flexDirection={{
@@ -551,11 +732,13 @@ const Home = () => {
 							md: 'row',
 						}}
 					>
-						<Box
+						<Flex
 							textAlign="center"
+							alignItems="center"
+							flexDirection="column"
 							width={{
 								base: '100%',
-								md: 'calc(100% / 3)',
+								md: 'calc((100% / 3) - 40px)',
 							}}
 						>
 							<Box
@@ -572,6 +755,7 @@ const Home = () => {
 								fontSize="2xl"
 								textColor="primaxPurple"
 								fontWeight="bold"
+								width="150px"
 							>
 								Jaminan Mutu dan Kualitas
 							</Text>
@@ -581,13 +765,15 @@ const Home = () => {
 								pengawasan dan QC yang ketat. Demi menghasilkan produk yang aman
 								dan berkualitas.
 							</Text>
-						</Box>
+						</Flex>
 
-						<Box
+						<Flex
 							textAlign="center"
+							alignItems="center"
+							flexDirection="column"
 							width={{
 								base: '100%',
-								md: 'calc(100% / 3)',
+								md: 'calc((100% / 3) - 40px)',
 							}}
 						>
 							<Box
@@ -604,6 +790,7 @@ const Home = () => {
 								fontSize="2xl"
 								textColor="primaxPurple"
 								fontWeight="bold"
+								width="120px"
 							>
 								Perizinan Mudah
 							</Text>
@@ -612,7 +799,7 @@ const Home = () => {
 								sebelum dipasarkan. Dengan memperoleh izin BPOM, Halal MUI, Uji
 								Dermatologi, dan Hak paten.
 							</Text>
-						</Box>
+						</Flex>
 					</Flex>
 				</Container>
 			</Box>

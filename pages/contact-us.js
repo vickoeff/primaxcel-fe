@@ -19,8 +19,6 @@ const ContactUs = () => {
 					name="description"
 					content="Hubungi kami untuk menanyakan hal seputar Maklon bersama Primaxcel, representatif kami akan segera menghubungi anda."
 				></meta>
-				<meta name="robots" content="index,follow"></meta>
-				<meta name="googlebot" content="index,follow"></meta>
 				<meta property="og:type" content="website"></meta>
 				<meta
 					property="og:url"
@@ -31,13 +29,19 @@ const ContactUs = () => {
 					property="og:description"
 					content="Hubungi kami untuk menanyakan produk impian anda. Tim riset dan development kami memiliki latar belakang yang kuat dalam produk farmasi."
 				></meta>
-				{/* <meta property="og:image" content="LINK TO IMAGE"></meta> */}
+				<meta
+					property="og:image"
+					content="https://primaxcel.co.id/logogram.png"
+				></meta>
 				<meta name="twitter:title" content="Contact us about Maklon"></meta>
 				<meta
 					name="twitter:description"
 					content="Hubungi kami untuk menanyakan produk impian anda. Tim riset dan development kami memiliki latar belakang yang kuat dalam produk farmasi."
 				></meta>
-				{/* <meta name="twitter:image" content="LINK TO IMAGE"></meta> */}
+				<meta
+					name="twitter:image"
+					content="https://primaxcel.co.id/logogram.png"
+				></meta>
 				<meta name="twitter:site" content="@primaxcel_inv"></meta>
 				<meta name="twitter:creator" content="@primaxcel_inv"></meta>
 			</Head>
