@@ -132,12 +132,9 @@ const Services = () => {
 								Our Services
 							</Text>
 							<Text as="p">
-								Mulailah bisnis Anda tanpa ragu bersama Primaxcel. Rasakan
-								pengalaman bisnis yang aman dan nyaman. Dengan pabrik modern
-								berstandar tinggi dan dilengkapi dengan fasilitas yang mutakhir,
-								kami akan membantu Anda dalam memproduksi skincare, kosmetik,
-								dan household sesuai harapan Anda. Tim konsultan kami siap
-								mendampingi Anda dari awal hingga produk siap untuk dipasarkan.
+								Kami menawarkan jasa OEM (Original Equipment Manufacturing), ODM
+								(Original Design Manufacturing), serta private label untuk
+								menghasilkan produk sesuai dengan keinginan anda.
 							</Text>
 						</Box>
 					</Box>
@@ -203,7 +200,7 @@ const Services = () => {
 								Pre-production service
 							</Text>
 
-							<UnorderedList mb={6} minH="160px" fontSize="xl" textAlign="left">
+							<UnorderedList mb={6} fontSize="xl" textAlign="left">
 								<ListItem>Penentuan konsep produk</ListItem>
 								<ListItem>Formulasi produk</ListItem>
 								<ListItem>Design packaging</ListItem>
@@ -254,15 +251,14 @@ const Services = () => {
 								Production
 							</Text>
 
-							<UnorderedList minH="160px" mb={6} fontSize="xl" textAlign="left">
+							<UnorderedList mb={6} fontSize="xl" textAlign="left">
 								<ListItem>Uji stabilitas produk</ListItem>
 								<ListItem>Proses produksi</ListItem>
 								<ListItem>Packaging</ListItem>
 							</UnorderedList>
 							<Text as="p">
-								Kami menjamin seluruh proses menjaga keamanan dan kehalalan
-								produk. Semua proses dilakukan sesuai standarisasi nasional dan
-								internasional. Terikat secara legal.
+								Kami menjamin seluruh proses produksi dilakukan dengan standar
+								nasional agar dapat menghasilkan produk berkualitas.
 							</Text>
 							<Flex height="100%" alignItems="flex-end">
 								<Button
@@ -302,7 +298,7 @@ const Services = () => {
 								Post-production service
 							</Text>
 
-							<UnorderedList mb={6} minH="160px" fontSize="xl" textAlign="left">
+							<UnorderedList mb={6} fontSize="xl" textAlign="left">
 								<ListItem>Quality Control</ListItem>
 								<ListItem>Delivery produk</ListItem>
 								<ListItem>Periode post-delivery claim</ListItem>

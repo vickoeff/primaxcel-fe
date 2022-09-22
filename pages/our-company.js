@@ -194,9 +194,10 @@ const OurCompany = () => {
 							Company History
 						</Text>
 						<Text as="p">
-							Berpengalaman sejak tahun 1993 dalam memformulasikan dan
-							mendaftarkan produk obat, skincare, maupun kosmetik untuk
-							memperoleh sertifikasi BPOM.
+							PT Primaxcel merupakan bagian dari Pharos Group yang sudah
+							berpengalaman sejak tahun 1993 dalam formulasi & pendaftaran
+							produk obat, kosmetik, dan skincare untuk memperoleh sertifikasi
+							BPOM.
 						</Text>
 					</Flex>
 				</Box>

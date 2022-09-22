@@ -191,9 +191,11 @@ const Home = () => {
 							color="primaxLightPurple"
 							textAlign={{ base: 'center', md: 'justify' }}
 						>
-							Didirikan sebagai perusahaan produksi progresif, berfokus pada
-							produksi kosmetik dan makanan sehat dengan kualitas terbaik dan
-							sesuai standar Nasional & Internasional.
+							PT Primaxcel didirikan sebagai perusahaan produksi yang
+							mengutamakan kemajuan teknologi dan berfokus pada produksi
+							kosmetik serta makanan sehat. Kami mengedepankan kualitas dan
+							standar terbaik agar dapat selalu memenuhi kebutuhan pasar yang
+							semakin meningkat.
 						</Text>
 					</Flex>
 					<Box
@@ -273,15 +275,16 @@ const Home = () => {
 							Mengapa Kami
 						</Text>
 						<Text as="p" color="primaxLightPurple" mt="4">
-							Primaxcel menjamin kualitas dan keamanan produk serta sistem
-							produksi. Dengan tim R&D (Riset & Developmen) yang berpengalaman,
-							mesin produksi terbaik, serta proses dan QC (Quality Control) yang
-							sesuai dengan standarisasi nasional maupun internasional.
+							Primaxcel memiliki tim R&D (Research & Development) yang
+							berpengalaman, mesin produksi terbaik, serta proses QC (Quality
+							Control) yang sesuai dengan standarisasi nasional maupun
+							internasional. Oleh karena itu, kualitas dan keamanan produk akan
+							selalu terjamin.
 						</Text>
 						<Text as="p" color="primaxLightPurple">
 							Primaxcel telah terstandarisasi Nasional maupun Internasional,
 							CPKB (Cara Pembuatan Kosmetik yang Baik), SPP-IRT (Sertifikat
-							Produksi Pangan-Industri Rumah Tangga), GMP (Good Manufacturing
+							Produksi Pangan-Industri Rumah Tangga). GMP (Good Manufacturing
 							Practice).
 						</Text>
 						<Text as="p" color="primaxLightPurple">
@@ -409,8 +412,8 @@ const Home = () => {
 									lg: 'left',
 								}}
 							>
-								Primaxcel bisa membantu Anda mengubah ide kreatif yang Anda
-								miliki menjadi produk impian Anda.
+								Primaxcel bisa membantu mengubah ide kreatif yang Anda miliki
+								menjadi produk impian Anda dengan proses komunikasi yang mudah.
 							</Text>
 							<Text
 								as="p"
@@ -419,8 +422,7 @@ const Home = () => {
 									lg: 'left',
 								}}
 							>
-								Dengan langkah-langkah dan komunikasi yang mudah. Wujudkan
-								produk sesuai keinginan Anda.
+								Wujudkan produk sesuai keinginan Anda sekarang!
 								<br />
 								<br />
 								Jangan ragu lagi
@@ -443,144 +445,7 @@ const Home = () => {
 						</Box>
 					</Box>
 				</Flex>
-				<Flex
-					width="100%"
-					height="auto"
-					padding={{
-						base: '40px 16px',
-						md: '0 88px',
-						lg: '0 40px 0 88px',
-					}}
-					maxWidth={{
-						base: 'none',
-						'2xl': '1280px',
-					}}
-					py={{
-						base: 0,
-						lg: '40px',
-					}}
-					flexDirection={{
-						base: 'column-reverse',
-						lg: 'row',
-					}}
-				>
-					<Box
-						width={{
-							base: '100%',
-							lg: '500px',
-						}}
-						mt={{
-							base: '40px',
-							lg: 0,
-						}}
-					>
-						<Box
-							width={{
-								base: '100%',
-								lg: '450px',
-							}}
-							textAlign={{
-								base: 'center',
-								lg: 'left',
-							}}
-						>
-							<Text
-								as="h2"
-								textColor="primaxLightPurple"
-								fontSize="40px"
-								mb={4}
-								textAlign={{
-									base: 'center',
-									lg: 'left',
-								}}
-							>
-								Mengenai Maklon
-							</Text>
-							<Text as="p">
-								Maklon, terutama produk beauty berupa skincare menjadi bisnis
-								yang berkembang pesat saat ini. Tingginya ketertarikan konsumen
-								skincare yang terus meningkat, membuat kerjasama maklon menjadi
-								pilihan yang cepat dan tepat untuk memulai maupun mengembangkan
-								bisnis Anda.
-							</Text>
-							<Text as="p">
-								Dengan kemudahan pembuatan produk sesuai keinginan Anda,
-								Primaxcel juga bisa membantu Anda mendesain produk dari nol
-								hingga siap dipasarkan, dengan perizinan yang lengkap.
-							</Text>
-							<Text as="p">
-								Primaxcel siap melayani Anda maklon produk beauty, makanan
-								sehat, serta kebutuhan rumah tangga, dengan kualitas tinggi dan
-								harga bersaing.
-							</Text>
-						</Box>
-					</Box>
-					<Flex
-						width="100%"
-						height={{
-							base: 'auto',
-							lg: '440px',
-						}}
-						mt={{
-							base: '24px',
-							lg: '24px',
-						}}
-						ml={{
-							base: 0,
-							lg: '40px',
-						}}
-						overflow="hidden"
-					>
-						<Flex
-							flex="1"
-							alignItems="center"
-							justifyContent="center"
-							height={{
-								base: 'auto',
-								lg: '100%',
-							}}
-							width={{
-								base: '100%',
-								lg: 'auto',
-							}}
-							position="relative"
-						>
-							<Flex
-								bg="primaxBlue"
-								position="absolute"
-								left="0"
-								right="0"
-								top="40px"
-								height="calc(100% - 80px)"
-								display={{
-									base: 'none',
-									lg: 'flex',
-								}}
-							></Flex>
-							<Flex
-								width={{
-									base: '100%',
-									lg: 'calc(100% - 80px)',
-								}}
-								height={{
-									base: 'auto',
-									lg: '100%',
-								}}
-								zIndex="1"
-							>
-								<ImageChakra
-									src="/home/primaxcel-maklon-skin-care.jpg"
-									width="100%"
-									height="100%"
-									alt="Maklon dengan produk kecantikan"
-									objectFit="cover"
-								/>
-							</Flex>
-						</Flex>
-					</Flex>
-				</Flex>
 			</Flex>
-
 			{(producedProduct.length && !isLoading) || isLoading ? (
 				<Box py={10} bg="primaxLightBlue" textAlign="center">
 					<Text as="h2">Produk yang kami produksi</Text>
@@ -649,9 +514,9 @@ const Home = () => {
 								Proses Mudah
 							</Text>
 							<Text mt={4} as="p">
-								Representatif kami adalah profesional yang akan membantu dan
-								membimbing Anda, merubah ide menjadi produk yang unik dan bisa
-								dipasarkan.
+								Representatif kami adalah professional yang akan membantu dan
+								membimbing anda untuk mengubah ide menjadi produk unik serta
+								bisa dipasarkan.
 							</Text>
 						</Flex>
 
@@ -681,9 +546,10 @@ const Home = () => {
 								Modal Kecil
 							</Text>
 							<Text mt={4} as="p">
-								Memudahkan beautypreneur dalam mewujudkan produk impian, dengan
-								kemudahan pembayaran serta MOQ yang bisa disesuaikan. Memastikan
-								konsumen memperoleh produk dengan harga yang kompetitif.
+								Memudahkan entrepreneur dalam mewujudkan produk impian, dengan
+								kuantiti order yang bisa disesuaikan dan proses pembayaran yang
+								mudah. Kami memastikan agar partner kami dapat memperoleh produk
+								dengan harga yang kompetitif.
 							</Text>
 						</Flex>
 
@@ -713,9 +579,9 @@ const Home = () => {
 								R&D
 							</Text>
 							<Text mt={4} as="p">
-								Tim Riset dan Developmen kami berpengalaman dalam menciptakan
-								produk-produk kosmetik, makanan sehat, serta produk rumah tangga
-								berkualitas tinggi.
+								Tim Research & Development kami berpengalaman dalam menciptakan
+								produk kosmetik, skincare, produk sanitasi, serta kebersihan
+								rumah tangga yang berkualitas tinggi.
 							</Text>
 						</Flex>
 					</Flex>
@@ -760,10 +626,10 @@ const Home = () => {
 								Jaminan Mutu dan Kualitas
 							</Text>
 							<Text mt={4} as="p">
-								Semua proses yang dikerjakan serta bahan baku yang digunakan
-								sesuai dengan standarisasi nasional dan internasional. Dengan
-								pengawasan dan QC yang ketat. Demi menghasilkan produk yang aman
-								dan berkualitas.
+								Semua proses produksi serta bahan baku yang digunakan sesuai
+								dengan standarisasi nasional dan diawasi secara ketat oleh tim
+								quality control agar produk yang dihasilkan aman dan
+								berkualitas.
 							</Text>
 						</Flex>
 
@@ -795,9 +661,8 @@ const Home = () => {
 								Perizinan Mudah
 							</Text>
 							<Text mt={4} as="p">
-								Kami pastikan legalitas, keamanan serta kehalalan produk Anda
-								sebelum dipasarkan. Dengan memperoleh izin BPOM, Halal MUI, Uji
-								Dermatologi, dan Hak paten.
+								Kami akan membantu proses legalitas, registrasi BPOM, serta
+								sertifikasi halal produk Anda sebelum dipasarkan.
 							</Text>
 						</Flex>
 					</Flex>

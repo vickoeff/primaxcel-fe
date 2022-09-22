@@ -1,8 +1,9 @@
 export const LEFT_FAQ = [
 	{
-		title: 'Berapa lama waktu develop product sampai siap dijual-belikan?',
+		title:
+			'Berapa lama waktu pengembangan produk sampai siap diperjual belikan?',
 		description:
-			'Waktu development produk hingga siap diperjual-belikan adalah minimal 6 bulan dari tahap awal (formulasi), registrasi BPOM & Halal, hingga tahap akhir (delivery ke warehouse).',
+			'Minimal 6 bulan dari tahap awal (formulasi), registrasi BPOM & halal, hingga produksi.',
 	},
 	{
 		title:
@@ -39,9 +40,10 @@ export const RIGHT_FAQ = [
 			'Ya, kerahasiaan formula Anda terjamin dari kompetitor dan bersifat konfidensial.',
 	},
 	{
-		title: 'Apakah saya bisa request desain untuk packaging dan labeling?',
+		title:
+			'Apakah saya bisa memesan desain khusus untuk kemasan yang saya kehendaki?',
 		description:
-			'Ya, Anda boleh request design dan packaging sesuai harapan Anda, bahkan bisa membuat design sendiri dan memberikannya kepada kami (jika mau).',
+			'Anda bisa memesan desain khusus dan kemasan sesuai dengan keinginan anda dan kami akan membantu prosesnya.',
 	},
 	{
 		title: 'Apakah produk saya bisa memiliki label HALAL MUI?',
@@ -52,9 +54,5 @@ export const RIGHT_FAQ = [
 		title: 'Berapa kali saya bisa revisi sample?',
 		description:
 			'Anda bisa melalukan revisi sample sebanyak tiga kali, tentunya sebelum sample tersebut disepakati dan masuk ke tahapan produksi.',
-	},
-	{
-		title: 'Berapa lamakah kepengurusan sertifikat berlangsung?',
-		description: 'Kepengurusan sertifikat membutuhkan minimal 3 bulan.',
 	},
 ];
