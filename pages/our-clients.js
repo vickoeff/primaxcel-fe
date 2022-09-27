@@ -256,7 +256,7 @@ const OurClients = () => {
 					base: '550px',
 					md: '100vh',
 				}}
-				backgroundImage={`url(${imgPath}/primaxcel-produk.png)`}
+				backgroundImage={`url(${imgPath}/primaxcel-produk.png?version=1.0.0)`}
 				backgroundPosition="bottom"
 				backgroundRepeat="no-repeat"
 				backgroundSize={{
