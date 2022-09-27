@@ -12,6 +12,7 @@ import {
 	Flex,
 	useToast,
 	Skeleton,
+	Image as ImageChakra,
 } from '@chakra-ui/react';
 import ClientsDetailModal from '@/components/ClientsDetailModal';
 import services from '@/services';
@@ -256,23 +257,38 @@ const OurClients = () => {
 					base: '550px',
 					md: '100vh',
 				}}
-				backgroundImage={`url(${imgPath}/primaxcel-produk.png?version=1.0.0)`}
-				backgroundPosition="bottom"
-				backgroundRepeat="no-repeat"
-				backgroundSize={{
-					base: 'auto',
-					lg: '100%',
-				}}
-				backgroundColor="white"
+				position="relative"
+				overflow="hidden"
+				bg="#DFF0FE"
 			>
-				<Container pos="relative" maxW="container.xl">
+				<Box
+					position="absolute"
+					top={{
+						base: '57px',
+						md: '65px',
+					}}
+					left="0"
+					bottom="0"
+					right="0"
+				>
+					<ImageChakra
+						src="/our-clients/primaxcel-produk.png"
+						w="100%"
+						h="100%"
+						objectFit={{
+							base: 'cover',
+							lg: 'contain',
+						}}
+					></ImageChakra>
+				</Box>
+				<Container position="relative" maxW="container.xl" zIndex="10">
 					<Box
 						display="flex"
 						justifyContent="center"
 						alignItems="start"
 						pt={{
 							base: 50,
-							lg: 100,
+							lg: '76px',
 						}}
 					>
 						<Text
