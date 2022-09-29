@@ -254,42 +254,22 @@ const OurClients = () => {
 					md: '65px',
 				}}
 				minHeight={{
-					base: '550px',
+					base: 'auto',
 					md: '100vh',
 				}}
-				position="relative"
 				overflow="hidden"
-				bg="#DFF0FE"
+				bg="primaxLightBlue"
 			>
-				<Box
-					position="absolute"
-					top={{
-						base: '57px',
-						md: '65px',
-					}}
-					left="0"
-					bottom="0"
-					right="0"
-				>
-					<ImageChakra
-						src="/our-clients/primaxcel-produk.png"
-						w="100%"
-						h="100%"
-						objectFit={{
-							base: 'cover',
-							lg: 'contain',
-						}}
-					></ImageChakra>
-				</Box>
-				<Container position="relative" maxW="container.xl" zIndex="10">
+				<Container maxW="container.xl" zIndex="10">
 					<Box
 						display="flex"
 						justifyContent="center"
-						alignItems="start"
+						alignItems="center"
 						pt={{
-							base: 50,
+							base: '50px',
 							lg: '76px',
 						}}
+						flexDirection="column"
 					>
 						<Text
 							as="h1"
@@ -302,6 +282,17 @@ const OurClients = () => {
 						>
 							Our Clients
 						</Text>
+						<Box>
+							<ImageChakra
+								src="/our-clients/primaxcel-daftar-produk.png"
+								w="100%"
+								h="100%"
+								objectFit={{
+									base: 'cover',
+									lg: 'contain',
+								}}
+							></ImageChakra>
+						</Box>
 					</Box>
 				</Container>
 			</Box>
